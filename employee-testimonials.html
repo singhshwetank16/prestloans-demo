@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Testimonials & Culture | Prest Loans</title>
+  <meta name="description"
+    content="Discover authentic employee testimonials, workplace culture, and career experiences from the team driving financial inclusion and MSME growth at Prest Loans.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span class="rbi-badge-pill"><i class="fa-solid fa-shield-halved"></i> RBI REGISTERED NBFC: B-14.02052</span>
+        <span class="top-link"><i class="fa-solid fa-building"></i> Lord Krishna Financial Services Ltd</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+911145241131" class="top-link"><i class="fa-solid fa-phone"></i> +91-11-45241131</a>
+        <a href="mailto:info@prestloans.com" class="top-link"><i class="fa-solid fa-envelope"></i>
+          info@prestloans.com</a>
+        <a href="javascript:void(0)" onclick="openTrackStatusModal()" class="top-link" style="color: #ff8c61;">
+          <i class="fa-solid fa-location-crosshairs"></i> Track Loan Status
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-wrap" title="Prest Loans">
+        <img src="assets/logo/logo.png" alt="Prest Loans Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item dropdown">
+            <a href="products.html" class="nav-link">Products <i class="fa-solid fa-chevron-down"
+                style="font-size: 0.75rem;"></i></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="products.html#business-loan"><i class="fa-solid fa-briefcase"></i>
+                  Business Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#msme-loan"><i class="fa-solid fa-industry"></i> MSME
+                  Loans</a></li>
+              <li class="dropdown-item"><a href="products.html#home-loan"><i class="fa-solid fa-house-chimney"></i> Home
+                  Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#education-loan"><i
+                    class="fa-solid fa-graduation-cap"></i> Education Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#personal-loan"><i class="fa-solid fa-user-shield"></i>
+                  Personal Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#short-term-personal-loan"><i
+                    class="fa-solid fa-clock-rotate-left"></i> Short Term Personal Loan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="media.html" class="nav-link">Media <i class="fa-solid fa-chevron-down"
+                style="font-size: 0.75rem;"></i></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="media.html"><i class="fa-solid fa-newspaper"></i> Press Releases &
+                  Coverage</a></li>
+              <li class="dropdown-item"><a href="gallery.html"><i class="fa-solid fa-images"></i> Photo Gallery</a></li>
+              <li class="dropdown-item"><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Insights & Blog</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="customers-stories.html" class="nav-link">Customers' Stories</a></li>
+          <li class="nav-item"><a href="career.html" class="nav-link active">Career</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-login" onclick="openLoginModal('customer')">Login</button>
+        <div class="lang-select-wrap">
+          <select id="lang-select" class="lang-select">
+            <option value="en">English</option>
+            <option value="hi">हिंदी (Hindi)</option>
+          </select>
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <button class="mobile-toggle" id="mobile-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
+        <a href="career.html">Career</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
+        <span>Employee Testimonials</span>
+      </div>
+      <h1 class="page-banner-title">Employee Testimonials</h1>
+      <p class="page-banner-sub">
+        Voices of Prest Loans — Hear firsthand from our real team members across IT, Risk, Finance, Operations, and Sales
+        about our culture, mentorship, and career growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS CONTENT SECTION -->
+  <section class="section">
+    <div class="container">
+
+      <!-- DUAL-TAB SWITCHER (CUSTOMERS' STORIES VS EMPLOYEE TESTIMONIALS) -->
+      <div class="stories-tabs-wrapper">
+        <div class="stories-tabs-pills">
+          <a href="customers-stories.html" class="stories-tab-pill">
+            <i class="fa-solid fa-users"></i>
+            <span>Customers' Stories <small class="stories-count-badge">25K+ Borrowers</small></span>
+          </a>
+          <a href="employee-testimonials.html" class="stories-tab-pill active">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>Employee Testimonials <small class="stories-count-badge">Team Speak</small></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- KEY CULTURE & TRUST METRICS BANNER -->
+      <div class="emp-stats-highlight-row">
+        <div class="emp-stat-highlight-card">
+          <div class="emp-stat-icon-wrap"><i class="fa-solid fa-users"></i></div>
+          <div class="emp-stat-val">100+</div>
+          <div class="emp-stat-lbl">Talented Team Members</div>
+        </div>
+        <div class="emp-stat-highlight-card">
+          <div class="emp-stat-icon-wrap"><i class="fa-solid fa-shield-heart"></i></div>
+          <div class="emp-stat-val">94%</div>
+          <div class="emp-stat-lbl">Annual Retention Rate</div>
+        </div>
+        <div class="emp-stat-highlight-card">
+          <div class="emp-stat-icon-wrap"><i class="fa-solid fa-star"></i></div>
+          <div class="emp-stat-val">4.8 / 5</div>
+          <div class="emp-stat-lbl">Employee Satisfaction</div>
+        </div>
+        <div class="emp-stat-highlight-card">
+          <div class="emp-stat-icon-wrap"><i class="fa-solid fa-venus-mars"></i></div>
+          <div class="emp-stat-val">40%+</div>
+          <div class="emp-stat-lbl">Women in Workforce</div>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER -->
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-quote-left"></i> Real Experiences</span>
+        <h2 class="section-title">Life at Prest Loans in Their Own Words</h2>
+        <p class="section-desc">
+          Our team is the heartbeat of Prest Loans. Here is what our colleagues across different verticals say about
+          mentorship, professional freedom, and working in a fast-growing RBI-registered fintech NBFC.
+        </p>
+      </div>
+
+      <!-- EMPLOYEE CARDS GRID -->
+      <div class="employee-cards-grid" id="empCardsGrid">
+
+        <!-- Employee 1: Ravi Shanker Singh -->
+        <div class="emp-card-pro" data-category="it">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag it"><i class="fa-solid fa-code"></i> IT & Systems</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638617409647967189Ravi.jpeg" alt="Ravi Shanker Singh"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Ravi Shanker Singh</h3>
+              <div class="emp-role-title">Manager - IT</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Since 2021 • 3+ Yrs at Prest</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "Working with Prest Loans is my absolute pleasure. Prest Loans has given me the opportunity to build my
+              career in digital fintech systems. The challenging and professional environment is helping me in increasing
+              my efficiency and technical skills. I am very thankful to our leadership and all colleagues who are extremely
+              cooperative. Truly a great place to work."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-microchip"></i> IT Infrastructure & LMS</span>
+            <span>New Delhi HQ</span>
+          </div>
+        </div>
+
+        <!-- Employee 2: Shwetank Singh -->
+        <div class="emp-card-pro" data-category="it">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag it"><i class="fa-solid fa-code"></i> Technology & Dev</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/Shwetank Singh.png" alt="Shwetank Singh" class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Shwetank Singh</h3>
+              <div class="emp-role-title">Lead - Systems & Digital Infrastructure</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Since 2022 • Tech Architecture</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "Having been with Prest Loans since 2022, I have experienced tremendous professional growth. The company
+              provides technical autonomy, enabling us to architect cutting-edge loan processing microservices, API
+              gateways, and instant credit underwriting pipelines. The supportive leadership ensures engineering
+              excellence is always celebrated."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-server"></i> Cloud & Fintech Systems</span>
+            <span>New Delhi HQ</span>
+          </div>
+        </div>
+
+        <!-- Employee 3: Ashish Kumar Singh -->
+        <div class="emp-card-pro" data-category="sales">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag sales"><i class="fa-solid fa-chart-line"></i> Business Development</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638594095212619073Ashish.jpg" alt="Ashish Kumar Singh"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Ashish Kumar Singh</h3>
+              <div class="emp-role-title">Manager - Business Development</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Since 2022 • Strategic Growth</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "I have been working with Prest Loans since 2022, and it has provided me a great career path by offering
+              ample opportunities to enhance my strategic skills, build channel partnerships, and drive institutional
+              growth. The open-door management and dynamic team culture make achieving ambitious milestones exciting."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-handshake"></i> Channel Alliances</span>
+            <span>Pan-India BD</span>
+          </div>
+        </div>
+
+        <!-- Employee 4: Nitish Kumar -->
+        <div class="emp-card-pro" data-category="risk">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag risk"><i class="fa-solid fa-scale-balanced"></i> Audit & Risk</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638592323501454725IMG-20230513-WA0006.jpg" alt="Nitish Kumar"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Nitish Kumar</h3>
+              <div class="emp-role-title">Assistant Manager - Audit & Risk</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Audit & Risk Specialist</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "It has been a wonderful journey since I joined Lord Krishna Financial Services Ltd (Prest Loans). As
+              Assistant Manager in Audit & Risk, I have learned a tremendous amount about rigorous credit evaluation and
+              RBI regulatory compliance. The leadership here is deeply supportive, and I am very happy to be a part of the
+              Prest Loans family."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Risk Assessment</span>
+            <span>New Delhi HQ</span>
+          </div>
+        </div>
+
+        <!-- Employee 5: Radhika Rautela -->
+        <div class="emp-card-pro" data-category="finance">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag finance"><i class="fa-solid fa-coins"></i> Finance & Accounts</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638592323130324277IMG-20231111-WA0031.jpg" alt="Radhika Rautela"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Radhika Rautela</h3>
+              <div class="emp-role-title">Senior Manager - Finance & Accounts</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Senior Management</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "It is a great pleasure to be associated with Prest Loans. The best thing about Prest Loans is the
+              transparent corporate culture and progressive leadership which constantly inspires me and other team members
+              to innovate new ideas and execute our duties with top-notch financial diligence and efficiency."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-file-invoice-dollar"></i> Financial Diligence</span>
+            <span>Corporate Office</span>
+          </div>
+        </div>
+
+        <!-- Employee 6: Deepika -->
+        <div class="emp-card-pro" data-category="risk">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag risk"><i class="fa-solid fa-scale-balanced"></i> Ops, Audit & Risk</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638594052872023421Deepika.jpg" alt="Deepika" class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Deepika</h3>
+              <div class="emp-role-title">Manager - Operations, Audit & Risk</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> 2+ Years with Prest</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "Joining Prest Loans has been one of the best decisions of my career! I have been part of Prest Loans for
+              over two years now. It is a fantastic workplace with diverse talent, great leadership, and supervisors who
+              are always accessible to provide guidance. The organization rewards hard work and continuous innovation."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-gears"></i> Operations & Governance</span>
+            <span>New Delhi HQ</span>
+          </div>
+        </div>
+
+        <!-- Employee 7: Priyanka Kumari -->
+        <div class="emp-card-pro" data-category="hr">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag hr"><i class="fa-solid fa-user-group"></i> HR & Administration</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638278698838370661Priyanka.jpg" alt="Priyanka Kumari"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Priyanka Kumari</h3>
+              <div class="emp-role-title">Executive – HR & Administration</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Since June 2022</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "I am working with Prest Loans since June 2022. My experience with the company and my seniors has been really
+              great. Everybody is so supportive and they teach me new skills every single day. The joyful, respectful
+              workplace culture makes Prest Loans a standout employer in the NBFC sector."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-heart"></i> People & Talent Culture</span>
+            <span>Corporate Office</span>
+          </div>
+        </div>
+
+        <!-- Employee 8: Poonam -->
+        <div class="emp-card-pro" data-category="sales">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag sales"><i class="fa-solid fa-bullhorn"></i> Channel Sales</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/637342324521757329lal.jpg" alt="Poonam" class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Poonam</h3>
+              <div class="emp-role-title">Senior Executive - Channel Sales</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Sales & Distribution</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "Joining Prest Loans has been one of the best decisions of my life. Our company has a friendly and positive
+              work environment; the team here is like family and it is a true joy to come to work each day. I am deeply
+              grateful to my leadership for all their support, guidance, and faith in my potential."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-network-wired"></i> Partner Network Expansion</span>
+            <span>Channel Sales</span>
+          </div>
+        </div>
+
+        <!-- Employee 9: Sandeep Saini -->
+        <div class="emp-card-pro" data-category="risk">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag risk"><i class="fa-solid fa-scale-balanced"></i> Audit & Risk</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/636451437167585000sandeep.jpg" alt="Sandeep Saini" class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Sandeep Saini</h3>
+              <div class="emp-role-title">Senior Officer - Audit & Risk</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Risk Management</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "This is a great company. The guidance, patience, support, and flexibility in how you get your job done from
+              senior management is exceptional. All my colleagues are very approachable and helpful. Everyone is very open
+              and easy to communicate with. Truly a fabulous workplace to advance your career."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-shield-halved"></i> Credit Due Diligence</span>
+            <span>New Delhi HQ</span>
+          </div>
+        </div>
+
+        <!-- Employee 10: Shumaila -->
+        <div class="emp-card-pro" data-category="collections">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag ops"><i class="fa-solid fa-headset"></i> Collections & Relations</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638594064256074464Shumaila.jpg" alt="Shumaila" class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Shumaila</h3>
+              <div class="emp-role-title">Executive - Collections</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Customer Engagement</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "I am working with Prest Loans, and our overall company culture and staff members are remarkably cooperative.
+              Here I have been provided with an excellent platform for my skill development, professional confidence, and
+              customer empathy. I am looking forward to a long-term, fruitful career here."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-phone-volume"></i> Client Portfolio Care</span>
+            <span>Collections Vertical</span>
+          </div>
+        </div>
+
+        <!-- Employee 11: Sharmin Khan -->
+        <div class="emp-card-pro" data-category="collections">
+          <div class="emp-card-top">
+            <span class="emp-card-dept-tag ops"><i class="fa-solid fa-headset"></i> Collections & Recovery</span>
+            <span class="emp-verified-badge"><i class="fa-solid fa-circle-check"></i> Team Prest</span>
+          </div>
+          <div class="emp-card-profile-header">
+            <div class="emp-avatar-container">
+              <img src="assets/employee/638592322661684147sharmin khan.jpeg" alt="Sharmin Khan"
+                class="emp-avatar-img-pro">
+            </div>
+            <div class="emp-info-wrap">
+              <h3>Sharmin Khan</h3>
+              <div class="emp-role-title">Executive - Collections</div>
+              <div class="emp-tenure-tag"><i class="fa-solid fa-calendar-check"></i> Recovery Operations</div>
+            </div>
+          </div>
+          <div class="emp-stars-pro">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <div class="emp-quote-box">
+            <i class="fa-solid fa-quote-right emp-quote-icon-subtle"></i>
+            <p class="emp-quote-text-pro">
+              "Prest Loans is one of India's fastest-growing NBFCs with branches expanding actively. The working culture
+              is vibrant and positive. While the responsibilities were challenging initially, the extensive mentorship and
+              warm support increased my confidence significantly. I always feel proud to be part of Prest Loans."
+            </p>
+          </div>
+          <div class="emp-card-footer">
+            <span class="emp-focus-tag"><i class="fa-solid fa-comments"></i> Borrower Advisory</span>
+            <span>Operations Team</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WORKPLACE CULTURE & VALUES PILLARS -->
+      <div class="culture-values-section">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+          <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Our Culture DNA</span>
+          <h3 style="font-size: 1.85rem; font-weight: 800; color: #70146e; margin-bottom: 10px;">Why Professionals Love
+            Prest Loans</h3>
+          <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">
+            We believe that empowering our team members with autonomy, trust, and continuous learning is the cornerstone
+            of responsible lending and long-term customer success.
+          </p>
+        </div>
+
+        <div class="culture-values-grid">
+          <div class="culture-value-card">
+            <div class="culture-value-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+            <h4>Leadership Mentorship</h4>
+            <p>Direct accessibility to leadership and department heads who actively guide your career path and skill
+              expansion.</p>
+          </div>
+          <div class="culture-value-card">
+            <div class="culture-value-icon"><i class="fa-solid fa-award"></i></div>
+            <h4>Merit & Innovation</h4>
+            <p>Every employee has the freedom to propose new ideas. Exceptional performance and diligence are
+              consistently recognized.</p>
+          </div>
+          <div class="culture-value-card">
+            <div class="culture-value-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <h4>Warm "Work Family"</h4>
+            <p>A supportive, respectful peer environment where teammates lift each other up and celebrate shared
+              milestones.</p>
+          </div>
+          <div class="culture-value-card">
+            <div class="culture-value-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h4>Equal Opportunity</h4>
+            <p>Committed to gender diversity, fair compensation, zero bias, and professional growth for all individuals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALL TO ACTION BANNER -->
+      <div style="background: var(--calc-gradient); color: #ffffff; border-radius: var(--radius-xl); padding: 50px 36px; margin: 50px 0 60px; text-align: center; box-shadow: 0 16px 40px rgba(120, 0, 110, 0.25);">
+        <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.3rem); font-weight: 800; color: #ffffff; margin-bottom: 14px;">Want to Build Your Career with Prest Loans?</h2>
+        <p style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.95); max-width: 680px; margin: 0 auto 28px; line-height: 1.6;">
+          We are actively hiring across IT &amp; Software, Risk &amp; Credit Underwriting, Operations, Legal, and Business Development. Join a high-impact team redefining financial inclusion in India.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="career.html#openings" class="btn-primary" style="background: #ffffff; color: #70146e; padding: 14px 32px; font-weight: 700; border: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);">
+            <i class="fa-solid fa-briefcase"></i> View Current Openings
+          </a>
+          <a href="career.html" class="btn-secondary"
+            style="background: rgba(255, 255, 255, 0.18); color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.6); padding: 14px 28px; font-weight: 700;">
+            <i class="fa-solid fa-building-user"></i> Explore Life at Prest
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Registered Office</h4>
+          <div class="footer-logo-badge"><img src="assets/logo/logo.png" alt="Prest Loans Logo"></div>
+          <ul class="office-info-list">
+            <li class="office-info-item"><i class="fa-solid fa-location-dot"></i> <span>M5-M6, Essel House,<br>10 Asaf
+                Ali Road,<br>New Delhi - 110002</span></li>
+            <li class="office-info-item"><i class="fa-solid fa-envelope"></i> <a
+                href="mailto:info@prestloans.com">info@prestloans.com</a></li>
+            <li class="office-info-item"><i class="fa-solid fa-phone"></i>
+              <div><a href="tel:+911145241131">+91-11-45241131</a><br><a href="tel:+911145241123">+91-11-45241123</a>
+              </div>
+            </li>
+            <li class="office-info-item whatsapp-link"><i class="fa-brands fa-whatsapp"></i> <a
+                href="https://wa.me/919711669090?text=Hello%20Prest%20Loans,%20I%20am%20interested%20in%20a%20loan."
+                target="_blank" rel="noopener">+91-9711669090</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Useful Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="calculator.html">EMI Calculator</a></li>
+            <li><a href="customers-stories.html">Customers' Stories</a></li>
+            <li><a href="employee-testimonials.html">Employee Testimonials</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="disclaimer.html">Public Notice</a></li>
+            <li><a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">Sachet RBI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Policies</h4>
+          <ul class="footer-links-list">
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="terms-of-use.html">Terms Of Use</a></li>
+            <li><a href="privacy-policy.html">Privacy policy</a></li>
+            <li><a href="fair-practices-code.html">Fair Practices Code</a></li>
+            <li><a href="penal-charges-policy.html">Penal Charges Policy</a></li>
+            <li><a href="kyc-and-aml.html">KYC &amp; AML</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="grievance-redressal.html">Grievance Redressal Mechanism</a></li>
+            <li><a href="regulatory-certifications.html">Regulatory Certifications</a></li>
+            <li><a href="interest-rate-model.html">Interest Rate Model and Schedule of Charges</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Enquiry Form</h4>
+          <form id="footer-enquiry-form" class="footer-enquiry-form">
+            <input type="text" id="footer-enq-name" class="form-control-dark" placeholder="Name" required>
+            <input type="tel" id="footer-enq-phone" class="form-control-dark" placeholder="Contact Number"
+              pattern="[0-9]{10}" required>
+            <input type="email" id="footer-enq-email" class="form-control-dark" placeholder="Email" required>
+            <input type="text" id="footer-enq-location" class="form-control-dark" placeholder="Location">
+            <textarea id="footer-enq-msg" class="form-control-dark" placeholder="Enquiry"></textarea>
+            <button type="submit" class="btn-footer-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="rbi-disclaimer-text">Prest Loans is a trade name of “Lord Krishna Financial Services Ltd” a
+          Non-Banking Finance Company registered with RBI.</p>
+        <p class="copyright-sub">CIN: U65923DL1992PLC047683 | RBI Certificate of Registration: B-14.02052 | © 2026 Prest
+          Loans. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS & MODALS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/919711669090?text=Hello%20Prest%20Loans,%20I%20want%20to%20know%20more." target="_blank"
+      rel="noopener" class="floating-btn floating-whatsapp" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+911145241131" class="floating-btn floating-call" title="Call Helpline"><i
+        class="fa-solid fa-phone"></i></a>
+  </div>
+
+  <div class="modal-backdrop" id="policy-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="policy-modal-title">Regulatory Policy</h3>
+          <p id="policy-modal-date">RBI Compliance</p>
+        </div><button class="modal-close-btn" onclick="closePolicyModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="policy-modal-body"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="login-modal">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Prest Loans Portal</h3>
+        </div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="customer-login-form">
+          <div class="quick-input-group"><label class="quick-input-label">Mobile Number</label><input type="tel"
+              id="login-mobile" class="quick-input-field" placeholder="10-digit number" required></div><button
+            type="submit" class="btn-card-submit">Send OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="loan-app-modal">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Apply for Digital Loan</h3>
+        </div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div id="app-step-1-content">
+          <div class="quick-input-group"><label class="quick-input-label">Full Name</label><input type="text"
+              id="app-full-name" class="quick-input-field" required></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="quick-input-group"><label class="quick-input-label">Phone</label><input type="tel"
+                id="app-phone" class="quick-input-field" required></div>
+            <div class="quick-input-group"><label class="quick-input-label">Email</label><input type="email"
+                id="app-email" class="quick-input-field" required></div>
+          </div><button type="button" id="btn-next-step-2" class="btn-card-submit">Next</button>
+        </div>
+        <div id="app-step-2-content" style="display: none;">
+          <div class="quick-input-group"><label class="quick-input-label">PAN</label><input type="text" id="app-pan"
+              class="quick-input-field"></div><button type="button" id="btn-submit-loan-app"
+            class="btn-card-submit">Submit</button>
+        </div>
+        <div id="app-step-3-content" style="display: none; text-align: center;">
+          <p>Reference: <strong id="app-generated-id">PL-2026-849201</strong></p><button type="button"
+            class="btn-primary"
+            onclick="document.getElementById('loan-app-modal').classList.remove('active');">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="track-status-modal">
+    <div class="modal-box" style="max-width: 500px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Track Loan Application</h3>
+        </div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="track-status-form">
+          <div class="quick-input-group"><label class="quick-input-label">Application ID</label><input type="text"
+              id="track-input" class="quick-input-field" required></div><button type="submit"
+            class="btn-card-submit">Search</button>
+        </form>
+        <div id="track-result-box" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/policies.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

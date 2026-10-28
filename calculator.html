@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan EMI Calculator | Prest Loans - How Much Do You Need?</title>
+  <meta name="description" content="Calculate your loan EMI, total interest, and complete amortization repayment schedule with Prest Loans official EMI Calculator.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span class="rbi-badge-pill"><i class="fa-solid fa-shield-halved"></i> RBI REGISTERED NBFC: B-14.02052</span>
+        <span class="top-link"><i class="fa-solid fa-building"></i> Lord Krishna Financial Services Ltd</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+911145241131" class="top-link"><i class="fa-solid fa-phone"></i> +91-11-45241131</a>
+        <a href="mailto:info@prestloans.com" class="top-link"><i class="fa-solid fa-envelope"></i> info@prestloans.com</a>
+        <a href="javascript:void(0)" onclick="openTrackStatusModal()" class="top-link" style="color: #ff8c61;">
+          <i class="fa-solid fa-location-crosshairs"></i> Track Loan Status
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-wrap" title="Prest Loans">
+        <img src="assets/logo/logo.png" alt="Prest Loans Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item dropdown">
+            <a href="products.html" class="nav-link">Products <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="products.html#business-loan"><i class="fa-solid fa-briefcase"></i> Business Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#msme-loan"><i class="fa-solid fa-industry"></i> MSME Loans</a></li>
+              <li class="dropdown-item"><a href="products.html#home-loan"><i class="fa-solid fa-house-chimney"></i> Home Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#education-loan"><i class="fa-solid fa-graduation-cap"></i> Education Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#personal-loan"><i class="fa-solid fa-user-shield"></i> Personal Loan</a></li>
+              <li class="dropdown-item"><a href="products.html#short-term-personal-loan"><i class="fa-solid fa-clock-rotate-left"></i> Short Term Personal Loan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="media.html" class="nav-link">Media <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="media.html"><i class="fa-solid fa-newspaper"></i> Press Releases & Coverage</a></li>
+              <li class="dropdown-item"><a href="gallery.html"><i class="fa-solid fa-images"></i> Photo Gallery</a></li>
+              <li class="dropdown-item"><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Insights & Blog</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="customers-stories.html" class="nav-link">Customers' Stories</a></li>
+          <li class="nav-item"><a href="career.html" class="nav-link">Career</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-login" onclick="openLoginModal('customer')">Login</button>
+        <div class="lang-select-wrap">
+          <select id="lang-select" class="lang-select">
+            <option value="en">English</option>
+            <option value="hi">हिंदी (Hindi)</option>
+          </select>
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <button class="mobile-toggle" id="mobile-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i> <span>EMI Calculator</span>
+      </div>
+      <h1 class="page-banner-title">Interactive Loan Calculator</h1>
+      <p class="page-banner-sub">
+        Plan your business finances with accuracy. Calculate exact equated monthly installments, total interest, and repayment schedules in real-time.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LOAN CALCULATOR SECTION (MATCHING SCREENSHOT 3)
+       ========================================================================== -->
+  <section class="calculator-section" id="calculator">
+    <div class="calc-ambient-orb orb-1"></div>
+    <div class="calc-ambient-orb orb-2"></div>
+    <div class="container">
+      <div class="calc-header-center">
+        <div class="calc-badge">
+          <span class="calc-badge-dot"></span>
+          <span>SMART FINANCIAL SIMULATOR</span>
+        </div>
+        <h2 class="calc-title-main">How Much Capital Do You Need?</h2>
+        <p class="calc-desc-sub">
+          Instant EMI forecasting with 100% transparent reducing-balance calculation & zero hidden surprises.
+        </p>
+
+        <!-- Product Selector Switcher -->
+        <div class="calc-product-tabs" role="tablist">
+          <button type="button" class="calc-product-tab active" data-loan-type="business" data-rate="14" data-tenure="3">
+            <i class="fa-solid fa-briefcase"></i> Business Loan (14%)
+          </button>
+          <button type="button" class="calc-product-tab" data-loan-type="msme" data-rate="15" data-tenure="5">
+            <i class="fa-solid fa-industry"></i> MSME Loans (15%)
+          </button>
+          <button type="button" class="calc-product-tab" data-loan-type="home" data-rate="9.5" data-tenure="10">
+            <i class="fa-solid fa-house-chimney"></i> Home Loan (9.5%)
+          </button>
+          <button type="button" class="calc-product-tab" data-loan-type="education" data-rate="12" data-tenure="5">
+            <i class="fa-solid fa-graduation-cap"></i> Education Loan (12%)
+          </button>
+          <button type="button" class="calc-product-tab" data-loan-type="personal" data-rate="18" data-tenure="3">
+            <i class="fa-solid fa-user-shield"></i> Personal Loan (18%)
+          </button>
+          <button type="button" class="calc-product-tab" data-loan-type="short-term" data-rate="24" data-tenure="1">
+            <i class="fa-solid fa-clock-rotate-left"></i> Short Term Personal Loan
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio Card: 2-Column Split -->
+      <div class="calc-studio-card">
+        <div class="calc-studio-grid">
+          <!-- LEFT COLUMN: Interactive Sliders & Inputs -->
+          <div class="calc-controls-col">
+            <!-- Control 1: Loan Amount -->
+            <div class="calc-control-group">
+              <div class="calc-control-top">
+                <div class="calc-field-info">
+                  <span class="calc-field-icon"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                  <label for="calc-amount-input" class="calc-field-title">Required Loan Amount</label>
+                </div>
+                <div class="calc-val-badge">
+                  <span class="currency-symbol">₹</span>
+                  <input type="text" id="calc-amount-input" class="calc-input-field" placeholder="500000" value="500000">
+                </div>
+              </div>
+
+              <!-- Slider -->
+              <div class="slider-wrapper">
+                <input type="range" id="calc-amount-slider" class="slider-range" min="50000" max="5000000" step="25000" value="500000">
+                <div class="slider-limits">
+                  <span>₹ 50 Thousand</span>
+                  <span>₹ 50 Lakh</span>
+                </div>
+              </div>
+
+              <!-- Quick Amount Chips -->
+              <div class="calc-preset-chips" data-target="amount">
+                <button type="button" class="calc-chip-btn" data-val="100000">₹1 Lakh</button>
+                <button type="button" class="calc-chip-btn" data-val="300000">₹3 Lakh</button>
+                <button type="button" class="calc-chip-btn active" data-val="500000">₹5 Lakh</button>
+                <button type="button" class="calc-chip-btn" data-val="1000000">₹10 Lakh</button>
+                <button type="button" class="calc-chip-btn" data-val="2500000">₹25 Lakh</button>
+                <button type="button" class="calc-chip-btn" data-val="5000000">₹50 Lakh</button>
+              </div>
+            </div>
+
+            <!-- Control 2: Interest Rate -->
+            <div class="calc-control-group">
+              <div class="calc-control-top">
+                <div class="calc-field-info">
+                  <span class="calc-field-icon"><i class="fa-solid fa-percent"></i></span>
+                  <label for="calc-rate-input" class="calc-field-title">Interest Rate (% p.a.)</label>
+                </div>
+                <div class="calc-val-badge">
+                  <input type="text" id="calc-rate-input" class="calc-input-field" placeholder="14" value="14">
+                  <span class="percent-symbol">%</span>
+                </div>
+              </div>
+
+              <!-- Slider -->
+              <div class="slider-wrapper">
+                <input type="range" id="calc-rate-slider" class="slider-range" min="8" max="30" step="0.5" value="14">
+                <div class="slider-limits">
+                  <span>8% Minimum</span>
+                  <span>30% Maximum</span>
+                </div>
+              </div>
+
+              <!-- Quick Rate Chips -->
+              <div class="calc-preset-chips" data-target="rate">
+                <button type="button" class="calc-chip-btn" data-val="10">10%</button>
+                <button type="button" class="calc-chip-btn" data-val="12">12%</button>
+                <button type="button" class="calc-chip-btn active" data-val="14">14% (Std)</button>
+                <button type="button" class="calc-chip-btn" data-val="16">16%</button>
+                <button type="button" class="calc-chip-btn" data-val="18">18%</button>
+              </div>
+            </div>
+
+            <!-- Control 3: Loan Tenure -->
+            <div class="calc-control-group">
+              <div class="calc-control-top">
+                <div class="calc-field-info">
+                  <span class="calc-field-icon"><i class="fa-regular fa-calendar-check"></i></span>
+                  <label for="calc-tenure-input" class="calc-field-title">Loan Duration / Tenure</label>
+                </div>
+                <div class="calc-val-badge">
+                  <input type="text" id="calc-tenure-input" class="calc-input-field" placeholder="3" value="3">
+                  <span class="tenure-unit">Years</span>
+                  <span class="tenure-months-badge" id="calc-tenure-months">(36 Mo)</span>
+                </div>
+              </div>
+
+              <!-- Slider -->
+              <div class="slider-wrapper">
+                <input type="range" id="calc-tenure-slider" class="slider-range" min="1" max="10" step="1" value="3">
+                <div class="slider-limits">
+                  <span>1 Year</span>
+                  <span>10 Years</span>
+                </div>
+              </div>
+
+              <!-- Quick Tenure Chips -->
+              <div class="calc-preset-chips" data-target="tenure">
+                <button type="button" class="calc-chip-btn" data-val="1">1 Year</button>
+                <button type="button" class="calc-chip-btn" data-val="2">2 Years</button>
+                <button type="button" class="calc-chip-btn active" data-val="3">3 Years</button>
+                <button type="button" class="calc-chip-btn" data-val="5">5 Years</button>
+                <button type="button" class="calc-chip-btn" data-val="7">7 Years</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Realtime Results & Visual Donut Analytics -->
+          <div class="calc-results-col">
+            <!-- Hero Monthly EMI Display -->
+            <div class="calc-hero-emi-card">
+              <div class="calc-hero-top">
+                <span class="calc-hero-badge"><i class="fa-solid fa-bolt-lightning"></i> MONTHLY OUTFLOW</span>
+                <span class="calc-reducing-tag">Reducing Rate EMI</span>
+              </div>
+              <div class="calc-hero-amount-row">
+                <span class="calc-hero-value" id="calc-emi-result">₹ 17,089</span>
+                <span class="calc-hero-unit">/ month</span>
+              </div>
+              <p class="calc-hero-note">Zero advance installments • Direct auto-debit via e-NACH mandate</p>
+            </div>
+
+            <!-- Interactive Donut Breakdown -->
+            <div class="calc-breakdown-card">
+              <div class="calc-donut-wrap">
+                <svg class="calc-donut-chart" viewBox="0 0 100 100">
+                  <circle class="donut-bg" cx="50" cy="50" r="42" />
+                  <circle class="donut-interest" id="donut-interest-circle" cx="50" cy="50" r="42" />
+                  <circle class="donut-principal" id="donut-principal-circle" cx="50" cy="50" r="42" />
+                </svg>
+                <div class="donut-center-info">
+                  <span class="donut-center-ratio" id="donut-center-ratio">70%</span>
+                  <span class="donut-center-sub">Principal</span>
+                </div>
+              </div>
+
+              <!-- Donut Legends -->
+              <div class="calc-donut-legend">
+                <div class="legend-item">
+                  <div class="legend-title">
+                    <span class="legend-dot principal"></span>
+                    <span>Principal Amount</span>
+                  </div>
+                  <span class="legend-val" id="calc-principal-display">₹ 5,00,000</span>
+                  <span class="legend-pct" id="ratio-p">70%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-title">
+                    <span class="legend-dot interest"></span>
+                    <span>Total Interest</span>
+                  </div>
+                  <span class="legend-val" id="calc-interest-result">₹ 1,15,204</span>
+                  <span class="legend-pct" id="ratio-i">30%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary Total Payable -->
+            <div class="calc-total-pay-box">
+              <div class="total-pay-info">
+                <span class="total-pay-label">Total Amount Payable</span>
+                <span class="total-pay-sub">(Principal + Interest over selected tenure)</span>
+              </div>
+              <span class="total-pay-value" id="calc-total-result">₹ 6,15,204</span>
+            </div>
+
+            <!-- Hidden elements for backward compatibility -->
+            <div style="display: none;" aria-hidden="true">
+              <div id="breakdown-bar-p"></div>
+              <div id="breakdown-bar-i"></div>
+            </div>
+
+            <!-- Apply Button -->
+            <button id="calc-apply-btn" class="btn-calc-apply">
+              <span>Apply For This Loan</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Trust Badges -->
+            <div class="calc-trust-strip">
+              <div class="calc-trust-item"><i class="fa-solid fa-circle-check"></i> 48-Hour Disbursal</div>
+              <div class="calc-trust-item"><i class="fa-solid fa-shield-halved"></i> RBI Regulated NBFC</div>
+              <div class="calc-trust-item"><i class="fa-solid fa-file-shield"></i> Zero Hidden Fees</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENURE COMPARISON & AMORTIZATION TABLE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Smart Financial Planning</span>
+        <h2 class="section-title">Loan Amortization & Tenure Breakdown</h2>
+        <p class="section-desc">Observe how choosing different tenures affects your monthly outflow and total cumulative interest cost.</p>
+      </div>
+
+      <!-- Amortization Schedule Table -->
+      <div class="amortization-wrap">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 16px;">
+          <i class="fa-solid fa-table-list" style="color: var(--primary-purple);"></i> Indicative Year-by-Year Repayment Schedule (For Selected Values)
+        </h3>
+        <table class="amortization-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Opening Balance</th>
+              <th>Annual EMI Paid</th>
+              <th>Principal Repaid</th>
+              <th>Interest Repaid</th>
+              <th>Closing Balance</th>
+            </tr>
+          </thead>
+          <tbody id="amortization-tbody">
+            <tr>
+              <td><strong>Year 1</strong></td>
+              <td>₹ 5,00,000</td>
+              <td>₹ 2,05,068</td>
+              <td>₹ 1,42,200</td>
+              <td>₹ 62,868</td>
+              <td>₹ 3,57,800</td>
+            </tr>
+            <tr>
+              <td><strong>Year 2</strong></td>
+              <td>₹ 3,57,800</td>
+              <td>₹ 2,05,068</td>
+              <td>₹ 1,63,550</td>
+              <td>₹ 41,518</td>
+              <td>₹ 1,94,250</td>
+            </tr>
+            <tr>
+              <td><strong>Year 3</strong></td>
+              <td>₹ 1,94,250</td>
+              <td>₹ 2,05,068</td>
+              <td>₹ 1,94,250</td>
+              <td>₹ 10,818</td>
+              <td>₹ 0.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- EMI Formula Explanation -->
+      <div style="background: #f8fafc; border-radius: var(--radius-lg); border: 1px solid #e2e8f0; padding: 32px; margin-top: 40px;">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">
+          <i class="fa-solid fa-calculator" style="color: var(--primary-orange);"></i> Standard EMI Mathematical Formula
+        </h3>
+        <p style="color: #475569; font-size: 0.9375rem; line-height: 1.8; margin-bottom: 14px;">
+          All Indian banks and RBI-registered NBFCs compute standard Equated Monthly Installment (EMI) using the reducing balance method formula:
+        </p>
+        <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: var(--radius-md); padding: 14px 20px; font-family: monospace; font-size: 1.1rem; color: #70146e; font-weight: 700; display: inline-block; margin-bottom: 14px;">
+          EMI = [P × R × (1+R)^N] / [(1+R)^N - 1]
+        </div>
+        <p style="color: #64748b; font-size: 0.875rem;">
+          Where <strong>P</strong> = Principal Loan Amount, <strong>R</strong> = Monthly Interest Rate (Annual Rate / 12 / 100), and <strong>N</strong> = Number of monthly installments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Matching Screenshot 2) -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Registered Office</h4>
+          <div class="footer-logo-badge"><img src="assets/logo/logo.png" alt="Prest Loans Logo"></div>
+          <ul class="office-info-list">
+            <li class="office-info-item"><i class="fa-solid fa-location-dot"></i> <span>M5-M6, Essel House,<br>10 Asaf Ali Road,<br>New Delhi - 110002</span></li>
+            <li class="office-info-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:info@prestloans.com">info@prestloans.com</a></li>
+            <li class="office-info-item"><i class="fa-solid fa-phone"></i> <div><a href="tel:+911145241131">+91-11-45241131</a><br><a href="tel:+911145241123">+91-11-45241123</a></div></li>
+            <li class="office-info-item whatsapp-link"><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/919711669090?text=Hello%20Prest%20Loans,%20I%20am%20interested%20in%20a%20loan." target="_blank" rel="noopener">+91-9711669090</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Useful Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="calculator.html">EMI Calculator</a></li>
+            <li><a href="customers-stories.html">Customers' Stories</a></li>
+            <li><a href="employee-testimonials.html">Employee Testimonials</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="disclaimer.html">Public Notice</a></li>
+            <li><a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">Sachet RBI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Policies</h4>
+          <ul class="footer-links-list">
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="terms-of-use.html">Terms Of Use</a></li>
+            <li><a href="privacy-policy.html">Privacy policy</a></li>
+            <li><a href="fair-practices-code.html">Fair Practices Code</a></li>
+            <li><a href="penal-charges-policy.html">Penal Charges Policy</a></li>
+            <li><a href="kyc-and-aml.html">KYC &amp; AML</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="grievance-redressal.html">Grievance Redressal Mechanism</a></li>
+            <li><a href="regulatory-certifications.html">Regulatory Certifications</a></li>
+            <li><a href="interest-rate-model.html">Interest Rate Model and Schedule of Charges</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Enquiry Form</h4>
+          <form id="footer-enquiry-form" class="footer-enquiry-form">
+            <input type="text" id="footer-enq-name" class="form-control-dark" placeholder="Name" required>
+            <input type="tel" id="footer-enq-phone" class="form-control-dark" placeholder="Contact Number" pattern="[0-9]{10}" required>
+            <input type="email" id="footer-enq-email" class="form-control-dark" placeholder="Email" required>
+            <input type="text" id="footer-enq-location" class="form-control-dark" placeholder="Location">
+            <textarea id="footer-enq-msg" class="form-control-dark" placeholder="Enquiry"></textarea>
+            <button type="submit" class="btn-footer-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="rbi-disclaimer-text">Prest Loans is a trade name of “Lord Krishna Financial Services Ltd” a Non-Banking Finance Company registered with RBI.</p>
+        <p class="copyright-sub">CIN: U65923DL1992PLC047683 | RBI Certificate of Registration: B-14.02052 | © 2026 Prest Loans. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/919711669090?text=Hello%20Prest%20Loans,%20I%20want%20to%20apply%20for%20a%20loan." target="_blank" rel="noopener" class="floating-btn floating-whatsapp" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+911145241131" class="floating-btn floating-call" title="Call Customer Helpline"><i class="fa-solid fa-phone"></i></a>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="policy-modal">
+    <div class="modal-box">
+      <div class="modal-header"><div class="modal-title-wrap"><h3 id="policy-modal-title">Regulatory Policy</h3><p id="policy-modal-date">RBI Compliance Document</p></div><button class="modal-close-btn" onclick="closePolicyModal()"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="modal-body" id="policy-modal-body"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="login-modal">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header"><div class="modal-title-wrap"><h3>Prest Loans Portal</h3><p>Select your user category</p></div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button></div>
+      <div style="display: flex; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+        <button id="tab-btn-customer" class="login-tab-btn active" onclick="switchLoginTab('customer')" style="flex: 1; padding: 12px; border: none; background: none; font-weight: 700; color: #70146e; border-bottom: 3px solid #70146e; cursor: pointer;">Borrower</button>
+        <button id="tab-btn-partner" class="login-tab-btn" onclick="switchLoginTab('partner')" style="flex: 1; padding: 12px; border: none; background: none; font-weight: 600; color: #64748b; cursor: pointer;">Partner / DSA</button>
+        <button id="tab-btn-employee" class="login-tab-btn" onclick="switchLoginTab('employee')" style="flex: 1; padding: 12px; border: none; background: none; font-weight: 600; color: #64748b; cursor: pointer;">Employee</button>
+      </div>
+      <div class="modal-body">
+        <div id="tab-content-customer" class="login-tab-content">
+          <form id="customer-login-form">
+            <div class="quick-input-group"><label class="quick-input-label">Registered Mobile Number</label><input type="tel" id="login-mobile" class="quick-input-field" placeholder="10-digit number" pattern="[0-9]{10}" required></div>
+            <button type="submit" class="btn-card-submit"><span>Send Secure OTP</span> <i class="fa-solid fa-key"></i></button>
+          </form>
+        </div>
+        <div id="tab-content-partner" class="login-tab-content" style="display: none;">
+          <div class="quick-input-group"><label class="quick-input-label">Partner Code / Email</label><input type="text" class="quick-input-field" placeholder="e.g. DSA-DELHI-102"></div>
+          <div class="quick-input-group"><label class="quick-input-label">Password</label><input type="password" class="quick-input-field" placeholder="••••••••"></div>
+          <button type="button" class="btn-card-submit" onclick="showToast('Partner login validated. Redirecting...')">Partner Login</button>
+        </div>
+        <div id="tab-content-employee" class="login-tab-content" style="display: none;">
+          <div class="quick-input-group"><label class="quick-input-label">Work Email (@prestloans.com)</label><input type="email" class="quick-input-field" placeholder="employee@prestloans.com"></div>
+          <div class="quick-input-group"><label class="quick-input-label">Single Sign-On (SSO) Pin</label><input type="password" class="quick-input-field" placeholder="••••••"></div>
+          <button type="button" class="btn-card-submit" onclick="showToast('Employee SSO authenticated. Loading internal LOS...')">Employee SSO Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="loan-app-modal">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header"><div class="modal-title-wrap"><h3>Apply for Digital Loan</h3><p>48-Hour Disbursal • Minimal Paperwork</p></div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="modal-body">
+        <div class="application-steps-indicator">
+          <div class="app-step active" id="step-ind-1"><span class="app-step-num">1</span><span class="app-step-name">Personal Info</span></div>
+          <div class="app-step" id="step-ind-2"><span class="app-step-num">2</span><span class="app-step-name">Business Details</span></div>
+          <div class="app-step" id="step-ind-3"><span class="app-step-num">3</span><span class="app-step-name">Confirmation</span></div>
+        </div>
+        <div id="app-step-1-content">
+          <div class="quick-input-group"><label class="quick-input-label">Full Name</label><input type="text" id="app-full-name" class="quick-input-field" placeholder="Enter Full Name" required></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="quick-input-group"><label class="quick-input-label">Mobile Number</label><input type="tel" id="app-phone" class="quick-input-field" placeholder="10-digit number" pattern="[0-9]{10}" required></div>
+            <div class="quick-input-group"><label class="quick-input-label">Email</label><input type="email" id="app-email" class="quick-input-field" placeholder="name@domain.com" required></div>
+          </div>
+          <button type="button" id="btn-next-step-2" class="btn-card-submit" style="margin-top: 14px;"><span>Next: Business Details</span> <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div id="app-step-2-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="quick-input-group"><label class="quick-input-label">Loan Product</label><select id="app-loan-product" class="quick-input-field"><option value="Business Loan">Business Loan</option><option value="MSME Loans">MSME Loans</option><option value="Home Loan">Home Loan</option><option value="Education Loan">Education Loan</option><option value="Personal Loan">Personal Loan</option><option value="Short Term Personal Loan">Short Term Personal Loan</option></select></div>
+            <div class="quick-input-group"><label class="quick-input-label">Loan Amount (₹)</label><input type="number" id="app-loan-amount" class="quick-input-field" value="500000"></div>
+          </div>
+          <div class="quick-input-group"><label class="quick-input-label">PAN Card Number</label><input type="text" id="app-pan" class="quick-input-field" placeholder="ABCDE1234F" style="text-transform: uppercase;" maxlength="10"></div>
+          <button type="button" id="btn-submit-loan-app" class="btn-card-submit" style="margin-top: 14px;"><span>Submit Application</span> <i class="fa-solid fa-check"></i></button>
+        </div>
+        <div id="app-step-3-content" style="display: none; text-align: center; padding: 20px 10px;">
+          <div style="width: 70px; height: 70px; background: #dcfce7; color: #16a34a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 20px;"><i class="fa-solid fa-circle-check"></i></div>
+          <h3 style="font-size: 1.4rem; font-weight: 800; color: #0f172a; margin-bottom: 8px;">Application Submitted!</h3>
+          <p style="color: #64748b; font-size: 0.9375rem; margin-bottom: 20px;">Reference ID: <strong id="app-generated-id" style="color: #70146e;">PL-2026-849201</strong></p>
+          <button type="button" class="btn-primary" onclick="document.getElementById('loan-app-modal').classList.remove('active'); document.body.style.overflow='';">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="track-status-modal">
+    <div class="modal-box" style="max-width: 500px;">
+      <div class="modal-header"><div class="modal-title-wrap"><h3>Track Loan Application</h3><p>Real-time status</p></div><button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="modal-body">
+        <form id="track-status-form">
+          <div class="quick-input-group"><label class="quick-input-label">Application ID or Phone</label><input type="text" id="track-input" class="quick-input-field" placeholder="e.g. PL-2026-849201" required></div>
+          <button type="submit" class="btn-card-submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </form>
+        <div id="track-result-box" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/policies.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

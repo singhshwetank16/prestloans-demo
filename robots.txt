@@ -1,0 +1,45 @@
+# ==============================================================================
+# Prest Loans - Lord Krishna Financial Services Ltd.
+# RBI Registered NBFC (Registration No: B-14.02052)
+# Official Website: https://www.prestloans.com
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Disallow server configs, package descriptors & private files
+Disallow: /server.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /*.json$
+Disallow: /.git/
+Disallow: /.system_generated/
+Disallow: /node_modules/
+
+# Crawl Delay (Polite crawling for search engines)
+Crawl-delay: 1
+
+# Major Search Engine Bot Specific Directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Canonical Sitemap XML
+Sitemap: https://www.prestloans.com/sitemap.xml

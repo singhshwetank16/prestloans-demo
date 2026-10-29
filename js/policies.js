@@ -164,7 +164,7 @@ window.PREST_POLICIES = {
 
       <h4>2. Corporate Identity Details</h4>
       <ul>
-        <li><strong>Corporate Identity Number (CIN):</strong> U65923DL1992PLC047683</li>
+        <li><strong>Corporate Identity Number (CIN):</strong> U65993DL1992PLC049609</li>
         <li><strong>Incorporation Year:</strong> 1992 (Serving Indian enterprises for over 3 decades)</li>
         <li><strong>Registered Office:</strong> M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002</li>
         <li><strong>Credit Information Companies:</strong> Member of CIBIL, Experian, Equifax, and CRIF Highmark.</li>

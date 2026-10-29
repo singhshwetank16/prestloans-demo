@@ -25,7 +25,7 @@ The portal comprises an enterprise-grade **11-page web platform**:
 
 2. **[about.html](file:///d:/Prestloans/about.html) - About Us:**
    - 30+ years institutional legacy of Lord Krishna Financial Services Ltd (Incorporated in 1992)
-   - RBI Certificate of Registration: **B-14.02052** | Corporate CIN: **U65993DL1992PLC049609**
+   - RBI Certificate of Registration: **B-14.02019** | Corporate CIN: **U65993DL1992PLC049609**
    - Corporate mission, vision, and core lending values
    - **Board of Directors:** Ashok Mittal (Founder & Director), Mamta Mittal (MD), Manish Poddar, Sandeep Saini, Naresh Goyal
    - **Advisory Board:** Rajiv Kishore Dubey (Former CMD Canara Bank), Deepak Arora (ICSI Fellow & IBBI), Amit Garg (MD SR TEKBOX, IIT Bombay), Sandeep Singal (Ex-BSE & Edelweiss)

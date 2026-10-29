@@ -160,7 +160,7 @@ window.PREST_POLICIES = {
     lastUpdated: "January 2026",
     content: `
       <h4>1. RBI Certificate of Registration</h4>
-      <p>Lord Krishna Financial Services Ltd holds valid Certificate of Registration No. <strong>B-14.02052</strong> issued by the Reserve Bank of India to operate as a Non-Deposit taking Non-Banking Financial Company (NBFC-ND).</p>
+      <p>Lord Krishna Financial Services Ltd holds valid Certificate of Registration No. <strong>B-14.02019</strong> issued by the Reserve Bank of India to operate as a Non-Deposit taking Non-Banking Financial Company (NBFC-ND).</p>
 
       <h4>2. Corporate Identity Details</h4>
       <ul>

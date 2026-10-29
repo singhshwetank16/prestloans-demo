@@ -27,7 +27,7 @@ window.PREST_POLICIES = {
     lastUpdated: "January 2026",
     content: `
       <h4>1. Use of Digital Services</h4>
-      <p>This website is made available to assist individual borrowers and MSMEs in exploring credit solutions, calculating EMIs, checking eligibility, and tracking loan applications. Unauthorized scraping, automated data harvesting, or reverse engineering of any portion of the platform is strictly prohibited.</p>
+      <p>This website is made available to assist individual borrowers in exploring credit solutions, calculating EMIs, checking eligibility, and tracking loan applications. Unauthorized scraping, automated data harvesting, or reverse engineering of any portion of the platform is strictly prohibited.</p>
 
       <h4>2. Intellectual Property</h4>
       <p>All trademarks, logos, service marks, graphics, and textual content displayed on this website are the registered intellectual property of Lord Krishna Financial Services Ltd or their respective licensors.</p>
@@ -191,7 +191,7 @@ window.PREST_POLICIES = {
         <li><strong>Processing Fee:</strong> 1.5% - 3.0% of sanctioned loan amount + applicable GST</li>
         <li><strong>Documentation Charges:</strong> At actual stamp duty rates as per respective State Stamp Acts</li>
         <li><strong>Bounce / Mandate Return Charges:</strong> ₹ 450 + GST per occurrence</li>
-        <li><strong>Foreclosure Charges:</strong> Zero foreclosure charges for MSME/individual floating rate loans as per RBI directions</li>
+        <li><strong>Foreclosure Charges:</strong> Zero foreclosure charges for individual floating rate loans as per RBI directions</li>
       </ul>
     `
   }

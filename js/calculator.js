@@ -107,8 +107,8 @@
 
   function calculateEMI() {
     const P = cleanNumber(loanAmountInput ? loanAmountInput.value : 500000);
-    const annualRate = cleanNumber(interestRateInput ? interestRateInput.value : 14);
-    const years = cleanNumber(tenureYearsInput ? tenureYearsInput.value : 3);
+    const annualRate = cleanNumber(interestRateInput ? interestRateInput.value : 9.5);
+    const years = cleanNumber(tenureYearsInput ? tenureYearsInput.value : 10);
 
     // Update Slider visual fills
     updateSliderFill(loanAmountSlider);
@@ -215,7 +215,7 @@
 
     tenureYearsInput.addEventListener('input', function () {
       const val = cleanNumber(this.value);
-      if (val >= 1 && val <= 15) {
+      if (val >= 1 && val <= 20) {
         tenureYearsSlider.value = val;
       }
       updateActiveChip('tenure', val);
@@ -310,12 +310,12 @@
       if (loanAmountSlider) loanAmountSlider.value = "500000";
     }
     if (interestRateInput && !interestRateInput.value) {
-      interestRateInput.value = "14";
-      if (interestRateSlider) interestRateSlider.value = "14";
+      interestRateInput.value = "9.5";
+      if (interestRateSlider) interestRateSlider.value = "9.5";
     }
     if (tenureYearsInput && !tenureYearsInput.value) {
-      tenureYearsInput.value = "3";
-      if (tenureYearsSlider) tenureYearsSlider.value = "3";
+      tenureYearsInput.value = "10";
+      if (tenureYearsSlider) tenureYearsSlider.value = "10";
     }
     calculateEMI();
   };

@@ -4,7 +4,7 @@
 ---
 
 ## 🌟 Overview
-**Prest Loans** is a state-of-the-art, high-conversion, multi-page digital lending portal engineered for Indian MSMEs, emerging enterprises, wholesale merchants, and entrepreneurs seeking rapid, paperless, and collateral-free credit solutions.
+**Prest Loans** is a state-of-the-art, high-conversion, multi-page digital lending portal engineered for retail borrowers, home buyers, students, and working professionals seeking rapid, paperless credit solutions.
 
 The platform is designed in strict compliance with **Reserve Bank of India (RBI) Master Directions** and Digital Lending Guidelines. It integrates sophisticated user journeys, interactive EMI calculation tools, dedicated financial products, authentic customer testimonials, corporate governance standards, and comprehensive statutory disclosures.
 
@@ -33,10 +33,11 @@ The portal comprises an enterprise-grade **11-page web platform**:
    - Interactive corporate milestones timeline (1992 – 2026)
 
 3. **[products.html](file:///d:/Prestloans/products.html) - Loan Products:**
-   - **Business & MSME Loans:** Unsecured working capital up to ₹50 Lakhs
-   - **E-Commerce Vendor Financing:** Revolving lines for marketplace merchants across leading platforms
-   - **Machinery & Equipment Financing:** Capital expenditure credit up to ₹1 Crore
-   - **Loan Against Property (LAP):** Long-tenure secured credit up to ₹2 Crores
+   - **Business Loans:** Collateral-free working capital and growth credit up to ₹50 Lakhs
+   - **Home Loans:** Affordable residential housing credit up to ₹50 Lakhs
+   - **Coaching & Skill Development / Education Loans:** Academic upskilling and higher studies financing
+   - **Personal Loans:** Collateral-free personal credit for salaried and working individuals
+   - **Short Term Personal Loans (STPL):** Emergency liquidity and short-term cash requirements
    - Complete underwriting eligibility criteria, documentation checklists, and instant application portals
 
 4. **[calculator.html](file:///d:/Prestloans/calculator.html) - Dedicated Loan Calculator:**

@@ -105,28 +105,6 @@ function resetTableFilter(panelId) {
    3. INTERACTIVE FEE & NET DISBURSAL ESTIMATOR
    ========================================================================== */
 const LOAN_PRODUCT_DATA = {
-  'unsecured-business': {
-    name: 'Unsecured Business Loan',
-    baseRate: 20.0,
-    procFeeRate: 2.5,
-    minProcFee: 3000,
-    docHandling: 2950,
-    minAmt: 100000,
-    maxAmt: 5000000,
-    defaultAmt: 500000,
-    defaultTenor: 24
-  },
-  'secured-business': {
-    name: 'Secured Business Loan (Property/Collateral)',
-    baseRate: 16.5,
-    procFeeRate: 1.5,
-    minProcFee: 5000,
-    docHandling: 5900,
-    minAmt: 500000,
-    maxAmt: 10000000,
-    defaultAmt: 1500000,
-    defaultTenor: 48
-  },
   'education-loan': {
     name: 'Education / Skill Development Loan',
     baseRate: 14.0,
@@ -173,7 +151,7 @@ function initSocEstimator() {
 
   function updateEstimator() {
     const prodKey = prodSelect.value;
-    const config = LOAN_PRODUCT_DATA[prodKey] || LOAN_PRODUCT_DATA['unsecured-business'];
+    const config = LOAN_PRODUCT_DATA[prodKey] || LOAN_PRODUCT_DATA['education-loan'];
 
     const principal = parseFloat(amtRange.value);
     const tenureMonths = parseInt(tenorRange.value, 10);

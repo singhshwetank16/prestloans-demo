@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- 2. MOBILE MENU TOGGLE ---
+  // --- 2. MOBILE MENU & ACCESSIBILITY ---
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
   if (mobileToggle && mainNav) {
-    mobileToggle.addEventListener('click', function () {
-      mainNav.classList.toggle('active');
+    function toggleMobileMenu(open) {
+      const shouldOpen = typeof open === 'boolean' ? open : !mainNav.classList.contains('active');
+      mainNav.classList.toggle('active', shouldOpen);
+      document.body.classList.toggle('mobile-menu-open', shouldOpen);
       const icon = mobileToggle.querySelector('i');
       if (icon) {
-        if (mainNav.classList.contains('active')) {
+        if (shouldOpen) {
           icon.classList.remove('fa-bars');
           icon.classList.add('fa-xmark');
         } else {
@@ -33,19 +35,62 @@ document.addEventListener('DOMContentLoaded', function () {
           icon.classList.add('fa-bars');
         }
       }
+    }
+
+    mobileToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
 
-    // Close mobile menu when a nav link is clicked
+    // Mobile dropdown accordion handling (Products, Media, etc.)
+    const dropdownToggles = mainNav.querySelectorAll('.nav-item.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          e.stopPropagation();
+          const parentItem = this.parentElement;
+          const wasActive = parentItem.classList.contains('active');
+          // Close other open dropdowns
+          mainNav.querySelectorAll('.nav-item.dropdown.active').forEach(item => {
+            if (item !== parentItem) item.classList.remove('active');
+          });
+          parentItem.classList.toggle('active', !wasActive);
+        }
+      });
+    });
+
+    // Close mobile menu when a leaf link is clicked
     const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        if (icon) {
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
+        // If clicking a dropdown parent toggle on mobile/tablet, don't close menu
+        if (link.parentElement.classList.contains('dropdown') && window.innerWidth <= 1024) {
+          return;
         }
+        toggleMobileMenu(false);
       });
+    });
+
+    // Close when clicking outside of nav and toggle
+    document.addEventListener('click', (e) => {
+      if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+        toggleMobileMenu(false);
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+        toggleMobileMenu(false);
+      }
+    });
+
+    // Auto-close on resize back to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && mainNav.classList.contains('active')) {
+        toggleMobileMenu(false);
+      }
     });
   }
 
@@ -328,11 +373,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function applyHindiTranslations() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-      heroTitle.innerHTML = 'अपने व्यवसाय को दें नई उड़ान <span class="highlight-purple">फास्ट डिजिटल लोन</span> के साथ';
+      heroTitle.innerHTML = 'अपने सपनों को दें नई उड़ान <span class="highlight-purple">फास्ट डिजिटल लोन</span> के साथ';
     }
     const heroDesc = document.querySelector('.hero-desc');
     if (heroDesc) {
-      heroDesc.textContent = 'MSMEs और उद्यमों के लिए ₹50 लाख तक का त्वरित बिजनेस लोन। 48 घंटे में वितरण, पारदर्शी प्रक्रिया एवं न्यूनतम दस्तावेजीकरण।';
+      heroDesc.textContent = 'होम लोन, शिक्षा लोन एवं पर्सनल लोन, RBI-विनियमित ऋण भागीदारों के माध्यम से। पारदर्शी प्रक्रिया एवं त्वरित वितरण।';
     }
     const calcTitle = document.querySelector('.calc-title');
     if (calcTitle) {
@@ -343,11 +388,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function applyEnglishTranslations() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-      heroTitle.innerHTML = 'Power Your Business Growth with <span class="highlight-purple">Instant Digital Loans</span>';
+      heroTitle.innerHTML = 'Power Your Dreams with <span class="highlight-moving-gradient">Instant Digital Loans</span>';
     }
     const heroDesc = document.querySelector('.hero-desc');
     if (heroDesc) {
-      heroDesc.textContent = 'Empowering MSMEs and growing enterprises with collateral-free loans up to ₹50 Lakhs. 48-hour disbursal, zero hidden charges, and a 100% digital RBI-compliant process.';
+      heroDesc.textContent = 'Home loans, education loans, and personal loans, sourced through RBI-regulated lending partners.';
     }
     const calcTitle = document.querySelector('.calc-title');
     if (calcTitle) {
@@ -730,7 +775,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Products Page - Sticky Pill ScrollSpy
   const productPills = document.querySelectorAll('.product-nav-pill');
   if (productPills.length > 0) {
-    const productSections = document.querySelectorAll('#business-loan, #msme-loan, #home-loan, #education-loan, #personal-loan, #short-term-personal-loan');
+    const productSections = document.querySelectorAll('#business-loan, #home-loan, #education-loan, #personal-loan, #short-term-personal-loan');
     function updateProductScrollSpy() {
       let currentId = '';
       productSections.forEach(section => {

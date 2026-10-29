@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- 1. Homepage: Prest Loans - NBFC Commercial & MSME Loans -->
+  <!-- 1. Homepage: Prest Loans - Digital Lending Platform | RBI Registered NBFC -->
   <url>
     <loc>https://www.prestloans.com/</loc>
     <lastmod>2026-09-30</lastmod>
@@ -18,7 +18,7 @@
     </image:image>
   </url>
 
-  <!-- 2. Products Showcase: All 7 Loan Products -->
+  <!-- 2. Products Showcase: Loan Products -->
   <url>
     <loc>https://www.prestloans.com/products.html</loc>
     <lastmod>2026-09-30</lastmod>
@@ -26,13 +26,8 @@
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://www.prestloans.com/assets/products/business-loan.png</image:loc>
-      <image:title>Business Loan for Retailers and Small Businesses</image:title>
+      <image:title>Business Loan for Retailers and Growing Enterprises</image:title>
       <image:caption>Unsecured Working Capital Loan up to ₹50 Lakhs</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.prestloans.com/assets/products/msme-loan.png</image:loc>
-      <image:title>MSME Loans for Manufacturing and Trade</image:title>
-      <image:caption>Priority Sector MSME Capital &amp; Micro-LAP up to ₹1 Crore</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.prestloans.com/assets/products/home-loan.png</image:loc>

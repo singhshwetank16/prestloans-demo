@@ -206,12 +206,20 @@
   <!-- 20. Disclaimer & Fraud Vigilance Advisory -->
   <url>
     <loc>https://www.prestloans.com/disclaimer.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
-  <!-- 21. Regulatory Certifications & Corporate Details -->
+  <!-- 21. Public Notices & Statutory Disclosures -->
+  <url>
+    <loc>https://www.prestloans.com/public-notice.html</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 22. Regulatory Certifications & Corporate Details -->
   <url>
     <loc>https://www.prestloans.com/regulatory-certifications.html</loc>
     <lastmod>2026-10-28</lastmod>

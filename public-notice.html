@@ -143,31 +143,13 @@
   <section class="notices-section" id="notices">
     <div class="container">
 
-      <!-- Interactive Toolbar: Search & Category Filters -->
+      <!-- Interactive Toolbar: Search -->
       <div class="notice-toolbar">
         <div class="notice-search-wrap">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" id="notice-search" class="notice-search-input" 
             placeholder="Search public notices by title, period, or keyword (e.g., 'Annual Return', 'Portfolio', 'Caution', 'Moratorium', '2026')..."
             aria-label="Search public notices">
-        </div>
-
-        <div class="notice-filter-tabs" role="tablist">
-          <button class="notice-filter-btn active" data-filter="all">
-            <i class="fa-solid fa-layer-group"></i> All Notices <span class="count-pill" id="count-all">20</span>
-          </button>
-          <button class="notice-filter-btn" data-filter="caution">
-            <i class="fa-solid fa-triangle-exclamation" style="color: #dc2626;"></i> Public &amp; Caution Notices <span class="count-pill" id="count-caution">5</span>
-          </button>
-          <button class="notice-filter-btn" data-filter="portfolio">
-            <i class="fa-solid fa-chart-pie" style="color: var(--primary-purple);"></i> Portfolio Disclosures <span class="count-pill" id="count-portfolio">9</span>
-          </button>
-          <button class="notice-filter-btn" data-filter="annual-return">
-            <i class="fa-solid fa-file-invoice" style="color: #16a34a;"></i> Annual Returns (MGT-7) <span class="count-pill" id="count-annual">4</span>
-          </button>
-          <button class="notice-filter-btn" data-filter="partner">
-            <i class="fa-solid fa-handshake" style="color: #2563eb;"></i> Partner Governance <span class="count-pill" id="count-partner">2</span>
-          </button>
         </div>
       </div>
 
@@ -778,9 +760,9 @@
       <div id="no-notices-msg">
         <i class="fa-solid fa-folder-open"></i>
         <h3>No Public Notices Found</h3>
-        <p>No documents matched your search query. Try typing another keyword or reset the category filter.</p>
+        <p>No documents matched your search query. Try typing another keyword or clear your search.</p>
         <button type="button" id="btn-reset-filters" class="btn-secondary" style="margin-top: 14px; padding: 10px 22px;">
-          <i class="fa-solid fa-rotate-left"></i> Reset All Filters
+          <i class="fa-solid fa-rotate-left"></i> Clear Search
         </button>
       </div>
 
@@ -945,24 +927,19 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const searchInput = document.getElementById('notice-search');
-      const filterBtns = document.querySelectorAll('.notice-filter-btn');
       const cards = document.querySelectorAll('.notice-card');
       const noResultsMsg = document.getElementById('no-notices-msg');
       const resetBtn = document.getElementById('btn-reset-filters');
 
-      let currentCategory = 'all';
       let currentQuery = '';
 
       function filterNotices() {
         let visibleCount = 0;
         cards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          const keywords = card.getAttribute('data-keywords') || '';
-          
-          const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
           const matchesQuery = (!currentQuery || keywords.includes(currentQuery));
 
-          if (matchesCategory && matchesQuery) {
+          if (matchesQuery) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -971,9 +948,9 @@
         });
 
         if (visibleCount === 0) {
-          noResultsMsg.style.display = 'block';
+          if (noResultsMsg) noResultsMsg.style.display = 'block';
         } else {
-          noResultsMsg.style.display = 'none';
+          if (noResultsMsg) noResultsMsg.style.display = 'none';
         }
       }
 
@@ -984,24 +961,10 @@
         });
       }
 
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          currentCategory = this.getAttribute('data-filter') || 'all';
-          filterNotices();
-        });
-      });
-
       if (resetBtn) {
         resetBtn.addEventListener('click', function() {
           if (searchInput) searchInput.value = '';
           currentQuery = '';
-          currentCategory = 'all';
-          filterBtns.forEach(b => {
-            if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
-            else b.classList.remove('active');
-          });
           filterNotices();
         });
       }

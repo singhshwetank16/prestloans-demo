@@ -242,11 +242,15 @@
             <img src="assets/about/Ashok Mittal.jpg" alt="Ashok Mittal - Founder and Director" class="founder-img">
             <span class="founder-badge-floating"><i class="fa-solid fa-certificate"></i> Founder &amp; Director</span>
           </div>
-          <div class="founder-book-teaser">
+          <div class="founder-book-teaser" onclick="openBookModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBookModal();}" role="button" tabindex="0" title="Click to view book details and purchase links">
             <img src="assets/about/fintech-book.jpg" alt="The Fintech Entrepreneur's Guide" class="founder-book-thumb">
             <div class="founder-book-text">
-              <strong>Published Author</strong>
+              <strong>Published Author <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem; margin-left: 4px; color: #ea580c;"></i></strong>
               <span>"The Fintech Entrepreneur's Guide" (Nov 2022)</span>
+              <div class="founder-book-action-hint">
+                <span>Click for details &amp; order</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -657,6 +661,150 @@
         class="fa-brands fa-whatsapp"></i></a>
     <a href="tel:+911145241131" class="floating-btn floating-call" title="Call Customer Helpline"><i
         class="fa-solid fa-phone"></i></a>
+  </div>
+
+
+  <!-- BOOK PREVIEW & DETAILS MODAL -->
+  <div class="modal-backdrop book-modal-backdrop" id="book-modal">
+    <div class="modal-box book-modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="book-modal-tag"><i class="fa-solid fa-book-bookmark"></i> Published Book • Thought Leadership</div>
+          <h3 id="book-modal-title">The Fintech Entrepreneur's Guide</h3>
+          <p>By <strong>Ashok Mittal</strong> (Founder &amp; Director, Prest Loans) • Published by BPB Publications</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeBookModal()" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body book-modal-body">
+        <div class="book-modal-grid">
+          <!-- Left Column: 3D Book Cover & Quick Meta -->
+          <div class="book-modal-left">
+            <div class="book-3d-wrapper">
+              <img src="assets/about/fintech-book.jpg" alt="The Fintech Entrepreneur's Guide - Book Cover" class="book-3d-cover">
+            </div>
+            <div class="book-quick-specs">
+              <div class="spec-row">
+                <span class="spec-label"><i class="fa-solid fa-user-pen"></i> Author</span>
+                <span class="spec-val">Ashok Mittal</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label"><i class="fa-solid fa-building"></i> Publisher</span>
+                <span class="spec-val">BPB Publications</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label"><i class="fa-solid fa-calendar-days"></i> Released</span>
+                <span class="spec-val">Nov 2022</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Formats</span>
+                <span class="spec-val">Paperback &amp; Kindle</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label"><i class="fa-solid fa-language"></i> Language</span>
+                <span class="spec-val">English</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Details, Highlights & Functional Actions -->
+          <div class="book-modal-right">
+            <h4 class="book-modal-subtitle">Strategic Blueprint for Modern Lending, NBFC Governance &amp; Tech Scalability</h4>
+            <p class="book-modal-lead">
+              Authored by Mr. Ashok Mittal, drawing from over three decades of frontline banking, regulatory compliance, and credit operations. An indispensable field guide for fintech entrepreneurs, banking professionals, and technology leaders.
+            </p>
+
+            <!-- Interactive Tabs -->
+            <div class="book-tabs-nav">
+              <button type="button" class="book-tab-btn active" onclick="switchBookTab('overview', this)"><i class="fa-solid fa-star"></i> Key Highlights</button>
+              <button type="button" class="book-tab-btn" onclick="switchBookTab('chapters', this)"><i class="fa-solid fa-list-check"></i> Chapters Peek</button>
+              <button type="button" class="book-tab-btn" onclick="switchBookTab('author', this)"><i class="fa-solid fa-feather"></i> About Author</button>
+            </div>
+
+            <!-- Tab 1: Key Highlights -->
+            <div class="book-tab-pane active" id="book-tab-overview">
+              <ul class="book-highlights-list">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>Algorithmic Underwriting:</strong> Designing alternative data scoring &amp; automated decision matrices for MSME lending.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>Prudential NBFC Governance:</strong> Aligning operational technology with RBI Master Directions &amp; digital lending guidelines.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>Fintech Unit Economics:</strong> Building sustainable credit platforms with low NPAs and disciplined capital management.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tab 2: Chapters Sneak Peek -->
+            <div class="book-tab-pane" id="book-tab-chapters" style="display: none;">
+              <div class="chapter-pills-list">
+                <div class="chapter-item">
+                  <span class="chapter-num">01</span>
+                  <div class="chapter-text">
+                    <strong>The Evolution of Digital Credit:</strong> Transition from collateral-heavy legacy banking to algorithmic micro-credit.
+                  </div>
+                </div>
+                <div class="chapter-item">
+                  <span class="chapter-num">02</span>
+                  <div class="chapter-text">
+                    <strong>Underwriting Beyond Traditional Collateral:</strong> Alternate data, GST returns, and cash-flow proxy scoring.
+                  </div>
+                </div>
+                <div class="chapter-item">
+                  <span class="chapter-num">03</span>
+                  <div class="chapter-text">
+                    <strong>Collections &amp; Risk Containment:</strong> Ethical recovery frameworks and automated customer grievance redressal.
+                  </div>
+                </div>
+                <div class="chapter-item">
+                  <span class="chapter-num">04</span>
+                  <div class="chapter-text">
+                    <strong>The Future of RegTech:</strong> Scale, AI underwriting, Account Aggregators, and compliant co-lending partnerships.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 3: About Author -->
+            <div class="book-tab-pane" id="book-tab-author" style="display: none;">
+              <div class="author-modal-bio">
+                <p>
+                  <strong>Ashok Mittal</strong> is a Harvard Business School Executive Alumnus and University Gold Medallist with CAIIB &amp; MBM credentials. Prior to founding Prest Loans (Lord Krishna Financial Services Ltd), he served in core leadership positions at leading commercial banks (Union Bank of India, UCO Bank) and prominent financial institutions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Buttons Box -->
+            <div class="book-modal-cta-box">
+              <div class="book-cta-label">Available online on leading bookstore portals:</div>
+              <div class="book-cta-buttons">
+                <a href="https://www.amazon.in/Fintech-Entrepreneurs-Guide-Successful-Scalability-ebook/dp/B0BJYSF5F3"
+                  target="_blank" rel="noopener" class="btn-book-cta btn-amazon">
+                  <i class="fa-brands fa-amazon"></i> <span>Order on Amazon</span>
+                </a>
+                <a href="https://in.bpbonline.com/products/the-fintech-entrepreneurs-guide?_pos=1&_sid=124923941&_ss=r"
+                  target="_blank" rel="noopener" class="btn-book-cta btn-bpb">
+                  <i class="fa-solid fa-book-open"></i> <span>Order on BPB Online</span>
+                </a>
+                <button type="button" class="btn-book-cta btn-share" onclick="shareBookInfo(this)">
+                  <i class="fa-solid fa-share-nodes"></i> <span>Share Book</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- MODALS -->

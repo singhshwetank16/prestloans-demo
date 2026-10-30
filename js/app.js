@@ -841,6 +841,78 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+
+  // --- 19. FOUNDER BOOK MODAL & INTERACTIONS ---
+  window.openBookModal = function () {
+    const modal = document.getElementById('book-modal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeBookModal = function () {
+    const modal = document.getElementById('book-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.switchBookTab = function (tabName, btn) {
+    const modal = document.getElementById('book-modal');
+    if (!modal) return;
+
+    modal.querySelectorAll('.book-tab-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    modal.querySelectorAll('.book-tab-pane').forEach(p => {
+      p.style.display = 'none';
+      p.classList.remove('active');
+    });
+
+    const targetPane = document.getElementById('book-tab-' + tabName);
+    if (targetPane) {
+      targetPane.style.display = 'block';
+      targetPane.classList.add('active');
+    }
+  };
+
+  window.shareBookInfo = function (btn) {
+    const bookTitle = "The Fintech Entrepreneur's Guide by Ashok Mittal (Founder & Director, Prest Loans)";
+    const bookUrl = "https://www.amazon.in/Fintech-Entrepreneurs-Guide-Successful-Scalability-ebook/dp/B0BJYSF5F3";
+
+    if (navigator.share) {
+      navigator.share({
+        title: bookTitle,
+        text: 'Check out "' + bookTitle + '" - Strategic roadmap for modern lending & fintech architecture.',
+        url: bookUrl
+      }).catch(() => {});
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(bookUrl).then(() => {
+        if (window.showToast) {
+          window.showToast('Book purchase link copied to clipboard!');
+        } else {
+          alert('Book link copied to clipboard: ' + bookUrl);
+        }
+      }).catch(() => {
+        window.open(bookUrl, '_blank');
+      });
+    } else {
+      window.open(bookUrl, '_blank');
+    }
+  };
+
+  // Close book modal with Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      const bookModal = document.getElementById('book-modal');
+      if (bookModal && bookModal.classList.contains('active')) {
+        closeBookModal();
+      }
+    }
+  });
+
 });
 
 

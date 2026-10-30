@@ -10618,6 +10618,8 @@ textarea.form-control-dark {
 .emp-card-dept-tag.hr { background: #fff1f2; color: #be123c; border-color: rgba(190, 18, 60, 0.15); }
 .emp-card-dept-tag.sales { background: #fff7ed; color: #c2410c; border-color: rgba(194, 65, 12, 0.15); }
 .emp-card-dept-tag.ops { background: #f8fafc; color: #334155; border-color: rgba(51, 65, 85, 0.15); }
+.emp-card-dept-tag.admin { background: #ecfeff; color: #0e7490; border-color: rgba(14, 116, 144, 0.15); }
+.emp-card-dept-tag.leadership { background: #fdf4ff; color: #70146e; border-color: rgba(112, 20, 110, 0.2); }
 
 .emp-verified-badge {
   display: inline-flex;
@@ -10657,6 +10659,53 @@ textarea.form-control-dark {
   background: #ffffff;
   border: 2px solid #ffffff;
   display: block;
+}
+
+.emp-avatar-initials {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #70146e, #f05a28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.5px;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.emp-ribbon-thumb-initials {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #70146e, #f05a28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.emp-halo-initials {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #70146e, #f05a28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  user-select: none;
 }
 
 .emp-info-wrap h3 {

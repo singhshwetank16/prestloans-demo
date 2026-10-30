@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleMobileMenu();
     });
 
-    // Mobile dropdown accordion handling (Products, Media, etc.)
+    // Dropdown accordion/toggle handling (Products, Media, etc.) - prevent parent navigation
     const dropdownToggles = mainNav.querySelectorAll('.nav-item.dropdown > a');
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener('click', function (e) {
+        e.preventDefault();
         if (window.innerWidth <= 1024) {
-          e.preventDefault();
           e.stopPropagation();
           const parentItem = this.parentElement;
           const wasActive = parentItem.classList.contains('active');
@@ -805,6 +805,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     window.addEventListener('scroll', updateProductScrollSpy, { passive: true });
     updateProductScrollSpy();
+  }
+
+  // Handle smooth scrolling for product dropdown & pill links
+  document.querySelectorAll('a[href*="#education-loan"], a[href*="#personal-loan"], a[href*="#short-term-personal-loan"], a[href*="#home-loan"], a[href*="#business-loan"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      const hashIndex = href.indexOf('#');
+      if (hashIndex !== -1) {
+        const targetId = href.substring(hashIndex);
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          if (history.pushState) {
+            history.pushState(null, null, targetId);
+          } else {
+            window.location.hash = targetId;
+          }
+          if (typeof toggleMobileMenu === 'function' && mainNav && mainNav.classList.contains('active')) {
+            toggleMobileMenu(false);
+          }
+        }
+      }
+    });
+  });
+
+  // Handle initial page load with product hash
+  if (window.location.hash) {
+    const initialTarget = document.querySelector(window.location.hash);
+    if (initialTarget) {
+      setTimeout(() => {
+        initialTarget.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
   }
 
 });

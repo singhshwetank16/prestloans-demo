@@ -4953,6 +4953,7 @@ textarea.form-control-dark {
 
 /* 4. Employee's Testimonials Showcase (Ultra-Attractive & Animated) */
 .testimonial-section-elevated {
+  scroll-margin-top: 80px;
   background: radial-gradient(circle at 15% 20%, #2e0435 0%, #17021c 50%, #0d0111 100%);
   padding: 90px 0 80px;
   position: relative;

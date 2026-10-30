@@ -2015,6 +2015,7 @@ textarea {
   font-size: 0.9375rem;
   font-weight: 800;
   color: #0f172a;
+  text-align: left;
 }
 
 
@@ -9693,7 +9694,7 @@ textarea.form-control-dark {
   padding: 14px;
 }
 
-.spec-row {
+.book-quick-specs .spec-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9702,16 +9703,16 @@ textarea.form-control-dark {
   border-bottom: 1px dashed #e2e8f0;
 }
 
-.spec-row:last-child {
+.book-quick-specs .spec-row:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.spec-row:first-child {
+.book-quick-specs .spec-row:first-child {
   padding-top: 0;
 }
 
-.spec-label {
+.book-quick-specs .spec-label {
   color: #64748b;
   display: inline-flex;
   align-items: center;
@@ -9719,7 +9720,7 @@ textarea.form-control-dark {
   font-weight: 600;
 }
 
-.spec-val {
+.book-quick-specs .spec-val {
   color: #0f172a;
   font-weight: 700;
   text-align: right;

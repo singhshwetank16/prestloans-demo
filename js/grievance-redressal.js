@@ -109,3 +109,38 @@ function initGrmFaqs() {
     });
   });
 }
+
+
+/* ==========================================================================
+   3. RESERVE BANK – INTEGRATED OMBUDSMAN SCHEME (RB-IOS 2026) TABS
+   ========================================================================== */
+window.switchRbiosTab = function (lang) {
+  var enTab = document.getElementById('rbios-tab-en');
+  var hiTab = document.getElementById('rbios-tab-hi');
+  var enBtn = document.getElementById('rbios-tab-btn-en');
+  var hiBtn = document.getElementById('rbios-tab-btn-hi');
+
+  if (lang === 'en') {
+    if (enTab) enTab.style.display = 'block';
+    if (hiTab) hiTab.style.display = 'none';
+    if (enBtn) {
+      enBtn.style.background = 'var(--primary-purple)';
+      enBtn.style.color = '#ffffff';
+    }
+    if (hiBtn) {
+      hiBtn.style.background = 'transparent';
+      hiBtn.style.color = '#475569';
+    }
+  } else {
+    if (enTab) enTab.style.display = 'none';
+    if (hiTab) hiTab.style.display = 'block';
+    if (hiBtn) {
+      hiBtn.style.background = 'var(--primary-purple)';
+      hiBtn.style.color = '#ffffff';
+    }
+    if (enBtn) {
+      enBtn.style.background = 'transparent';
+      enBtn.style.color = '#475569';
+    }
+  }
+};

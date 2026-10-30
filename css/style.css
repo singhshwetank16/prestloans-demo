@@ -9595,23 +9595,29 @@ textarea.form-control-dark {
 /* BOOK POPUP MODAL */
 .book-modal-backdrop {
   position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.78);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 2100;
+  z-index: 10000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .book-modal-backdrop.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .book-modal-box {
@@ -9622,7 +9628,7 @@ textarea.form-control-dark {
   max-height: 92vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.15);
   overflow: hidden;
   transform: scale(0.92) translateY(24px);
   opacity: 0;
@@ -9630,8 +9636,8 @@ textarea.form-control-dark {
 }
 
 .book-modal-backdrop.active .book-modal-box {
-  transform: scale(1) translateY(0);
-  opacity: 1;
+  transform: scale(1) translateY(0) !important;
+  opacity: 1 !important;
 }
 
 .book-modal-tag {

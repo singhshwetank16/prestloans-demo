@@ -846,6 +846,8 @@ document.addEventListener('DOMContentLoaded', function () {
   window.openBookModal = function () {
     const modal = document.getElementById('book-modal');
     if (modal) {
+      modal.style.display = 'flex';
+      void modal.offsetWidth;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -855,6 +857,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('book-modal');
     if (modal) {
       modal.classList.remove('active');
+      setTimeout(() => {
+        if (!modal.classList.contains('active')) {
+          modal.style.display = 'none';
+        }
+      }, 280);
       document.body.style.overflow = '';
     }
   };

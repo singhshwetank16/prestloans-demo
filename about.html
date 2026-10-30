@@ -14,7 +14,12 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.5">
+  <style>
+    .founder-book-teaser { cursor: pointer !important; user-select: none; }
+    #book-modal { display: none; }
+    #book-modal.active { display: flex !important; opacity: 1 !important; visibility: visible !important; }
+  </style>
 </head>
 
 <body>
@@ -665,7 +670,7 @@
 
 
   <!-- BOOK PREVIEW & DETAILS MODAL -->
-  <div class="modal-backdrop book-modal-backdrop" id="book-modal">
+  <div class="modal-backdrop book-modal-backdrop" id="book-modal" style="display: none;">
     <div class="modal-box book-modal-box">
       <div class="modal-header">
         <div class="modal-title-wrap">
@@ -952,7 +957,98 @@
   </div>
 
   <script src="js/policies.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.5"></script>
+  <script>
+    // Direct modal handlers to ensure instant execution
+    window.openBookModal = function () {
+      var modal = document.getElementById('book-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+        void modal.offsetWidth;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeBookModal = function () {
+      var modal = document.getElementById('book-modal');
+      if (modal) {
+        modal.classList.remove('active');
+        setTimeout(function () {
+          if (!modal.classList.contains('active')) {
+            modal.style.display = 'none';
+          }
+        }, 280);
+        document.body.style.overflow = '';
+      }
+    };
+
+    window.switchBookTab = function (tabName, btn) {
+      var modal = document.getElementById('book-modal');
+      if (!modal) return;
+      modal.querySelectorAll('.book-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+      modal.querySelectorAll('.book-tab-pane').forEach(function (p) {
+        p.style.display = 'none';
+        p.classList.remove('active');
+      });
+      var target = document.getElementById('book-tab-' + tabName);
+      if (target) {
+        target.style.display = 'block';
+        target.classList.add('active');
+      }
+    };
+
+    window.shareBookInfo = function (btn) {
+      var bookUrl = "https://www.amazon.in/Fintech-Entrepreneurs-Guide-Successful-Scalability-ebook/dp/B0BJYSF5F3";
+      if (navigator.share) {
+        navigator.share({
+          title: "The Fintech Entrepreneur's Guide by Ashok Mittal",
+          text: "Check out 'The Fintech Entrepreneur's Guide' by Ashok Mittal (Founder & Director, Prest Loans)",
+          url: bookUrl
+        }).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(bookUrl).then(function () {
+          if (window.showToast) {
+            window.showToast('Book purchase link copied to clipboard!');
+          } else {
+            alert('Book link copied to clipboard: ' + bookUrl);
+          }
+        }).catch(function () {
+          window.open(bookUrl, '_blank');
+        });
+      } else {
+        window.open(bookUrl, '_blank');
+      }
+    };
+
+    // Explicit click bindings on DOM ready
+    document.addEventListener('DOMContentLoaded', function () {
+      var teaser = document.querySelector('.founder-book-teaser');
+      if (teaser) {
+        teaser.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.openBookModal();
+        });
+      }
+
+      var modal = document.getElementById('book-modal');
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            window.closeBookModal();
+          }
+        });
+        var closeBtn = modal.querySelector('.modal-close-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.closeBookModal();
+          });
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

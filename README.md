@@ -79,7 +79,7 @@ The portal comprises an enterprise-grade **11-page web platform**:
 
 10. **[contact.html](file:///d:/Prestloans/contact.html) - Contact Us & Registered Office:**
     - Official Registered Office address: M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002
-    - Direct corporate lines: +91-11-45241131, +91-11-45241123
+    - Direct corporate lines: 011-45241131, 011-45241123
     - Official customer care WhatsApp support (+91-9711669090)
     - Interactive inquiry submission and lead generation form
 

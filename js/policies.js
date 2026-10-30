@@ -138,7 +138,7 @@ window.PREST_POLICIES = {
       <p>Customers can register any complaint or grievance via:</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:nodalofficer@prestloans.com">nodalofficer@prestloans.com</a> / <a href="mailto:info@prestloans.com">info@prestloans.com</a></li>
-        <li><strong>Helpline:</strong> +91-11-45241131 / +91-11-45241123</li>
+        <li><strong>Helpline:</strong> 011-45241131 / 011-45241123</li>
         <li><strong>Turnaround Time (TAT):</strong> Acknowledgement within 24 hours, resolution within 7 working days.</li>
       </ul>
 

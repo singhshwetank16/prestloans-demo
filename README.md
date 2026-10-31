@@ -71,7 +71,7 @@ The portal comprises an enterprise-grade **11-page web platform**:
    - Employee value proposition, talent development programs, and wellness benefits
    - Active job openings: Credit Manager, FinTech Full-Stack Developer, Operations Associate
    - Eloquent employee testimonials highlighting workplace empowerment, professional growth, and culture
-   - Direct resume submissions to `careers@prestloans.com`
+   - Direct resume submissions to `humans@prestloans.com`
 
 9. **[faq.html](file:///d:/Prestloans/faq.html) - Frequently Asked Questions:**
    - Instant search filter for rapid keyword discovery

@@ -2,13 +2,11 @@
   "name": "prestloans-portal",
   "version": "1.0.0",
   "description": "Prest Loans - Official NBFC Digital Lending Platform (Lord Krishna Financial Services Ltd)",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "tunnel": "npx localtunnel --port 3000",
-    "share": "node tunnel.js",
-    "share:direct": "ssh -p 443 -R0:localhost:3000 a.pinggy.io"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite"
   },
   "keywords": [
     "prest-loans",
@@ -20,12 +18,16 @@
   "author": "Prest Loans Development Team",
   "license": "ISC",
   "dependencies": {
-    "compression": "^1.8.2",
-    "cors": "^2.8.6",
-    "dotenv": "^18.0.9",
-    "ejs": "^7.0.2",
-    "express": "^5.3.0",
-    "helmet": "^8.3.0",
-    "morgan": "^1.12.1"
-  }
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "type": "module"
 }

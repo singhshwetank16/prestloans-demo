@@ -24,3 +24,8 @@ npm-debug.log*
 # Antigravity / Gemini temporary files
 .gemini/
 
+
+# Build output
+dist/
+dist-ssr/
+*.local

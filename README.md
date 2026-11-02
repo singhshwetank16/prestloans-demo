@@ -1,65 +1,75 @@
-# Prest Loans - Official Enterprise NBFC Digital Lending Portal
-**Flagship Brand of Lord Krishna Financial Services Ltd (RBI-Registered NBFC: B-14.02019)**
+# Prest Loans - Digital Lending Portal (React + Vite + TypeScript)
+**Flagship Digital Platform of Lord Krishna Financial Services Ltd (RBI-Registered NBFC: B-14.02019)**
 
 ---
 
 ## 🌟 Overview
-**Prest Loans** is a full-stack Node.js & Express digital lending portal engineered for retail borrowers, home buyers, students, MSMEs, and working professionals seeking rapid, transparent, and paperless credit solutions across India.
+**Prest Loans** is an enterprise-grade digital lending Single Page Application (SPA) built with **React**, **Vite**, **TypeScript (`.tsx`)**, and **React Router**.
 
-The platform follows a clean Model-View-Controller (MVC) architecture with reusable EJS partials, modular routing, REST API controllers, helmet security headers, and compression middleware.
+The platform is designed in strict compliance with **Reserve Bank of India (RBI)** digital lending directives, featuring instant EMI calculations, multi-product credit appraisal, real-time application tracking, corporate photo galleries, and statutory policy disclosures.
 
 ---
 
-## 📁 Clean Folder Structure
+## 📁 Clean & Modular Folder Structure
 
 ```
 prestloans/
-├── config/
-│   └── site.js                  # Central site metadata, contact info, social links, loan products
-├── controllers/
-│   ├── pageController.js        # Standard website page renders (home, about, products, media, blog)
-│   ├── careerController.js      # Career portal, available openings, employee testimonials, application handler
-│   ├── policyController.js      # Regulatory policies, grievance redressal, interest model, statutory notices
-│   └── apiController.js         # REST endpoints for live loan tracking, quick apply, EMI calculation, enquiries
-├── middleware/
-│   ├── errorHandler.js          # Custom 404 Not Found & 500 Server Error handlers
-│   └── locals.js                # Injects site config, active path, and navigation helpers into res.locals
 ├── public/
-│   ├── assets/                  # Logos, banners, team/employee pictures, documents
+│   ├── assets/                      # Official logos, team photos, gallery images, PDFs
 │   ├── css/
-│   │   └── style.css            # Responsive styles and color themes
-│   ├── js/
-│   │   ├── app.js               # Global client-side interactions, navigation & modals
-│   │   ├── calculator.js        # Dynamic EMI slider calculation & visual breakdown
-│   │   ├── policies.js          # Statutory policy modal popup logic
-│   │   ├── interest-rate-model.js # APR calculator & risk gradation model
-│   │   └── grievance-redressal.js # 4-Tier grievance escalation hierarchy
-│   ├── robots.txt               # Search engine crawler instructions
-│   └── sitemap.xml              # XML Sitemap for SEO discovery
-├── routes/
-│   ├── index.js                 # Main router mounting sub-routes & 301 legacy .html redirects
-│   ├── pages.js                 # Clean page routes (/, /about, /products, /calculator, /contact, etc.)
-│   ├── career.js                # Career routes (/career, /employee-testimonials, /career/apply)
-│   ├── policies.js              # Statutory policy routes (/policies, /grievance-redressal, etc.)
-│   └── api.js                   # JSON API endpoints (/api/track, /api/enquiry, /api/calculate-emi)
-├── views/
-│   ├── pages/                   # 24 modular EJS page templates + 404 and 500 error views
-│   └── partials/
-│       ├── _head.ejs            # Common meta tags, Google fonts, FontAwesome 6, CSS
-│       ├── _topbar.ejs          # RBI registration pill, customer care phones, social links
-│       ├── _header.ejs          # Sticky navigation bar with active state pills and mobile drawer
-│       ├── _footer.ejs          # 4-Column responsive footer with office info, links, policies, and enquiry
-│       ├── _modals.ejs          # Reusable modals: Policy viewer, Loan apply, Login, Track status, Lightbox
-│       ├── _floating.ejs        # Floating WhatsApp and Phone quick action buttons
-│       └── _scripts.ejs         # Global scripts tag includes
-├── .env                         # Local environment configuration
-├── .env.example                 # Example template for deployment
-├── .gitignore                   # Git ignore patterns
-├── app.js                       # Express application initialization & middleware setup
-├── package.json                 # Node.js project manifest & dependencies
-├── README.md                    # Project documentation
-├── server.js                    # HTTP server startup entrypoint
-└── tunnel.js                    # Remote testing tunnel helper
+│   │   └── style.css                # Global responsive stylesheets
+│   ├── robots.txt                   # Search crawler directives
+│   ├── sitemap.xml                  # XML sitemap
+│   └── favicon.ico                  # Site favicon
+├── src/
+│   ├── components/                  # Reusable UI Components (.tsx)
+│   │   ├── TopBar.tsx               # Top statutory bar with RBI pill, helplines & social links
+│   │   ├── Header.tsx               # Main sticky navigation, dropdowns & mobile drawer
+│   │   ├── Footer.tsx               # 4-Column responsive footer, office info & enquiry form
+│   │   ├── Layout.tsx               # Global page layout wrapping TopBar, Header, Footer & Modals
+│   │   ├── FloatingActions.tsx      # Floating WhatsApp & Phone quick-action buttons
+│   │   ├── Modals.tsx               # Loan application, Login, Track status, Lightbox & Career modals
+│   │   ├── EmiCalculator.tsx        # Interactive dynamic loan EMI calculator widget
+│   │   └── ScrollToTop.tsx          # Smooth route & anchor (#testimonials) scrolling
+│   ├── config/
+│   │   └── site.ts                  # Central site branding, contact numbers, social media & loan products
+│   ├── data/
+│   │   ├── employees.ts             # Employee testimonials data (quotes, designations, photos/badges)
+│   │   └── positions.ts             # Career job openings (Manager – Credit Products)
+│   ├── pages/                       # 25 Complete Page Components (.tsx)
+│   │   ├── Home.tsx                 # /
+│   │   ├── About.tsx                # /about
+│   │   ├── Products.tsx             # /products (#education-loan, #personal-loan, etc.)
+│   │   ├── Calculator.tsx           # /calculator
+│   │   ├── Career.tsx               # /career (#openings, #testimonials)
+│   │   ├── CustomersStories.tsx     # /customers-stories
+│   │   ├── EmployeeTestimonials.tsx # /employee-testimonials
+│   │   ├── Media.tsx                # /media
+│   │   ├── Gallery.tsx              # /gallery
+│   │   ├── Blog.tsx                 # /blog
+│   │   ├── Faq.tsx                  # /faq
+│   │   ├── Contact.tsx              # /contact
+│   │   ├── Policies.tsx             # /policies
+│   │   ├── GrievanceRedressal.tsx   # /grievance-redressal (RB-IOS 2026)
+│   │   ├── InterestRateModel.tsx    # /interest-rate-model (18% Base Rate & Charges)
+│   │   ├── FairPracticesCode.tsx    # /fair-practices-code
+│   │   ├── KycAndAml.tsx            # /kyc-and-aml
+│   │   ├── PenalChargesPolicy.tsx   # /penal-charges-policy
+│   │   ├── RegulatoryCertifications.tsx # /regulatory-certifications
+│   │   ├── PublicNotice.tsx         # /public-notice
+│   │   ├── PrivacyPolicy.tsx        # /privacy-policy
+│   │   ├── TermsAndConditions.tsx   # /terms-and-conditions
+│   │   ├── TermsOfUse.tsx           # /terms-of-use
+│   │   ├── Disclaimer.tsx           # /disclaimer
+│   │   └── NotFound.tsx             # 404 Catch-All
+│   ├── App.tsx                      # React Router routes & legacy .html redirects
+│   ├── main.tsx                     # React DOM client entrypoint
+│   └── vite-env.d.ts                # TypeScript Vite client environment types
+├── index.html                       # Vite HTML root template
+├── package.json                     # React, Vite, TypeScript & React Router dependencies
+├── tsconfig.json                    # TypeScript compiler configuration
+├── tsconfig.node.json
+└── vite.config.ts                   # Vite configuration with @vitejs/plugin-react
 ```
 
 ---
@@ -75,55 +85,46 @@ prestloans/
 npm install
 ```
 
-### 3. Environment Configuration
-Copy `.env.example` to `.env` and set your preferred port:
+### 3. Development Server
+Start the local Vite development server with Hot Module Replacement (HMR):
 ```bash
-PORT=3000
-NODE_ENV=development
-BASE_URL=http://localhost:3000
-```
-
-### 4. Running the Application
-```bash
-# Start Node.js server
-npm start
-
-# Or with dev script
 npm run dev
+# or
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 4. Production Build
+Type-check with `tsc` and create an optimized production build:
+```bash
+npm run build
+```
+Preview the production build locally:
+```bash
+npm run preview
 ```
 
-Visit `http://localhost:3000` in your browser.
+---
+
+## 🔗 Key Navigation & Link Behaviors
+
+1. **Career Hero Pill Button (`💬 Employee Testimonials`)**:
+   - In `src/pages/Career.tsx`: Links directly to `/employee-testimonials` ("Employee's Testimonials & Stories" page).
+2. **Footer Link (`Employee Testimonials`)**:
+   - In `src/components/Footer.tsx`: Links to `/career#testimonials` (Career page testimonials section with smooth scrolling).
+3. **Available Positions**:
+   - Configured in `src/data/positions.ts` with the single opening: `Manager – Credit (Products)`.
+   - Contact email: `humans@prestloans.com`.
+4. **Social Media Links**:
+   - Official Facebook, X, LinkedIn, YouTube, and Instagram links configured across Header top bar, mobile menu, and Footer.
 
 ---
 
-## 🔗 Key Routes & Navigation
-- **Homepage**: `/`
-- **About Us**: `/about`
-- **Products**: `/products`
-- **EMI Calculator**: `/calculator`
-- **Customers' Stories**: `/customers-stories`
-- **Career Portal**: `/career`
-- **Employee Testimonials**: `/employee-testimonials`
-- **Media & Press**: `/media`
-- **Photo Gallery**: `/gallery`
-- **Blog**: `/blog`
-- **FAQ**: `/faq`
-- **Contact Us**: `/contact`
-- **Regulatory Policies**: `/policies`
-- **Grievance Redressal (RB-IOS 2026)**: `/grievance-redressal`
-- **Interest Rate Model**: `/interest-rate-model`
-
-*Legacy URLs ending in `.html` (e.g. `/career.html`, `/about.html`, `/index.html`) automatically issue a 301 Permanent Redirect to their clean URL counterpart.*
-
----
-
-## 🛡️ Statutory Regulatory Disclosures
-Prest Loans is the trade name of **Lord Krishna Financial Services Ltd**, a Non-Banking Financial Company (NBFC) registered with the Reserve Bank of India:
+## 🛡️ Statutory NBFC Disclosures
+Prest Loans is the trade name of **Lord Krishna Financial Services Ltd**:
 - **RBI Registration No.**: B-14.02019
-- **Corporate Identity Number (CIN)**: U65993DL1992PLC049609 / U74899DL1992PLC047069
 - **Registered Office**: M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002
-- **Helpline Numbers**: `011-45241131` | `011-45241123`
+- **Helplines**: `011-45241131` | `011-45241123`
 - **WhatsApp Support**: `+91-9711669090`
-- **Support Email**: `loan@prestloans.com`
-- **HR & Talent Email**: `humans@prestloans.com`
-- **Grievance Officer**: `nodal.officer@prestloans.com`
+- **Customer Support**: `loan@prestloans.com`
+- **Talent Acquisition**: `humans@prestloans.com`

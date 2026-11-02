@@ -1,0 +1,99 @@
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main-grid">
+        <!-- Column 1: Registered Office -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Registered Office</h4>
+          <div class="footer-logo-badge">
+            <img src="/assets/logo/logo.png" alt="Prest Loans Logo">
+          </div>
+          <ul class="office-info-list">
+            <li class="office-info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>M5-M6, Essel House,<br>10 Asaf Ali Road,<br>New Delhi - 110002</span>
+            </li>
+            <li class="office-info-item">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:<%= site.contact.emails.support %>"><%= site.contact.emails.support %></a>
+            </li>
+            <li class="office-info-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <% site.contact.phones.forEach(function(p) { %>
+                  <a href="<%= p.href %>"><%= p.display %></a><br>
+                <% }); %>
+              </div>
+            </li>
+            <li class="office-info-item whatsapp-link">
+              <i class="fa-brands fa-whatsapp"></i>
+              <a href="<%= site.contact.whatsapp.href %>" target="_blank" rel="noopener"><%= site.contact.whatsapp.display %></a>
+            </li>
+          </ul>
+          <div class="footer-social-wrap">
+            <span class="footer-social-title">Follow Us</span>
+            <div class="footer-social-links">
+              <% site.socials.forEach(function(s) { %>
+              <a href="<%= s.url %>" target="_blank" rel="noopener noreferrer" class="footer-social-btn <%= s.key %>" title="<%= s.name %>" aria-label="<%= s.name %>"><i class="<%= s.icon %>"></i></a>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Useful Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Useful Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="/calculator">EMI Calculator</a></li>
+            <li><a href="/customers-stories">Customers' Stories</a></li>
+            <li><a href="/career#testimonials">Employee Testimonials</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact us</a></li>
+            <li><a href="/public-notice">Public Notice</a></li>
+            <li><a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">Sachet RBI</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Policies -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Policies</h4>
+          <ul class="footer-links-list">
+            <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+            <li><a href="/terms-of-use">Terms Of Use</a></li>
+            <li><a href="/privacy-policy">Privacy policy</a></li>
+            <li><a href="/fair-practices-code">Fair Practices Code</a></li>
+            <li><a href="/penal-charges-policy">Penal Charges Policy</a></li>
+            <li><a href="/kyc-and-aml">KYC &amp; AML</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+            <li><a href="/grievance-redressal">Grievance Redressal Mechanism</a></li>
+            <li><a href="/regulatory-certifications">Regulatory Certifications</a></li>
+            <li><a href="/interest-rate-model">Interest Rate Model and Schedule of Charges</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Enquiry Form -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Enquiry Form</h4>
+          <form id="footer-enquiry-form" class="footer-enquiry-form" method="POST" action="/api/enquiry">
+            <input type="text" id="footer-enq-name" name="name" class="form-control-dark" placeholder="Name" required>
+            <input type="tel" id="footer-enq-phone" name="phone" class="form-control-dark" placeholder="Contact Number"
+              pattern="[0-9]{10}" required>
+            <input type="email" id="footer-enq-email" name="email" class="form-control-dark" placeholder="Email" required>
+            <input type="text" id="footer-enq-location" name="location" class="form-control-dark" placeholder="Location">
+            <textarea id="footer-enq-msg" name="message" class="form-control-dark" placeholder="Enquiry"></textarea>
+            <button type="submit" class="btn-footer-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Disclaimer -->
+      <div class="footer-bottom-bar">
+        <p class="rbi-disclaimer-text">
+          Prest Loans is a trade name of “<%= site.legalName %>” a Non-Banking Finance Company registered with RBI.
+        </p>
+        <p class="copyright-sub">
+          CIN: <%= site.cin %> | RBI Certificate of Registration: <%= site.rbiRegNo %> | © <%= year %> <%= site.name %>. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>

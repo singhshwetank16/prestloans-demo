@@ -1,113 +1,129 @@
 # Prest Loans - Official Enterprise NBFC Digital Lending Portal
-**Flagship Brand of Lord Krishna Financial Services Ltd (RBI-Registered NBFC)**
+**Flagship Brand of Lord Krishna Financial Services Ltd (RBI-Registered NBFC: B-14.02019)**
 
 ---
 
 ## 🌟 Overview
-**Prest Loans** is a state-of-the-art, high-conversion, multi-page digital lending portal engineered for retail borrowers, home buyers, students, and working professionals seeking rapid, paperless credit solutions.
+**Prest Loans** is a full-stack Node.js & Express digital lending portal engineered for retail borrowers, home buyers, students, MSMEs, and working professionals seeking rapid, transparent, and paperless credit solutions across India.
 
-The platform is designed in strict compliance with **Reserve Bank of India (RBI) Master Directions** and Digital Lending Guidelines. It integrates sophisticated user journeys, interactive EMI calculation tools, dedicated financial products, authentic customer testimonials, corporate governance standards, and comprehensive statutory disclosures.
-
----
-
-## 📑 Multi-Page Structure & Architecture
-
-The portal comprises an enterprise-grade **11-page web platform**:
-
-1. **[index.html](file:///d:/Prestloans/index.html) - Home Page:**
-   - Dynamic hero showcase with quick quotation and pre-qualification application form
-   - Real-time interactive Loan Calculator featuring custom purple-to-orange brand gradients
-   - Curated product highlights and credit parameters
-   - Institutional trust metrics (₹500+ Cr Disbursed, 25,000+ Borrowers, 48-Hour Disbursal TAT)
-   - Verified borrower success testimonials with smooth marquee ticker animation
-   - Strategic ecosystem partners marquee
-   - Statutory footer with registered office credentials and nodal officer contacts
-
-2. **[about.html](file:///d:/Prestloans/about.html) - About Us:**
-   - 30+ years institutional legacy of Lord Krishna Financial Services Ltd (Incorporated in 1992)
-   - RBI Certificate of Registration: **B-14.02019** | Corporate CIN: **U65993DL1992PLC049609**
-   - Corporate mission, vision, and core lending values
-   - **Board of Directors:** Ashok Mittal (Founder & Director), Mamta Mittal (MD), Manish Poddar, Sandeep Saini, Naresh Goyal
-   - **Advisory Board:** Rajiv Kishore Dubey (Former CMD Canara Bank), Deepak Arora (ICSI Fellow & IBBI), Amit Garg (MD SR TEKBOX, IIT Bombay), Sandeep Singal (Ex-BSE & Edelweiss)
-   - **Thought Leadership:** Founder's published book *"The Fintech Entrepreneur's Guide"* with direct acquisition links
-   - Interactive corporate milestones timeline (1992 – 2026)
-
-3. **[products.html](file:///d:/Prestloans/products.html) - Loan Products:**
-   - **Business Loans:** Collateral-free working capital and growth credit up to ₹50 Lakhs
-   - **Home Loans:** Affordable residential housing credit up to ₹50 Lakhs
-   - **Coaching & Skill Development / Education Loans:** Academic upskilling and higher studies financing
-   - **Personal Loans:** Collateral-free personal credit for salaried and working individuals
-   - **Short Term Personal Loans (STPL):** Emergency liquidity and short-term cash requirements
-   - Complete underwriting eligibility criteria, documentation checklists, and instant application portals
-
-4. **[calculator.html](file:///d:/Prestloans/calculator.html) - Dedicated Loan Calculator:**
-   - Brand-tailored reducing-balance EMI calculator
-   - Dual-mode input controls (numerical entry and smooth responsive sliders)
-   - Real-time computation of Monthly Installment (EMI), Total Interest Outgo, and Aggregate Repayment
-   - Visual Principal vs. Interest allocation bar
-   - Indicative year-by-year amortization schedule
-   - Actuarial reducing-balance EMI formula documentation
-
-5. **[customers-stories.html](file:///d:/Prestloans/customers-stories.html) - Borrower Success Stories:**
-   - Authentic case studies featuring verified borrower profiles from `assets/testimonials/`:
-     - *Rajeev Khetan* (Wholesale Distribution, Delhi NCR)
-     - *Parmeshwar Sharma* (Industrial Parts Manufacturing, Haryana)
-     - *Rajesh Kumar Patwa* (Retail Enterprise, Rajasthan)
-     - *Raj Kumar* (Automotive Workshop & Fabrication, Punjab)
-     - *Shiv Narayan Paul* (Fleet & Logistics Operator, Uttar Pradesh)
-     - *Rajesh Sharma* (Textile Merchant, Delhi)
-   - Verified ratings, key turnover impact milestones, and borrower spotlight feedback channel
-
-6. **[media.html](file:///d:/Prestloans/media.html) - Media & Press Coverage:**
-   - National business and financial press features (`assets/press/`): *The Economic Times*, *Business Standard*, *Business World*, *ANI News*, *DNA*, *ThePrint*, *Outlook Magazine*, *VCCircle*, *SME Post*, *Dailyhunt*
-   - Curated press releases, milestone achievements, and PR announcements
-
-7. **[gallery.html](file:///d:/Prestloans/gallery.html) - Photo Gallery:**
-   - Curated photo archive from `assets/gallery/photo_gallery/`
-   - Real-time category filtering: All Moments, Team & Culture, Customer Meets & Awards, Head Office & Branches
-   - Interactive modal lightbox with high-resolution view and descriptive captions
-
-8. **[career.html](file:///d:/Prestloans/career.html) - Careers & Corporate Culture:**
-   - Employee value proposition, talent development programs, and wellness benefits
-   - Active job openings: Credit Manager, FinTech Full-Stack Developer, Operations Associate
-   - Eloquent employee testimonials highlighting workplace empowerment, professional growth, and culture
-   - Direct resume submissions to `humans@prestloans.com`
-
-9. **[faq.html](file:///d:/Prestloans/faq.html) - Frequently Asked Questions:**
-   - Instant search filter for rapid keyword discovery
-   - Authoritative accordion explanations covering RBI licensing, eligibility rules, e-NACH mandate protocols, zero foreclosure charges, and customer grievance mechanisms
-
-10. **[contact.html](file:///d:/Prestloans/contact.html) - Contact Us & Registered Office:**
-    - Official Registered Office address: M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002
-    - Direct corporate lines: 011-45241131, 011-45241123
-    - Official customer care WhatsApp support (+91-9711669090)
-    - Interactive inquiry submission and lead generation form
-
-11. **[policies.html](file:///d:/Prestloans/policies.html) - Regulatory Policies & Disclosures:**
-    - Sticky navigation sidebar with statutory compliance documents:
-      1. Terms & Conditions
-      2. Terms Of Use
-      3. Privacy Policy (Adherence to DPDP Act & RBI Digital Lending Guidelines)
-      4. Fair Practices Code (FPC)
-      5. Penal Charges Policy (RBI/2023-24/53)
-      6. KYC & Anti-Money Laundering (AML) Policy (PMLA 2002)
-      7. Public Caution & Anti-Fraud Disclaimer
-      8. Grievance Redressal Mechanism & RBI Ombudsman Details
-      9. Corporate Certifications (RBI Registration & MCA Filings)
-      10. Interest Rate Model & Schedule of Benchmark Charges
+The platform follows a clean Model-View-Controller (MVC) architecture with reusable EJS partials, modular routing, REST API controllers, helmet security headers, and compression middleware.
 
 ---
 
-## 🚀 How to Run Locally
+## 📁 Clean Folder Structure
 
-### Option 1: Native Node.js Server
-```bash
-npm start
-# Alternatively
-node server.js
 ```
-Open in your browser:
-**`http://localhost:3000`**
+prestloans/
+├── config/
+│   └── site.js                  # Central site metadata, contact info, social links, loan products
+├── controllers/
+│   ├── pageController.js        # Standard website page renders (home, about, products, media, blog)
+│   ├── careerController.js      # Career portal, available openings, employee testimonials, application handler
+│   ├── policyController.js      # Regulatory policies, grievance redressal, interest model, statutory notices
+│   └── apiController.js         # REST endpoints for live loan tracking, quick apply, EMI calculation, enquiries
+├── middleware/
+│   ├── errorHandler.js          # Custom 404 Not Found & 500 Server Error handlers
+│   └── locals.js                # Injects site config, active path, and navigation helpers into res.locals
+├── public/
+│   ├── assets/                  # Logos, banners, team/employee pictures, documents
+│   ├── css/
+│   │   └── style.css            # Responsive styles and color themes
+│   ├── js/
+│   │   ├── app.js               # Global client-side interactions, navigation & modals
+│   │   ├── calculator.js        # Dynamic EMI slider calculation & visual breakdown
+│   │   ├── policies.js          # Statutory policy modal popup logic
+│   │   ├── interest-rate-model.js # APR calculator & risk gradation model
+│   │   └── grievance-redressal.js # 4-Tier grievance escalation hierarchy
+│   ├── robots.txt               # Search engine crawler instructions
+│   └── sitemap.xml              # XML Sitemap for SEO discovery
+├── routes/
+│   ├── index.js                 # Main router mounting sub-routes & 301 legacy .html redirects
+│   ├── pages.js                 # Clean page routes (/, /about, /products, /calculator, /contact, etc.)
+│   ├── career.js                # Career routes (/career, /employee-testimonials, /career/apply)
+│   ├── policies.js              # Statutory policy routes (/policies, /grievance-redressal, etc.)
+│   └── api.js                   # JSON API endpoints (/api/track, /api/enquiry, /api/calculate-emi)
+├── views/
+│   ├── pages/                   # 24 modular EJS page templates + 404 and 500 error views
+│   └── partials/
+│       ├── _head.ejs            # Common meta tags, Google fonts, FontAwesome 6, CSS
+│       ├── _topbar.ejs          # RBI registration pill, customer care phones, social links
+│       ├── _header.ejs          # Sticky navigation bar with active state pills and mobile drawer
+│       ├── _footer.ejs          # 4-Column responsive footer with office info, links, policies, and enquiry
+│       ├── _modals.ejs          # Reusable modals: Policy viewer, Loan apply, Login, Track status, Lightbox
+│       ├── _floating.ejs        # Floating WhatsApp and Phone quick action buttons
+│       └── _scripts.ejs         # Global scripts tag includes
+├── .env                         # Local environment configuration
+├── .env.example                 # Example template for deployment
+├── .gitignore                   # Git ignore patterns
+├── app.js                       # Express application initialization & middleware setup
+├── package.json                 # Node.js project manifest & dependencies
+├── README.md                    # Project documentation
+├── server.js                    # HTTP server startup entrypoint
+└── tunnel.js                    # Remote testing tunnel helper
+```
 
-### Option 2: Direct Browser Launch
-Any page (e.g. `index.html`, `about.html`, `products.html`) can be opened directly in any modern web browser.
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- **Node.js**: v18.0.0 or higher
+- **npm**: v9.0.0 or higher
+
+### 2. Installation
+```bash
+npm install
+```
+
+### 3. Environment Configuration
+Copy `.env.example` to `.env` and set your preferred port:
+```bash
+PORT=3000
+NODE_ENV=development
+BASE_URL=http://localhost:3000
+```
+
+### 4. Running the Application
+```bash
+# Start Node.js server
+npm start
+
+# Or with dev script
+npm run dev
+```
+
+Visit `http://localhost:3000` in your browser.
+
+---
+
+## 🔗 Key Routes & Navigation
+- **Homepage**: `/`
+- **About Us**: `/about`
+- **Products**: `/products`
+- **EMI Calculator**: `/calculator`
+- **Customers' Stories**: `/customers-stories`
+- **Career Portal**: `/career`
+- **Employee Testimonials**: `/employee-testimonials`
+- **Media & Press**: `/media`
+- **Photo Gallery**: `/gallery`
+- **Blog**: `/blog`
+- **FAQ**: `/faq`
+- **Contact Us**: `/contact`
+- **Regulatory Policies**: `/policies`
+- **Grievance Redressal (RB-IOS 2026)**: `/grievance-redressal`
+- **Interest Rate Model**: `/interest-rate-model`
+
+*Legacy URLs ending in `.html` (e.g. `/career.html`, `/about.html`, `/index.html`) automatically issue a 301 Permanent Redirect to their clean URL counterpart.*
+
+---
+
+## 🛡️ Statutory Regulatory Disclosures
+Prest Loans is the trade name of **Lord Krishna Financial Services Ltd**, a Non-Banking Financial Company (NBFC) registered with the Reserve Bank of India:
+- **RBI Registration No.**: B-14.02019
+- **Corporate Identity Number (CIN)**: U65993DL1992PLC049609 / U74899DL1992PLC047069
+- **Registered Office**: M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002
+- **Helpline Numbers**: `011-45241131` | `011-45241123`
+- **WhatsApp Support**: `+91-9711669090`
+- **Support Email**: `loan@prestloans.com`
+- **HR & Talent Email**: `humans@prestloans.com`
+- **Grievance Officer**: `nodal.officer@prestloans.com`

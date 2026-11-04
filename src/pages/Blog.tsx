@@ -1,7 +1,63 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BLOG_ARTICLES_DATABASE } from '../data/blogArticles';
 
 export const Blog: React.FC = () => {
+  const [selectedArticleId, setSelectedArticleId] = useState<number | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3200);
+  };
+
+  const copyShareLink = (id: number, title: string) => {
+    const url = `${window.location.origin}${window.location.pathname}?id=${id}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast(`Link copied: ${title}`);
+      }).catch(() => {
+        showToast('Link copied to clipboard!');
+      });
+    } else {
+      showToast('Link copied to clipboard!');
+    }
+  };
+
   useEffect(() => {
+    (window as any).openArticleModal = (id: number) => {
+      setSelectedArticleId(id);
+    };
+    (window as any).closeArticleModal = () => {
+      setSelectedArticleId(null);
+    };
+    (window as any).shareArticle = (id: number, title: string) => {
+      copyShareLink(id, title);
+    };
+    (window as any).openLoanModal = () => {
+      const modal = document.getElementById('loan-app-modal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+    (window as any).handleNewsletterSubmit = (e: any) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const emailInput = document.getElementById('nl-email') as HTMLInputElement;
+      if (emailInput && emailInput.value) {
+        showToast(`Thank you! ${emailInput.value} subscribed to weekly insights.`);
+        emailInput.value = '';
+      }
+    };
+
+    // Check URL params for ?id=30
+    const params = new URLSearchParams(window.location.search);
+    const idParam = params.get('id');
+    if (idParam && BLOG_ARTICLES_DATABASE[parseInt(idParam, 10)]) {
+      setSelectedArticleId(parseInt(idParam, 10));
+    }
+
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
     }
@@ -9,6 +65,30 @@ export const Blog: React.FC = () => {
       (window as any).initCalculators();
     }
   }, []);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedArticleId !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedArticleId]);
+
+  // Keyboard Escape listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedArticleId !== null) {
+        setSelectedArticleId(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedArticleId]);
+
 
   return (
     <>
@@ -65,7 +145,7 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
               capital stress.
                           </p>
               <div className="blog-featured-actions">
-                <button className="btn-primary" onClick={(event) => { try { (new Function('event', "openArticleModal(30)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-primary" onClick={() => setSelectedArticleId(30)}>
                   <i className="fa-solid fa-book-open-reader"></i>
  Read Full Article
                               </button>
@@ -101,11 +181,11 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
               modern and energy-efficient manufacturing machinery.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(30)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(30)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(30, 'Credit Linked Capital Subsidy for Technology Upgradation')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(30, 'Credit Linked Capital Subsidy for Technology Upgradation')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -133,11 +213,11 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
               technology and wholesale inventories using fast capital from Prest Loans.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(29)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(29)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(29, 'A Grocery Owner’s Dream Comes True')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(29, 'A Grocery Owner’s Dream Comes True')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -166,11 +246,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               marketplaces, credit reporting obligations, and borrower safeguards.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(28)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(28)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(28, 'RBI Directive: P2P Lending Platforms')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(28, 'RBI Directive: P2P Lending Platforms')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -198,11 +278,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               alternate data and fast approvals to bridge the MSME funding gap.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(27)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(27)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(27, 'NBFCs: Solving the MSME Credit Deficit')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(27, 'NBFCs: Solving the MSME Credit Deficit')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -230,11 +310,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               shopkeepers to outcompete modern hypermarkets.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(26)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(26)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(26, 'Fulfilling Dreams for Kirana Stores')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(26, 'Fulfilling Dreams for Kirana Stores')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -262,11 +342,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               fast business expansion financing from Prest Loans.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(25)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(25)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(25, 'Prest Loans Gives Wings to Karate School')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(25, 'Prest Loans Gives Wings to Karate School')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -294,11 +374,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               underwriting, quick turnaround, and deep credit penetration.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(24)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(24)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(24, 'NBFCs Surging Ahead')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(24, 'NBFCs Surging Ahead')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -326,11 +406,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               commitment to supporting resilient enterprises across India.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(23)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(23)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(23, 'Honoring Kargil Vijay Diwas')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(23, 'Honoring Kargil Vijay Diwas')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -358,11 +438,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               essential for competitive retail dominance.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(22)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(22)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(22, 'Advent of Quick Financing')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(22, 'Advent of Quick Financing')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -390,11 +470,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               higher loan amounts, and tax deduction on interest paid.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(21)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(21)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(21, 'Taxes and Credit Limits')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(21, 'Taxes and Credit Limits')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -422,11 +502,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               accessible capital empower women entrepreneurs to excel.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(20)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(20)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(20, 'Story of Veena’s Style Boutique')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(20, 'Story of Veena’s Style Boutique')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -454,11 +534,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               credit empowerment is accelerating regional manufacturing.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(19)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(19)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(19, 'Enabling MSME Business in India')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(19, 'Enabling MSME Business in India')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -486,11 +566,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               directly to small shopkeepers and service artisans.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(18)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(18)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(18, 'Transforming Lives through PMMY')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(18, 'Transforming Lives through PMMY')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -518,11 +598,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               secure loan approval even if past credit scores are low.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(17)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(17)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(17, 'How to Get a Loan Despite Negative CIBIL')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(17, 'How to Get a Loan Despite Negative CIBIL')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -550,11 +630,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               लेनदेन और ऋण प्रक्रिया से व्यापार में नई गति।
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(16)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(16)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(16, 'MSMEs पर डिजिटलाइज़ेशन का प्रभाव')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(16, 'MSMEs पर डिजिटलाइज़ेशन का प्रभाव')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -582,11 +662,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               practice codes driving transparency in lending.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(15)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(15)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(15, 'Impact of RBI Guidelines on NBFCs')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(15, 'Impact of RBI Guidelines on NBFCs')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -614,11 +694,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               क्षेत्र के तहत रियायती दरों पर ऋण की सम्पूर्ण जानकारी।
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(14)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(14)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(14, 'MSME सरकारी वेब पोर्टल')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(14, 'MSME सरकारी वेब पोर्टल')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -646,11 +726,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               fabrication units at the bottom of the pyramid.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(13)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(13)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(13, 'Trends in Industrial Micro-Finance')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(13, 'Trends in Industrial Micro-Finance')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -678,11 +758,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               allow entrepreneurs to retain 100% company ownership.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(12)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(12)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(12, 'Structured Loans for Growth')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(12, 'Structured Loans for Growth')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -710,11 +790,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               algorithm-driven paperless finance customized for MSMEs.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(11)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(11)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(11, 'Traditional vs New Age Finance')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(11, 'Traditional vs New Age Finance')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -742,11 +822,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               access for millions of underserved borrowers.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(10)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(10)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(10, 'Why FinTech Will Disrupt SME Lending')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(10, 'Why FinTech Will Disrupt SME Lending')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -774,11 +854,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               Tax Credits and optimize operational liquidity.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(9)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(9)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(9, 'Staying Ahead in GST Compliance')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(9, 'Staying Ahead in GST Compliance')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -806,11 +886,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               transparency and total customer data privacy.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(8)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(8)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(8, 'Facts About Online Lending')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(8, 'Facts About Online Lending')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -838,11 +918,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               stock, multiplying local economic velocity.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(5)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(5)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(5, 'Role of NBFCs in Micro Enterprises')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(5, 'Role of NBFCs in Micro Enterprises')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -870,11 +950,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               specialized institutional credit partners.
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(4)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(4)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(4, 'The Smart Way to Get Loans')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(4, 'The Smart Way to Get Loans')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -902,11 +982,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               सकते हैं और बैंकों से आसानी से ऋण प्राप्त कर सकते हैं।
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(3)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(3)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(3, 'जीएसटी को बनाएं फायदे का सौदा')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(3, 'जीएसटी को बनाएं फायदे का सौदा')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -934,11 +1014,11 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
               चंगुल से मुक्ति और आसान डिजिटल समाधान।
                           </p>
               <div className="blog-card-footer">
-                <button className="btn-read-modal" onClick={(event) => { try { (new Function('event', "openArticleModal(2)")).call(event.currentTarget, event); } catch(e) {} }}>
+                <button className="btn-read-modal" onClick={() => setSelectedArticleId(2)}>
 
                 Read Full Article                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
-                <button className="btn-share-icon" onClick={(event) => { try { (new Function('event', "shareArticle(2, 'छोटे व्यापारियों की समस्याएं व समाधान')")).call(event.currentTarget, event); } catch(e) {} }} title="Share Article">
+                <button className="btn-share-icon" onClick={() => copyShareLink(2, 'छोटे व्यापारियों की समस्याएं व समाधान')} title="Share Article">
                   <i className="fa-solid fa-share-nodes"></i>
                 </button>
               </div>
@@ -1005,12 +1085,73 @@ Calculate your monthly EMI or apply online with
       </div>
     </section>
     {/* MODAL ARTICLE READER (Magazine Reading Experience) */}
-    {/* TOAST NOTIFICATION */}
-    <div className="blog-toast" id="blog-toast">
-      <i className="fa-solid fa-circle-check"></i>
-       <span id="blog-toast-msg">Link copied to clipboard!</span>
-    </div>
-    {/* SITE FOOTER */}
+      {selectedArticleId !== null && BLOG_ARTICLES_DATABASE[selectedArticleId] && (
+        <div 
+          className="blog-modal-backdrop active" 
+          id="article-reader-modal" 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setSelectedArticleId(null);
+            }
+          }}
+        >
+          <div className="blog-modal-box" id="article-reader-box">
+            <button 
+              type="button"
+              className="blog-modal-close" 
+              onClick={() => setSelectedArticleId(null)} 
+              title="Close (Esc)"
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+
+            <div className="blog-modal-hero">
+              <span className="blog-modal-tag" id="reader-category">
+                {BLOG_ARTICLES_DATABASE[selectedArticleId].category}
+              </span>
+              <h2 className="blog-modal-title" id="reader-title">
+                {BLOG_ARTICLES_DATABASE[selectedArticleId].title}
+              </h2>
+              <div className="blog-modal-meta-row">
+                <span className="blog-meta-item">
+                  <i className="fa-regular fa-calendar"></i>{' '}
+                  <span id="reader-date">{BLOG_ARTICLES_DATABASE[selectedArticleId].date}</span>
+                </span>
+                <span className="blog-meta-item">
+                  <i className="fa-regular fa-clock"></i>{' '}
+                  <span id="reader-time">{BLOG_ARTICLES_DATABASE[selectedArticleId].time}</span>
+                </span>
+                <span className="blog-meta-item">
+                  <i className="fa-solid fa-user-pen"></i>{' '}
+                  <span id="reader-author">{BLOG_ARTICLES_DATABASE[selectedArticleId].author}</span>
+                </span>
+                <button 
+                  type="button"
+                  className="btn-read-modal" 
+                  id="reader-share-btn" 
+                  style={{ marginLeft: 'auto' }}
+                  onClick={() => copyShareLink(selectedArticleId, BLOG_ARTICLES_DATABASE[selectedArticleId].title)}
+                >
+                  <i className="fa-solid fa-share-nodes"></i> Share
+                </button>
+              </div>
+            </div>
+
+            <div 
+              className="blog-modal-body" 
+              id="reader-body"
+              dangerouslySetInnerHTML={{ __html: BLOG_ARTICLES_DATABASE[selectedArticleId].content }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* TOAST NOTIFICATION */}
+      <div className={`blog-toast ${toastMessage ? 'show' : ''}`} id="blog-toast">
+        <i className="fa-solid fa-circle-check"></i>
+        <span id="blog-toast-msg">{toastMessage || 'Link copied to clipboard!'}</span>
+      </div>
+      {/* SITE FOOTER */}
     {/* FLOATING ACTIONS */}
     {/* GLOBAL MODALS */}
     {/* SCRIPTS */}

@@ -1,194 +1,189 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { siteConfig } from '../config/site';
+import React, { useEffect } from 'react';
 
 export const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    subject: 'General Loan Inquiry',
-    message: ''
-  });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      setFormData({ name: '', phone: '', email: '', subject: 'General Loan Inquiry', message: '' });
-    }, 4000);
-  };
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
+    }
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
 
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Contact Us</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Get in Touch With Us</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Our loan specialists and customer relationship team are here to assist with every inquiry.
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* PAGE HERO BANNER */}
+    <section className="page-banner">
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+           <span>Contact Us</span>
         </div>
-      </section>
+        <h1 className="page-banner-title">Contact & Registered Office</h1>
+        <p className="page-banner-sub">
 
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
-            {/* Contact Information Cards */}
-            <div>
-              <span className="section-tag">Reach Out Directly</span>
-              <h2 style={{ fontSize: '2rem', color: '#1e293b', fontWeight: 800, margin: '8px 0 24px' }}>
-                We Are Here to Help
-              </h2>
+        Get in touch with our loan advisory desk, relationship managers, or visit our registered corporate headquarters in New Delhi.
+              </p>
+      </div>
+    </section>
+    {/* CONTACT GRID SECTION */}
+    <section className="section">
+      <div className="container">
+        <div className="contact-grid">
+          {/* Contact Details Card */}
+          <div className="contact-card-box">
+            <span className="section-tag" style={{"marginBottom":"12px"}}>Get In Touch</span>
+            <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","marginBottom":"20px"}}>Corporate & Registered Headquarters</h2>
+            <p style={{"color":"#475569","fontSize":"0.9375rem","lineHeight":"1.7","marginBottom":"28px"}}>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
-                <div style={{ display: 'flex', gap: '16px', background: '#f8fafc', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ width: '45px', height: '45px', borderRadius: '12px', background: '#fff1ec', color: '#f05a28', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>
-                    <i className="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1rem', color: '#1e293b', fontWeight: 700, margin: '0 0 4px' }}>Registered Office</h4>
-                    <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>
-                      M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002, India
-                    </p>
-                  </div>
+            Whether you have an inquiry regarding home loans, personal loans, partner onboarding, or customer support, our executive team is here to assist.
+                      </p>
+            <div style={{"display":"flex","flexDirection":"column","gap":"20px"}}>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"#fdf2f8","color":"var(--primary-purple)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","flexShrink":"0"}}>
+                  <i className="fa-solid fa-building"></i>
                 </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Corporate Office</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
 
-                <div style={{ display: 'flex', gap: '16px', background: '#f8fafc', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ width: '45px', height: '45px', borderRadius: '12px', background: '#dbeafe', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>
-                    <i className="fa-solid fa-phone"></i>
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1rem', color: '#1e293b', fontWeight: 700, margin: '0 0 4px' }}>Customer Care Helplines</h4>
-                    <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>
-                      <a href="tel:+911145241131" style={{ color: '#1e293b', fontWeight: 600 }}>011-45241131</a> &nbsp;|&nbsp;
-                      <a href="tel:+911145241123" style={{ color: '#1e293b', fontWeight: 600 }}>011-45241123</a>
-                    </p>
-                    <div style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '4px' }}>
-                      <i className="fa-regular fa-clock"></i> {siteConfig.contact.timings}
-                    </div>
-                  </div>
+                  Lord Krishna Financial Services Ltd (Prest Loans)                    <br />
+
+                  903, 9th Floor, Surya Kiran Building, KG Marg,                    <br />
+
+                  Connaught Place, New Delhi - 110001
+                                  </p>
                 </div>
-
-                <div style={{ display: 'flex', gap: '16px', background: '#f8fafc', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ width: '45px', height: '45px', borderRadius: '12px', background: '#dcfce7', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>
-                    <i className="fa-brands fa-whatsapp"></i>
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1rem', color: '#1e293b', fontWeight: 700, margin: '0 0 4px' }}>WhatsApp Support</h4>
-                    <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>
-                      <a href={siteConfig.contact.whatsapp.href} target="_blank" rel="noopener noreferrer" style={{ color: '#16a34a', fontWeight: 700 }}>
-                        {siteConfig.contact.whatsapp.display}
-                      </a>
-                    </p>
-                  </div>
+              </div>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"var(--primary-purple-light)","color":"var(--primary-purple)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","flexShrink":"0"}}>
+                  <i className="fa-solid fa-location-dot"></i>
                 </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Registered Office</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
 
-                <div style={{ display: 'flex', gap: '16px', background: '#f8fafc', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ width: '45px', height: '45px', borderRadius: '12px', background: '#f3e8ff', color: '#9333ea', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>
-                    <i className="fa-solid fa-envelope"></i>
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1rem', color: '#1e293b', fontWeight: 700, margin: '0 0 4px' }}>Official Email IDs</h4>
-                    <div style={{ color: '#64748b', fontSize: '0.85rem', lineHeight: 1.6 }}>
-                      <div>Borrower Support: <strong>{siteConfig.contact.emails.support}</strong></div>
-                      <div>HR &amp; Careers: <strong>{siteConfig.contact.emails.careers}</strong></div>
-                      <div>Grievance Redressal: <strong>{siteConfig.contact.emails.grievance}</strong></div>
-                    </div>
-                  </div>
+                  Lord Krishna Financial Services Ltd (Prest Loans)                    <br />
+
+                  M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002
+                                  </p>
+                </div>
+              </div>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"var(--primary-orange-light)","color":"var(--primary-orange)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","flexShrink":"0"}}>
+                  <i className="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Customer Helpline</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
+                    <a href="tel:+911145241131" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241131</a>
+ / 
+                                      <a href="tel:+911145241123" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241123</a>
+                  </p>
+                </div>
+              </div>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"#eff6ff","color":"#2563eb","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","flexShrink":"0"}}>
+                  <i className="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Service Timings</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
+
+                  Mon - Fri (10:00 AM to 06:30 PM)                    <br />
+
+                  Saturday (10:00 AM to 03:30 PM)                    <br />
+                    <span style={{"display":"inline-block","background":"#fee2e2","color":"#dc2626","fontSize":"0.75rem","fontWeight":"700","padding":"2px 8px","borderRadius":"4px","marginTop":"4px"}}>Second Saturday Off</span>
+                  </p>
+                </div>
+              </div>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"#ecfdf5","color":"#25d366","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.3rem","flexShrink":"0"}}>
+                  <i className="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Official WhatsApp Support</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
+                    <a href="https://wa.me/919711669090?text=Hello%20Prest%20Loans,%20I%20have%20an%20inquiry." target="_blank" rel="noopener" style={{"color":"#059669","fontWeight":"700"}}>
+
+                    +91-9711669090
+                                      </a>
+                  </p>
+                </div>
+              </div>
+              <div style={{"display":"flex","gap":"16px","alignItems":"flex-start"}}>
+                <div style={{"width":"44px","height":"44px","borderRadius":"var(--radius-sm)","background":"#f1f5f9","color":"#334155","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","flexShrink":"0"}}>
+                  <i className="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>Email Support</h4>
+                  <p style={{"color":"#475569","fontSize":"0.875rem","lineHeight":"1.6"}}>
+
+                  General Queries:                     <a href="mailto:info@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"600"}}>info@prestloans.com</a>
+                    <br />
+
+                  Grievance Desk:                     <a href="mailto:nodalofficer@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"600"}}>nodalofficer@prestloans.com</a>
+                  </p>
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <div style={{ background: '#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 15px 45px rgba(0,0,0,0.06)', border: '1px solid #f1f5f9' }}>
-              <h3 style={{ fontSize: '1.5rem', color: '#1e293b', fontWeight: 800, marginBottom: '8px' }}>Send Us a Message</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '24px' }}>Leave your details and our team will get back to you within 24 working hours.</p>
-
-              {sent ? (
-                <div style={{ background: '#dcfce7', border: '1px solid #86efac', color: '#16a34a', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
-                  <i className="fa-solid fa-check-circle" style={{ fontSize: '2rem', marginBottom: '8px', display: 'block' }}></i>
-                  <h4 style={{ fontSize: '1.2rem', marginBottom: '4px' }}>Message Received!</h4>
-                  <p style={{ fontSize: '0.9rem', margin: 0 }}>Thank you for reaching out. We will contact you shortly.</p>
+          </div>
+          {/* Contact Form Box */}
+          <div className="contact-card-box">
+            <h3 style={{"fontSize":"1.4rem","fontWeight":"800","color":"#0f172a","marginBottom":"6px"}}>Send Us an Official Message</h3>
+            <p style={{"color":"#64748b","fontSize":"0.875rem","marginBottom":"24px"}}>
+Fill in the form below and our relationship team will reach out within 4 business hours.            </p>
+            <form id="main-contact-form">
+              <div className="quick-input-group">
+                <label className="quick-input-label">Full Name</label>
+                <input type="text" id="contact-name" className="quick-input-field" placeholder="Enter Your Name" required={true} />
+              </div>
+              <div style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"14px"}}>
+                <div className="quick-input-group">
+                  <label className="quick-input-label">Contact Number</label>
+                  <input type="tel" id="contact-phone" className="quick-input-field" placeholder="10-digit mobile number" pattern="[0-9]{10}" required={true} />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <div style={{ marginBottom: '16px' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '0.9rem' }}>Full Name *</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      required
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
-                    <div>
-                      <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '0.9rem' }}>Mobile Number *</label>
-                      <input
-                        type="tel"
-                        className="form-control"
-                        required
-                        pattern="[0-9]{10}"
-                        placeholder="10-digit mobile"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '0.9rem' }}>Email Address *</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        required
-                        placeholder="you@domain.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                  <div style={{ marginBottom: '16px' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '0.9rem' }}>Subject</label>
-                    <select
-                      className="form-control"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    >
-                      <option value="General Loan Inquiry">General Loan Inquiry</option>
-                      <option value="Coaching / Skill Loan">Coaching / Skill Loan</option>
-                      <option value="Personal Loan">Personal Loan</option>
-                      <option value="Home Loan">Home Loan</option>
-                      <option value="Business Loan">Business Loan</option>
-                      <option value="Existing Loan Support">Existing Loan Support</option>
-                    </select>
-                  </div>
-                  <div style={{ marginBottom: '24px' }}>
-                    <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '0.9rem' }}>Message</label>
-                    <textarea
-                      className="form-control"
-                      rows={4}
-                      placeholder="How can we help you?"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="btn-primary" style={{ width: '100%', padding: '14px', fontSize: '1rem', borderRadius: '50px' }}>
-                    Submit Inquiry →
-                  </button>
-                </form>
-              )}
-            </div>
+                <div className="quick-input-group">
+                  <label className="quick-input-label">Email Address</label>
+                  <input type="email" id="contact-email" className="quick-input-field" placeholder="name@domain.com" required={true} />
+                </div>
+              </div>
+              <div className="quick-input-group">
+                <label className="quick-input-label">Location / City</label>
+                <input type="text" id="contact-city" className="quick-input-field" placeholder="e.g. New Delhi, Jaipur, Ludhiana" />
+              </div>
+              <div className="quick-input-group">
+                <label className="quick-input-label">Inquiry Subject</label>
+                <select id="contact-subject" className="quick-input-field">
+                  <option value="Business Loan Inquiry">Business Loan Inquiry</option>
+                  <option value="Home Loan Inquiry">Home Loan Inquiry</option>
+                  <option value="Education Loan Inquiry">Education Loan Inquiry</option>
+                  <option value="Personal Loan Inquiry">Personal Loan Inquiry</option>
+                  <option value="Short Term Loan Inquiry">Short Term Personal Loan Inquiry</option>
+                  <option value="Partnership / DSA">DSA & Partner Registration</option>
+                  <option value="Customer Support">Existing Loan Support / Statement</option>
+                  <option value="Grievance">Grievance / Feedback</option>
+                </select>
+              </div>
+              <div className="quick-input-group">
+                <label className="quick-input-label">Message / Details</label>
+                <textarea id="contact-msg" className="quick-input-field" style={{"minHeight":"90px","resize":"vertical"}} placeholder="Tell us how we can help you..."></textarea>
+              </div>
+              <button type="submit" className="btn-card-submit">
+                <span>Send Message</span>
+                 <i className="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    {/* FOOTER (Matching Screenshot 2) */}
+    {/* FLOATING ACTIONS & MODALS */}
+
     </>
   );
 };

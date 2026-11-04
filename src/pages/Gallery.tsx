@@ -1,72 +1,165 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 export const Gallery: React.FC = () => {
-  const images = [
-    { src: '/assets/gallery/Annual Day Celebration 2025/001.jpeg', title: 'Annual Day Celebration' },
-    { src: '/assets/gallery/Annual Day Celebration 2025/002.jpeg', title: 'Team Awards & Recognitions' },
-    { src: '/assets/gallery/79th Independence Day celebrations 2025/001.jpeg', title: 'Independence Day Celebrations' },
-    { src: '/assets/gallery/79th Independence Day celebrations 2025/002.jpeg', title: 'Patriotic Spirit at Prest Loans' },
-    { src: '/assets/gallery/Diwali_2025/001.jpeg', title: 'Diwali Festive Celebrations' },
-    { src: '/assets/gallery/Birthday_Celebration 05082026/001.jpeg', title: 'Team Milestone Celebrations' }
-  ];
-
-  const handleImageClick = (src: string, title: string) => {
-    if (typeof (window as any).openLightbox === 'function') {
-      (window as any).openLightbox(src, title);
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
     }
-  };
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
 
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <Link to="/media" style={{ color: '#cbd5e1' }}>Media</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Photo Gallery</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Corporate Photo Gallery</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Moments, culture, team celebrations, and corporate milestones at Prest Loans.
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* PAGE HERO BANNER */}
+    <section className="page-banner">
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+           <a href="/media">Media</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+           <span>Photo Gallery</span>
         </div>
-      </section>
+        <h1 className="page-banner-title">Prest Loans Moments</h1>
+        <p className="page-banner-sub">
 
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            {images.map((img, idx) => (
-              <div
-                key={idx}
-                onClick={() => handleImageClick(img.src, img.title)}
-                style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.06)',
-                  border: '1px solid #f1f5f9',
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s ease'
-                }}
-              >
-                <div style={{ height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src={img.src}
-                    alt={img.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }}
-                  />
-                </div>
-                <div style={{ padding: '16px 20px' }}>
-                  <h4 style={{ fontSize: '1.05rem', color: '#1e293b', fontWeight: 700, margin: 0 }}>{img.title}</h4>
-                </div>
-              </div>
-            ))}
+        A visual showcase of our people, leadership forums, branch expansions, and memorable celebrations.
+              </p>
+      </div>
+    </section>
+    {/* GALLERY WITH REAL ASSETS */}
+    <section className="section">
+      <div className="container">
+        <div className="gallery-filters">
+          <button className="gallery-filter-btn active" data-filter="all">All Photos</button>
+          <button className="gallery-filter-btn" data-filter="culture">Team & Culture</button>
+          <button className="gallery-filter-btn" data-filter="events">Customer Meets & Awards</button>
+          <button className="gallery-filter-btn" data-filter="office">Head Office & Branches</button>
+        </div>
+        <div className="gallery-grid">
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/1.jpg', 'Corporate Team & Leadership Meet')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/1.jpg" alt="Corporate Team Meet" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Corporate Team Meet</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="events" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/2.jpg', 'Customer Felicitation Ceremony')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/2.jpg" alt="Customer Felicitation" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Customer Felicitation Ceremony</span>
+              <span className="gallery-item-cat">Customer Meets & Awards</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="office" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/3.jpeg', 'Head Office Operations & Credit Desk')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/3.jpeg" alt="Credit Desk" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Credit Desk & Operations</span>
+              <span className="gallery-item-cat">Head Office & Branches</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/4.jpg', 'Team Collaboration Session')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/4.jpg" alt="Team Session" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Team Collaboration Session</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="events" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/5.jpg', 'Annual Awards & Recognition')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/5.jpg" alt="Annual Awards" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Annual Awards & Recognition</span>
+              <span className="gallery-item-cat">Customer Meets & Awards</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="office" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/6.jpg', 'Branch Network Launch')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/6.jpg" alt="Branch Network" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Branch Network Expansion</span>
+              <span className="gallery-item-cat">Head Office & Branches</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/7.jpg', 'Fintech Training Workshop')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/7.jpg" alt="Training Workshop" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Fintech Training Workshop</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="events" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/8.jpg', 'Borrower Outreach Program')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/8.jpg" alt="Borrower Outreach" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Borrower Outreach Program</span>
+              <span className="gallery-item-cat">Customer Meets & Awards</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="office" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/9.jpg', 'Underwriting Team Floor')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/9.jpg" alt="Underwriting Floor" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Underwriting Team Floor</span>
+              <span className="gallery-item-cat">Head Office & Branches</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/10.jpg', 'Cultural Celebrations at Office')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/10.jpg" alt="Celebrations" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Cultural Celebrations</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="events" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/11.jpg', 'Strategic Partner Tie-up Launch')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/11.jpg" alt="Partner Tie-up Launch" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Strategic Partner Tie-up Launch</span>
+              <span className="gallery-item-cat">Customer Meets & Awards</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/13.jpg', 'Prest Loans Leadership Address')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/13.jpg" alt="Leadership Address" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Leadership Address</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="office" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/14.jpg', 'Client Reception at New Delhi HQ')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/14.jpg" alt="Client Reception" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">New Delhi HQ Lounge</span>
+              <span className="gallery-item-cat">Head Office & Branches</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="events" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/15.jpg', 'Borrower Success Milestone')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/15.jpg" alt="Borrower Milestone" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Borrower Success Milestone</span>
+              <span className="gallery-item-cat">Customer Meets & Awards</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="culture" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/16.jpg', 'All-Hands Tech & Risk Meeting')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/16.jpg" alt="Tech & Risk Meeting" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">All-Hands Tech & Risk Meeting</span>
+              <span className="gallery-item-cat">Team & Culture</span>
+            </div>
+          </div>
+          <div className="gallery-item" data-category="office" onClick={(event) => { try { (new Function('event', "openGalleryLightbox('assets/gallery/photo_gallery/17.jpg', 'Customer Relationship Center')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <img src="/assets/gallery/photo_gallery/17.jpg" alt="Customer Center" loading="lazy" />
+            <div className="gallery-overlay">
+              <span className="gallery-item-title">Customer Relationship Center</span>
+              <span className="gallery-item-cat">Head Office & Branches</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    {/* LIGHTBOX MODAL */}
+    {/* FOOTER (Matching Screenshot 2) */}
+    {/* FLOATING ACTIONS & MODALS */}
+
     </>
   );
 };

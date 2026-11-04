@@ -128,3 +128,4 @@ export const EmiCalculator: React.FC = () => {
     </div>
   );
 };
+

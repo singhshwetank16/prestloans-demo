@@ -44,3 +44,4 @@ export const jobOpenings: JobOpening[] = [
     ]
   }
 ];
+

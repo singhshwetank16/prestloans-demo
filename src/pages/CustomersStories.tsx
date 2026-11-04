@@ -1,103 +1,62 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 export const CustomersStories: React.FC = () => {
-  const stories = [
-    {
-      name: 'Rajeev Khetan',
-      role: 'Manufacturing Entrepreneur, Delhi',
-      product: 'MSME Business Loan',
-      photo: '/assets/testimonials/636345295057086250Rajeevkhetan.jpg',
-      quote: 'Prest Loans provided timely capital when our machinery needed an upgrade. The entire process was conducted digitally with zero unnecessary bureaucracy. Highly recommended for small enterprises.'
-    },
-    {
-      name: 'Parmeshwar Dayal',
-      role: 'Retail Store Owner, Uttar Pradesh',
-      product: 'Short Term Business Loan',
-      photo: '/assets/testimonials/636345295405992500parmeshwar.png',
-      quote: 'During festive stock procurement, getting a working capital infusion in under 48 hours made a massive difference to our turnover. The transparency in fee deductions was exemplary.'
-    },
-    {
-      name: 'Rajesh Kumar Patwa',
-      role: 'Small Business Owner, Madhya Pradesh',
-      product: 'Commercial Expansion Credit',
-      photo: '/assets/testimonials/63639621804852875010036 Rajehs kumar patwa.jpg',
-      quote: 'Transparent NBFC lending at its best. No hidden interest clauses, prompt customer service, and very polite relationship officers.'
-    },
-    {
-      name: 'Raj Kumar',
-      role: 'Self-Employed Professional, Haryana',
-      product: 'Personal Loan',
-      photo: '/assets/testimonials/63639622708290375010051 raj kumar.jpg',
-      quote: 'I needed urgent personal funds for a family health emergency. Prest Loans verified my documents online and disbursed the loan directly into my savings account within 24 hours.'
-    },
-    {
-      name: 'Shiv Narayan Paul',
-      role: 'Fabricator & Contractor, West Bengal',
-      product: 'Machinery Finance',
-      photo: '/assets/testimonials/63639623573587250010059 shiv narayan Paul.jpg',
-      quote: 'Fair interest rates and convenient monthly EMI options. The mobile experience and digital status tracking make borrowing stress-free.'
-    },
-    {
-      name: 'Rajesh Same',
-      role: 'Wholesale Trader, Rajasthan',
-      product: 'Working Capital Facility',
-      photo: '/assets/testimonials/63639623935352875010033 rajesh same.jpg',
-      quote: 'Over 3 years of partnership with Prest Loans has enabled our supply chain expansion. Trustworthy management and completely ethical practices.'
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
     }
-  ];
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
 
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Customers' Stories</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Customers' Stories &amp; Success</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Discover how 25,000+ borrowers across India achieved their goals with Prest Loans credit solutions.
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* PAGE HERO BANNER */}
+    <section className="page-banner">
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+          <span>Customers' Stories</span>
         </div>
-      </section>
+        <h1 className="page-banner-title">Customers' Stories</h1>
+        <p className="page-banner-sub">
 
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
-            {stories.map((s, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '30px',
-                  boxShadow: '0 12px 35px rgba(0,0,0,0.05)',
-                  border: '1px solid #f1f5f9',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '18px' }}>
-                    <img
-                      src={s.photo}
-                      alt={s.name}
-                      style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #f05a28' }}
-                    />
-                    <div>
-                      <h4 style={{ fontSize: '1.15rem', color: '#1e293b', fontWeight: 700, margin: 0 }}>{s.name}</h4>
-                      <span style={{ fontSize: '0.85rem', color: '#64748b' }}>{s.role}</span>
-                      <div style={{ fontSize: '0.8rem', color: '#f05a28', fontWeight: 600 }}>{s.product}</div>
-                    </div>
-                  </div>
-                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.7, fontStyle: 'italic' }}>
-                    “{s.quote}”
-                  </p>
-                </div>
-                <div style={{ marginTop: '20px', display: 'flex', gap: '4px', color: '#f59e0b', fontSize: '0.9rem' }}>
+        Real stories of resilience, family aspirations, and personal dreams from across India, powered by Prest
+        Loans.
+              </p>
+      </div>
+    </section>
+    {/* TESTIMONIALS GRID (WITH AUTHENTIC BORROWER PHOTOS) */}
+    <section className="section">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-tag">25,000+ Satisfied Borrowers</span>
+          <h2 className="section-title">In Their Own Words</h2>
+          <p className="section-desc">
+See how rapid access to capital created tangible impact on turnover, employment, and
+          profitability.          </p>
+        </div>
+        <div className="testimonials-grid">
+          {/* Story 1: Rajeev Khetan */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "Ahead of the festive peak season, our distribution enterprise urgently required ₹15 Lakhs in rapid
+            liquidity to secure bulk inventory from primary manufacturers. Prest Loans' algorithmic digital underwriting
+            evaluated our GST turnover velocity instantly, depositing funds into our corporate account within 48 hours.
+            This timely infusion enabled us to double our seasonal revenue!"
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/636345295057086250Rajeevkhetan.jpg" alt="Rajeev Khetan" className="author-avatar" />
+              <div className="author-info">
+                <h4>Rajeev Khetan</h4>
+                <p>Wholesale Trader • Delhi NCR</p>
+                <div className="author-rating">
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
@@ -105,22 +64,150 @@ export const CustomersStories: React.FC = () => {
                   <i className="fa-solid fa-star"></i>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-
-          <div style={{ marginTop: '60px', textAlign: 'center', background: '#f8fafc', padding: '40px', borderRadius: '24px', border: '1px solid #e2e8f0' }}>
-            <h3 style={{ fontSize: '1.6rem', color: '#1e293b', fontWeight: 800, marginBottom: '8px' }}>Ready to Write Your Success Story?</h3>
-            <p style={{ color: '#64748b', marginBottom: '20px' }}>Apply in less than 5 minutes with our completely digital application process.</p>
-            <button
-              className="btn-primary"
-              onClick={() => (window as any).openQuickApplyModal && (window as any).openQuickApplyModal()}
-              style={{ padding: '12px 32px', borderRadius: '50px' }}
-            >
-              Start Loan Application →
-            </button>
+          {/* Story 2: Parmeshwar Sharma */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "Traditional commercial lenders kept us trapped in tedious bureaucratic cycles for months demanding
+            immovable property mortgages. A dedicated Relationship Manager from Prest Loans visited our manufacturing
+            facility, evaluated our healthy cash flows, and sanctioned an ₹8 Lakh collateral-free working capital loan
+            within days. A true growth catalyst for industrial manufacturers!"
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/636345295405992500parmeshwar.png" alt="Parmeshwar Sharma" className="author-avatar" />
+              <div className="author-info">
+                <h4>Parmeshwar Sharma</h4>
+                <p>Industrial Parts Fabricator • Haryana</p>
+                <div className="author-rating">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Story 3: Rajesh Kumar Patwa */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "Operating a fast-moving retail enterprise means working capital frequently gets tied up in customer credit
+            cycles. Prest Loans offered us flexible amortizations and competitive monthly installments, giving us
+            crucial liquidity breathing room. We immediately expanded our second billing counter and introduced
+            lucrative high-margin merchandise."
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/63639621804852875010036 Rajehs kumar patwa.jpg" alt="Rajesh Kumar Patwa" className="author-avatar" />
+              <div className="author-info">
+                <h4>Rajesh Kumar Patwa</h4>
+                <p>Retail Enterprise Merchant • Rajasthan</p>
+                <div className="author-rating">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star-half-stroke"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Story 4: Raj Kumar */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "Prest Loans upholds 100% transparency throughout documentation. The interest rates, processing fees, and
+            terms outlined in our initial sanction letter were exact, with zero hidden surcharges or surprise
+            deductions. Thanks to this credit line, our auto-components fabrication capacity increased by 40%."
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/63639622708290375010051 raj kumar.jpg" alt="Raj Kumar" className="author-avatar" />
+              <div className="author-info">
+                <h4>Raj Kumar</h4>
+                <p>Auto Workshop & Fabrication • Punjab</p>
+                <div className="author-rating">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Story 5: Shiv Narayan Paul */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "We applied for commercial financing to expand our transport and delivery fleet operations. Prest Loans
+            provided high financing with minimal down payment and an amortization model that perfectly
+            matched our revenue cycle. Today, we operate a growing logistics fleet with our net monthly
+            earnings tripling."
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/63639623573587250010059 shiv narayan Paul.jpg" alt="Shiv Narayan Paul" className="author-avatar" />
+              <div className="author-info">
+                <h4>Shiv Narayan Paul</h4>
+                <p>Fleet & Logistics Operator • Uttar Pradesh</p>
+                <div className="author-rating">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Story 6: Rajesh Sharma */}
+          <div className="testimonial-card">
+            <i className="fa-solid fa-quote-right quote-icon"></i>
+            <p className="testimonial-text">
+{`
+            "Because Lord Krishna Financial Services (Prest Loans) is an established RBI-registered NBFC, their
+            operational ethics and compliance standards are exemplary. We experienced zero harassment, total dignity,
+            and utmost courtesy from their professional credit desk. A modern lender every entrepreneur can rely on."
+          `}            </p>
+            <div className="testimonial-author">
+              <img src="/assets/testimonials/63639623935352875010033 rajesh same.jpg" alt="Rajesh Sharma" className="author-avatar" />
+              <div className="author-info">
+                <h4>Rajesh Sharma</h4>
+                <p>Textile Merchant • Delhi Chandni Chowk</p>
+                <div className="author-rating">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+        {/* Share Your Story CTA Box */}
+        <div style={{"background":"var(--calc-gradient)","color":"#fff","borderRadius":"var(--radius-xl)","padding":"40px","marginTop":"50px","textAlign":"center"}}>
+          <h3 style={{"fontSize":"1.8rem","fontWeight":"800","marginBottom":"12px"}}>Are You a Prest Loans Borrower?</h3>
+          <p style={{"fontSize":"1rem","opacity":"0.9","maxWidth":"600px","margin":"0 auto 24px"}}>
+
+          Share your entrepreneurial milestone with us and be featured in our national Prest Loans Borrower Spotlight
+          series.
+                  </p>
+          <button className="btn-primary" style={{"background":"#ffffff","color":"#70146e"}} onClick={(event) => { try { (new Function('event', "window.showToast('Please email your story with photo to stories@prestloans.com!')")).call(event.currentTarget, event); } catch(e) {} }}>
+            <i className="fa-solid fa-pen-to-square"></i>
+ Share Your Feedback
+                  </button>
+        </div>
+      </div>
+    </section>
+    {/* FOOTER (Matching Screenshot 2) */}
+    {/* FLOATING ACTIONS & MODALS */}
+
     </>
   );
 };

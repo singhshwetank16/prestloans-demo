@@ -1,74 +1,476 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { siteConfig } from '../config/site';
+import React, { useEffect } from 'react';
 
 export const Policies: React.FC = () => {
-  const policyList = [
-    { title: 'Grievance Redressal Mechanism', path: '/grievance-redressal', desc: 'Official 4-tier customer dispute resolution framework with RB-IOS 2026 integrated.', icon: 'fa-scale-balanced', color: '#f05a28' },
-    { title: 'Interest Rate Model & Charges', path: '/interest-rate-model', desc: 'Reference base rate (18% p.a.), risk gradation parameters, and schedule of charges.', icon: 'fa-percent', color: '#2563eb' },
-    { title: 'Fair Practices Code (FPC)', path: '/fair-practices-code', desc: 'Standards of fairness, transparency, non-coercive recovery, and ethical lending.', icon: 'fa-handshake', color: '#16a34a' },
-    { title: 'Penal Charges Policy', path: '/penal-charges-policy', desc: 'RBI-compliant penal charges structure with non-capitalisation on overdue amounts.', icon: 'fa-file-invoice-dollar', color: '#ea580c' },
-    { title: 'KYC & AML Policy', path: '/kyc-and-aml', desc: 'Know Your Customer norms and anti-money laundering risk mitigation framework.', icon: 'fa-user-check', color: '#9333ea' },
-    { title: 'Regulatory Certifications', path: '/regulatory-certifications', desc: 'RBI Certificate of Registration B-14.02019, incorporation, and credit bureau links.', icon: 'fa-certificate', color: '#0d9488' },
-    { title: 'Public Notice & Caution', path: '/public-notice', desc: 'Advisory alerts against fraudulent lending apps and statutory portfolio disclosures.', icon: 'fa-bullhorn', color: '#dc2626' },
-    { title: 'Privacy Policy', path: '/privacy-policy', desc: 'Borrower data protection, encryption, and digital personal data governance.', icon: 'fa-shield-halved', color: '#4f46e5' },
-    { title: 'Terms & Conditions', path: '/terms-and-conditions', desc: 'Legally binding terms governing loan disbursals, electronic mandates, and repayments.', icon: 'fa-file-lines', color: '#d97706' },
-    { title: 'Terms of Use', path: '/terms-of-use', desc: 'Website terms of use, intellectual property rights, and platform security rules.', icon: 'fa-desktop', color: '#0284c7' },
-    { title: 'Website Disclaimer', path: '/disclaimer', desc: 'Statutory disclaimer, third-party limitations, and fraud prevention notices.', icon: 'fa-triangle-exclamation', color: '#e11d48' }
-  ];
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
+    }
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
 
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Statutory Policies</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Policies &amp; Regulatory Compliance</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Prest Loans ({siteConfig.legalName}) operates in strict compliance with Reserve Bank of India (RBI) directives.
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* PAGE HERO BANNER */}
+    <section className="page-banner">
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+          <span>Policies & Compliance</span>
         </div>
-      </section>
-
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
-            {policyList.map((p) => (
-              <Link
-                key={p.path}
-                to={p.path}
-                style={{
-                  textDecoration: 'none',
-                  background: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '28px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
-                  border: '1px solid #f1f5f9',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <div>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: `${p.color}15`, color: p.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', marginBottom: '16px' }}>
-                    <i className={`fa-solid ${p.icon}`}></i>
+        <h1 className="page-banner-title">Statutory Policies & Disclosures</h1>
+        <p className="page-banner-sub">
+{`
+        Lord Krishna Financial Services Ltd ("Prest Loans") strictly complies with Reserve Bank of India (RBI) Master
+        Directions and regulatory standards.
+      `}        </p>
+      </div>
+    </section>
+    {/* POLICIES GRID VIEW */}
+    <section className="section">
+      <div className="container">
+        <div className="policies-page-grid">
+          {/* Sticky Navigation Sidebar */}
+          <div className="policy-nav-card">
+            <h4 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"12px","padding":"0 10px"}}>
+              <i className="fa-solid fa-book-bookmark" style={{"color":"var(--primary-purple)"}}></i>
+ Table of Policies
+                      </h4>
+            <ul className="policy-nav-list">
+              <li>
+                <a href="/terms-and-conditions" className="policy-nav-link">
+                  <span>Terms & Conditions</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/terms-of-use" className="policy-nav-link">
+                  <span>Terms Of Use</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/privacy-policy" className="policy-nav-link">
+                  <span>Privacy Policy</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/fair-practices-code" className="policy-nav-link">
+                  <span>Fair Practices Code</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/penal-charges-policy" className="policy-nav-link">
+                  <span>Penal Charges Policy</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/kyc-and-aml" className="policy-nav-link">
+                  <span>KYC & AML Policy</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/disclaimer" className="policy-nav-link">
+                  <span>Disclaimer & Fraud Alert</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/grievance-redressal" className="policy-nav-link">
+                  <span>Grievance Redressal</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/interest-rate-model" className="policy-nav-link">
+                  <span>Interest Rate Model</span>
+                   <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/regulatory-certifications" className="policy-nav-link">
+                  <span>Regulatory Certifications</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+              <li>
+                <a href="/public-notice" className="policy-nav-link">
+                  <span>Public Notices & Disclosures</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square" style={{"fontSize":"0.75rem"}}></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* Policies Content Display */}
+          <div style={{"display":"flex","flexDirection":"column","gap":"40px"}}>
+            {/* 1. Terms & Conditions */}
+            <article className="policy-article-card" id="terms-and-conditions">
+              <span className="section-tag">RBI NBFC Compliance</span>
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+1. Terms & Conditions
+                          </h2>
+              <p style={{"color":"#64748b","fontSize":"0.8125rem","marginBottom":"20px"}}>Last Updated: January 2026</p>
+              <div className="policy-doc">
+                <h4>Acceptance of Digital Loan Terms</h4>
+                <p>
+These Terms and Conditions govern the access and use of the digital lending platform, website, and
+                credit services operated by                   <strong>Lord Krishna Financial Services Ltd</strong>
+ under the brand name
+                                  <strong>{`"Prest Loans"`}</strong>
+. By submitting a loan request, uploading KYC documents, or authorizing an
+                e-NACH mandate, the borrower agrees to these terms.
+                              </p>
+                <h4>Borrower Eligibility & Sanction</h4>
+                <p>
+Loans are sanctioned based on automated and manual underwriting criteria, bank cash flow scrutiny,
+                CIBIL bureau rating, and verified turnover proofs. Sanction and disbursement remain at the sole
+                discretion of the NBFC.                </p>
+                <h4>Electronic Repayment Mandate</h4>
+                <p>
+Borrowers agree to maintain sufficient balance in the designated bank account on installment due dates.
+                Any bounce caused by insufficient funds will incur standard bounce charges as disclosed in the Schedule
+                of Charges.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full Terms
+                    & Conditions                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Access the complete 13-clause borrower
+                    agreement, e-mandates, and statutory disclosures.                    </p>
                   </div>
-                  <h3 style={{ fontSize: '1.2rem', color: '#1e293b', fontWeight: 700, margin: '0 0 8px' }}>{p.title}</h3>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+                  <a href="/terms-and-conditions" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
                 </div>
-                <div style={{ marginTop: '20px', color: p.color, fontWeight: 700, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span>View Document</span>
-                  <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i>
+              </div>
+            </article>
+            {/* 2. Terms Of Use */}
+            <article className="policy-article-card" id="terms-of-use">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>2. Terms Of Use</h2>
+              <div className="policy-doc">
+                <h4>Website Permitted Use</h4>
+                <p>
+This web portal is designed to provide information on loan products, EMI calculation, document
+                submission, and application tracking. Scrapers, unauthorized scripts, or penetration testing without
+                written consent are strictly forbidden.                </p>
+                <h4>Intellectual Property</h4>
+                <p>
+All brand logos, text, design systems, calculator algorithms, and graphic assets are the proprietary
+                property of Lord Krishna Financial Services Ltd.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full Terms
+                    Of Use                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+View platform code of conduct, IP rights,
+                    cyber guidelines, and arbitration clauses.                    </p>
+                  </div>
+                  <a href="/terms-of-use" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
                 </div>
-              </Link>
-            ))}
+              </div>
+            </article>
+            {/* 3. Privacy Policy */}
+            <article className="policy-article-card" id="privacy-policy">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>3. Privacy Policy</h2>
+              <p style={{"color":"#64748b","fontSize":"0.8125rem","marginBottom":"20px"}}>
+In adherence to the Digital Personal
+              Data Protection (DPDP) Act & RBI Digital Lending Guidelines              </p>
+              <div className="policy-doc">
+                <h4>Collection of Borrower Data</h4>
+                <p>
+We collect identity proof (PAN, Masked Aadhaar), contact credentials, bank account statements, and GST
+                filing records solely for identity verification and risk assessment.                </p>
+                <h4>Data Storage in India</h4>
+                <p>
+In accordance with RBI directions, all customer and transaction data is securely hosted on servers
+                located strictly within Indian territory and encrypted using 256-bit SSL protocols.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full
+                    Privacy Policy                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Read our DPDP Act framework, data retention
+                    norms, 256-bit SSL protocols, and data rights.                    </p>
+                  </div>
+                  <a href="/privacy-policy" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 4. Fair Practices Code */}
+            <article className="policy-article-card" id="fair-practices-code">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+4. Fair Practices Code
+              (FPC)              </h2>
+              <div className="policy-doc">
+                <h4>Ethical Standards in Lending</h4>
+                <p>
+Lord Krishna Financial Services Ltd adopts the Fair Practices Code formulated under RBI Master
+                Directions. We ensure that borrowers receive clear Key Fact Statements (KFS) containing all fees, APRs,
+                and repayment dates before loan execution.                </p>
+                <h4>Respectful Recovery Guidelines</h4>
+                <p>
+Our collection staff strictly adheres to ethical, fair, and professional practices in accordance with
+                the applicable Reserve Bank of India (RBI) guidelines, the RBI Fair Practices Code, and our internal
+                recovery policies.
+                                  <br />
+                  <br />
+                  <b>Permitted Contact Hours: 08:00 AM to 07:00 PM</b>
+                  <br />
+                  <br />
+
+                Working Days: Monday to Saturday, excluding applicable holidays, as per the company’s approved working
+                schedule.
+                              </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full Fair
+                    Practices Code                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Examine the 12-section FPC framework, KFS
+                    disclosure mandate, and zero-harassment code.                    </p>
+                  </div>
+                  <a href="/fair-practices-code" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 5. Penal Charges Policy */}
+            <article className="policy-article-card" id="penal-charges-policy">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+5. Penal Charges
+              Policy              </h2>
+              <p style={{"color":"#64748b","fontSize":"0.8125rem","marginBottom":"20px"}}>As per RBI Circular RBI/2023-24/53</p>
+              <div className="policy-doc">
+                <h4>Reasonable & Non-Capitalized Penal Charges</h4>
+                <p>
+Penal charges for late installment payments are levied strictly as a deterrent and are NOT compounded
+                with the principal balance. Interest is never charged on penal charges.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full Penal
+                    Charges Policy                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Review RBI circular DoR.MCS.REC.28
+                    guidelines, non-capitalization rules, and bounce fees.                    </p>
+                  </div>
+                  <a href="/penal-charges-policy" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 6. KYC & AML Policy */}
+            <article className="policy-article-card" id="kyc-and-aml">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+6. KYC & Anti-Money
+              Laundering (AML) Policy              </h2>
+              <div className="policy-doc">
+                <h4>Customer Due Diligence</h4>
+                <p>
+Compliant with the Prevention of Money Laundering Act (PMLA) 2002 and RBI KYC Master Directions 2016.
+                Every applicant undergoes digital KYC verification, video verification (V-CIP), and bureau screening.
+                              </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full KYC
+                    & AML Policy                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+View Officially Valid Documents (OVD)
+                    matrix, PEP guidelines, and FIU reporting standards.                    </p>
+                  </div>
+                  <a href="/kyc-and-aml" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 7. Disclaimer */}
+            <article className="policy-article-card" id="disclaimer">
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+7. Disclaimer & Fraud
+              Vigilance Advisory              </h2>
+              <div className="policy-doc">
+                <h4>Public Fraud Alert Notice</h4>
+                <p>
+Prest Loans never asks applicants to deposit cash or transfer money into individual personal savings
+                accounts or share OTPs over phone. Disbursals and collections occur solely through verified banking
+                channels.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full
+                    Disclaimer & Fraud Advisory                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Review official company warnings,
+                    anti-fraud precautions, and legal liability disclaimers.                    </p>
+                  </div>
+                  <a href="/disclaimer" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 8. Grievance Redressal Mechanism */}
+            <article className="policy-article-card" id="grievance-redressal-mechanism">
+              <span className="section-tag" style={{"background":"var(--primary-purple-light)","color":"var(--primary-purple)"}}>Dedicated Framework</span>
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+8. Grievance Redressal
+              Mechanism              </h2>
+              <div className="policy-doc">
+                <h4>Level 1: Primary Grievance Officer</h4>
+                <p>
+Officer: Ms. Poonam Tiwari | Email:                   <a href="mailto:care@prestloans.com">care@prestloans.com</a>
+ |
+                Phone:                   <a href="tel:+911145241123">011-45241123</a>
+ (Resolution within 2 weeks max).                </p>
+                <h4>Level 2: Compliance Officer (Escalation I)</h4>
+                <p>
+Officer: Ms. Sheetal Mishra | Office: M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002 | Email:
+                                  <a href="mailto:compliance@prestloans.com">compliance@prestloans.com</a>
+ | Phone:                   <a href="tel:+911145241123">011-45241123</a>
+                </p>
+                <h4>Level 3: Principal Nodal Officer (PNO - Escalation II)</h4>
+                <p>
+Officer: Mr. Sandeep Saini | Email:                   <a href="mailto:nodalofficer@prestloans.com">nodalofficer@prestloans.com</a>
+ | Phone:                   <a href="tel:+911145241131">011-45241131</a>
+
+                (Guaranteed response within 7 business days).                </p>
+                <h4>Level 4: Reserve Bank of India (Regulator / Ombudsman)</h4>
+                <p>
+If unresolved after 30 days, lodge an appeal before the RBI Ombudsman via:                   <a href="https://cms.rbi.org.in" target="_blank" rel="noopener">https://cms.rbi.org.in</a>
+ or CRPC
+                Portal:                   <a href="https://www.rbi.org.in/" target="_blank" rel="noopener">https://www.rbi.org.in/</a>
+
+                (Address: 4th Floor, Sector 17, Chandigarh – 160017) or write to
+                DNBS, RBI, 6 Sansad Marg, New Delhi - 110001.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full
+                    Grievance Redressal Portal                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+Access full escalation matrix, SLA
+                    timelines, officer desks, and submit a grievance online.                    </p>
+                  </div>
+                  <a href="/grievance-redressal" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 9. Regulatory Certifications */}
+            <article className="policy-article-card" id="regulatory-certifications">
+              <span className="section-tag" style={{"background":"var(--primary-purple-light)","color":"var(--primary-purple)"}}>
+Official Accreditations
+              & Licenses              </span>
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+9. Regulatory
+              Certifications & Corporate Details              </h2>
+              <div className="policy-doc">
+                <p>
+                  <strong>Company Name:</strong>
+ Lord Krishna Financial Services Ltd                </p>
+                <p>
+                  <strong>Trade Name:</strong>
+ Prest Loans                </p>
+                <p>
+                  <strong>CIN:</strong>
+ U65993DL1992PLC049609                </p>
+                <p>
+                  <strong>RBI Certificate of Registration:</strong>
+ B-14.02019                </p>
+                <p>
+                  <strong>Incorporation Date:</strong>
+ 25th February 1992                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full
+                    Regulatory Certifications & Licenses                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+View high-resolution certificates for RBI
+                    Registration, MCA Incorporation, CIBIL, Experian, GST, and MSME.                    </p>
+                  </div>
+                  <a href="/regulatory-certifications" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            {/* 10. Interest Rate Model */}
+            <article className="policy-article-card" id="interest-rate-model">
+              <span className="section-tag" style={{"background":"var(--primary-purple-light)","color":"var(--primary-purple)"}}>
+Dedicated RBI Policy &
+              Product Matrix              </span>
+              <h2 style={{"fontSize":"1.85rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 16px"}}>
+10. Interest Rate
+              Model and Schedule of Charges              </h2>
+              <div className="policy-doc">
+                <h4>LKFSL Reference Base Rate: 18.00% p.a.</h4>
+                <p>
+{`Lord Krishna Financial Services Limited ("Prest Loans") maintains a Reference Base Rate of `}                  <strong>
+18%
+                  p.a.                  </strong>
+ Pricing is structured on an objective Discrete Interest Rate Model anchored against
+                institutional cost of funds, operational expenses, tenure matching, and borrower credit risk gradation.
+                              </p>
+                <h4>Key Fact Statement (KFS) Transparency</h4>
+                <p>
+In accordance with RBI Master Directions on Fair Practices Code, all processing charges, documentation
+                expenses, stamp duty, bounce charges, and Annualized Percentage Rates (APR) are explicitly stated in the
+                Key Fact Statement prior to loan agreement signing. Penal charges are strictly non-capitalized under RBI
+                Circular RBI/2023-24/53.                </p>
+                <div style={{"marginTop":"24px","padding":"20px","background":"#fdf6fa","border":"1px solid #ebd3e7","borderRadius":"12px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"16px"}}>
+                  <div>
+                    <h5 style={{"fontSize":"1rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+Explore Full
+                    Loan-Wise Schedule of Charges                    </h5>
+                    <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0"}}>
+View detailed fee tables for Business
+                    Loans, Education Loans, Personal Loans, and STPL.                    </p>
+                  </div>
+                  <a href="/interest-rate-model" className="btn-primary" style={{"padding":"10px 20px","fontSize":"0.875rem"}}>
+                    <span>Open Dedicated Page</span>
+                     <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    {/* FOOTER (Matching Screenshot 2) */}
+    {/* FLOATING ACTIONS & MODALS */}
+
     </>
   );
 };

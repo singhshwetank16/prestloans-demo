@@ -1,103 +1,1481 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { siteConfig } from '../config/site';
+import React, { useEffect } from 'react';
 
 export const InterestRateModel: React.FC = () => {
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
+    }
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
+
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <Link to="/policies" style={{ color: '#cbd5e1' }}>Policies</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Interest Rate Model</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Interest Rate Model &amp; Schedule of Charges</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Transparent Gradation of Risk • Reference Base Rate (18% p.a.) • Annualised Percentage Rate (APR)
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* PAGE HERO BANNER */}
+    <section className="page-banner" style={{"paddingBottom":"70px"}}>
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+          <span>Interest Rate Model & Schedule of Charges</span>
         </div>
-      </section>
+        <span className="rbi-badge-pill" style={{"marginBottom":"14px","background":"rgba(255,255,255,0.18)","border":"1px solid rgba(255,255,255,0.3)","fontSize":"0.75rem","letterSpacing":"0.8px"}}>
+          <i className="fa-solid fa-scale-balanced" style={{"color":"#ffb088"}}></i>
+ RBI MASTER DIRECTIONS COMPLIANT • 100%
+        TRANSPARENT PRICING
+              </span>
+        <h1 className="page-banner-title">Interest Rate Model and Schedule of Charges</h1>
+        <p className="page-banner-sub" style={{"maxWidth":"820px"}}>
+{`
+        Lord Krishna Financial Services Ltd ("Prest Loans") follows an objective, risk-graded discrete pricing model
+        formulated in strict conformity with Reserve Bank of India (RBI) guidelines. Every customer receives a complete
+        Key Fact Statement (KFS) detailing annualized percentage rates (APR) and all applicable fees prior to loan
+        sanction.
+      `}        </p>
+        {/* HERO KPI CARDS */}
+        <div className="rate-hero-kpis">
+          <div className="rate-kpi-card">
+            <div className="rate-kpi-icon">
+              <i className="fa-solid fa-building-columns"></i>
+            </div>
+            <div className="rate-kpi-val">18.00%</div>
+            <div className="rate-kpi-label">LKFSL Reference Base Rate</div>
+            <div className="rate-kpi-tag">Core Benchmark for Lending Spreads</div>
+          </div>
+          <div className="rate-kpi-card">
+            <div className="rate-kpi-icon">
+              <i className="fa-solid fa-chart-line"></i>
+            </div>
+            <div className="rate-kpi-val">12% - 36%</div>
+            <div className="rate-kpi-label">Discrete Risk-Graded APR</div>
+            <div className="rate-kpi-tag">Tailored to Borrower Credit Strength</div>
+          </div>
+          <div className="rate-kpi-card">
+            <div className="rate-kpi-icon">
+              <i className="fa-solid fa-lock-open"></i>
+            </div>
+            <div className="rate-kpi-val">NIL</div>
+            <div className="rate-kpi-label">Foreclosure On Floating Loans</div>
+            <div className="rate-kpi-tag">100% Compliant with RBI Directives</div>
+          </div>
+          <div className="rate-kpi-card">
+            <div className="rate-kpi-icon">
+              <i className="fa-solid fa-shield-halved"></i>
+            </div>
+            <div className="rate-kpi-val">Non-Capital</div>
+            <div className="rate-kpi-label">Penal Charges Policy</div>
+            <div className="rate-kpi-tag">No Compounding • RBI/2023-24/53</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 1: INTEREST RATE MODEL & METHODOLOGY */}
+    <section className="rate-page-section">
+      <div className="container">
+        <div className="section-header-center" style={{"textAlign":"center","maxWidth":"760px","margin":"0 auto 36px"}}>
+          <span className="section-tag">RBI NBFC Master Directions</span>
+          <h2 style={{"fontSize":"2.25rem","fontWeight":"800","color":"#0f172a","margin":"10px 0 14px"}}>
+The Interest Rate
+          Determination Model          </h2>
+          <p style={{"color":"#64748b","fontSize":"1rem","lineHeight":"1.6"}}>
 
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ maxWidth: '950px', margin: '0 auto', background: '#ffffff', borderRadius: '24px', padding: '40px', boxShadow: '0 15px 45px rgba(0,0,0,0.06)', border: '1px solid #f1f5f9' }}>
-            <h2 style={{ fontSize: '1.8rem', color: '#1e293b', fontWeight: 800, marginBottom: '14px' }}>
-              Policy on Determining Interest Rates &amp; Charges
-            </h2>
-            <p style={{ color: '#475569', lineHeight: 1.8, marginBottom: '24px' }}>
-              In accordance with RBI Master Directions on Fair Practices Code, Prest Loans (Lord Krishna Financial Services Ltd, RBI Reg: {siteConfig.rbiRegNo}) has adopted an objective, risk-adjusted interest rate model that evaluates creditworthiness, cost of funds, operational expenses, and risk margins.
-            </p>
-
-            <div style={{ background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #e2e8f0', marginBottom: '32px' }}>
-              <h3 style={{ fontSize: '1.25rem', color: '#1e293b', fontWeight: 700, marginBottom: '8px' }}>
-                Reference Base Rate (RBR)
-              </h3>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', margin: '0 0 14px' }}>
-                The Reference Base Rate of the company is pegged at <strong>18.00% per annum</strong>. All product-specific pricing is derived as a spread over or around this reference benchmark.
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
-                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', display: 'block' }}>Cost of Borrowed Funds</span>
-                  <strong style={{ color: '#1e293b' }}>8.50% - 10.50%</strong>
-                </div>
-                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', display: 'block' }}>Operational &amp; Admin Costs</span>
-                  <strong style={{ color: '#1e293b' }}>3.00% - 4.50%</strong>
-                </div>
-                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', display: 'block' }}>Risk &amp; Expected Loss Margin</span>
-                  <strong style={{ color: '#1e293b' }}>3.00% - 6.00%</strong>
-                </div>
+          Our interest rate policy applies to all clients whose facilities are funded directly by Lord Krishna Financial
+          Services Ltd or through co-lending partnerships. Rates are structured systematically across four fundamental
+          pillars.
+                  </p>
+        </div>
+        {/* 4 PILLARS GRID */}
+        <div className="rate-pillars-grid">
+          {/* Pillar 1 */}
+          <div className="rate-pillar-card">
+            <div className="rate-pillar-header">
+              <span className="rate-pillar-num">Pillar 01</span>
+              <div className="rate-pillar-icon">
+                <i className="fa-solid fa-vault"></i>
               </div>
             </div>
+            <h3 className="rate-pillar-title">Internal & External Cost of Funds</h3>
+            <p className="rate-pillar-desc">
 
-            <h3 style={{ fontSize: '1.3rem', color: '#1e293b', fontWeight: 700, marginBottom: '14px' }}>
-              Schedule of Charges
-            </h3>
-            <div style={{ overflowX: 'auto', marginBottom: '32px' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.95rem' }}>
+            Rates reflect the weighted cost of funds raised from commercial banks, institutions, and money markets,
+            combined with the expected return on equity capital.
+                      </p>
+            <ul className="rate-pillar-list">
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ External institutional borrowing costs              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Marginal cost of debt & liquidity buffers              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Target Return on Equity (ROE)              </li>
+            </ul>
+          </div>
+          {/* Pillar 2 */}
+          <div className="rate-pillar-card">
+            <div className="rate-pillar-header">
+              <span className="rate-pillar-num">Pillar 02</span>
+              <div className="rate-pillar-icon">
+                <i className="fa-solid fa-gears"></i>
+              </div>
+            </div>
+            <h3 className="rate-pillar-title">Cost of Operations & Servicing</h3>
+            <p className="rate-pillar-desc">
+
+            Factors in operational expenses for customer sourcing, field verification, automated digital KYC (V-CIP),
+            bureau scraping, underwriting, and collection infrastructure.
+                      </p>
+            <ul className="rate-pillar-list">
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Digital sourcing & underwriting tech              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Field inspection & RCU verification              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Account servicing & collection costs              </li>
+            </ul>
+          </div>
+          {/* Pillar 3 */}
+          <div className="rate-pillar-card">
+            <div className="rate-pillar-header">
+              <span className="rate-pillar-num">Pillar 03</span>
+              <div className="rate-pillar-icon">
+                <i className="fa-solid fa-hourglass-half"></i>
+              </div>
+            </div>
+            <h3 className="rate-pillar-title">Tenor & ALM Matching</h3>
+            <p className="rate-pillar-desc">
+
+            Pricing considers loan duration, repayment frequency (Monthly EMI vs Bullet vs Balloon), market liquidity,
+            and Asset-Liability Management (ALM) matching tenor costs.
+                      </p>
+            <ul className="rate-pillar-list">
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Short-term vs long-term maturity profile              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Structural liquidity & interest rate risk              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Equated Monthly Installment (EMI) structure              </li>
+            </ul>
+          </div>
+          {/* Pillar 4 */}
+          <div className="rate-pillar-card">
+            <div className="rate-pillar-header">
+              <span className="rate-pillar-num">Pillar 04</span>
+              <div className="rate-pillar-icon">
+                <i className="fa-solid fa-user-shield"></i>
+              </div>
+            </div>
+            <h3 className="rate-pillar-title">Credit Risk & Gradation</h3>
+            <p className="rate-pillar-desc">
+
+            As a matter of financial prudence, bad debt provision is factored into every transaction based on credit
+            bureau scores, repayment track record, income cash flow strength, and documentation.
+                      </p>
+            <ul className="rate-pillar-list">
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ CIBIL, Experian & bureau score history              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Bank cash flows & GST filing turnover              </li>
+              <li>
+                <i className="fa-solid fa-circle-check"></i>
+ Primary & collateral security valuation              </li>
+            </ul>
+          </div>
+        </div>
+        {/* REFERENCE RATE BANNER */}
+        <div className="rate-ref-banner">
+          <div className="rate-ref-content">
+            <span className="rbi-badge-pill" style={{"background":"rgba(255,255,255,0.12)","marginBottom":"12px","fontSize":"0.75rem"}}>
+              <i className="fa-solid fa-landmark"></i>
+ BENCHMARK POLICY DISCLOSURE
+                      </span>
+            <h3>LKFSL Reference Base Rate & Discrete Model</h3>
+            <p>
+              <strong>Lord Krishna Financial Services Limited (Prestloans)</strong>
+ maintains a Reference Base Rate of
+                          <strong>18% p.a.</strong>
+ The spread / margin on loans remains unchanged in normal circumstances; however,
+            the base rate or spread may be calibrated in response to systemic shifts in borrowing costs, changes in cost
+            of operations, or macro-economic events with advance customer notification.
+                      </p>
+            <p style={{"fontSize":"0.875rem","color":"#cbd5e1","marginBottom":"20px"}}>
+
+            Under our               <strong>Discrete Interest Rate Model</strong>
+, the rate for the same product and tenor availed
+            during the same period is tailored based on individual creditworthiness, collateral backing, and borrower
+            risk profile rather than a rigid uniform rate.
+                      </p>
+            <div className="rate-ref-highlights">
+              <span className="rate-ref-tag">
+                <i className="fa-solid fa-check"></i>
+ Fixed, Floating & Variable Options              </span>
+              <span className="rate-ref-tag">
+                <i className="fa-solid fa-check"></i>
+ Annualized Percentage Rate (APR) in KFS              </span>
+              <span className="rate-ref-tag">
+                <i className="fa-solid fa-check"></i>
+ Co-Lending Aggregate Rate Disclosure              </span>
+            </div>
+          </div>
+          <div className="rate-ref-stat-box">
+            <span style={{"fontSize":"0.8125rem","textTransform":"uppercase","letterSpacing":"1px","color":"#cbd5e1","fontWeight":"700"}}>
+Reference
+            Benchmark            </span>
+            <div className="rate-ref-big-num">18.0%</div>
+            <div className="rate-ref-stat-label">LKFSL Base Rate (p.a.)</div>
+            <div className="rate-ref-stat-sub">
+Applicable as foundational anchor across lending programs with product-specific
+            risk spreads.            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 2: SCHEDULE OF CHARGES (INTERACTIVE TABS) */}
+    <section className="rate-page-section bg-light" id="schedule-of-charges">
+      <div className="container">
+        <div className="section-header-center" style={{"textAlign":"center","maxWidth":"820px","margin":"0 auto 32px"}}>
+          <span className="section-tag">100% Transparent Fee Structure</span>
+          <h2 style={{"fontSize":"2.25rem","fontWeight":"800","color":"#0f172a","margin":"10px 0 14px"}}>
+Schedule of Charges (SOC)
+          by Product          </h2>
+          <p style={{"color":"#64748b","fontSize":"1rem","lineHeight":"1.6"}}>
+
+          Browse the exact fee schedule for each loan product below. Prest Loans adheres to zero hidden fees — all
+          processing, documentation, and service charges are expressly stated in the Sanction Letter & Key Fact
+          Statement (KFS).
+                  </p>
+        </div>
+        {/* CONTROLS: TOP SEARCH IN FORM (RIGHT CORNER) */}
+        <div className="soc-controls-top">
+          <form className="soc-search-form" id="socSearchForm" onSubmit={(event) => { try { (new Function('event', "return false;")).call(event.currentTarget, event); } catch(e) {} }} role="search">
+            <div className="soc-search-box">
+              <i className="fa-solid fa-magnifying-glass soc-search-icon"></i>
+              <input type="text" id="soc-search-input" className="soc-search-input" placeholder="Search charge name (e.g. bounce, foreclosure, stamp)..." autoComplete="off" />
+            </div>
+          </form>
+        </div>
+        {/* SYSTEMATIC 7-PRODUCT TABS NAVIGATION */}
+        <div className="soc-tabs-wrapper">
+          <ul className="soc-tabs-nav" role="tablist">
+            <li>
+              <button className="soc-tab-btn active" data-target="soc-education-loan">
+                <i className="fa-solid fa-graduation-cap"></i>
+ Personal Loans for Higher Education/ Coaching/ Training/ Skill
+              Development etc.
+                          </button>
+            </li>
+            <li>
+              <button className="soc-tab-btn" data-target="soc-corporate-salaried">
+                <i className="fa-solid fa-user-tie"></i>
+ Corporate Salaried Loan
+                          </button>
+            </li>
+            <li>
+              <button className="soc-tab-btn" data-target="soc-stpl">
+                <i className="fa-solid fa-clock-rotate-left"></i>
+ Short Term (STPL)
+                          </button>
+            </li>
+            <li>
+              <button className="soc-tab-btn" data-target="soc-unsecured-personal">
+                <i className="fa-solid fa-wallet"></i>
+ Unsecured Personal Loan
+                          </button>
+            </li>
+          </ul>
+        </div>
+        {/* TAB PANEL 4: HIGHER EDUCATION LOAN */}
+        <div className="soc-tab-panel" id="soc-education-loan" style={{"display":"none"}}>
+          <div className="soc-table-card">
+            <div className="soc-product-snapshot">
+              <div className="soc-snapshot-info">
+                <h3>
+Personal Loans for Higher Education/ Coaching/ Training/ Skill Development etc.                </h3>
+                <p>
+Concessional loans designed for academic courses, vocational training, IT bootcamps, and professional
+                coaching.                </p>
+              </div>
+              <div className="soc-snapshot-badges">
+                <span className="soc-pill soc-pill-purple">
+                  <i className="fa-solid fa-percent"></i>
+ ROI: 12% - 18% p.a.                </span>
+                <span className="soc-pill soc-pill-orange">
+                  <i className="fa-solid fa-file-invoice"></i>
+ Processing: 0% - 1%                </span>
+                <span className="soc-pill soc-pill-green">
+                  <i className="fa-solid fa-graduation-cap"></i>
+ Student-Friendly
+                Pricing                </span>
+              </div>
+            </div>
+            <div className="soc-table-wrapper">
+              <table className="soc-table">
                 <thead>
-                  <tr style={{ background: '#f1f5f9', color: '#1e293b' }}>
-                    <th style={{ padding: '12px 16px', borderBottom: '2px solid #cbd5e1' }}>Charge Category</th>
-                    <th style={{ padding: '12px 16px', borderBottom: '2px solid #cbd5e1' }}>Applicable Rate / Amount</th>
-                    <th style={{ padding: '12px 16px', borderBottom: '2px solid #cbd5e1' }}>Regulatory Remark</th>
+                  <tr>
+                    <th style={{"width":"44%"}}>
+                      <i className="fa-solid fa-file-invoice" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Fee / Charge Head                    </th>
+                    <th style={{"width":"28%"}}>
+                      <i className="fa-solid fa-clock-rotate-left" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Billing Frequency & Nature                    </th>
+                    <th style={{"width":"28%","textAlign":"right"}}>
+                      <i className="fa-solid fa-indian-rupee-sign" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Applicable Rate / Amount                    </th>
                   </tr>
                 </thead>
-                <tbody style={{ color: '#475569' }}>
-                  <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '12px 16px' }}>Processing Fee</td>
-                    <td style={{ padding: '12px 16px' }}>1% to 3% of Loan Amount + GST</td>
-                    <td style={{ padding: '12px 16px' }}>One-time deduction from disbursal</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '12px 16px' }}>Documentation &amp; e-Stamp</td>
-                    <td style={{ padding: '12px 16px' }}>At actual statutory stamp duty rates</td>
-                    <td style={{ padding: '12px 16px' }}>State-specific duty payable to govt</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '12px 16px' }}>Bounce / Dishonour Charges</td>
-                    <td style={{ padding: '12px 16px' }}>₹450 + GST per NACH/e-Mandate bounce</td>
-                    <td style={{ padding: '12px 16px' }}>Recovered on actual operational cost</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '12px 16px' }}>Penal Charges on Default</td>
-                    <td style={{ padding: '12px 16px' }}>24% p.a. on overdue amount only</td>
-                    <td style={{ padding: '12px 16px' }}>Strictly non-capitalized per RBI circular</td>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-percent"></i>
+                        </span>
+ Rate of Interest (ROI)                      </div>
+                    </td>
+                    <td>Annualized reducing balance range</td>
+                    <td>
+                      <span className="badge-rate">
+                        <i className="fa-solid fa-chart-line"></i>
+ 12% – 18% p.a.                      </span>
+                    </td>
                   </tr>
                   <tr>
-                    <td style={{ padding: '12px 16px' }}>Foreclosure / Prepayment</td>
-                    <td style={{ padding: '12px 16px' }}><strong>NIL (0%)</strong></td>
-                    <td style={{ padding: '12px 16px' }}>Zero penalty for individual floating rate loans</td>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-invoice-dollar"></i>
+                        </span>
+ Processing Fees                      </div>
+                    </td>
+                    <td>Concessional academic processing fee</td>
+                    <td>
+                      <span className="badge-fee">
+                        <i className="fa-solid fa-receipt"></i>
+ 0% – 1% of sanction                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-folder-open"></i>
+                        </span>
+ File Charges / IMD / RCU                      </div>
+                    </td>
+                    <td>Application verification</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-unlock-keyhole"></i>
+                        </span>
+ Foreclosure / Prepayment Charges                      </div>
+                    </td>
+                    <td>Early loan payoff</td>
+                    <td>
+                      <span className="badge-slab">
+                        <i className="fa-solid fa-layer-group"></i>
+ 0% – 1% of loan amount                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-circle-exclamation"></i>
+                        </span>
+ PDC / ECS Bounce Charges                      </div>
+                    </td>
+                    <td>Per transaction bouncing</td>
+                    <td>
+                      <span className="badge-money badge-money-warning">
+Up to ₹ 500/-                         <span className="badge-money-sub">
++
+                        GST                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+ Rejection of ECS / NACH Mandate                      </div>
+                    </td>
+                    <td>Mandate registration rejection</td>
+                    <td>
+                      <span className="badge-money">₹ 1,000/-</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-clock"></i>
+                        </span>
+
+                      Delayed Payment Fee / Late Payment Charges                      </div>
+                    </td>
+                    <td>Non-payment of EMI / overdue daily accrual</td>
+                    <td>
+                      <span className="badge-slab">
+                        <i className="fa-solid fa-triangle-exclamation"></i>
+ ₹ 500/- or 36%
+                      p.a.                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-arrow-right-arrow-left"></i>
+                        </span>
+ Swap Charges / Cycle Date Change                      </div>
+                    </td>
+                    <td>Administrative changes</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-shield"></i>
+                        </span>
+ Issuance of Duplicate NOC                      </div>
+                    </td>
+                    <td>Closure certificate</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-ban"></i>
+                        </span>
+
+                      Loan Cancellation / Penal Charges / CERSAI                      </div>
+                    </td>
+                    <td>Statutory filing</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-receipt"></i>
+                        </span>
+ Duplicate Statement of Accounts (SOA)                      </div>
+                    </td>
+                    <td>Physical statement copy</td>
+                    <td>
+                      <span className="badge-money">Up to ₹ 500/-</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-person-walking"></i>
+                        </span>
+ Field Collection Charges                      </div>
+                    </td>
+                    <td>Per collection visit</td>
+                    <td>
+                      <span className="badge-money">
+₹ 500/-                         <span className="badge-money-sub">/ visit</span>
+                      </span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <div className="soc-table-footer">
+              <div className="soc-table-footer-item">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Concessional Academic Scheme:</strong>
+ Education and skill advancement facilities feature
+                zero file/documentation charges to minimize the initial borrowing cost for students and job-seekers.
+                              </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+        {/* TAB PANEL 5: CORPORATE SALARIED LOAN */}
+        <div className="soc-tab-panel" id="soc-corporate-salaried" style={{"display":"none"}}>
+          <div className="soc-table-card">
+            <div className="soc-product-snapshot">
+              <div className="soc-snapshot-info">
+                <h3>Personal Loans for Corporate Employees</h3>
+                <p>
+Tailored unsecured personal credit lines for confirmed employees of corporate and institutional
+                partners.                </p>
+              </div>
+              <div className="soc-snapshot-badges">
+                <span className="soc-pill soc-pill-purple">
+                  <i className="fa-solid fa-percent"></i>
+ ROI: 18% - 24% p.a.                </span>
+                <span className="soc-pill soc-pill-orange">
+                  <i className="fa-solid fa-file-invoice"></i>
+ Processing: 0% - 1%                </span>
+                <span className="soc-pill soc-pill-green">
+                  <i className="fa-solid fa-check"></i>
+ Paperless Approval                </span>
+              </div>
+            </div>
+            <div className="soc-table-wrapper">
+              <table className="soc-table">
+                <thead>
+                  <tr>
+                    <th style={{"width":"44%"}}>
+                      <i className="fa-solid fa-file-invoice" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Fee / Charge Head                    </th>
+                    <th style={{"width":"28%"}}>
+                      <i className="fa-solid fa-clock-rotate-left" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Billing Frequency & Nature                    </th>
+                    <th style={{"width":"28%","textAlign":"right"}}>
+                      <i className="fa-solid fa-indian-rupee-sign" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Applicable Rate / Amount                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-percent"></i>
+                        </span>
+ Rate of Interest (ROI)                      </div>
+                    </td>
+                    <td>Annualized reducing balance range</td>
+                    <td>
+                      <span className="badge-rate">
+                        <i className="fa-solid fa-chart-line"></i>
+ 18% – 24% p.a.                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-invoice-dollar"></i>
+                        </span>
+ Processing Fees                      </div>
+                    </td>
+                    <td>Upfront deduction</td>
+                    <td>
+                      <span className="badge-fee">
+                        <i className="fa-solid fa-receipt"></i>
+ 0% – 1% of sanction                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-folder-open"></i>
+                        </span>
+ File Charges / IMD / RCU / Swap / Cycle Date                      </div>
+                    </td>
+                    <td>Application & administrative fees</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-unlock-keyhole"></i>
+                        </span>
+ Foreclosure / Prepayment Charges                      </div>
+                    </td>
+                    <td>Early repayment fee</td>
+                    <td>
+                      <span className="badge-slab">
+                        <i className="fa-solid fa-layer-group"></i>
+ 0% – 1% of loan amount                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-circle-exclamation"></i>
+                        </span>
+ PDC / ECS / NACH Bounce Charges                      </div>
+                    </td>
+                    <td>Per failed transaction</td>
+                    <td>
+                      <span className="badge-money badge-money-warning">
+Up to ₹ 500/-                         <span className="badge-money-sub">
+/
+                        bounce                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-shield"></i>
+                        </span>
+ Duplicate NOC / Loan Cancellation                      </div>
+                    </td>
+                    <td>Account closure requests</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-receipt"></i>
+                        </span>
+ Duplicate SOA / Document Retrieval                      </div>
+                    </td>
+                    <td>Administrative paperwork</td>
+                    <td>
+                      <span className="badge-money">Up to ₹ 500/-</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-person-walking"></i>
+                        </span>
+ Field Collection Charges                      </div>
+                    </td>
+                    <td>Doorstep recovery visit</td>
+                    <td>
+                      <span className="badge-money">
+₹ 500/-                         <span className="badge-money-sub">/ visit</span>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="soc-table-footer">
+              <div className="soc-table-footer-item">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Corporate Partner Benefits:</strong>
+ Pre-approved employees at onboarded institutions enjoy
+                waived file verification charges and priority digital sanction with paperless verification.                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* TAB PANEL 6: SHORT TERM PERSONAL LOAN (STPL) */}
+        <div className="soc-tab-panel" id="soc-stpl" style={{"display":"none"}}>
+          <div className="soc-table-card">
+            <div className="soc-product-snapshot">
+              <div className="soc-snapshot-info">
+                <h3>Short Term Personal Loan (STPL)</h3>
+                <p>
+Instant digital micro-credit for urgent financial needs, medical emergencies, and short cashflow gaps.
+                              </p>
+              </div>
+              <div className="soc-snapshot-badges">
+                <span className="soc-pill soc-pill-purple">
+                  <i className="fa-solid fa-bolt"></i>
+ Disbursal: Under 2 Hours                </span>
+                <span className="soc-pill soc-pill-orange">
+                  <i className="fa-solid fa-file-invoice"></i>
+ Processing: 10%                </span>
+                <span className="soc-pill soc-pill-green">
+                  <i className="fa-solid fa-lock-open"></i>
+ Foreclosure: Zero                </span>
+              </div>
+            </div>
+            <div className="soc-table-wrapper">
+              <table className="soc-table">
+                <thead>
+                  <tr>
+                    <th style={{"width":"44%"}}>
+                      <i className="fa-solid fa-file-invoice" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Fee / Charge Head                    </th>
+                    <th style={{"width":"28%"}}>
+                      <i className="fa-solid fa-clock-rotate-left" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Billing Frequency & Nature                    </th>
+                    <th style={{"width":"28%","textAlign":"right"}}>
+                      <i className="fa-solid fa-indian-rupee-sign" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Applicable Rate / Amount                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-percent"></i>
+                        </span>
+ Rate of Interest (ROI)                      </div>
+                    </td>
+                    <td>Daily interest accrual basis</td>
+                    <td>
+                      <span className="badge-rate">
+                        <i className="fa-solid fa-chart-line"></i>
+ 1% per day                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-invoice-dollar"></i>
+                        </span>
+ Processing Fee                      </div>
+                    </td>
+                    <td>Upfront one-time administrative fee</td>
+                    <td>
+                      <span className="badge-fee">
+                        <i className="fa-solid fa-receipt"></i>
+ 10% of sanction                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-receipt"></i>
+                        </span>
+ GST on Processing Fee                      </div>
+                    </td>
+                    <td>Statutory tax</td>
+                    <td>
+                      <span className="badge-money">
+18%                         <span className="badge-money-sub">statutory GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+ Penal / Delayed Repayment Charges                      </div>
+                    </td>
+                    <td>In the event of delayed repayment</td>
+                    <td>
+                      <span className="badge-slab">
+                        <i className="fa-solid fa-triangle-exclamation"></i>
+ 1% / day on
+                      overdue                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-unlock-keyhole"></i>
+                        </span>
+ Foreclosure / Prepayment Charges                      </div>
+                    </td>
+                    <td>Anytime prepayment</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-ban"></i>
+                        </span>
+
+                      Loan Cancellation Charges                      </div>
+                    </td>
+                    <td>Within regulatory look-up period</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-circle-exclamation"></i>
+                        </span>
+ Auto Debit Failure (UPI AutoPay / e-NACH)
+                                          </div>
+                    </td>
+                    <td>Per failed presentation attempt</td>
+                    <td>
+                      <span className="badge-money badge-money-warning">
+₹ 500/-                         <span className="badge-money-sub">
++ GST /
+                        bounce                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-shield"></i>
+                        </span>
+ Statement of Account / NOC / Repayment Schedule
+                                          </div>
+                    </td>
+                    <td>Digital delivery via app/portal</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+ Charges on Rejection of ECS / NACH
+                      Mandate                      </div>
+                    </td>
+                    <td>Mandate rejection / Account modification fee</td>
+                    <td>
+                      <span className="badge-money">
+₹ 1,000/-                         <span className="badge-money-sub">each</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-gavel"></i>
+                        </span>
+
+                      Legal Notice Cost / Contesting Legal Fee                      </div>
+                    </td>
+                    <td>Advocate legal notice dispatch / legal defense</td>
+                    <td>
+                      <span className="badge-money">
+₹ 1,000/-                         <span className="badge-money-sub">(Notice)</span>
+ | ₹ 10,000/-
+                                              <span className="badge-money-sub">(Court)</span>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="soc-table-footer">
+              <div className="soc-table-footer-item">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Transparency & Cooling-Off Period:</strong>
+ STPL borrowers are protected by a regulatory
+                3-day look-up / cooling-off window during which they may cancel without prepayment penalty.                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* TAB PANEL 7: GENERAL UNSECURED PERSONAL LOAN */}
+        <div className="soc-tab-panel" id="soc-unsecured-personal" style={{"display":"none"}}>
+          <div className="soc-table-card">
+            <div className="soc-product-snapshot">
+              <div className="soc-snapshot-info">
+                <h3>General Unsecured Personal Loans</h3>
+                <p>
+Open-market unsecured consumer loans for self-employed and salaried borrowers.                </p>
+              </div>
+              <div className="soc-snapshot-badges">
+                <span className="soc-pill soc-pill-purple">
+                  <i className="fa-solid fa-percent"></i>
+ ROI: Up to 60% p.a.                </span>
+                <span className="soc-pill soc-pill-orange">
+                  <i className="fa-solid fa-file-invoice"></i>
+ Processing: 0% -
+                10%                </span>
+                <span className="soc-pill soc-pill-green">
+                  <i className="fa-solid fa-shield-halved"></i>
+ Penal Charges: NIL                </span>
+              </div>
+            </div>
+            <div className="soc-table-wrapper">
+              <table className="soc-table">
+                <thead>
+                  <tr>
+                    <th style={{"width":"44%"}}>
+                      <i className="fa-solid fa-file-invoice" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Fee / Charge Head                    </th>
+                    <th style={{"width":"28%"}}>
+                      <i className="fa-solid fa-clock-rotate-left" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Billing Frequency & Nature                    </th>
+                    <th style={{"width":"28%","textAlign":"right"}}>
+                      <i className="fa-solid fa-indian-rupee-sign" style={{"color":"#ff9d79","marginRight":"8px"}}></i>
+ Applicable Rate / Amount                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-percent"></i>
+                        </span>
+ Rate of Interest (ROI)                      </div>
+                    </td>
+                    <td>Annualized reducing balance range</td>
+                    <td>
+                      <span className="badge-rate">
+                        <i className="fa-solid fa-chart-line"></i>
+ Up to 60% p.a.                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-invoice-dollar"></i>
+                        </span>
+ Processing Fees                      </div>
+                    </td>
+                    <td>One-time upfront deduction</td>
+                    <td>
+                      <span className="badge-fee">
+                        <i className="fa-solid fa-receipt"></i>
+ 0% – 10%                         <span className="badge-money-sub">+ GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-folder-open"></i>
+                        </span>
+ File Charges / IMD / Document & RCU                      </div>
+                    </td>
+                    <td>Verification fees</td>
+                    <td>
+                      <span className="badge-money">
+Up to ₹ 500/-                         <span className="badge-money-sub">+ GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-unlock-keyhole"></i>
+                        </span>
+ Foreclosure / Prepayment Charges                      </div>
+                    </td>
+                    <td>Early payoff of facility</td>
+                    <td>
+                      <span className="badge-slab">
+                        <i className="fa-solid fa-layer-group"></i>
+ 0% – 5% of loan amount                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-stamp"></i>
+                        </span>
+
+                      Stamp Duty & Documentation                      </div>
+                    </td>
+                    <td>Legal state stamping</td>
+                    <td>
+                      <span className="badge-actual">
+                        <i className="fa-solid fa-scale-balanced"></i>
+ At Actuals                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-circle-exclamation"></i>
+                        </span>
+ PDC / ECS / NACH Bounce Charges                      </div>
+                    </td>
+                    <td>Per transaction bouncing</td>
+                    <td>
+                      <span className="badge-money badge-money-warning">
+Up to ₹ 500/-                         <span className="badge-money-sub">
++
+                        GST                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-arrow-right-arrow-left"></i>
+                        </span>
+ Swap Charges / EMI Cycle Date Change
+                                          </div>
+                    </td>
+                    <td>Administrative changes</td>
+                    <td>
+                      <span className="badge-money">
+Up to ₹ 500/-                         <span className="badge-money-sub">+ GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-file-shield"></i>
+                        </span>
+ Duplicate NOC / SOA / Retrieval / Cancellation
+                                          </div>
+                    </td>
+                    <td>Document re-issuance</td>
+                    <td>
+                      <span className="badge-money">
+Up to ₹ 500/-                         <span className="badge-money-sub">+ GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+ Penal Charges                      </div>
+                    </td>
+                    <td>Default penalty</td>
+                    <td>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i>
+ NIL                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-person-walking"></i>
+                        </span>
+ Field Collection Charges                      </div>
+                    </td>
+                    <td>Doorstep visit</td>
+                    <td>
+                      <span className="badge-money">
+Up to ₹ 500/-                         <span className="badge-money-sub">+ GST / visit</span>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="soc-table-footer">
+              <div className="soc-table-footer-item">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Fair Lending Practice:</strong>
+ All interest rates and fee brackets are determined using
+                risk-based pricing matrices based on credit score, income verification, and obligation ratios.                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 3: INTERACTIVE LIVE FEE & NET DISBURSAL ESTIMATOR */}
+    <section className="rate-page-section">
+      <div className="container">
+        <div className="soc-estimator-card">
+          <div className="section-header-center" style={{"textAlign":"center","maxWidth":"760px","margin":"0 auto 12px"}}>
+            <span className="section-tag">Interactive Transparency Tool</span>
+            <h2 style={{"fontSize":"2rem","fontWeight":"800","color":"#0f172a","margin":"8px 0 10px"}}>
+Loan Cost & Net Disbursal
+            Estimator            </h2>
+            <p style={{"color":"#64748b","fontSize":"0.9375rem"}}>
+
+            Calculate indicative processing charges, GST, documentation fees, and expected in-hand bank disbursal amount
+            in real-time.
+                      </p>
+          </div>
+          <div className="soc-estimator-grid">
+            {/* Left: User Inputs */}
+            <div className="soc-est-left">
+              <div className="soc-est-group">
+                <label htmlFor="est-product-select">
+                  <span>Select Loan Product</span>
+                </label>
+                <select id="est-product-select" className="soc-est-select">
+                  <option value="education-loan" selected={true}>
+Personal Loans for Higher Education/ Coaching/ Training/ Skill
+                  Development etc. (14.0% p.a., 1.0% fee)                  </option>
+                  <option value="corporate-personal">Corporate Salaried Loan (18.0% p.a., 1.0% fee)</option>
+                  <option value="short-term-personal">Short Term Personal Loan (STPL) (30.0% p.a., 10% fee)</option>
+                </select>
+              </div>
+              <div className="soc-est-group">
+                <label htmlFor="est-amt-range">
+                  <span>Required Loan Amount</span>
+                  <span className="soc-est-val" id="est-amt-val">₹5,00,000</span>
+                </label>
+                <input type="range" id="est-amt-range" className="soc-est-range" min="100000" max="5000000" step="25000" value="500000" />
+                <div style={{"display":"flex","justifyContent":"space-between","fontSize":"0.75rem","color":"#94a3b8","marginTop":"6px"}}>
+                  <span>Min: ₹50,000</span>
+                  <span>Max: ₹1,00,00,000</span>
+                </div>
+              </div>
+              <div className="soc-est-group">
+                <label htmlFor="est-tenor-range">
+                  <span>Loan Tenure (Months)</span>
+                  <span className="soc-est-val" id="est-tenor-val">24 Months</span>
+                </label>
+                <input type="range" id="est-tenor-range" className="soc-est-range" min="6" max="60" step="6" value="24" />
+                <div style={{"display":"flex","justifyContent":"space-between","fontSize":"0.75rem","color":"#94a3b8","marginTop":"6px"}}>
+                  <span>6 Months</span>
+                  <span>60 Months</span>
+                </div>
+              </div>
+              <div style={{"background":"#f8fafc","borderRadius":"12px","padding":"14px 18px","border":"1px solid #e2e8f0","fontSize":"0.8125rem","color":"#64748b"}}>
+                <i className="fa-solid fa-circle-info" style={{"color":"var(--primary-purple)","marginRight":"6px"}}></i>
+                <strong>KFS Guarantee:</strong>
+ Final loan terms, precise APR, and fee deductions will be presented in
+              your Key Fact Statement (KFS) prior to signing the loan contract.
+                          </div>
+            </div>
+            {/* Right: Calculated Breakdown */}
+            <div className="soc-est-right">
+              <h4>Estimated Pricing Breakdown</h4>
+              <div className="soc-est-row">
+                <span>Indicative Interest Rate (APR)</span>
+                <strong id="est-disp-roi" style={{"color":"var(--primary-purple)"}}>20.0% p.a.</strong>
+              </div>
+              <div className="soc-est-row">
+                <span>Estimated Monthly EMI</span>
+                <strong id="est-disp-emi" style={{"fontSize":"1.125rem","color":"#0f172a"}}>₹25,471</strong>
+              </div>
+              <div className="soc-est-row">
+                <span>Processing Fee</span>
+                <strong id="est-disp-procfee">₹12,500 (2.5%)</strong>
+              </div>
+              <div className="soc-est-row">
+                <span>GST on Processing Fee (18%)</span>
+                <strong id="est-disp-gst">₹2,250</strong>
+              </div>
+              <div className="soc-est-row">
+                <span>Documentation & Verification</span>
+                <strong id="est-disp-doc">₹2,950</strong>
+              </div>
+              <div className="soc-est-row">
+                <span>Total Upfront Deductions</span>
+                <strong id="est-disp-deductions" style={{"color":"#e11d48"}}>₹17,700</strong>
+              </div>
+              {/* Net Disbursal Callout Box */}
+              <div className="soc-est-total">
+                <div>
+                  <span className="soc-est-total-label">Net In-Hand Disbursal</span>
+                  <span style={{"display":"block","fontSize":"0.75rem","color":"#64748b"}}>Direct bank credit to borrower</span>
+                </div>
+                <div className="soc-est-total-val" id="est-disp-net">₹4,82,300</div>
+              </div>
+              <div style={{"display":"flex","justifyContent":"space-between","fontSize":"0.8125rem","color":"#64748b","paddingTop":"4px"}}>
+                <span>
+Total Repayable:                   <strong id="est-disp-total-repay" style={{"color":"#0f172a"}}>₹6,11,304</strong>
+                </span>
+                <span>
+Total Interest:                   <strong id="est-disp-interest" style={{"color":"#0f172a"}}>₹1,11,304</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 4: PENAL CHARGES POLICY & RBI CIRCULAR HIGHLIGHT */}
+    <section className="rate-page-section bg-light">
+      <div className="container">
+        <div className="soc-penal-highlight">
+          <div className="soc-penal-header">
+            <div className="soc-penal-icon">
+              <i className="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div>
+              <h3>Fair Lending Practice - Penal Charges in Loan Accounts</h3>
+              <p style={{"color":"#64748b","fontSize":"0.875rem","margin":"4px 0 0"}}>
+
+              In compliance with                 <strong>RBI Notification RBI/2023-24/53</strong>
+ (DoR.MCS.REC.28/01.01.001/2023-24)
+                          </p>
+            </div>
+          </div>
+          <p style={{"color":"#334155","fontSize":"0.9375rem","lineHeight":"1.65"}}>
+
+          The Reserve Bank of India has issued clear directives regarding the governance of penal charges to ensure
+          fairness and prevent penal rates from being used as a revenue enhancement mechanism. Lord Krishna Financial
+          Services Ltd strictly abides by these tenets:
+                  </p>
+          <div className="soc-penal-grid">
+            <div className="soc-penal-point">
+              <h5>
+                <i className="fa-solid fa-circle-check"></i>
+ No Capitalization              </h5>
+              <p>
+
+              Penal charges for delayed payments are treated strictly as operational penalties and are                 <strong>
+NEVER
+                compounded or added to the principal balance                </strong>
+. No interest is ever calculated on unpaid penal
+              charges.
+                          </p>
+            </div>
+            <div className="soc-penal-point">
+              <h5>
+                <i className="fa-solid fa-circle-check"></i>
+ Non-Discriminatory & Deterrent              </h5>
+              <p>
+
+              The quantum of penal charges is reasonable and strictly proportionate to the default duration. It is
+              formulated as a deterrent to instill credit discipline, not as an income-generating tool.
+                          </p>
+            </div>
+            <div className="soc-penal-point">
+              <h5>
+                <i className="fa-solid fa-circle-check"></i>
+ Complete KFS Intimation              </h5>
+              <p>
+
+              All applicable penal charge rates are explicitly declared in the Key Fact Statement (KFS) and Sanction
+              Letter. Advance reminders are sent to borrowers prior to due dates via SMS, Email, and WhatsApp.
+                          </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 5: FREQUENTLY ASKED QUESTIONS */}
+    <section className="rate-page-section">
+      <div className="container">
+        <div className="section-header-center" style={{"textAlign":"center","maxWidth":"760px","margin":"0 auto 36px"}}>
+          <span className="section-tag">Borrower Clarity & Fair Practices</span>
+          <h2 style={{"fontSize":"2.25rem","fontWeight":"800","color":"#0f172a","margin":"10px 0 14px"}}>
+Frequently Asked
+          Questions          </h2>
+          <p style={{"color":"#64748b","fontSize":"1rem"}}>
+
+          Get transparent answers to common questions about our interest rates, fee schedule, and repayment terms.
+                  </p>
+        </div>
+        <div className="soc-faq-list">
+          {/* FAQ 1 */}
+          <div className="soc-faq-item active">
+            <div className="soc-faq-question">
+              <span>1. How does Prest Loans determine my loan interest rate?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Prest Loans utilizes an objective                 <strong>Discrete Interest Rate Model</strong>
+ anchored against our
+              Reference Base Rate of                 <strong>18% p.a.</strong>
+ The final rate offered depends on four key factors: (1)
+              Cost of institutional funds, (2) Underwriting & operational costs, (3) Loan tenure and repayment schedule,
+              and (4) Individual credit risk based on bureau score (CIBIL/Experian), bank cash flow consistency,
+              income stability, and repayment capacity.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 2 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>
+2. What is a Key Fact Statement (KFS) and will I receive one?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Yes, absolutely. As mandated by the Reserve Bank of India, every borrower receives an official                 <strong>
+Key
+                Fact Statement (KFS)                </strong>
+ in a standardized, easy-to-read format before executing the loan
+              agreement. The KFS clearly discloses the loan amount, Annual Percentage Rate (APR), processing fees, Net
+              Disbursed Amount, monthly EMI schedule, and all penal/bounce charges.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 3 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>3. Are there any hidden or unadvertised fees?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+                <strong>Zero hidden fees.</strong>
+ Prest Loans maintains complete transparency in all financial dealings.
+              All applicable charges — including processing fees, document handling, stamp duty, and bounce charges —
+              are disclosed on this website, in the sanction letter, and in the KFS. No fees other than those explicitly
+              specified are ever deducted or collected.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 4 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>4. Can I prepay or foreclose my loan without penalty?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Under RBI regulatory directives,                 <strong>zero foreclosure or prepayment penalty</strong>
+ is levied on
+              floating-rate term loans availed by individual borrowers. For fixed-rate contracts, foreclosure charges apply strictly as per the slab-wise rates disclosed in the
+              Schedule of Charges table.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 5 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>5. What happens if an e-NACH auto-debit bounces?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              If an EMI presentation is returned due to insufficient balance, a standard bounce charge of                 <strong>
+₹
+                850/-                </strong>
+ (or ₹ 500/- for personal/education loans) is debited. In addition, penal charges accrue
+              on the overdue installment until clearance. We urge borrowers to maintain sufficient funds in their
+              registered bank account on or before the EMI presentation date.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 6 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>
+6. What is the difference between ROI and Annual Percentage Rate (APR)?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              The                 <strong>Rate of Interest (ROI)</strong>
+ is the annual percentage charged on the reducing principal
+              balance. The                 <strong>Annual Percentage Rate (APR)</strong>
+ represents the total annualized cost of
+              borrowing, incorporating both the interest rate and upfront one-time charges such as processing fees,
+              documentation expenses, and insurance (if opted). APR gives borrowers a true, all-inclusive metric of
+              credit cost.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 7 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>
+7. How do I obtain a Statement of Accounts (SOA) or No Objection Certificate (NOC)?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Digital statements and loan clearance certificates are accessible free of charge through the Prest Loans
+              Customer Portal or by emailing                 <a href="mailto:info@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>info@prestloans.com</a>
+. Physical duplicate
+              copies can be issued upon payment of a nominal administrative fee of ₹ 250/- to ₹ 500/- as stated in the
+              SOC.
+                          </p>
+            </div>
+          </div>
+          {/* FAQ 8 */}
+          <div className="soc-faq-item">
+            <div className="soc-faq-question">
+              <span>8. Does the LKFSL Reference Base Rate change over time?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Under normal circumstances, the lending spread remains unchanged. However, the Reference Base Rate (18%
+              p.a.) or loan spread may be calibrated by the Board of Directors if there are systemic variations in
+              institutional borrowing costs, changes in cost of operations, or RBI monetary policy revisions. Any
+              alteration in floating rates is communicated to borrowers in advance.
+                          </p>
+            </div>
+          </div>
+        </div>
+        {/* CTA BANNER */}
+        <div className="soc-cta-card">
+          <div className="soc-cta-info">
+            <h3>Need Further Clarification on Interest Rates?</h3>
+            <p>
+Our dedicated credit advisors and grievance redressal officers are available to assist you.            </p>
+          </div>
+          <div className="soc-cta-actions">
+            <a href="tel:+911145241131" className="btn-outline-white">
+              <i className="fa-solid fa-phone"></i>
+ Call
+            011-45241131            </a>
+            <a href="mailto:info@prestloans.com" className="btn-outline-white">
+              <i className="fa-solid fa-envelope"></i>
+ Email:
+            info@prestloans.com            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* FOOTER */}
+    {/* FLOATING ACTIONS */}
+    {/* MODALS */}
+    {/* JAVASCRIPT */}
+
     </>
   );
 };

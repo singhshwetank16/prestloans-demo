@@ -1,84 +1,1767 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { siteConfig } from '../config/site';
+import React, { useEffect } from 'react';
 
 export const GrievanceRedressal: React.FC = () => {
+  useEffect(() => {
+    if (typeof (window as any).initApp === 'function') {
+      (window as any).initApp();
+    }
+    if (typeof (window as any).initCalculators === 'function') {
+      (window as any).initCalculators();
+    }
+  }, []);
+
   return (
     <>
-      <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
-        <div className="container">
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '12px' }}>
-            <Link to="/" style={{ color: '#cbd5e1' }}>Home</Link>
-            <span>/</span>
-            <Link to="/policies" style={{ color: '#cbd5e1' }}>Policies</Link>
-            <span>/</span>
-            <span style={{ color: '#f05a28' }}>Grievance Redressal</span>
-          </div>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Grievance Redressal Mechanism</h1>
-          <p style={{ maxWidth: '650px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            RBI Master Directions Compliant • 4-Tier Escalation Hierarchy • RB-IOS 2026 Integrated
-          </p>
+    {/* TOP BAR */}
+    {/* HEADER */}
+    {/* HERO PAGE BANNER */}
+    <section className="page-banner" style={{"paddingBottom":"70px"}}>
+      <div className="container">
+        <div className="breadcrumbs">
+          <a href="/">Home</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+          <a href="/policies">Policies</a>
+           <i className="fa-solid fa-chevron-right" style={{"fontSize":"0.65rem"}}></i>
+          <span>Grievance Redressal Mechanism</span>
         </div>
-      </section>
-
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ maxWidth: '950px', margin: '0 auto', background: '#ffffff', borderRadius: '24px', padding: '40px', boxShadow: '0 15px 45px rgba(0,0,0,0.06)', border: '1px solid #f1f5f9' }}>
-            <div style={{ borderBottom: '1px solid #e2e8f0', paddingBottom: '20px', marginBottom: '24px' }}>
-              <span style={{ background: '#fff1ec', color: '#f05a28', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 700 }}>Statutory Disclosure</span>
-              <h2 style={{ fontSize: '1.8rem', color: '#1e293b', fontWeight: 800, margin: '10px 0 6px' }}>Customer Grievance Redressal Policy</h2>
-              <p style={{ color: '#64748b', fontSize: '0.95rem' }}>Lord Krishna Financial Services Ltd (Prest Loans) - RBI Reg: {siteConfig.rbiRegNo}</p>
+        <span className="rbi-badge-pill" style={{"marginBottom":"14px","background":"rgba(255,255,255,0.18)","border":"1px solid rgba(255,255,255,0.3)","fontSize":"0.75rem","letterSpacing":"0.8px"}}>
+          <i className="fa-solid fa-scale-balanced" style={{"color":"#ffb088"}}></i>
+ RBI MASTER DIRECTIONS COMPLIANT • FAIR
+        PRACTICES CODE
+              </span>
+        <h1 className="page-banner-title">Grievance Redressal Mechanism</h1>
+        <p className="page-banner-sub" style={{"maxWidth":"840px"}}>
+{`
+        Lord Krishna Financial Services Limited ("Prest Loans") is committed to exemplary customer service, ethical
+        lending practices, and transparent communication. We have established a structured, time-bound multi-tier
+        Grievance Redressal Framework to ensure every borrower’s voice is heard, respected, and resolved with highest
+        priority.
+      `}        </p>
+        {/* HERO STAT / SLA CARDS */}
+        <div className="grm-hero-stats">
+          <div className="grm-stat-card">
+            <div className="grm-stat-icon">
+              <i className="fa-solid fa-paper-plane"></i>
             </div>
+            <div className="grm-stat-num">48 Hours</div>
+            <div className="grm-stat-label">Initial Acknowledgment & Ticket Generation</div>
+          </div>
+          <div className="grm-stat-card">
+            <div className="grm-stat-icon">
+              <i className="fa-solid fa-user-shield"></i>
+            </div>
+            <div className="grm-stat-num">2 Weeks</div>
+            <div className="grm-stat-label">Maximum Time for Full Resolution</div>
+          </div>
+          <div className="grm-stat-card">
+            <div className="grm-stat-icon">
+              <i className="fa-solid fa-gauge-high"></i>
+            </div>
+            <div className="grm-stat-num">7 Days</div>
+            <div className="grm-stat-label">Guaranteed Response from Nodal Officer</div>
+          </div>
+          <div className="grm-stat-card">
+            <div className="grm-stat-icon">
+              <i className="fa-solid fa-building-columns"></i>
+            </div>
+            <div className="grm-stat-num">30 Days</div>
+            <div className="grm-stat-label">Right to Appeal before RBI Ombudsman</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* QUICK TOUCHPOINTS BAR */}
+    <section style={{"marginTop":"-30px","position":"relative","zIndex":"5"}}>
+      <div className="container">
+        <div className="grm-touchpoint-strip">
+          <div className="grm-touchpoint-item">
+            <div className="grm-touchpoint-icon">
+              <i className="fa-solid fa-headset"></i>
+            </div>
+            <div className="grm-touchpoint-info">
+              <span>Customer Helpline</span>
+              <strong>
+                <a href="tel:+911145241131">011-45241131</a>
+ /                 <a href="tel:+911145241123">23</a>
+              </strong>
+            </div>
+          </div>
+          <div className="grm-touchpoint-item">
+            <div className="grm-touchpoint-icon">
+              <i className="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <div className="grm-touchpoint-info">
+              <span>Primary Grievance Email</span>
+              <strong>
+                <a href="mailto:nodalofficer@prestloans.com">nodalofficer@prestloans.com</a>
+              </strong>
+            </div>
+          </div>
+          <div className="grm-touchpoint-item">
+            <div className="grm-touchpoint-icon">
+              <i className="fa-solid fa-shield-halved"></i>
+            </div>
+            <div className="grm-touchpoint-info">
+              <span>Compliance Desk</span>
+              <strong>
+                <a href="mailto:compliance@prestloans.com">compliance@prestloans.com</a>
+              </strong>
+            </div>
+          </div>
+          <div className="grm-touchpoint-item">
+            <div className="grm-touchpoint-icon">
+              <i className="fa-solid fa-clock"></i>
+            </div>
+            <div className="grm-touchpoint-info">
+              <span>Service Timings</span>
+              <strong style={{"display":"block","fontSize":"0.875rem"}}>Mon - Fri (10:00 AM to 06:30 PM)</strong>
+              <div style={{"fontSize":"0.8125rem","color":"#475569","fontWeight":"600","lineHeight":"1.35","marginTop":"2px"}}>
 
-            <div style={{ color: '#475569', fontSize: '1rem', lineHeight: 1.8 }}>
-              <h3 style={{ color: '#1e293b', fontSize: '1.3rem', fontWeight: 700, marginTop: '24px', marginBottom: '12px' }}>
-                1. Objective and Framework
-              </h3>
-              <p>
-                In compliance with the Reserve Bank of India Master Direction on Non-Banking Financial Company - Systemically Important Non-Deposit taking Company and Deposit taking Company (Reserve Bank) Directions, 2016, and the RBI Digital Lending Guidelines, Prest Loans has instituted a structured, four-tier escalating Grievance Redressal Mechanism to ensure that all customer complaints are addressed promptly, fairly, and transparently.
-              </p>
+              Saturday (10:00 AM to 03:30 PM)                <br />
+                <span style={{"display":"inline-block","background":"#fee2e2","color":"#dc2626","fontSize":"0.72rem","fontWeight":"700","padding":"1px 6px","borderRadius":"4px","marginTop":"2px"}}>Second Saturday Off</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 1: POLICY BASIS & CORE GUIDING PRINCIPLES */}
+    <section className="section" style={{"paddingTop":"0"}}>
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"820px","margin":"0 auto 36px"}}>
+          <span className="section-tag">Governance & RBI Compliance</span>
+          <h2 className="section-title">Framework & Core Principles</h2>
+          <p className="section-desc">
 
-              <h3 style={{ color: '#1e293b', fontSize: '1.3rem', fontWeight: 700, marginTop: '28px', marginBottom: '12px' }}>
-                2. 4-Tier Escalation Matrix
-              </h3>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '20px 0' }}>
-                {/* Level 1 */}
-                <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '14px', borderLeft: '4px solid #f05a28' }}>
-                  <h4 style={{ color: '#1e293b', margin: '0 0 6px', fontSize: '1.1rem' }}>Level 1: Customer Care Helpdesk</h4>
-                  <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                    Borrowers can register complaints via email at <strong>loan@prestloans.com</strong> or call our official helplines <strong>011-45241131 / 011-45241123</strong> (Mon–Fri: 9:30 AM to 6:00 PM; 1st, 3rd, 5th Sat: 9:30 AM to 6:00 PM). Expected turnaround time: <strong>7 business days</strong>.
+          Customer service is fundamental to our institutional mission. This Grievance Redressal Policy is formulated
+          pursuant to directions issued by the Reserve Bank of India on the Fair Practices Code for Non-Banking
+          Financial Companies (NBFCs).
                   </p>
+        </div>
+        <div className="grm-principles-grid">
+          <div className="grm-principle-card">
+            <div className="grm-principle-icon" style={{"background":"#faf5ff","color":"var(--primary-purple)"}}>
+              <i className="fa-solid fa-scale-balanced"></i>
+            </div>
+            <h4>Fair & Equitable Treatment</h4>
+            <p>
+All customers, borrowers, and applicants are treated with utmost fairness, dignity, and transparency at all
+            touchpoints without discrimination.            </p>
+          </div>
+          <div className="grm-principle-card">
+            <div className="grm-principle-icon" style={{"background":"#fff7ed","color":"#ea580c"}}>
+              <i className="fa-solid fa-comments"></i>
+            </div>
+            <h4>Courteous & Timely Response</h4>
+            <p>
+Complaints are acknowledged swiftly and addressed with professional courtesy, empathy, and adherence to
+            strict regulatory turnaround timelines.            </p>
+          </div>
+          <div className="grm-principle-card">
+            <div className="grm-principle-icon" style={{"background":"#eff6ff","color":"#2563eb"}}>
+              <i className="fa-solid fa-stairs"></i>
+            </div>
+            <h4>Clear Escalation Avenues</h4>
+            <p>
+Borrowers are explicitly informed of multi-tier escalation channels within the company and their statutory
+            right to appeal before the RBI Ombudsman.            </p>
+          </div>
+          <div className="grm-principle-card">
+            <div className="grm-principle-icon" style={{"background":"#ecfdf5","color":"#059669"}}>
+              <i className="fa-solid fa-arrows-spin"></i>
+            </div>
+            <h4>Good Faith & Root-Cause Review</h4>
+            <p>
+Employees act in good faith to resolve issues and analyze grievances to eliminate recurring operational
+            bottlenecks in our lending processes.            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 2: AREA OF APPLICATION & DEFINITIONS */}
+    <section className="section bg-light">
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"760px","margin":"0 auto 36px"}}>
+          <span className="section-tag">Institutional Scope</span>
+          <h2 className="section-title">Scope & Regulatory Definitions</h2>
+          <p className="section-desc">
+
+          Clearly defined institutional boundaries to ensure transparent customer dispute resolution.
+                  </p>
+        </div>
+        <div style={{"display":"grid","gridTemplateColumns":"repeat(auto-fit, minmax(260px, 1fr))","gap":"20px"}}>
+          <div style={{"background":"#ffffff","borderRadius":"16px","padding":"24px","border":"1px solid #e2e8f0","boxShadow":"0 4px 12px rgba(0,0,0,0.03)"}}>
+            <div style={{"fontSize":"0.75rem","textTransform":"uppercase","color":"var(--primary-purple)","fontWeight":"800","marginBottom":"6px"}}>
+
+            Area of Application            </div>
+            <h4 style={{"fontSize":"1.125rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px"}}>
+Institutional Coverage
+                      </h4>
+            <p style={{"fontSize":"0.875rem","color":"#64748b","lineHeight":"1.6","margin":"0"}}>
+
+            This policy applies across all branches, digital lending platforms, corporate offices, and to every employee
+            of               <strong>Lord Krishna Financial Services Limited</strong>
+ operating under the brand name
+                          <strong>“PRESTLOANS”</strong>
+.
+                      </p>
+          </div>
+          <div style={{"background":"#ffffff","borderRadius":"16px","padding":"24px","border":"1px solid #e2e8f0","boxShadow":"0 4px 12px rgba(0,0,0,0.03)"}}>
+            <div style={{"fontSize":"0.75rem","textTransform":"uppercase","color":"#f05a28","fontWeight":"800","marginBottom":"6px"}}>
+
+            Definition: Customer            </div>
+            <h4 style={{"fontSize":"1.125rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px"}}>Eligible Borrowers</h4>
+            <p style={{"fontSize":"0.875rem","color":"#64748b","lineHeight":"1.6","margin":"0"}}>
+
+            Includes all Borrowers, Individuals, Co-borrowers, Students, Self-employed Individuals, and Corporate Bodies
+            who avail or apply for financial facilities under company credit policies.
+                      </p>
+          </div>
+          <div style={{"background":"#ffffff","borderRadius":"16px","padding":"24px","border":"1px solid #e2e8f0","boxShadow":"0 4px 12px rgba(0,0,0,0.03)"}}>
+            <div style={{"fontSize":"0.75rem","textTransform":"uppercase","color":"#0284c7","fontWeight":"800","marginBottom":"6px"}}>
+
+            Definition: Grievance            </div>
+            <h4 style={{"fontSize":"1.125rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px"}}>Scope of Dispute</h4>
+            <p style={{"fontSize":"0.875rem","color":"#64748b","lineHeight":"1.6","margin":"0"}}>
+
+            Any complaint, resentment, dispute, disagreement, service deficiency, or dissatisfaction arising out of the
+            lending practices, recovery procedures, or codes followed by Prest Loans in its customer dealings.
+                      </p>
+          </div>
+          <div style={{"background":"#ffffff","borderRadius":"16px","padding":"24px","border":"1px solid #e2e8f0","boxShadow":"0 4px 12px rgba(0,0,0,0.03)"}}>
+            <div style={{"fontSize":"0.75rem","textTransform":"uppercase","color":"#059669","fontWeight":"800","marginBottom":"6px"}}>
+
+            Definition: Board            </div>
+            <h4 style={{"fontSize":"1.125rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px"}}>
+Fiduciary Oversight
+                      </h4>
+            <p style={{"fontSize":"0.875rem","color":"#64748b","lineHeight":"1.6","margin":"0"}}>
+
+            Refers to the Board of Directors of Lord Krishna Financial Services Ltd who maintain ultimate governance,
+            oversight, and conduct periodic reviews of customer satisfaction metrics.
+                      </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 3: MULTI-TIER ESCALATION MATRIX */}
+    <section className="section" id="escalation-matrix">
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"820px","margin":"0 auto 12px"}}>
+          <span className="section-tag">Hierarchical Resolution Structure</span>
+          <h2 className="section-title">Comprehensive Escalation Matrix</h2>
+          <p className="section-desc">
+
+          If your issue is not resolved within the specified timeframe or if you are dissatisfied with the resolution
+          received, you may progressively escalate your complaint through the designated officers below.
+                  </p>
+        </div>
+        {/* QUICK ESCALATION TABLE (Matching Official Reference) */}
+        <div style={{"background":"#ffffff","border":"1px solid #e2e8f0","borderRadius":"14px","overflowX":"auto","boxShadow":"0 4px 16px rgba(0,0,0,0.04)","marginBottom":"28px"}}>
+          <table style={{"width":"100%","minWidth":"600px","borderCollapse":"collapse","textAlign":"left","fontSize":"0.9375rem"}}>
+            <thead>
+              <tr style={{"background":"#f8fafc","borderBottom":"2px solid #e2e8f0"}}>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"28%"}}>Level</th>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"32%"}}>Officer</th>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"40%"}}>Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{"borderBottom":"1px solid #e2e8f0"}}>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"var(--primary-purple)"}}>
+                  <i className="fa-solid fa-user-check" style={{"marginRight":"6px"}}></i>
+ Level 1 – Primary Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Ms. Poonam Tiwari
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:care@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"600"}}>care@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241123" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241123</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style={{"borderBottom":"1px solid #e2e8f0","background":"#fffdfb"}}>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"#ea580c"}}>
+                  <i className="fa-solid fa-user-shield" style={{"marginRight":"6px"}}></i>
+ Level 2 – Compliance Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Ms. Sheetal Mishra
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:compliance@prestloans.com" style={{"color":"#ea580c","fontWeight":"600"}}>compliance@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241123" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241123</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"#2563eb"}}>
+                  <i className="fa-solid fa-user-tie" style={{"marginRight":"6px"}}></i>
+ Level 3 – Nodal Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Mr. Sandeep Saini
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:nodalofficer@prestloans.com" style={{"color":"#2563eb","fontWeight":"600"}}>nodalofficer@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241131" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241131</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="grm-matrix-grid">
+          {/* LEVEL 1: PRIMARY OFFICER */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 01: Primary Cell</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-clock"></i>
+ Time: Within 14 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar">
+                <i className="fa-solid fa-user-check"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Ms. Poonam Tiwari</div>
+                <div className="grm-officer-designation">Primary Grievance Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:care@prestloans.com">care@prestloans.com</a>
                 </div>
-
-                {/* Level 2 */}
-                <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '14px', borderLeft: '4px solid #3b82f6' }}>
-                  <h4 style={{ color: '#1e293b', margin: '0 0 6px', fontSize: '1.1rem' }}>Level 2: Grievance Redressal Officer (GRO)</h4>
-                  <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                    If the complaint is not resolved within 7 days, or the resolution is unsatisfactory, write to our Grievance Redressal Officer at <strong>nodal.officer@prestloans.com</strong>. Expected turnaround time: <strong>7 business days</strong>.
-                  </p>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241123">011-45241123</a>
                 </div>
-
-                {/* Level 3 */}
-                <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '14px', borderLeft: '4px solid #16a34a' }}>
-                  <h4 style={{ color: '#1e293b', margin: '0 0 6px', fontSize: '1.1rem' }}>Level 3: Principal Nodal Officer (PNO)</h4>
-                  <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                    Borrowers may escalate to the Principal Nodal Officer at corporate headquarters: Lord Krishna Financial Services Ltd, M5-M6, Essel House, 10 Asaf Ali Road, New Delhi - 110002. Email: <strong>pno@prestloans.com</strong>.
-                  </p>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Role:</strong>
+ First point of contact for all service grievances & file reviews.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:care@prestloans.com?subject=Grievance%20Registration%20-%20Prest%20Loans" className="grm-btn-email">
+                <i className="fa-solid fa-envelope"></i>
+ Email Officer
+                          </a>
+              <a href="tel:+911145241123" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 2: COMPLIANCE OFFICER */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 02: Escalation I</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-clock"></i>
+ If Unresolved After 14 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar" style={{"background":"linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)","color":"#ea580c","borderColor":"#fed7aa"}}>
+                <i className="fa-solid fa-user-shield"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Ms. Sheetal Mishra</div>
+                <div className="grm-officer-designation" style={{"color":"#ea580c"}}>Compliance Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:compliance@prestloans.com" style={{"color":"#ea580c"}}>compliance@prestloans.com</a>
                 </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241123">011-45241123</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-circle-exclamation"></i>
+                <div>
+                  <strong>Trigger:</strong>
+ If unresolved within 2 weeks of filing or resolution is unacceptable.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:compliance@prestloans.com?subject=Grievance%20Escalation%20Level%201%20-%20Prest%20Loans" className="grm-btn-email" style={{"background":"#fff7ed","color":"#ea580c","borderColor":"#fed7aa"}}>
+                <i className="fa-solid fa-envelope"></i>
+ Escalate Here
+                          </a>
+              <a href="tel:+911145241123" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 3: NODAL OFFICER */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 03: Escalation II</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-bolt"></i>
+ Response Time: 7 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar" style={{"background":"linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)","color":"#2563eb","borderColor":"#bfdbfe"}}>
+                <i className="fa-solid fa-user-tie"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Mr. Sandeep Saini</div>
+                <div className="grm-officer-designation" style={{"color":"#2563eb"}}>Principal Nodal Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:nodalofficer@prestloans.com" style={{"color":"#2563eb"}}>nodalofficer@prestloans.com</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241131">011-45241131</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-shield-check"></i>
+                <div>
+                  <strong>Assurance:</strong>
+ Formal written response within 7 business days from Nodal Desk.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:nodalofficer@prestloans.com?subject=Grievance%20Escalation%20to%20Nodal%20Officer%20-%20Prest%20Loans" className="grm-btn-email" style={{"background":"#eff6ff","color":"#2563eb","borderColor":"#bfdbfe"}}>
+                <i className="fa-solid fa-envelope"></i>
+ Nodal Escalation
+                          </a>
+              <a href="tel:+911145241131" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 4: RBI REGULATOR / OMBUDSMAN */}
+          <div className="grm-level-card level-rbi">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 04: Regulator</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-landmark"></i>
+ Appeal: After 30 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar">
+                <i className="fa-solid fa-building-columns"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Reserve Bank of India</div>
+                <div className="grm-officer-designation">Dept. of Non-Banking Supervision</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-landmark"></i>
+                <div>New Delhi Regional Office, Reserve Bank of India</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>6, Sansad Marg, New Delhi, Delhi - 110001</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-globe"></i>
+                <div>
+                  <strong>CMS Portal:</strong>
+                   <a href="https://cms.rbi.org.in" target="_blank" rel="noopener">cms.rbi.org.in</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building-columns"></i>
+                <div>
+                  <strong>CRPC Portal:</strong>
+                   <a href="https://www.rbi.org.in/" target="_blank" rel="noopener">https://www.rbi.org.in/</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address:</strong>
+ 4th Floor, Sector 17, Chandigarh – 160017                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-shield-halved"></i>
+                <div>
+                  <strong>Sachet Portal:</strong>
+                   <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">sachet.rbi.org.in</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-scale-balanced"></i>
+                <div>
+                  <strong>Right to Appeal:</strong>
+ If issue is unresolved after 30 days or borrower remains aggrieved.
+                              </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" className="grm-btn-email" style={{"background":"#0284c7","color":"#ffffff","borderColor":"#0284c7"}}>
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
+ RBI CMS Portal
+                          </a>
+            </div>
+          </div>
+        </div>
+        {/* CORPORATE & REGISTERED OFFICE INFO BOX */}
+        <div style={{"background":"#ffffff","border":"1px solid #e2e8f0","borderRadius":"16px","padding":"22px 28px","marginTop":"28px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"20px"}}>
+          <div>
+            <h4 style={{"fontSize":"1.05rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px"}}>
+              <i className="fa-solid fa-location-crosshairs" style={{"color":"var(--primary-purple)","marginRight":"8px"}}></i>
 
-                {/* Level 4 */}
-                <div style={{ background: '#fff7ed', padding: '20px', borderRadius: '14px', borderLeft: '4px solid #ea580c' }}>
-                  <h4 style={{ color: '#1e293b', margin: '0 0 6px', fontSize: '1.1rem' }}>Level 4: Reserve Bank - Integrated Ombudsman Scheme (RB-IOS 2026)</h4>
-                  <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                    If the complaint is not resolved by the NBFC within <strong>30 calendar days</strong>, the borrower may appeal directly to the RBI Ombudsman online at <a href="https://cms.rbi.org.in" target="_blank" rel="noopener noreferrer" style={{ color: '#ea580c', fontWeight: 700 }}>cms.rbi.org.in</a> or by calling the toll-free helpline <strong>14448</strong> (9:30 AM to 5:15 PM). Physical complaints can be sent to: Centralised Receipt and Processing Centre (CRPC), Reserve Bank of India, 4th Floor, Sector 17, Chandigarh - 160017.
+            In-Person Branch & Written Submissions
+                      </h4>
+            <p style={{"fontSize":"0.875rem","color":"#64748b","margin":"0","lineHeight":"1.5"}}>
+
+            Customers may hand over physical complaint letters at our Corporate Office:               <strong>
+903, 9th Floor, Surya
+              Kiran Building, KG Marg, Connaught Place, New Delhi - 110001              </strong>
+ or Registered Office:               <strong>
+M5-M6,
+              Essel House, 10 Asaf Ali Road, New Delhi - 110002              </strong>
+. Please obtain a signed and dated
+            acknowledgment receipt upon submission.
+                      </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 4: DIGITAL LENDING GRIEVANCE REDRESSAL OFFICERS (DLGRO) */}
+    <section className="section" id="digital-grievance-officers" style={{"background":"linear-gradient(180deg, #fcfaff 0%, #ffffff 100%)","borderTop":"1px solid #f1f5f9"}}>
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"840px","margin":"0 auto 16px"}}>
+          <span className="section-tag" style={{"background":"#eff6ff","color":"#2563eb","border":"1px solid #bfdbfe"}}>
+            <i className="fa-solid fa-mobile-screen-button" style={{"marginRight":"6px"}}></i>
+ RBI Digital Lending Directives
+                  </span>
+          <h2 className="section-title">Digital Lending Grievance Redressal Officers</h2>
+          <p className="section-desc">
+
+          Pursuant to Reserve Bank of India (RBI) Directives on Digital Lending, borrowers availing credit through our
+          digital lending platforms, mobile applications, or partnered Lending Service Providers (LSPs) may escalate
+          complaints through the designated digital grievance officers below.
                   </p>
+        </div>
+        {/* QUICK ESCALATION TABLE (DIGITAL LENDING) */}
+        <div style={{"background":"#ffffff","border":"1px solid #e2e8f0","borderRadius":"14px","overflowX":"auto","boxShadow":"0 4px 16px rgba(0,0,0,0.04)","marginBottom":"28px"}}>
+          <table style={{"width":"100%","minWidth":"600px","borderCollapse":"collapse","textAlign":"left","fontSize":"0.9375rem"}}>
+            <thead>
+              <tr style={{"background":"#f8fafc","borderBottom":"2px solid #e2e8f0"}}>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"28%"}}>Level</th>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"32%"}}>Officer</th>
+                <th style={{"padding":"14px 20px","fontWeight":"800","color":"#0f172a","width":"40%"}}>Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{"borderBottom":"1px solid #e2e8f0"}}>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"var(--primary-purple)"}}>
+                  <i className="fa-solid fa-user-check" style={{"marginRight":"6px"}}></i>
+ Level 1 – Primary Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Ms. Poonam Tiwari
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:care@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"600"}}>care@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241123" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241123</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style={{"borderBottom":"1px solid #e2e8f0","background":"#fffdfb"}}>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"#ea580c"}}>
+                  <i className="fa-solid fa-user-shield" style={{"marginRight":"6px"}}></i>
+ Level 2 – Compliance Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Ms. Sheetal Mishra
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:compliance@prestloans.com" style={{"color":"#ea580c","fontWeight":"600"}}>compliance@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241123" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241123</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style={{"padding":"14px 20px","fontWeight":"700","color":"#2563eb"}}>
+                  <i className="fa-solid fa-user-tie" style={{"marginRight":"6px"}}></i>
+ Level 3 – Nodal Officer
+                              </td>
+                <td style={{"padding":"14px 20px","fontWeight":"600","color":"#1e293b"}}>
+
+                Mr. Sandeep Saini
+                              </td>
+                <td style={{"padding":"14px 20px","color":"#334155"}}>
+                  <div>
+                    <strong>Email:</strong>
+                     <a href="mailto:nodalofficer@prestloans.com" style={{"color":"#2563eb","fontWeight":"600"}}>nodalofficer@prestloans.com</a>
+                  </div>
+                  <div>
+                    <strong>Phone:</strong>
+                     <a href="tel:+911145241131" style={{"color":"#0f172a","fontWeight":"600"}}>011-45241131</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="grm-matrix-grid">
+          {/* LEVEL 1: PRIMARY OFFICER (DIGITAL LENDING) */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 01: Primary Cell</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-clock"></i>
+ Time: Within 14 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar">
+                <i className="fa-solid fa-user-check"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Ms. Poonam Tiwari</div>
+                <div className="grm-officer-designation">Primary Grievance Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:care@prestloans.com">care@prestloans.com</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241123">011-45241123</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>Role:</strong>
+ First point of contact for all service grievances & file reviews.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:care@prestloans.com?subject=Digital%20Lending%20Grievance%20-%20Prest%20Loans" className="grm-btn-email">
+                <i className="fa-solid fa-envelope"></i>
+ Email Officer
+                          </a>
+              <a href="tel:+911145241123" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 2: COMPLIANCE OFFICER (DIGITAL LENDING) */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 02: Escalation I</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-clock"></i>
+ If Unresolved After 14 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar" style={{"background":"linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)","color":"#ea580c","borderColor":"#fed7aa"}}>
+                <i className="fa-solid fa-user-shield"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Ms. Sheetal Mishra</div>
+                <div className="grm-officer-designation" style={{"color":"#ea580c"}}>Compliance Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:compliance@prestloans.com" style={{"color":"#ea580c"}}>compliance@prestloans.com</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241123">011-45241123</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-circle-exclamation"></i>
+                <div>
+                  <strong>Trigger:</strong>
+ If unresolved within 2 weeks of filing or resolution is unacceptable.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:compliance@prestloans.com?subject=Digital%20Lending%20Grievance%20Escalation%20Level%201%20-%20Prest%20Loans" className="grm-btn-email" style={{"background":"#fff7ed","color":"#ea580c","borderColor":"#fed7aa"}}>
+                <i className="fa-solid fa-envelope"></i>
+ Escalate Here
+                          </a>
+              <a href="tel:+911145241123" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 3: NODAL OFFICER (DIGITAL LENDING) */}
+          <div className="grm-level-card">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 03: Escalation II</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-bolt"></i>
+ Response Time: 7 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar" style={{"background":"linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)","color":"#2563eb","borderColor":"#bfdbfe"}}>
+                <i className="fa-solid fa-user-tie"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Mr. Sandeep Saini</div>
+                <div className="grm-officer-designation" style={{"color":"#2563eb"}}>Principal Nodal Officer</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building"></i>
+                <div>Lord Krishna Financial Services Ltd (Prest Loans)</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+M5 – M6, Essel House, 10 Asaf Ali Road, New Delhi – 110 002 (India)                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                   <a href="mailto:nodalofficer@prestloans.com" style={{"color":"#2563eb"}}>nodalofficer@prestloans.com</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone:</strong>
+                   <a href="tel:+911145241131">011-45241131</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-shield-check"></i>
+                <div>
+                  <strong>Assurance:</strong>
+ Formal written response within 7 business days from Nodal Desk.                </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="mailto:nodalofficer@prestloans.com?subject=Digital%20Lending%20Grievance%20Escalation%20to%20Nodal%20Officer%20-%20Prest%20Loans" className="grm-btn-email" style={{"background":"#eff6ff","color":"#2563eb","borderColor":"#bfdbfe"}}>
+                <i className="fa-solid fa-envelope"></i>
+ Nodal Escalation
+                          </a>
+              <a href="tel:+911145241131" className="grm-btn-call">
+                <i className="fa-solid fa-phone"></i>
+ Call
+                          </a>
+            </div>
+          </div>
+          {/* LEVEL 4: RBI REGULATOR / OMBUDSMAN */}
+          <div className="grm-level-card level-rbi">
+            <div className="grm-level-top">
+              <span className="grm-level-tag">Level 04: Regulator</span>
+              <span className="grm-tat-pill">
+                <i className="fa-solid fa-landmark"></i>
+ Appeal: After 30 Days              </span>
+            </div>
+            <div className="grm-officer-header">
+              <div className="grm-officer-avatar">
+                <i className="fa-solid fa-building-columns"></i>
+              </div>
+              <div>
+                <div className="grm-officer-name">Reserve Bank of India</div>
+                <div className="grm-officer-designation">Dept. of Non-Banking Supervision</div>
+              </div>
+            </div>
+            <ul className="grm-details-list">
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-landmark"></i>
+                <div>New Delhi Regional Office, Reserve Bank of India</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>6, Sansad Marg, New Delhi, Delhi - 110001</div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-globe"></i>
+                <div>
+                  <strong>CMS Portal:</strong>
+                   <a href="https://cms.rbi.org.in" target="_blank" rel="noopener">cms.rbi.org.in</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-building-columns"></i>
+                <div>
+                  <strong>CRPC Portal:</strong>
+                   <a href="https://www.rbi.org.in/" target="_blank" rel="noopener">https://www.rbi.org.in/</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address:</strong>
+ 4th Floor, Sector 17, Chandigarh – 160017                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-shield-halved"></i>
+                <div>
+                  <strong>Sachet Portal:</strong>
+                   <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">sachet.rbi.org.in</a>
+                </div>
+              </li>
+              <li className="grm-detail-row">
+                <i className="fa-solid fa-scale-balanced"></i>
+                <div>
+                  <strong>Right to Appeal:</strong>
+ If issue is unresolved after 30 days or borrower remains aggrieved.
+                              </div>
+              </li>
+            </ul>
+            <div className="grm-card-actions">
+              <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" className="grm-btn-email" style={{"background":"#0284c7","color":"#ffffff","borderColor":"#0284c7"}}>
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
+ RBI CMS Portal
+                          </a>
+            </div>
+          </div>
+        </div>
+        {/* DIGITAL LENDING REGULATORY DIRECTIVES NOTICE */}
+        <div style={{"background":"#eff6ff","border":"1px solid #bfdbfe","borderRadius":"16px","padding":"22px 28px","marginTop":"28px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"20px"}}>
+          <div>
+            <h4 style={{"fontSize":"1.05rem","fontWeight":"800","color":"#1e3a8a","marginBottom":"4px"}}>
+              <i className="fa-solid fa-shield-halved" style={{"color":"#2563eb","marginRight":"8px"}}></i>
+
+            Statutory Mandate under RBI Digital Lending Guidelines 2022
+                      </h4>
+            <p style={{"fontSize":"0.875rem","color":"#334155","margin":"0","lineHeight":"1.5"}}>
+
+            In accordance with RBI Master Directions on Digital Lending, Prest Loans and its partnered Lending Service
+            Providers (LSPs) provide a transparent, dedicated dispute resolution mechanism. If any digital lending
+            complaint is not resolved within               <strong>30 days</strong>
+, borrowers have the statutory right to lodge an
+            appeal on the RBI CMS Portal (              <strong>cms.rbi.org.in</strong>
+).
+                      </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* ======================================================================= */}
+    {/* SECTION: RESERVE BANK – INTEGRATED OMBUDSMAN SCHEME, 2026 (RB-IOS 2026) */}
+    {/* ======================================================================= */}
+    <section className="section" id="rb-ios-2026" style={{"background":"#fffdfa","borderTop":"1.5px solid #fed7aa","borderBottom":"1.5px solid #fed7aa","padding":"60px 0"}}>
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"880px","margin":"0 auto 36px"}}>
+          <span className="section-tag" style={{"background":"#fef3c7","color":"#b45309","border":"1px solid #fde68a"}}>
+            <i className="fa-solid fa-scale-balanced"></i>
+ RBI Statutory Dispute Resolution
+                  </span>
+          <h2 className="section-title" style={{"color":"#70146e"}}>
+Reserve Bank – Integrated Ombudsman Scheme, 2026 (RB-IOS 2026)          </h2>
+          <p className="section-desc" style={{"fontSize":"1rem","lineHeight":"1.7","color":"#334155"}}>
+            <strong>Lord Krishna Financial Services Limited (Prest Loans)</strong>
+ is covered under the             <strong>Reserve Bank – Integrated Ombudsman Scheme, 2026</strong>
+.
+          It came into force on             <strong>1 July 2026</strong>
+ and replaced the 2021 scheme. Customers whose complaints are not resolved by us within
+                      <strong>30 days</strong>
+ may approach the RBI Ombudsman free of cost.
+                  </p>
+        </div>
+        {/* KEY CONTACT & FILING TOUCHPOINTS (2 COLUMNS) */}
+        <div style={{"display":"grid","gridTemplateColumns":"repeat(auto-fit, minmax(320px, 1fr))","gap":"24px","marginBottom":"36px"}}>
+          {/* Card 1: Principal Nodal Officer */}
+          <div style={{"background":"linear-gradient(135deg, #fdf4fd 0%, #ffffff 100%)","border":"1.5px solid #ebd3e7","borderRadius":"16px","padding":"26px","boxShadow":"0 4px 16px rgba(112, 20, 110, 0.06)"}}>
+            <div style={{"display":"flex","alignItems":"center","gap":"14px","marginBottom":"16px"}}>
+              <div style={{"width":"50px","height":"50px","borderRadius":"12px","background":"var(--primary-purple)","color":"#ffffff","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.3rem","flexShrink":"0","boxShadow":"0 4px 12px rgba(112, 20, 110, 0.25)"}}>
+                <i className="fa-solid fa-user-tie"></i>
+              </div>
+              <div>
+                <span style={{"fontSize":"0.75rem","textTransform":"uppercase","fontWeight":"800","color":"var(--primary-purple)","letterSpacing":"0.5px"}}>Designated Statutory Officer</span>
+                <h3 style={{"fontSize":"1.15rem","fontWeight":"800","color":"#0f172a","margin":"2px 0 0 0"}}>Principal Nodal Officer (for RB-IOS 2026)</h3>
+              </div>
+            </div>
+            <div style={{"fontSize":"0.9375rem","color":"#334155","lineHeight":"1.6"}}>
+              <div style={{"fontWeight":"800","color":"#0f172a","fontSize":"1.05rem","marginBottom":"4px"}}>Mr. Sandeep Saini</div>
+              <p style={{"margin":"0 0 14px 0","color":"#475569","fontSize":"0.875rem"}}>
+
+              Principal Nodal Officer                <br />
+                <strong>Lord Krishna Financial Services Ltd</strong>
+                <br />
+
+              M5–M6, Essel House, 10 Asaf Ali Road, New Delhi – 110002
+                          </p>
+              <div style={{"display":"flex","flexDirection":"column","gap":"8px","borderTop":"1px dashed #e2e8f0","paddingTop":"14px"}}>
+                <div>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-phone" style={{"color":"var(--primary-purple)","width":"20px"}}></i>
+ Phone:                  </strong>
+                  <a href="tel:+919205892592" style={{"color":"var(--primary-purple)","fontWeight":"700","textDecoration":"none"}}>+91-9205892592</a>
+                </div>
+                <div>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-envelope" style={{"color":"var(--primary-purple)","width":"20px"}}></i>
+ Email:                  </strong>
+                  <a href="mailto:nodalofficer@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700","textDecoration":"none"}}>nodalofficer@prestloans.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Card 2: Where to complain to the RBI Ombudsman */}
+          <div style={{"background":"linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)","border":"1.5px solid #bfdbfe","borderRadius":"16px","padding":"26px","boxShadow":"0 4px 16px rgba(37, 99, 235, 0.06)"}}>
+            <div style={{"display":"flex","alignItems":"center","gap":"14px","marginBottom":"16px"}}>
+              <div style={{"width":"50px","height":"50px","borderRadius":"12px","background":"#2563eb","color":"#ffffff","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.3rem","flexShrink":"0","boxShadow":"0 4px 12px rgba(37, 99, 235, 0.25)"}}>
+                <i className="fa-solid fa-building-columns"></i>
+              </div>
+              <div>
+                <span style={{"fontSize":"0.75rem","textTransform":"uppercase","fontWeight":"800","color":"#2563eb","letterSpacing":"0.5px"}}>Statutory Authority</span>
+                <h3 style={{"fontSize":"1.15rem","fontWeight":"800","color":"#0f172a","margin":"2px 0 0 0"}}>Where to Complain to the RBI Ombudsman</h3>
+              </div>
+            </div>
+            <div style={{"fontSize":"0.875rem","color":"#334155","lineHeight":"1.6"}}>
+              <div style={{"marginBottom":"10px"}}>
+                <strong style={{"color":"#0f172a"}}>
+                  <i className="fa-solid fa-globe" style={{"color":"#2563eb","width":"20px"}}></i>
+ Online Portal:                </strong>
+                <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" style={{"color":"#2563eb","fontWeight":"700","textDecoration":"underline"}}>https://cms.rbi.org.in</a>
+              </div>
+              <div style={{"marginBottom":"10px"}}>
+                <strong style={{"color":"#0f172a"}}>
+                  <i className="fa-solid fa-envelope" style={{"color":"#2563eb","width":"20px"}}></i>
+ Dedicated Email:                </strong>
+                <a href="mailto:crpc@rbi.org.in" style={{"color":"#2563eb","fontWeight":"700","textDecoration":"none"}}>crpc@rbi.org.in</a>
+              </div>
+              <div style={{"borderTop":"1px dashed #e2e8f0","paddingTop":"10px"}}>
+                <strong style={{"color":"#0f172a","display":"block","marginBottom":"4px"}}>
+                  <i className="fa-solid fa-envelopes-bulk" style={{"color":"#2563eb","width":"20px"}}></i>
+ By Post or Courier:                </strong>
+                <span style={{"color":"#475569"}}>
+
+                Centralised Receipt and Processing Centre (CRPC),                  <br />
+
+                Reserve Bank of India, 4th Floor, Sector 17,                  <br />
+
+                Central Vista, Chandigarh – 160017
+                              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* LANGUAGE TAB TOGGLE (ENGLISH / HINDI) */}
+        <div style={{"background":"#ffffff","border":"1.5px solid #e2e8f0","borderRadius":"18px","boxShadow":"0 4px 20px rgba(0,0,0,0.04)","overflow":"hidden","marginBottom":"32px"}}>
+          <div style={{"display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","borderBottom":"1.5px solid #e2e8f0","background":"#f8fafc","padding":"14px 22px","gap":"12px"}}>
+            <div style={{"display":"flex","alignItems":"center","gap":"10px"}}>
+              <span style={{"fontWeight":"800","color":"#0f172a","fontSize":"1rem"}}>
+                <i className="fa-solid fa-list-check" style={{"color":"var(--primary-purple)"}}></i>
+ Salient Features of the Scheme
+                          </span>
+              <span style={{"background":"#f3e8ff","color":"var(--primary-purple)","fontSize":"0.75rem","fontWeight":"800","padding":"3px 10px","borderRadius":"999px"}}>RB-IOS 2026</span>
+            </div>
+            <div style={{"display":"inline-flex","background":"#e2e8f0","borderRadius":"999px","padding":"3px","gap":"4px"}}>
+              <button type="button" id="rbios-tab-btn-en" onClick={(event) => { try { (new Function('event', "switchRbiosTab('en')")).call(event.currentTarget, event); } catch(e) {} }} style={{"border":"none","background":"var(--primary-purple)","color":"#ffffff","padding":"7px 18px","borderRadius":"999px","fontWeight":"700","fontSize":"0.8125rem","cursor":"pointer","transition":"all 0.2s ease"}}>
+
+              🇬🇧 English Version
+                          </button>
+              <button type="button" id="rbios-tab-btn-hi" onClick={(event) => { try { (new Function('event', "switchRbiosTab('hi')")).call(event.currentTarget, event); } catch(e) {} }} style={{"border":"none","background":"transparent","color":"#475569","padding":"7px 18px","borderRadius":"999px","fontWeight":"700","fontSize":"0.8125rem","cursor":"pointer","transition":"all 0.2s ease"}}>
+
+              🇮🇳 हिंदी संस्करण (अनिवार्य)
+                          </button>
+            </div>
+          </div>
+          {/* TAB CONTENT: ENGLISH */}
+          <div id="rbios-tab-en" style={{"padding":"28px"}}>
+            <div style={{"display":"grid","gridTemplateColumns":"repeat(auto-fit, minmax(320px, 1fr))","gap":"20px"}}>
+              {/* Item 1 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-circle-question" style={{"color":"var(--primary-purple)"}}></i>
+ What you can complain about
+                              </h4>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                Any                   <strong>“deficiency in service”</strong>
+ by us: any shortfall or inadequacy in a service we are required to provide, whether or not it caused you a financial loss.
+                              </p>
+              </div>
+              {/* Item 2 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-handshake" style={{"color":"#ea580c"}}></i>
+ Complain to us first
+                              </h4>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                You must first complain to                   <strong>Prest Loans</strong>
+, in writing or otherwise. The RBI Ombudsman will not take up a complaint that was not first raised with us.
+                              </p>
+              </div>
+              {/* Item 3 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-clock" style={{"color":"#2563eb"}}></i>
+ When you can go to the Ombudsman
+                              </h4>
+                <ul style={{"fontSize":"0.875rem","color":"#475569","margin":"0","paddingLeft":"18px","lineHeight":"1.6"}}>
+                  <li>
+We haven’t replied within                     <strong>30 days</strong>
+ of receiving your complaint, or                  </li>
+                  <li>We rejected it, or</li>
+                  <li>You’re not satisfied with our reply.</li>
+                </ul>
+              </div>
+              {/* Item 4 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-calendar-check" style={{"color":"#16a34a"}}></i>
+ Time limit
+                              </h4>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                You must file within                   <strong>90 days</strong>
+ of the date our 30-day period ends, or of our last communication, whichever is later.
+                              </p>
+              </div>
+              {/* Item 5 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-file-signature" style={{"color":"#7c3aed"}}></i>
+ How to file
+                              </h4>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                Online through the CMS portal (                  <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" style={{"color":"#2563eb","fontWeight":"600"}}>https://cms.rbi.org.in</a>
+), by email (                  <a href="mailto:crpc@rbi.org.in" style={{"color":"#2563eb","fontWeight":"600"}}>crpc@rbi.org.in</a>
+), or by signed letter to the CRPC (addresses above). Keep ready a copy of your complaint to us, our reply (if any), and supporting documents.
+                              </p>
+              </div>
+              {/* Item 6 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#dc2626","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-ban" style={{"color":"#dc2626"}}></i>
+ When a complaint won’t be accepted
+                              </h4>
+                <ul style={{"fontSize":"0.85rem","color":"#475569","margin":"0","paddingLeft":"18px","lineHeight":"1.5"}}>
+                  <li>
+The same grievance is already pending before or decided by the Ombudsman, or                  </li>
+                  <li>
+Is pending before or decided by a court, tribunal, arbitrator or other forum, or                  </li>
+                  <li>Is time-barred under the Limitation Act, 1963, or</li>
+                  <li>
+Is abusive, frivolous or vexatious, or lacks the required information.                  </li>
+                </ul>
+              </div>
+              {/* Item 7 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-triangle-exclamation" style={{"color":"#d97706"}}></i>
+ Matters outside the Scheme
+                              </h4>
+                <ul style={{"fontSize":"0.82rem","color":"#475569","margin":"0","paddingLeft":"18px","lineHeight":"1.5"}}>
+                  <li>
+A lender’s commercial judgment, such as a decision on whether to sanction a loan                  </li>
+                  <li>
+Disputes between a vendor and a lender, or between two lenders                  </li>
+                  <li>Complaints against management or executives</li>
+                  <li>Employer–employee disputes</li>
+                  <li>Actions taken to comply with court or statutory orders</li>
+                  <li>
+Matters with a remedy under Section 18 of the Credit Information Companies (Regulation) Act, 2005                  </li>
+                </ul>
+              </div>
+              {/* Item 8 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-gears" style={{"color":"#0284c7"}}></i>
+ Process & Award
+                              </h4>
+                <ul style={{"fontSize":"0.85rem","color":"#475569","margin":"0","paddingLeft":"18px","lineHeight":"1.5"}}>
+                  <li>
+The Ombudsman first tries to settle the complaint through facilitation, conciliation or mediation.                  </li>
+                  <li>If it isn’t settled, the Ombudsman may pass an Award.</li>
+                  <li>
+You must accept the Award in writing within                     <strong>30 days</strong>
+, or it lapses.                  </li>
+                  <li>
+Once you accept it, we must comply within                     <strong>30 days</strong>
+.                  </li>
+                </ul>
+              </div>
+              {/* Item 9 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-indian-rupee-sign" style={{"color":"#16a34a"}}></i>
+ Compensation
+                              </h4>
+                <ul style={{"fontSize":"0.85rem","color":"#475569","margin":"0","paddingLeft":"18px","lineHeight":"1.5"}}>
+                  <li>
+There is                     <strong>no limit</strong>
+ on the amount in dispute that can be awarded.                  </li>
+                  <li>
+In addition, up to                     <strong>₹30 lakh</strong>
+ for consequential loss.                  </li>
+                  <li>
+Up to                     <strong>₹3 lakh</strong>
+ for loss of time, expenses, harassment and mental anguish.                  </li>
+                </ul>
+              </div>
+              {/* Item 10 */}
+              <div style={{"background":"#f8fafc","border":"1px solid #e2e8f0","borderRadius":"12px","padding":"20px"}}>
+                <h4 style={{"fontSize":"0.95rem","fontWeight":"800","color":"#0f172a","marginBottom":"8px","display":"flex","alignItems":"center","gap":"8px"}}>
+                  <i className="fa-solid fa-gavel" style={{"color":"#6366f1"}}></i>
+ Appeal & Representation
+                              </h4>
+                <p style={{"fontSize":"0.85rem","color":"#475569","margin":"0 0 8px 0","lineHeight":"1.5"}}>
+                  <strong>Appeal:</strong>
+ The Appellate Authority is the Executive Director in charge of RBI’s Consumer Education and Protection Department. You may appeal within 30 days of receiving the Award or rejection; this can be extended once by up to 30 days.
+                              </p>
+                <p style={{"fontSize":"0.85rem","color":"#475569","margin":"0","lineHeight":"1.5"}}>
+                  <strong>Representation:</strong>
+ You may complain yourself or through an authorised representative. The representative cannot be an advocate, unless the advocate is the complainant.
+                              </p>
+              </div>
+            </div>
+          </div>
+          {/* TAB CONTENT: HINDI (MANDATORY) */}
+          <div id="rbios-tab-hi" style={{"display":"none","padding":"28px","background":"#fffcf8"}}>
+            <div style={{"background":"#fef3c7","border":"1px solid #fde68a","borderRadius":"10px","padding":"12px 18px","marginBottom":"24px","fontSize":"0.875rem","color":"#92400e","display":"flex","alignItems":"center","gap":"10px"}}>
+              <i className="fa-solid fa-circle-info" style={{"fontSize":"1.1rem","flexShrink":"0"}}></i>
+              <span>
+                <strong>अनिवार्य प्रकटीकरण (Mandatory Disclosure):</strong>
+ योजना के तहत मुख्य विशेषताओं को अंग्रेजी, हिंदी और क्षेत्रीय भाषा में प्रदर्शित करना आवश्यक है। दिल्ली क्षेत्र हेतु हिंदी क्षेत्रीय भाषा की आवश्यकता को भी पूर्ण करती है।              </span>
+            </div>
+            <h3 style={{"fontSize":"1.25rem","fontWeight":"800","color":"#70146e","marginBottom":"20px"}}>
+
+            रिज़र्व बैंक – एकीकृत लोकपाल योजना, 2026 की मुख्य विशेषताएं
+                      </h3>
+            <div style={{"display":"grid","gridTemplateColumns":"repeat(auto-fit, minmax(320px, 1fr))","gap":"18px"}}>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ शिकायत का आधार:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+हमारी सेवा में किसी भी प्रकार की कमी, चाहे उससे आर्थिक हानि हुई हो या नहीं।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ पहले हमसे शिकायत करें:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+आरबीआई लोकपाल के पास जाने से पहले प्रेस्ट लोन्स के पास शिकायत दर्ज करना अनिवार्य है।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ लोकपाल के पास कब जाएं:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+यदि 30 दिनों में उत्तर न मिले, शिकायत अस्वीकार हो जाए, या आप उत्तर से संतुष्ट न हों।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ समय सीमा:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+30 दिन की अवधि समाप्त होने या हमारे अंतिम उत्तर की तिथि (जो बाद में हो) से 90 दिनों के भीतर।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ शिकायत कैसे करें:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                ऑनलाइन                   <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>https://cms.rbi.org.in</a>
+, ईमेल                   <a href="mailto:crpc@rbi.org.in" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>crpc@rbi.org.in</a>
+, या डाक द्वारा: केंद्रीकृत प्राप्ति एवं प्रसंस्करण केंद्र (CRPC), भारतीय रिज़र्व बैंक, चौथी मंज़िल, सेक्टर 17, सेंट्रल विस्टा, चंडीगढ़ – 160017।
+                              </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#dc2626","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-xmark" style={{"color":"#dc2626"}}></i>
+ कब शिकायत स्वीकार नहीं होगी:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+यदि वही मामला लोकपाल या किसी न्यायालय/न्यायाधिकरण/मध्यस्थ के समक्ष लंबित या निर्णीत है, परिसीमा अवधि समाप्त हो चुकी है, या शिकायत अपमानजनक/तुच्छ/अपूर्ण है।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ प्रक्रिया:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+लोकपाल पहले सुलह/मध्यस्थता से समाधान का प्रयास करेंगे; समाधान न होने पर निर्णय (अवार्ड) पारित किया जा सकता है।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ मुआवज़ा:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+विवादित राशि पर कोई सीमा नहीं; परिणामी हानि हेतु ₹30 लाख तक तथा समय, व्यय, उत्पीड़न व मानसिक पीड़ा हेतु ₹3 लाख तक।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-circle-dot" style={{"color":"var(--primary-orange)"}}></i>
+ अपील:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+अवार्ड या अस्वीकृति प्राप्त होने के 30 दिनों के भीतर अपीलीय प्राधिकारी (कार्यपालक निदेशक, उपभोक्ता शिक्षण और संरक्षण विभाग, आरबीआई) के पास।                </p>
+              </div>
+              <div style={{"background":"#ffffff","border":"1px solid #fed7aa","borderRadius":"12px","padding":"18px","boxShadow":"0 2px 8px rgba(0,0,0,0.02)"}}>
+                <strong style={{"color":"#0f172a","fontSize":"0.95rem","display":"block","marginBottom":"6px"}}>
+                  <i className="fa-solid fa-user-shield" style={{"color":"var(--primary-purple)"}}></i>
+ प्रधान नोडल अधिकारी:                </strong>
+                <p style={{"fontSize":"0.875rem","color":"#475569","margin":"0","lineHeight":"1.6"}}>
+
+                श्री संदीप सैनी, M5–M6, एस्सेल हाउस, 10 आसफ अली रोड, नई दिल्ली – 110002                  <br />
+
+                फ़ोन:                   <strong>
+                    <a href="tel:+919205892592" style={{"color":"var(--primary-purple)","textDecoration":"none"}}>+91-9205892592</a>
+                  </strong>
+ | ईमेल:                   <strong>
+                    <a href="mailto:nodalofficer@prestloans.com" style={{"color":"var(--primary-purple)","textDecoration":"none"}}>nodalofficer@prestloans.com</a>
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* OFFICIAL SCHEME DOWNLOADS & COMPLIANCE NOTE */}
+        <div style={{"background":"#f8fafc","border":"1.5px solid #e2e8f0","borderRadius":"16px","padding":"24px","display":"flex","flexWrap":"wrap","alignItems":"center","justifyContent":"space-between","gap":"20px"}}>
+          <div>
+            <h4 style={{"fontSize":"1.05rem","fontWeight":"800","color":"#0f172a","marginBottom":"4px","display":"flex","alignItems":"center","gap":"8px"}}>
+              <i className="fa-solid fa-file-pdf" style={{"color":"#dc2626"}}></i>
+ Scheme Documentation & Statutory Downloads
+                      </h4>
+            <p style={{"fontSize":"0.85rem","color":"#64748b","margin":"0"}}>
+
+            Download official copies of the Reserve Bank – Integrated Ombudsman Scheme, 2026 for complete statutory text and provisions.
+                      </p>
+          </div>
+          <div style={{"display":"flex","flexWrap":"wrap","gap":"12px"}}>
+            <a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/RBIOS2021_121121.pdf" target="_blank" rel="noopener" className="btn-notice-download" style={{"display":"inline-flex","alignItems":"center","gap":"8px","background":"var(--primary-purple)","color":"#ffffff","padding":"10px 18px","borderRadius":"8px","fontSize":"0.85rem","fontWeight":"700","textDecoration":"none","transition":"transform 0.2s ease"}}>
+              <i className="fa-solid fa-download"></i>
+ Reserve Bank – Integrated Ombudsman Scheme, 2026 (English) [PDF]
+                      </a>
+            <a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/RBIOSH12112021.pdf" target="_blank" rel="noopener" className="btn-notice-download" style={{"display":"inline-flex","alignItems":"center","gap":"8px","background":"#ea580c","color":"#ffffff","padding":"10px 18px","borderRadius":"8px","fontSize":"0.85rem","fontWeight":"700","textDecoration":"none","transition":"transform 0.2s ease"}}>
+              <i className="fa-solid fa-download"></i>
+ रिज़र्व बैंक – एकीकृत लोकपाल योजना, 2026 (हिंदी) [PDF]
+                      </a>
+          </div>
+        </div>
+        <div style={{"marginTop":"12px","fontSize":"0.8rem","color":"#64748b","fontStyle":"italic","display":"flex","alignItems":"center","gap":"6px"}}>
+          <i className="fa-solid fa-circle-exclamation" style={{"color":"#f59e0b"}}></i>
+          <span>
+            <strong>Note:</strong>
+ Download both PDFs from rbi.org.in and host copies on your own site; don’t rely on a third-party link.          </span>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 5: TIME FRAME FOR RESPONSE (SLA) */}
+    <section className="section bg-light">
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"820px","margin":"0 auto 32px"}}>
+          <span className="section-tag">Regulatory Service Standards</span>
+          <h2 className="section-title">Complaint Resolution Timelines</h2>
+          <p className="section-desc">
+
+          Clear and fixed time limits to ensure every borrower complaint is resolved quickly, fairly, and without
+          delays.
+                  </p>
+        </div>
+        <div className="grm-sla-card">
+          <table className="grm-sla-table">
+            <thead>
+              <tr>
+                <th style={{"width":"32%"}}>Complaint Nature & Category</th>
+                <th style={{"width":"44%"}}>Operational Scope & Investigation Protocol</th>
+                <th style={{"width":"24%","textAlign":"right"}}>Maximum Time Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-headset" style={{"color":"var(--primary-purple)","marginRight":"8px"}}></i>
+ General Service & Touchpoint
+                  Inquiries                  </strong>
+                </td>
+                <td>
+Statement requests, account queries, repayment schedules, EMI presentation dates, or branch
+                complaints.                </td>
+                <td style={{"textAlign":"right"}}>
+                  <span className="badge-money">Within 2 Business Days</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-folder-open" style={{"color":"var(--primary-purple)","marginRight":"8px"}}></i>
+ Archival & Document
+                  Retrieval                  </strong>
+                </td>
+                <td>
+Retrieval of historic records, closed loan files, property paper vetting, or verification from secured
+                vaults.                </td>
+                <td style={{"textAlign":"right"}}>
+                  <span className="badge-money">Up to 2 Weeks (14 Days)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-shield-virus" style={{"color":"#ea580c","marginRight":"8px"}}></i>
+ Fraud, Credit Decision & Underwriting
+                  Disputes                  </strong>
+                </td>
+                <td>
+In-depth examination of underwriting parameters, contested loan terms, fraud containment, or recovery
+                agent conduct.                </td>
+                <td style={{"textAlign":"right"}}>
+                  <span className="badge-money badge-money-warning">Maximum 2 Weeks</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-user-tie" style={{"color":"#2563eb","marginRight":"8px"}}></i>
+ Nodal Officer Level Escalations                  </strong>
+                </td>
+                <td>
+Matters referred directly to the Principal Nodal Officer following unsatisfactory Level 1 resolution.
+                              </td>
+                <td style={{"textAlign":"right"}}>
+                  <span className="badge-rate">
+                    <i className="fa-solid fa-bolt"></i>
+ 7 Business
+                  Days                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong style={{"color":"#0f172a"}}>
+                    <i className="fa-solid fa-landmark" style={{"color":"#0284c7","marginRight":"8px"}}></i>
+ Regulator Referred Complaints (RBI /
+                  Sachet)                  </strong>
+                </td>
+                <td>
+Statutory queries forwarded through the Reserve Bank of India or legal notice channels.                </td>
+                <td style={{"textAlign":"right"}}>
+                  <span className="badge-actual">
+                    <i className="fa-solid fa-scale-balanced"></i>
+ As
+                  per RBI Timeline                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 6: ONLINE GRIEVANCE REGISTRATION FORM */}
+    <section className="section" id="register-complaint">
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"820px","margin":"0 auto 12px"}}>
+          <span className="section-tag">Direct Digital Lodgment</span>
+          <h2 className="section-title">Submit a Grievance Online</h2>
+          <p className="section-desc">
+
+          Register your grievance directly with our Primary Grievance Desk. An official ticket number will be generated
+          immediately for tracking.
+                  </p>
+        </div>
+        <div className="grm-form-container">
+          <div className="grm-form-grid">
+            {/* Left Form */}
+            <form id="grmComplaintForm" className="grm-form-fields" onSubmit={(event) => { try { (new Function('event', "return false;")).call(event.currentTarget, event); } catch(e) {} }}>
+              <div style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"16px"}}>
+                <div className="grm-field-group">
+                  <label htmlFor="grm-name">Borrower / Applicant Full Name *</label>
+                  <input type="text" id="grm-name" className="grm-input" placeholder="e.g. Ramesh Chandra Sharma" required={true} />
+                </div>
+                <div className="grm-field-group">
+                  <label htmlFor="grm-phone">Registered Mobile Number *</label>
+                  <input type="tel" id="grm-phone" className="grm-input" placeholder="10-digit mobile number" pattern="[0-9]{10}" required={true} />
+                </div>
+              </div>
+              <div style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"16px"}}>
+                <div className="grm-field-group">
+                  <label htmlFor="grm-email">Email Address *</label>
+                  <input type="email" id="grm-email" className="grm-input" placeholder="name@example.com" required={true} />
+                </div>
+                <div className="grm-field-group">
+                  <label htmlFor="grm-loan-id">Loan Account Number / Application ID (Optional)</label>
+                  <input type="text" id="grm-loan-id" className="grm-input" placeholder="e.g. PL-BUS-2026-XXXX" />
+                </div>
+              </div>
+              <div className="grm-field-group">
+                <label htmlFor="grm-category">Category of Grievance *</label>
+                <select id="grm-category" className="grm-select" required={true}>
+                  <option value="" disabled={true} selected={true}>Select complaint category...</option>
+                  <option value="Disbursal Delay / Process Query">Disbursal Delay / Loan Processing Inquiry</option>
+                  <option value="Interest Rate / EMI Calculation">Interest Rate / EMI / Charge Dispute</option>
+                  <option value="Statement of Account / NOC Delay">
+Statement of Account (SOA) / No Objection Certificate
+                  (NOC)                  </option>
+                  <option value="NACH / Auto-Debit / Bounce Issue">e-NACH / Auto-Debit Mandate / Bounce Issue</option>
+                  <option value="Prepayment / Foreclosure Calculation">Prepayment / Foreclosure Fee Calculation</option>
+                  <option value="Recovery / Field Representative Conduct">
+Recovery Agent / Field Representative Conduct
+                                  </option>
+                  <option value="Credit Bureau (CIBIL/Experian) Update">
+Credit Bureau (CIBIL / Experian) Reporting
+                  Discrepancy                  </option>
+                  <option value="Other Service Dispute">Other Service Dispute / Operational Feedback</option>
+                </select>
+              </div>
+              <div className="grm-field-group">
+                <label htmlFor="grm-desc">Detailed Description of Grievance *</label>
+                <textarea id="grm-desc" className="grm-textarea" rows={4} placeholder="Please describe the issue in detail, including loan details, relevant dates, previous communications, and desired resolution..." required={true}></textarea>
+              </div>
+              <div style={{"display":"flex","alignItems":"center","justifyContent":"space-between","flexWrap":"wrap","gap":"14px","marginTop":"8px"}}>
+                <span style={{"fontSize":"0.75rem","color":"#64748b"}}>
+                  <i className="fa-solid fa-lock" style={{"color":"var(--primary-purple)","marginRight":"4px"}}></i>
+ Your complaint
+                data is stored securely in compliance with RBI privacy standards.
+                              </span>
+                <button type="submit" className="btn-primary" style={{"padding":"12px 28px","fontSize":"0.9375rem"}}>
+                  <i className="fa-solid fa-paper-plane"></i>
+ Submit Formal Grievance
+                              </button>
+              </div>
+            </form>
+            {/* Right Sidebar Checklist */}
+            <div className="grm-form-sidebar">
+              <div>
+                <h4>
+                  <i className="fa-solid fa-clipboard-check" style={{"color":"var(--primary-purple)","marginRight":"8px"}}></i>
+
+                Submission Checklist                </h4>
+                <p style={{"fontSize":"0.84375rem","color":"#64748b","marginBottom":"18px","lineHeight":"1.5"}}>
+
+                Providing clear reference details expedites investigation and ensures timely resolution.
+                              </p>
+                <ul className="grm-form-checklist">
+                  <li>
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>
+Provide your exact registered mobile number and loan account number if applicable.                    </span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>
+State the exact nature of the dispute (e.g. bounce charges, NOC issuance, delay in SOA).                    </span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>
+Keep relevant transaction proofs, bank debits, or payment receipts handy for officer
+                    verification.                    </span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>
+A unique tracking ticket will be displayed upon submission for your records.                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div style={{"background":"#ffffff","borderRadius":"12px","padding":"16px","border":"1px solid #ebd3e7"}}>
+                <div style={{"fontSize":"0.75rem","textTransform":"uppercase","color":"var(--primary-purple)","fontWeight":"700"}}>
+
+                Direct Assistance                </div>
+                <div style={{"fontSize":"0.875rem","color":"#0f172a","marginTop":"4px","fontWeight":"600"}}>
+Prefer speaking with
+                an executive?                </div>
+                <div style={{"marginTop":"8px"}}>
+                  <a href="tel:+911145241131" style={{"color":"var(--primary-purple)","fontWeight":"800","fontSize":"1rem","textDecoration":"none"}}>
+                    <i className="fa-solid fa-phone"></i>
+ 011-45241131
+                                  </a>
+                </div>
+                <div style={{"marginTop":"10px","paddingTop":"8px","borderTop":"1px dashed #e2e8f0","fontSize":"0.75rem","color":"#475569","lineHeight":"1.45"}}>
+                  <strong style={{"color":"#0f172a","display":"block","marginBottom":"2px"}}>
+                    <i className="fa-solid fa-clock" style={{"color":"var(--primary-purple)"}}></i>
+ Service Timings:                  </strong>
+
+                Mon - Fri (10:00 AM to 06:30 PM)                  <br />
+
+                Saturday (10:00 AM to 03:30 PM)                  <br />
+                  <span style={{"color":"#dc2626","fontWeight":"700"}}>(Second Saturday Off)</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    {/* SECTION 7: GOVERNANCE & REPORTING TO BOARD OF DIRECTORS */}
+    <section className="section" style={{"paddingTop":"0"}}>
+      <div className="container">
+        <div className="grm-board-box">
+          <div className="grm-board-icon">
+            <i className="fa-solid fa-landmark-dome"></i>
+          </div>
+          <div className="grm-board-text">
+            <h3>Annual Reporting to the Board of Directors</h3>
+            <p>
+
+            In strict compliance with RBI regulatory directives, a consolidated summary of all customer grievances,
+            along with their resolution status and corrective root-cause analyses, is tabled before the               <strong>
+Board of
+              Directors              </strong>
+ for formal annual review by the Company Secretary and Compliance Officer. This
+            comprehensive report covers total complaints received, disposed off, pending cases, reasons for delay, and
+            preventive system enhancements adopted to continually enhance borrower trust.
+                      </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* SECTION 8: FREQUENTLY ASKED QUESTIONS */}
+    <section className="section bg-light" id="faq">
+      <div className="container">
+        <div className="section-header text-center" style={{"maxWidth":"820px","margin":"0 auto 36px"}}>
+          <span className="section-tag">Borrower Clarity</span>
+          <h2 className="section-title">Frequently Asked Questions</h2>
+          <p className="section-desc">
+
+          Answers to common questions regarding grievance filing, escalation stages, and RBI Ombudsman jurisdiction.
+                  </p>
+        </div>
+        <div className="soc-faq-list" style={{"marginTop":"0"}}>
+          <div className="soc-faq-item grm-faq-item active">
+            <div className="soc-faq-question grm-faq-question">
+              <span>
+1. What should I do first if I have a complaint regarding my Prest Loans account?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Your first point of contact is our Customer Service Helpline (                <strong>011-45241131</strong>
+) or email
+              at                 <a href="mailto:care@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>care@prestloans.com</a>
+. You can also submit the
+              online form on this page or hand over a written letter at our Corporate Office (Surya Kiran Building, CP)
+              or Registered Office (Asaf Ali Road). You will receive an official acknowledgment and reference number
+              within 2 business days.
+                          </p>
+            </div>
+          </div>
+          <div className="soc-faq-item grm-faq-item">
+            <div className="soc-faq-question grm-faq-question">
+              <span>2. How much time will it take to resolve my complaint?</span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Standard service complaints are investigated and resolved within                 <strong>
+2 Weeks (14 calendar
+                days)                </strong>
+ by the Primary Grievance Officer. Matters requiring retrieval of archival records or
+              legal scrutiny are resolved within a maximum period of 2 weeks. If escalated to the Principal Nodal
+              Officer, a response is guaranteed within                 <strong>7 business days</strong>
+.
+                          </p>
+            </div>
+          </div>
+          <div className="soc-faq-item grm-faq-item">
+            <div className="soc-faq-question grm-faq-question">
+              <span>
+3. When can I escalate my grievance to the Compliance Officer or Principal Nodal Officer?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              If you do not receive a resolution within 2 weeks of lodging your complaint with the Primary Cell, or if
+              you are dissatisfied with the response, you may escalate to                 <strong>
+Ms. Sheetal Mishra (Compliance
+                Officer)                </strong>
+ at                 <a href="mailto:compliance@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>compliance@prestloans.com</a>
+ / Tel:
+                              <strong>011-45241123</strong>
+. If the issue
+              remains unresolved after 3 weeks, you may escalate directly to                 <strong>
+Mr. Sandeep Saini (Principal Nodal
+                Officer)                </strong>
+ at                 <a href="mailto:nodalofficer@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>nodalofficer@prestloans.com</a>
+ / Tel:
+                              <strong>011-45241131</strong>
+.
+                          </p>
+            </div>
+          </div>
+          <div className="soc-faq-item grm-faq-item">
+            <div className="soc-faq-question grm-faq-question">
+              <span>
+4. Under what circumstances can I appeal to the Reserve Bank of India (RBI Ombudsman)?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+
+              Under the Reserve Bank - Integrated Ombudsman Scheme, if Prest Loans does not respond within                 <strong>
+30
+                calendar days                </strong>
+ of receiving your complaint, or if the complaint is rejected, or if the
+              resolution provided by the company is unsatisfactory to you, you have the statutory right to file a
+              complaint with the RBI Ombudsman online via the Complaint Management System at                 <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>https://cms.rbi.org.in</a>
+ or CRPC Portal at                 <a href="https://www.rbi.org.in/" target="_blank" rel="noopener" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>https://www.rbi.org.in/</a>
+, or send by post to
+                              <strong>
+Centralised Receipt and Processing Centre (CRPC), 4th Floor, Sector 17, Chandigarh –
+                160017                </strong>
+.
+                          </p>
+            </div>
+          </div>
+          <div className="soc-faq-item grm-faq-item">
+            <div className="soc-faq-question grm-faq-question">
+              <span>
+5. Does lodging a grievance affect my credit score or loan status?              </span>
+              <i className="fa-solid fa-chevron-down"></i>
+            </div>
+            <div className="soc-faq-answer">
+              <p>
+                <strong>No, absolutely not.</strong>
+ Filing a grievance or raising inquiries regarding charges, interest
+              calculations, or statements has zero adverse impact on your credit profile. Prest Loans strictly abides by
+              RBI Fair Practices Code; grievances are treated with strict confidentiality, impartiality, and good faith.
+                          </p>
+            </div>
+          </div>
+        </div>
+        {/* CTA BANNER */}
+        <div className="soc-cta-card" style={{"marginTop":"48px"}}>
+          <div className="soc-cta-info">
+            <h3>Need Immediate Assistance with Your Loan Account?</h3>
+            <p>
+Our dedicated customer support advisors are available to guide and assist you.            </p>
+          </div>
+          <div className="soc-cta-actions">
+            <a href="tel:+911145241131" className="btn-outline-white">
+              <i className="fa-solid fa-phone"></i>
+ Call
+            011-45241131            </a>
+            <a href="mailto:care@prestloans.com" className="btn-outline-white">
+              <i className="fa-solid fa-envelope"></i>
+ Email:
+            care@prestloans.com            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* FOOTER */}
+    {/* FLOATING ACTIONS & MODALS */}
+
     </>
   );
 };

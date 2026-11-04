@@ -63,3 +63,4 @@ routes.forEach((route) => {
 });
 
 console.log(`Successfully generated static SPA fallback pages for ${routes.length} routes in dist!`);
+

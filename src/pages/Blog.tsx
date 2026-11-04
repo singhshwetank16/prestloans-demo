@@ -42,7 +42,7 @@ export const Blog: React.FC = () => {
               <span className="blog-featured-badge">
                 <i className="fa-solid fa-star"></i>
  Featured Guide              </span>
-              <img src="https://www.prestloans.com/Content/images/Blog/638594102649346554CLCSS-10-8-18.jpg" alt="Credit Linked Capital Subsidy for Technology Upgradation" className="blog-featured-img" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/638594102649346554CLCSS-10-8-18.jpg" alt="Credit Linked Capital Subsidy for Technology Upgradation" className="blog-featured-img" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-featured-content">
               <div className="blog-featured-meta">
@@ -83,7 +83,7 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
           <article className="blog-card" data-category="schemes" data-id="30">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-schemes">MSME Schemes</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/638594102649346554CLCSS-10-8-18.jpg" alt="Credit Linked Capital Subsidy for Technology Upgradation" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/638594102649346554CLCSS-10-8-18.jpg" alt="Credit Linked Capital Subsidy for Technology Upgradation" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -115,7 +115,7 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
           <article className="blog-card" data-category="stories" data-id="29">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-stories">Success Stories</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636808259396272500grocery-2932906_1920.jpg" alt="A grocery owner’s dream comes true!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/testimonials/customer-story.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636808259396272500grocery-2932906_1920.jpg" alt="A grocery owner’s dream comes true!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -147,7 +147,7 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
           <article className="blog-card" data-category="regulations" data-id="28">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-regulations">RBI Regulations</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636808258471741250RBI.jpeg" alt="RBI Directive: P2P Lending Platforms" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/about/award.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636808258471741250RBI.jpeg" alt="RBI Directive: P2P Lending Platforms" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -180,7 +180,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="27">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636808278474397500CREDIT%20DEFLICT.jpg" alt="NBFCs: Solving the credit deficit for growing MSME sector in India" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636808278474397500CREDIT%20DEFLICT.jpg" alt="NBFCs: Solving the credit deficit for growing MSME sector in India" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -212,7 +212,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="stories" data-id="26">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-stories">Success Stories</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/63680825700830375036864584_472641183147716_3090973622311845888_n.jpg" alt="Fulfilling the Dreams even when the Dreamers have lost hope" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/testimonials/customer-story.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/63680825700830375036864584_472641183147716_3090973622311845888_n.jpg" alt="Fulfilling the Dreams even when the Dreamers have lost hope" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -244,7 +244,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="stories" data-id="25">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-stories">Success Stories</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636791742949663750money-2696234_1920.jpg" alt="Prest Loans gives wings to Karate school owners" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/testimonials/customer-story.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636791742949663750money-2696234_1920.jpg" alt="Prest Loans gives wings to Karate school owners" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -276,7 +276,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="24">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/6367917417631012502018-09-20.jpg" alt="Non-banking financial companies (NBFCs)- Surging ahead" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/6367917417631012502018-09-20.jpg" alt="Non-banking financial companies (NBFCs)- Surging ahead" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -308,7 +308,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="stories" data-id="23">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-stories">Special Feature</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636682373879803750PL%202018%2007%2026.jpg" alt="Happy Kargil Vijay Diwas!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/about/award.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636682373879803750PL%202018%2007%2026.jpg" alt="Happy Kargil Vijay Diwas!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -340,7 +340,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="growth" data-id="22">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-growth">Business Growth</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636657937652190000June%20blog4_MSME%20Logo.PNG" alt="Advent of quick and easy financing" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636657937652190000June%20blog4_MSME%20Logo.PNG" alt="Advent of quick and easy financing" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -372,7 +372,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="growth" data-id="21">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-growth">Taxes & Credit</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636649498102467968Prest%20Logo_2.png" alt="Intricate relation between Taxes and credit limits" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/logo/logo.png';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636562983968785000gst%20blog.png" alt="Taxes, GST and Credit Limits for MSMEs" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -404,7 +404,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="stories" data-id="20">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-stories">Success Stories</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636649208902643750fathers%20day.jpg" alt="Happy Father's Day - Story of Veena's Style!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/testimonials/customer-story.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636649208902643750fathers%20day.jpg" alt="Happy Father's Day - Story of Veena's Style!" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -436,7 +436,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="schemes" data-id="19">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-schemes">MSME Schemes</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636649180194987500June2%20blog%20pic.jpg" alt="Enabling MSME Business in India" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636649180194987500June2%20blog%20pic.jpg" alt="Enabling MSME Business in India" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -468,7 +468,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="schemes" data-id="18">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-schemes">MSME Schemes</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636649160246237500MUDRA%20Logo.PNG" alt="Transforming lives of the poor hard working Indian class through PMMY" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636649160246237500MUDRA%20Logo.PNG" alt="Transforming lives of the poor hard working Indian class through PMMY" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -500,7 +500,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="growth" data-id="17">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-growth">Credit & CIBIL</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636632747784418750Blog%20may1.jpg" alt="How to get a loan despite Negative CIBIL score" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636632747784418750Blog%20may1.jpg" alt="How to get a loan despite Negative CIBIL score" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -532,7 +532,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="hindi" data-id="16">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-hindi">हिंदी लेख</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636618081637048750Prest%20Logo_2.png" alt="MSMEs पर डिजिटलाइज़ेशन का प्रभाव" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/logo/logo.png';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/637288573475971304QRCODE.jpg" alt="MSMEs पर डिजिटलाइज़ेशन और डिजिटल पेमेंट्स का क्रांतिकारी प्रभाव" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -564,7 +564,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="regulations" data-id="15">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-regulations">RBI Regulations</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636618055262830000Prest%20Logo_2.png" alt="Impact of RBI guidelines on NBFCs" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/about/award.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636808258471741250RBI.jpeg" alt="Impact of RBI regulatory guidelines on NBFCs" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -596,7 +596,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="hindi" data-id="14">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-hindi">हिंदी लेख</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636594157481425000April%20-2%20Hindi_msme.jpg" alt="एम एस एम ई (MSME) – लघु उद्योगों के लिए सरकार का वेब पोर्टल क्या है?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636594157481425000April%20-2%20Hindi_msme.jpg" alt="एम एस एम ई (MSME) – लघु उद्योगों के लिए सरकार का वेब पोर्टल क्या है?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -628,7 +628,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="13">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636594150845175000April_Blog1_The%20trends.jpg" alt="The trends in industrial Micro-finance" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636594150845175000April_Blog1_The%20trends.jpg" alt="The trends in industrial Micro-finance" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -660,7 +660,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="growth" data-id="12">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-growth">Business Growth</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636574106616170000Mar%204_PZBP5JP.jpg" alt="Are structured loans the best way to go for growing enterprises?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636574106616170000Mar%204_PZBP5JP.jpg" alt="Are structured loans the best way to go for growing enterprises?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -692,7 +692,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="11">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636573228850232500March%203.jpg" alt="Traditional vs new age finance in the modern age" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636573228850232500March%203.jpg" alt="Traditional vs new age finance in the modern age" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -724,7 +724,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="10">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636568145736653750Mar-2.jpg" alt="Why FinTech will disrupt the lending sector in India?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636568145736653750Mar-2.jpg" alt="Why FinTech will disrupt the lending sector in India?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -756,7 +756,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="growth" data-id="9">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-growth">Taxes & Credit</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636562983968785000gst%20blog.png" alt="What can MSMEs do to stay ahead in the age of dual GST?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636562983968785000gst%20blog.png" alt="What can MSMEs do to stay ahead in the age of dual GST?" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -788,7 +788,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="regulations" data-id="8">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-regulations">RBI Regulations</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636554319548511250648.jpg" alt="Facts about the online lending landscape" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/about/award.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636554319548511250648.jpg" alt="Facts about the online lending landscape" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -820,7 +820,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="fintech" data-id="5">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-fintech">FinTech & NBFCs</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636540318169506250Blog1_Image.jpg" alt="Role of NBFCs in the growth of micro enterprises" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636540318169506250Blog1_Image.jpg" alt="Role of NBFCs in the growth of micro enterprises" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -852,7 +852,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="schemes" data-id="4">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-schemes">MSME Growth</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636528421907070000SME%20blog%20pic.jpg" alt="NBFCs and beyond: The smart way to get loans for SMEs" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636528421907070000SME%20blog%20pic.jpg" alt="NBFCs and beyond: The smart way to get loans for SMEs" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -884,7 +884,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="hindi" data-id="3">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-hindi">हिंदी लेख</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636386548250970000_MG_4896.JPG" alt="जीएसटी (GST) को बनायें फ़ायदे का सौदा" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/products/personal-loan.jpg';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/636386548250970000_MG_4896.JPG" alt="जीएसटी (GST) को बनायें फ़ायदे का सौदा" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/business-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">
@@ -916,7 +916,7 @@ RBI Directive: Peer-to-Peer (P2P) Lending & Credit Governance              </h3>
           <article className="blog-card" data-category="hindi" data-id="2">
             <div className="blog-card-media">
               <span className="blog-card-tag tag-hindi">हिंदी लेख</span>
-              <img src="https://www.prestloans.com/Content/images/Blog/636347731640782500logo.png" alt="छोटे व्यापारियों की समस्याएँ व समाधान" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='assets/logo/logo.png';")).call(event.currentTarget, event); } catch(e) {} }} />
+              <img src="/assets/blog/63680825683877250040436326_520499678361866_1131732223322488832_n.jpg" alt="छोटे व्यापारियों की समस्याएँ व समाधान" className="blog-card-img" loading="lazy" onError={(event) => { try { (new Function('event', "this.onerror=null; this.src='/assets/products/msme-loan.png';")).call(event.currentTarget, event); } catch(e) {} }} />
             </div>
             <div className="blog-card-body">
               <div className="blog-card-meta">

@@ -31,6 +31,22 @@ export const PrestloansDiaries: React.FC = () => {
   const activeEvent = DIARY_EVENTS.find(e => e.id === activeEventId);
   const currentPhotosList = activeEvent ? activeEvent.photos : DIARY_EVENTS.flatMap(e => e.photos);
 
+  const handleSelectEvent = (id: string) => {
+    setActiveEventId(id);
+    const el = document.getElementById('diaries-content-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleBackToAll = () => {
+    setActiveEventId('all');
+    const el = document.getElementById('diaries-content-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const openLightbox = (photo: DiaryPhoto, index: number, total: number) => {
     setSelectedPhoto({ photo, index, total });
   };
@@ -69,7 +85,7 @@ export const PrestloansDiaries: React.FC = () => {
       </section>
 
       {/* MAIN DIARIES SECTION */}
-      <section className="section" style={{ background: '#fdfbfd', minHeight: '650px', paddingTop: '40px' }}>
+      <section id="diaries-content-section" className="section" style={{ background: '#fdfbfd', minHeight: '650px', paddingTop: '40px' }}>
         <div className="container">
 
           {/* EVENT FILTER / TAB CONTROLS */}
@@ -138,7 +154,7 @@ export const PrestloansDiaries: React.FC = () => {
             }}>
               <button
                 type="button"
-                onClick={() => setActiveEventId('all')}
+                onClick={handleBackToAll}
                 style={{
                   padding: '9px 18px',
                   borderRadius: '30px',
@@ -174,7 +190,7 @@ export const PrestloansDiaries: React.FC = () => {
                   <button
                     key={event.id}
                     type="button"
-                    onClick={() => setActiveEventId(event.id)}
+                    onClick={() => handleSelectEvent(event.id)}
                     style={{
                       padding: '9px 18px',
                       borderRadius: '30px',
@@ -237,7 +253,7 @@ export const PrestloansDiaries: React.FC = () => {
                 {DIARY_EVENTS.map(event => (
                   <div
                     key={event.id}
-                    onClick={() => setActiveEventId(event.id)}
+                    onClick={() => handleSelectEvent(event.id)}
                     style={{
                       background: '#ffffff',
                       borderRadius: '18px',
@@ -396,7 +412,7 @@ export const PrestloansDiaries: React.FC = () => {
                 }}>
                   <button
                     type="button"
-                    onClick={() => setActiveEventId('all')}
+                    onClick={handleBackToAll}
                     style={{
                       background: '#ffffff',
                       border: '1.5px solid #70146e',

@@ -25,13 +25,20 @@ export const Blog: React.FC = () => {
     }
   };
 
+  const closeArticle = () => {
+    setSelectedArticleId(null);
+    if (window.location.search.includes('id=')) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('id');
+      window.history.replaceState({}, '', url.pathname + (url.search || ''));
+    }
+  };
+
   useEffect(() => {
     (window as any).openArticleModal = (id: number) => {
       setSelectedArticleId(id);
     };
-    (window as any).closeArticleModal = () => {
-      setSelectedArticleId(null);
-    };
+    (window as any).closeArticleModal = closeArticle;
     (window as any).shareArticle = (id: number, title: string) => {
       copyShareLink(id, title);
     };
@@ -81,13 +88,13 @@ export const Blog: React.FC = () => {
   // Keyboard Escape listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selectedArticleId !== null) {
-        setSelectedArticleId(null);
+      if (e.key === 'Escape') {
+        closeArticle();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedArticleId]);
+  }, []);
 
 
   return (
@@ -1091,7 +1098,7 @@ Calculate your monthly EMI or apply online with
           id="article-reader-modal" 
           onClick={(e) => {
             if (e.target === e.currentTarget) {
-              setSelectedArticleId(null);
+              closeArticle();
             }
           }}
         >
@@ -1099,8 +1106,9 @@ Calculate your monthly EMI or apply online with
             <button 
               type="button"
               className="blog-modal-close" 
-              onClick={() => setSelectedArticleId(null)} 
+              onClick={closeArticle} 
               title="Close (Esc)"
+              aria-label="Close article"
             >
               <i className="fa-solid fa-xmark"></i>
             </button>
@@ -1142,6 +1150,48 @@ Calculate your monthly EMI or apply online with
               id="reader-body"
               dangerouslySetInnerHTML={{ __html: BLOG_ARTICLES_DATABASE[selectedArticleId].content }}
             />
+
+            {/* BOTTOM ARTICLE ACTIONS */}
+            <div style={{
+              margin: '32px 44px 44px',
+              paddingTop: '24px',
+              borderTop: '1px solid #f1f5f9',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '16px',
+              flexWrap: 'wrap'
+            }}>
+              <button 
+                type="button" 
+                className="btn-outline-purple"
+                onClick={closeArticle}
+                style={{ padding: '10px 24px', borderRadius: '30px', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <i className="fa-solid fa-xmark"></i> Close Article
+              </button>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <button 
+                  type="button"
+                  className="btn-read-modal" 
+                  onClick={() => copyShareLink(selectedArticleId, BLOG_ARTICLES_DATABASE[selectedArticleId].title)}
+                  style={{ padding: '10px 20px', borderRadius: '30px', fontWeight: 600, fontSize: '0.9rem' }}
+                >
+                  <i className="fa-solid fa-share-nodes"></i> Share
+                </button>
+                <button 
+                  type="button" 
+                  className="btn-primary"
+                  onClick={() => {
+                    closeArticle();
+                    (window as any).openLoanModal?.();
+                  }}
+                  style={{ padding: '10px 24px', borderRadius: '30px', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  <i className="fa-solid fa-bolt"></i> Apply For Loan
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

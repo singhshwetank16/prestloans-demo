@@ -629,46 +629,6 @@ Successfully Applied!
       </div>
     </div>
 
-    <div className="blog-modal-backdrop" id="article-reader-modal" onClick={(event) => { try { (new Function('event', "handleReaderBackdrop(event)")).call(event.currentTarget, event); } catch(e) {} }}>
-      <div className="blog-modal-box" id="article-reader-box">
-        <button className="blog-modal-close" onClick={(event) => { try { (new Function('event', "closeArticleModal()")).call(event.currentTarget, event); } catch(e) {} }} title="Close (Esc)">
-          <i className="fa-solid fa-xmark"></i>
-        </button>
-        <div className="blog-modal-hero">
-          <span className="blog-modal-tag" id="reader-category">MSME Schemes</span>
-          <h2 className="blog-modal-title" id="reader-title">Article Title</h2>
-          <div className="blog-modal-meta-row">
-            <span className="blog-meta-item">
-              <i className="fa-regular fa-calendar"></i>
-               <span id="reader-date">
-19 Dec
-              2018              </span>
-            </span>
-            <span className="blog-meta-item">
-              <i className="fa-regular fa-clock"></i>
-               <span id="reader-time">
-5 min
-              read              </span>
-            </span>
-            <span className="blog-meta-item">
-              <i className="fa-solid fa-user-pen"></i>
-               <span id="reader-author">
-Prest Loans
-              Insights Team              </span>
-            </span>
-            <button className="btn-read-modal" id="reader-share-btn" style={{"marginLeft":"auto"}} onClick={(event) => { try { (new Function('event', "shareCurrentArticle()")).call(event.currentTarget, event); } catch(e) {} }}>
-              <i className="fa-solid fa-share-nodes"></i>
- Share
-                      </button>
-          </div>
-        </div>
-        <div className="blog-modal-body" id="reader-body">
-          {/* Injected dynamically by JavaScript */}
-        </div>
-      </div>
-    </div>
-
-
     </>
   );
 };

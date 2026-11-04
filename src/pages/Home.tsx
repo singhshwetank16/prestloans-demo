@@ -170,14 +170,14 @@ Check eligibility in 2 minutes without affecting CIBIL score              </p>
     <section className="section about-section" id="about">
       <div className="container">
         <div className="about-grid">
-          <div className="about-img-box reveal-on-scroll reveal-left">
+          <div className="about-img-box reveal-on-scroll reveal-left is-visible">
             <img src="/assets/about/about-1.jpeg" alt="Prest Loans Team and Corporate Office" className="about-main-img" />
             <div className="about-stat-overlay">
               <div className="num" data-counter="30" data-suffix="+ Years">0+ Years</div>
               <div className="label">Financial Excellence & Trusted RBI Registered NBFC Heritage</div>
             </div>
           </div>
-          <div className="about-content reveal-on-scroll reveal-right">
+          <div className="about-content reveal-on-scroll reveal-right is-visible">
             <span className="section-tag">About The Company</span>
             <h2 className="section-title">Enabling Financial Inclusion Through Fintech Innovation</h2>
             <p className="about-text">
@@ -198,7 +198,7 @@ Lord Krishna Financial Services
             transparency and industry-leading turnaround times.
                       </p>
             <div className="about-points">
-              <div className="point-card reveal-on-scroll delay-1">
+              <div className="point-card reveal-on-scroll delay-1 is-visible">
                 <div className="point-icon">
                   <i className="fa-solid fa-bolt"></i>
                 </div>
@@ -207,7 +207,7 @@ Lord Krishna Financial Services
                   <div className="point-sub">48-hour turn-around time from application to disbursal</div>
                 </div>
               </div>
-              <div className="point-card reveal-on-scroll delay-2">
+              <div className="point-card reveal-on-scroll delay-2 is-visible">
                 <div className="point-icon">
                   <i className="fa-solid fa-fingerprint"></i>
                 </div>

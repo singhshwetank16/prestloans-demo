@@ -536,6 +536,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  window.initScrollReveal = initScrollReveal;
+  window.initCounters = initCounters;
+  window.initApp = function () {
+    initScrollReveal();
+    initCounters();
+  };
+
   initScrollReveal();
 
   // --- 14. CAREER PAGE MODULE (JOB ACCORDION, TESTIMONIALS SLIDER & APPLICATION MODAL) ---

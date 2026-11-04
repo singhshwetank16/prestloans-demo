@@ -58,7 +58,7 @@ New Delhi - 110002                </span>
               </div>
             </div>
           </div>
-          {/* Column 2: Useful Links */}
+          {/* Column 2: Useful Links & Other Links */}
           <div className="footer-col">
             <h4 className="footer-col-title">Useful Links</h4>
             <ul className="footer-links-list">
@@ -72,10 +72,8 @@ New Delhi - 110002                </span>
                 <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener noreferrer">Sachet RBI</a>
               </li>
             </ul>
-          </div>
-          {/* Column 3: Other Links */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Other Links</h4>
+
+            <h4 className="footer-col-title" style={{ marginTop: '28px' }}>Other Links</h4>
             <ul className="footer-links-list">
               <li>
                 <a href="/blog">Blogs</a>

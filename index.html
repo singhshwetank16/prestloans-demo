@@ -24,6 +24,17 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Always Start from Top on Refresh / Page Load -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    window.addEventListener('beforeunload', function () {
+      window.scrollTo(0, 0);
+    });
+  </script>
 </head>
 <body>
   <div id="root"></div>

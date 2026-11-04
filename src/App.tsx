@@ -12,6 +12,7 @@ import { CustomersStories } from './pages/CustomersStories';
 import { EmployeeTestimonials } from './pages/EmployeeTestimonials';
 import { Media } from './pages/Media';
 import { Gallery } from './pages/Gallery';
+import { PrestloansDiaries } from './pages/PrestloansDiaries';
 import { Blog } from './pages/Blog';
 import { Faq } from './pages/Faq';
 import { Contact } from './pages/Contact';
@@ -42,6 +43,7 @@ export const App: React.FC = () => {
         <Route path="employee-testimonials" element={<EmployeeTestimonials />} />
         <Route path="media" element={<Media />} />
         <Route path="gallery" element={<Gallery />} />
+        <Route path="prestloans-diaries" element={<PrestloansDiaries />} />
         <Route path="blog" element={<Blog />} />
         <Route path="faq" element={<Faq />} />
         <Route path="contact" element={<Contact />} />
@@ -68,6 +70,7 @@ export const App: React.FC = () => {
         <Route path="employee-testimonials.html" element={<Navigate to="/employee-testimonials" replace />} />
         <Route path="media.html" element={<Navigate to="/media" replace />} />
         <Route path="gallery.html" element={<Navigate to="/gallery" replace />} />
+        <Route path="prestloans-diaries.html" element={<Navigate to="/prestloans-diaries" replace />} />
         <Route path="blog.html" element={<Navigate to="/blog" replace />} />
         <Route path="faq.html" element={<Navigate to="/faq" replace />} />
         <Route path="contact.html" element={<Navigate to="/contact" replace />} />

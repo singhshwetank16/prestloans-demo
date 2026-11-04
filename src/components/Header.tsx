@@ -73,6 +73,11 @@ export const Header: React.FC = () => {
  Photo Gallery                  </a>
                 </li>
                 <li className="dropdown-item">
+                  <a href="/prestloans-diaries">
+                    <i className="fa-solid fa-book-bookmark"></i>
+ PrestLoans Diaries                  </a>
+                </li>
+                <li className="dropdown-item">
                   <a href="/blog">
                     <i className="fa-solid fa-newspaper"></i>
  Insights & Blog                  </a>

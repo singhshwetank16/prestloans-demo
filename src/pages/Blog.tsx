@@ -77,56 +77,6 @@ Credit Linked Capital Subsidy Scheme (CLCSS) for Technology Upgradation         
             </div>
           </div>
         </div>
-        {/* INTERACTIVE CONTROLS BAR: SEARCH & CATEGORY CHIPS */}
-        <div className="blog-controls-wrapper">
-          <div className="blog-controls-top">
-            {/* Search Input */}
-            <div className="blog-search-box">
-              <i className="fa-solid fa-magnifying-glass blog-search-icon"></i>
-              <input type="text" id="blog-search-input" className="blog-search-input" placeholder="Search articles by title, scheme, topic or keyword..." />
-              <button id="blog-search-clear" className="blog-search-clear" title="Clear Search">
-                <i className="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-            {/* Counter Badge */}
-            <div className="blog-counter-badge" id="blog-counter-badge">
-              <i className="fa-solid fa-newspaper"></i>
- Showing               <strong id="blog-shown-count">27</strong>
- of 27 Articles
-                      </div>
-          </div>
-          {/* Filter Chips */}
-          <div className="blog-chips-scroll" id="blog-chips-bar">
-            <button className="blog-chip-btn active" data-category="all">
-              <i className="fa-solid fa-layer-group"></i>
- All Topics               <span className="chip-count">27</span>
-            </button>
-            <button className="blog-chip-btn" data-category="schemes">
-              <i className="fa-solid fa-landmark"></i>
- MSME Schemes & Growth               <span className="chip-count">6</span>
-            </button>
-            <button className="blog-chip-btn" data-category="fintech">
-              <i className="fa-solid fa-chart-line"></i>
- FinTech & NBFCs               <span className="chip-count">7</span>
-            </button>
-            <button className="blog-chip-btn" data-category="stories">
-              <i className="fa-solid fa-trophy"></i>
- Success Stories               <span className="chip-count">5</span>
-            </button>
-            <button className="blog-chip-btn" data-category="growth">
-              <i className="fa-solid fa-hand-holding-dollar"></i>
- Taxes & Credit Tips               <span className="chip-count">4</span>
-            </button>
-            <button className="blog-chip-btn" data-category="regulations">
-              <i className="fa-solid fa-scale-balanced"></i>
- RBI & Policies               <span className="chip-count">2</span>
-            </button>
-            <button className="blog-chip-btn" data-category="hindi">
-              <i className="fa-solid fa-language"></i>
- हिंदी लेख               <span className="chip-count">3</span>
-            </button>
-          </div>
-        </div>
         {/* ARTICLES GRID */}
         <div className="blog-grid" id="blog-articles-grid">
           {/* ARTICLE 30 */}

@@ -1,97 +1,111 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Header: React.FC = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const isHome = pathname === '/';
+  const isAbout = pathname === '/about';
+  const isProducts = pathname.startsWith('/products');
+  const isMedia = ['/media', '/gallery', '/prestloans-diaries', '/blog'].some(p => pathname.startsWith(p));
+  const isStories = pathname.startsWith('/customers-stories');
+  const isCareer = pathname.startsWith('/career');
+  const isFaq = pathname.startsWith('/faq');
+
   return (
     <>
     <header className="main-header">
       <div className="header-container">
         {/* Logo */}
-        <a href="#hero" className="brand-logo-wrap" title="Prest Loans - Digital Lending Platform">
+        <Link to="/" className="brand-logo-wrap" title="Prest Loans - Digital Lending Platform">
           <img src="/assets/logo/logo.png" alt="Prest Loans - RBI Registered NBFC" className="brand-logo-img" />
-        </a>
+        </Link>
         {/* Navigation Menu */}
         <nav className="main-nav" id="main-nav">
           <ul className="nav-links">
             <li className="nav-item">
-              <a href="/" className="nav-link active">Home</a>
+              <Link to="/" className={`nav-link ${isHome ? 'active' : ''}`}>Home</Link>
             </li>
             <li className="nav-item">
-              <a href="/about" className="nav-link">About</a>
+              <Link to="/about" className={`nav-link ${isAbout ? 'active' : ''}`}>About</Link>
             </li>
-            <li className="nav-item dropdown">
-              <a href="javascript:void(0)" className="nav-link">
-
-              Products                 <i className="fa-solid fa-chevron-down" style={{"fontSize":"0.75rem"}}></i>
+            <li className={`nav-item dropdown ${isProducts ? 'active' : ''}`}>
+              <a href="javascript:void(0)" className={`nav-link ${isProducts ? 'active' : ''}`}>
+                Products <i className="fa-solid fa-chevron-down" style={{"fontSize":"0.75rem"}}></i>
               </a>
               <ul className="dropdown-menu">
                 <li className="dropdown-item">
-                  <a href="/products#education-loan">
+                  <Link to="/products#education-loan">
                     <i className="fa-solid fa-graduation-cap"></i>
- Coaching/Skill Development/Education Loans
-                                  </a>
+                    Coaching/Skill Development/Education Loans
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/products#personal-loan">
+                  <Link to="/products#personal-loan">
                     <i className="fa-solid fa-user-shield"></i>
- Personal Loan
-                                  </a>
+                    Personal Loan
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/products#short-term-personal-loan">
+                  <Link to="/products#short-term-personal-loan">
                     <i className="fa-solid fa-clock-rotate-left"></i>
- Short Term Personal Loan
-                                  </a>
+                    Short Term Personal Loan
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/products#home-loan">
+                  <Link to="/products#home-loan">
                     <i className="fa-solid fa-house-chimney"></i>
- Home Loan
-                                  </a>
+                    Home Loan
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/products#business-loan">
+                  <Link to="/products#business-loan">
                     <i className="fa-solid fa-briefcase"></i>
- Business Loan
-                                  </a>
+                    Business Loan
+                  </Link>
                 </li>
               </ul>
             </li>
-            <li className="nav-item dropdown">
-              <a href="javascript:void(0)" className="nav-link">
-
-              Media                 <i className="fa-solid fa-chevron-down" style={{"fontSize":"0.75rem"}}></i>
+            <li className={`nav-item dropdown ${isMedia ? 'active' : ''}`}>
+              <a href="javascript:void(0)" className={`nav-link ${isMedia ? 'active' : ''}`}>
+                Media <i className="fa-solid fa-chevron-down" style={{"fontSize":"0.75rem"}}></i>
               </a>
               <ul className="dropdown-menu">
                 <li className="dropdown-item">
-                  <a href="/media">
+                  <Link to="/media">
                     <i className="fa-solid fa-newspaper"></i>
- Press Releases & Coverage                  </a>
+                    Press Releases & Coverage
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/gallery">
+                  <Link to="/gallery">
                     <i className="fa-solid fa-images"></i>
- Photo Gallery                  </a>
+                    Photo Gallery
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/prestloans-diaries">
+                  <Link to="/prestloans-diaries">
                     <i className="fa-solid fa-book-bookmark"></i>
- PrestLoans Diaries                  </a>
+                    PrestLoans Diaries
+                  </Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/blog">
+                  <Link to="/blog">
                     <i className="fa-solid fa-newspaper"></i>
- Insights & Blog                  </a>
+                    Insights & Blog
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a href="/customers-stories" className="nav-link">Customers' Stories</a>
+              <Link to="/customers-stories" className={`nav-link ${isStories ? 'active' : ''}`}>Customers' Stories</Link>
             </li>
             <li className="nav-item">
-              <a href="/career" className="nav-link">Career</a>
+              <Link to="/career" className={`nav-link ${isCareer ? 'active' : ''}`}>Career</Link>
             </li>
             <li className="nav-item">
-              <a href="/faq" className="nav-link">FAQ</a>
+              <Link to="/faq" className={`nav-link ${isFaq ? 'active' : ''}`}>FAQ</Link>
             </li>
             <li className="nav-item mobile-only-socials">
               <div className="mobile-nav-socials">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
@@ -63,10 +64,10 @@ New Delhi - 110002                </span>
             <h4 className="footer-col-title">Useful Links</h4>
             <ul className="footer-links-list">
               <li>
-                <a href="/calculator">EMI Calculator</a>
+                <Link to="/calculator">EMI Calculator</Link>
               </li>
               <li>
-                <a href="/public-notice">Public Notice</a>
+                <Link to="/public-notice">Public Notice</Link>
               </li>
               <li>
                 <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener noreferrer">Sachet RBI</a>
@@ -76,16 +77,16 @@ New Delhi - 110002                </span>
             <h4 className="footer-col-title" style={{ marginTop: '28px' }}>Other Links</h4>
             <ul className="footer-links-list">
               <li>
-                <a href="/blog">Blogs</a>
+                <Link to="/blog">Blogs</Link>
               </li>
               <li>
-                <a href="/customers-stories">Customer Stories</a>
+                <Link to="/customers-stories">Customer Stories</Link>
               </li>
               <li>
-                <a href="/career#testimonials">Employee Testimonials</a>
+                <Link to="/career#testimonials">Employee Testimonials</Link>
               </li>
               <li>
-                <a href="/contact">Contact Us</a>
+                <Link to="/contact">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -94,34 +95,34 @@ New Delhi - 110002                </span>
             <h4 className="footer-col-title">Policies</h4>
             <ul className="footer-links-list">
               <li>
-                <a href="/terms-and-conditions">Terms & Conditions</a>
+                <Link to="/terms-and-conditions">Terms & Conditions</Link>
               </li>
               <li>
-                <a href="/terms-of-use">Terms Of Use</a>
+                <Link to="/terms-of-use">Terms Of Use</Link>
               </li>
               <li>
-                <a href="/privacy-policy">Privacy policy</a>
+                <Link to="/privacy-policy">Privacy policy</Link>
               </li>
               <li>
-                <a href="/fair-practices-code">Fair Practices Code</a>
+                <Link to="/fair-practices-code">Fair Practices Code</Link>
               </li>
               <li>
-                <a href="/penal-charges-policy">Penal Charges Policy</a>
+                <Link to="/penal-charges-policy">Penal Charges Policy</Link>
               </li>
               <li>
-                <a href="/kyc-and-aml">KYC & AML</a>
+                <Link to="/kyc-and-aml">KYC & AML</Link>
               </li>
               <li>
-                <a href="/disclaimer">Disclaimer</a>
+                <Link to="/disclaimer">Disclaimer</Link>
               </li>
               <li>
-                <a href="/grievance-redressal">Grievance Redressal Mechanism</a>
+                <Link to="/grievance-redressal">Grievance Redressal Mechanism</Link>
               </li>
               <li>
-                <a href="/regulatory-certifications">Regulatory Certifications</a>
+                <Link to="/regulatory-certifications">Regulatory Certifications</Link>
               </li>
               <li>
-                <a href="/interest-rate-model">Interest Rate Model and Schedule of Charges</a>
+                <Link to="/interest-rate-model">Interest Rate Model and Schedule of Charges</Link>
               </li>
             </ul>
           </div>

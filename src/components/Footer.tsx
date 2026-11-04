@@ -58,7 +58,7 @@ New Delhi - 110002                </span>
               </div>
             </div>
           </div>
-          {/* Column 2: Useful Links (Matching Screenshot 2) */}
+          {/* Column 2: Useful Links */}
           <div className="footer-col">
             <h4 className="footer-col-title">Useful Links</h4>
             <ul className="footer-links-list">
@@ -66,22 +66,28 @@ New Delhi - 110002                </span>
                 <a href="/calculator">EMI Calculator</a>
               </li>
               <li>
-                <a href="/customers-stories">Customers' Stories</a>
+                <a href="/public-notice">Public Notice</a>
+              </li>
+              <li>
+                <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener noreferrer">Sachet RBI</a>
+              </li>
+            </ul>
+          </div>
+          {/* Column 3: Other Links */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Other Links</h4>
+            <ul className="footer-links-list">
+              <li>
+                <a href="/blog">Blogs</a>
+              </li>
+              <li>
+                <a href="/customers-stories">Customer Stories</a>
               </li>
               <li>
                 <a href="/career#testimonials">Employee Testimonials</a>
               </li>
               <li>
-                <a href="/blog">Blog</a>
-              </li>
-              <li>
-                <a href="/contact">Contact us</a>
-              </li>
-              <li>
-                <a href="/public-notice">Public Notice</a>
-              </li>
-              <li>
-                <a href="https://sachet.rbi.org.in" target="_blank" rel="noopener">Sachet RBI</a>
+                <a href="/contact">Contact Us</a>
               </li>
             </ul>
           </div>

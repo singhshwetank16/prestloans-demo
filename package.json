@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build && node scripts/copy-spa-routes.js",
     "preview": "vite preview",
-    "start": "vite"
+    "start": "vite",
+    "deploy": "npm run build && node scripts/deploy-gh-pages.js"
   },
   "keywords": [
     "prest-loans",

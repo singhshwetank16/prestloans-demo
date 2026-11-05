@@ -49,6 +49,9 @@ const routes = [
 // Copy 404.html
 fs.writeFileSync(path.join(distDir, '404.html'), indexContent, 'utf-8');
 
+// Create .nojekyll so GitHub Pages does not ignore assets or run Jekyll
+fs.writeFileSync(path.join(distDir, '.nojekyll'), '', 'utf-8');
+
 // Copy for each route
 routes.forEach((route) => {
   // 1. <route>.html

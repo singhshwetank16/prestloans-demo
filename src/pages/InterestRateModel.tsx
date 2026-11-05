@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
 export const InterestRateModel: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('soc-education-loan');
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'stpl' || hash === 'soc-stpl') return 'soc-stpl';
+      if (hash === 'corporate-salaried' || hash === 'soc-corporate-salaried') return 'soc-corporate-salaried';
+      if (hash === 'unsecured-personal' || hash === 'soc-unsecured-personal') return 'soc-unsecured-personal';
+      if (hash === 'education-loan' || hash === 'soc-education-loan') return 'soc-education-loan';
+    }
+    return 'soc-education-loan';
+  });
 
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash === 'stpl' || hash === 'soc-stpl') {
-      setActiveTab('soc-stpl');
-    } else if (hash === 'corporate-salaried' || hash === 'soc-corporate-salaried') {
-      setActiveTab('soc-corporate-salaried');
-    } else if (hash === 'unsecured-personal' || hash === 'soc-unsecured-personal') {
-      setActiveTab('soc-unsecured-personal');
-    } else if (hash === 'education-loan' || hash === 'soc-education-loan') {
-      setActiveTab('soc-education-loan');
-    }
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'stpl' || hash === 'soc-stpl') setActiveTab('soc-stpl');
+      else if (hash === 'corporate-salaried' || hash === 'soc-corporate-salaried') setActiveTab('soc-corporate-salaried');
+      else if (hash === 'unsecured-personal' || hash === 'soc-unsecured-personal') setActiveTab('soc-unsecured-personal');
+      else if (hash === 'education-loan' || hash === 'soc-education-loan') setActiveTab('soc-education-loan');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
+  useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
     }
@@ -287,7 +297,10 @@ Schedule of Charges (SOC)
                 type="button"
                 className={`soc-tab-btn ${activeTab === 'soc-education-loan' ? 'active' : ''}`} 
                 data-target="soc-education-loan"
-                onClick={() => setActiveTab('soc-education-loan')}
+                onClick={() => {
+                  setActiveTab('soc-education-loan');
+                  window.history.replaceState(null, '', '#soc-education-loan');
+                }}
               >
                 <i className="fa-solid fa-graduation-cap"></i>
                 Personal Loans for Higher Education/ Coaching/ Training/ Skill Development etc.
@@ -298,7 +311,10 @@ Schedule of Charges (SOC)
                 type="button"
                 className={`soc-tab-btn ${activeTab === 'soc-corporate-salaried' ? 'active' : ''}`} 
                 data-target="soc-corporate-salaried"
-                onClick={() => setActiveTab('soc-corporate-salaried')}
+                onClick={() => {
+                  setActiveTab('soc-corporate-salaried');
+                  window.history.replaceState(null, '', '#soc-corporate-salaried');
+                }}
               >
                 <i className="fa-solid fa-user-tie"></i>
                 Corporate Salaried Loan
@@ -309,7 +325,10 @@ Schedule of Charges (SOC)
                 type="button"
                 className={`soc-tab-btn ${activeTab === 'soc-stpl' ? 'active' : ''}`} 
                 data-target="soc-stpl"
-                onClick={() => setActiveTab('soc-stpl')}
+                onClick={() => {
+                  setActiveTab('soc-stpl');
+                  window.history.replaceState(null, '', '#soc-stpl');
+                }}
               >
                 <i className="fa-solid fa-clock-rotate-left"></i>
                 Short Term (STPL)
@@ -320,7 +339,10 @@ Schedule of Charges (SOC)
                 type="button"
                 className={`soc-tab-btn ${activeTab === 'soc-unsecured-personal' ? 'active' : ''}`} 
                 data-target="soc-unsecured-personal"
-                onClick={() => setActiveTab('soc-unsecured-personal')}
+                onClick={() => {
+                  setActiveTab('soc-unsecured-personal');
+                  window.history.replaceState(null, '', '#soc-unsecured-personal');
+                }}
               >
                 <i className="fa-solid fa-wallet"></i>
                 Unsecured Personal Loan
@@ -774,15 +796,15 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
               <table className="soc-table">
                 <thead>
                   <tr>
-                    <th style={{ width: "44%" }}>
+                    <th style={{ width: "38%" }}>
                       <i className="fa-solid fa-file-invoice" style={{ color: "#ff9d79", marginRight: "8px" }}></i>
                       Fee / Charge Head
                     </th>
-                    <th style={{ width: "28%" }}>
+                    <th style={{ width: "30%" }}>
                       <i className="fa-solid fa-clock-rotate-left" style={{ color: "#ff9d79", marginRight: "8px" }}></i>
                       Billing Frequency & Nature
                     </th>
-                    <th style={{ width: "28%", textAlign: "right" }}>
+                    <th style={{ width: "32%", textAlign: "right" }}>
                       <i className="fa-solid fa-indian-rupee-sign" style={{ color: "#ff9d79", marginRight: "8px" }}></i>
                       Applicable Rate / Amount
                     </th>
@@ -799,7 +821,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                       </div>
                     </td>
                     <td>Daily interest accrual basis</td>
-                    <td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-rate">
                         <i className="fa-solid fa-chart-line"></i> 1% per day
                       </span>
@@ -815,7 +837,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                       </div>
                     </td>
                     <td>Upfront one-time administrative fee</td>
-                    <td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-fee">
                         <i className="fa-solid fa-receipt"></i> 10% of sanction
                       </span>
@@ -831,9 +853,41 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                       </div>
                     </td>
                     <td>Statutory tax</td>
-                    <td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
                         18% <span className="badge-money-sub">statutory GST</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-unlock-keyhole"></i>
+                        </span>
+                        Foreclosure / Prepayment Charges
+                      </div>
+                    </td>
+                    <td>Anytime prepayment</td>
+                    <td style={{ textAlign: "right" }}>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i> NIL
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="soc-charge-name">
+                        <span className="soc-charge-icon">
+                          <i className="fa-solid fa-ban"></i>
+                        </span>
+                        Loan Cancellation Charges
+                      </div>
+                    </td>
+                    <td>Within regulatory look-up period</td>
+                    <td style={{ textAlign: "right" }}>
+                      <span className="badge-zero">
+                        <i className="fa-solid fa-circle-check"></i> NIL
                       </span>
                     </td>
                   </tr>
@@ -846,9 +900,9 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                         Rate of annualized penal interest in case of delayed payments (if any)
                       </div>
                     </td>
-                    <td>In case of delay in repayment</td>
-                    <td>
-                      <div style={{ textAlign: "right", fontSize: "0.82rem", lineHeight: "1.45", color: "#334155" }}>
+                    <td>Applicable on delayed repayment until actual recovery</td>
+                    <td style={{ textAlign: "left" }}>
+                      <div style={{ fontSize: "0.85rem", lineHeight: "1.5", color: "#334155", background: "#faf5ff", padding: "10px 14px", borderRadius: "8px", border: "1px solid #f3e8ff", borderLeft: "3px solid #70146e" }}>
                         In case of delay in repayment, the overdue amount shall continue to carry the contractual Rate of Interest applicable to the Loan until the date of actual repayment. Penal charges, if any, shall be in the Company's Statement of Charges.
                       </div>
                     </td>
@@ -857,13 +911,13 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>
                       <div className="soc-charge-name">
                         <span className="soc-charge-icon">
-                          <i className="fa-solid fa-money-check-dollar"></i>
+                          <i className="fa-solid fa-money-bill-transfer"></i>
                         </span>
                         Dishonor of Cheque charges
                       </div>
                     </td>
-                    <td>Per dishonored / bounced cheque</td>
-                    <td>
+                    <td>Per dishonored cheque presentation</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money badge-money-warning">
                         Rs. 2,000
                       </span>
@@ -878,8 +932,8 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                         ECS / NACH Bounce Charges
                       </div>
                     </td>
-                    <td>Per failed presentation attempt</td>
-                    <td>
+                    <td>Per presentation failure attempt</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money badge-money-warning">
                         Rs. 500
                       </span>
@@ -889,13 +943,13 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>
                       <div className="soc-charge-name">
                         <span className="soc-charge-icon">
-                          <i className="fa-solid fa-hand-holding-dollar"></i>
+                          <i className="fa-solid fa-person-walking-luggage"></i>
                         </span>
                         Charges for picking up the cheques from borrower
                       </div>
                     </td>
-                    <td>Per physical cheque collection pickup</td>
-                    <td>
+                    <td>Per physical cheque collection visit</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
                         Rs. 500
                       </span>
@@ -910,8 +964,8 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                         Charges for changing the Account from where ECS / NACH Mandates is approved
                       </div>
                     </td>
-                    <td>Mandate bank account swap / modification</td>
-                    <td>
+                    <td>Per mandate bank account change / swap</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
                         Rs. 1,000
                       </span>
@@ -926,8 +980,8 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                         Charges on rejection of ECS / NACH mandate
                       </div>
                     </td>
-                    <td>Per mandate rejection by customer bank</td>
-                    <td>
+                    <td>Mandate registration rejection fee</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
                         Rs. 1,000
                       </span>
@@ -942,8 +996,8 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                         Legal cost for sending a legal notice
                       </div>
                     </td>
-                    <td>Advocate demand notice dispatch</td>
-                    <td>
+                    <td>Advocate legal notice dispatch</td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
                         Rs. 1,000
                       </span>
@@ -953,47 +1007,15 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>
                       <div className="soc-charge-name">
                         <span className="soc-charge-icon">
-                          <i className="fa-solid fa-scale-balanced"></i>
+                          <i className="fa-solid fa-gavel"></i>
                         </span>
                         Legal cost for hiring a lawyer to contest the case against the Borrower
                       </div>
                     </td>
-                    <td>Legal defense & court litigation representation</td>
-                    <td>
-                      <span className="badge-money">
+                    <td>Litigation defense & court proceeding fee</td>
+                    <td style={{ textAlign: "right" }}>
+                      <span className="badge-money badge-money-warning">
                         Rs. 10,000
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div className="soc-charge-name">
-                        <span className="soc-charge-icon">
-                          <i className="fa-solid fa-unlock-keyhole"></i>
-                        </span>
-                        Foreclosure / Prepayment Charges
-                      </div>
-                    </td>
-                    <td>Anytime prepayment</td>
-                    <td>
-                      <span className="badge-zero">
-                        <i className="fa-solid fa-circle-check"></i> NIL
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div className="soc-charge-name">
-                        <span className="soc-charge-icon">
-                          <i className="fa-solid fa-circle-xmark"></i>
-                        </span>
-                        Loan Cancellation Charges
-                      </div>
-                    </td>
-                    <td>Within regulatory look-up period</td>
-                    <td>
-                      <span className="badge-zero">
-                        <i className="fa-solid fa-circle-check"></i> NIL
                       </span>
                     </td>
                   </tr>
@@ -1007,7 +1029,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                       </div>
                     </td>
                     <td>Digital delivery via app/portal</td>
-                    <td>
+                    <td style={{ textAlign: "right" }}>
                       <span className="badge-zero">
                         <i className="fa-solid fa-circle-check"></i> NIL
                       </span>
@@ -1016,97 +1038,6 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                 </tbody>
               </table>
             </div>
-
-            {/* DEDICATED OFFICIAL REGULATORY SCHEDULE BOX */}
-            <div style={{ marginTop: "32px", borderTop: "1.5px solid #ede9fe", paddingTop: "24px" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "10px", marginBottom: "16px" }}>
-                <div>
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#fef2f2", color: "#dc2626", padding: "4px 12px", borderRadius: "16px", fontSize: "0.78rem", fontWeight: 700, marginBottom: "6px" }}>
-                    <i className="fa-solid fa-gavel"></i> Regulatory Schedule of Penal & Legal Charges
-                  </span>
-                  <h4 style={{ margin: 0, fontSize: "1.15rem", fontWeight: 800, color: "#1e1b4b" }}>
-                    Short Term Personal Loan (STPL) – Statement of Penal Charges
-                  </h4>
-                </div>
-                <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
-                  In accordance with Master Directions & Company Sanction Policy
-                </span>
-              </div>
-
-              <div style={{ overflowX: "auto", borderRadius: "12px", border: "1px solid #cbd5e1", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.92rem", background: "#ffffff" }}>
-                  <thead>
-                    <tr style={{ background: "#f8fafc", borderBottom: "1.5px solid #cbd5e1" }}>
-                      <th style={{ padding: "14px 18px", fontWeight: 700, color: "#0f172a", width: "48%", borderRight: "1px solid #cbd5e1", verticalAlign: "top" }}>
-                        Rate of annualized penal interest in case of delayed payments (if any)
-                      </th>
-                      <th style={{ padding: "14px 18px", fontWeight: 500, color: "#334155", width: "52%", lineHeight: "1.55", verticalAlign: "top" }}>
-                        In case of delay in repayment, the overdue amount shall continue to carry the contractual Rate of Interest applicable to the Loan until the date of actual repayment. Penal charges, if any, shall be in the Company's Statement of Charges.
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Dishonor of Cheque charges
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs. 2,000
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - ECS / NACH Bounce Charges
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs. 500
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Charges for picking up the cheques from borrower
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs. 500
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Charges for changing the Account from where ECS / NACH Mandates is approved
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs. 1,000
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Charges on rejection of ECS / NACH mandate
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs.1,000
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Legal cost for sending a legal notice
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs.1,000
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: "12px 18px", color: "#1e293b", fontWeight: 600, borderRight: "1px solid #e2e8f0" }}>
-                        - Legal cost for hiring a lawyer to contest the case against the Borrower
-                      </td>
-                      <td style={{ padding: "12px 18px", color: "#0f172a", fontWeight: 700 }}>
-                        Rs. 10,000
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
             <div className="soc-table-footer">
               <div className="soc-table-footer-item">
                 <i className="fa-solid fa-circle-info"></i>

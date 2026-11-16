@@ -903,7 +903,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Applicable on delayed repayment until actual recovery</td>
                     <td style={{ textAlign: "left" }}>
                       <div style={{ fontSize: "0.85rem", lineHeight: "1.5", color: "#334155", background: "#faf5ff", padding: "10px 14px", borderRadius: "8px", border: "1px solid #f3e8ff", borderLeft: "3px solid #70146e" }}>
-                        In case of delay in repayment, the overdue amount shall continue to carry the contractual Rate of Interest applicable to the Loan until the date of actual repayment. Penal charges, if any, shall be in the Company's Statement of Charges.
+                        In case of delay in repayment, the overdue amount shall continue to carry the contractual Rate of Interest applicable to the Loan until the date of actual repayment. Penal charges, if any, shall be in the Company's Statement of Charges (+ GST as applicable).
                       </div>
                     </td>
                   </tr>
@@ -919,7 +919,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Per dishonored cheque presentation</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money badge-money-warning">
-                        Rs. 2,000
+                        Rs. 2,000 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -935,7 +935,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Per presentation failure attempt</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money badge-money-warning">
-                        Rs. 500
+                        Rs. 500 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -951,7 +951,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Per physical cheque collection visit</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
-                        Rs. 500
+                        Rs. 500 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -967,7 +967,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Per mandate bank account change / swap</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
-                        Rs. 1,000
+                        Rs. 1,000 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -983,7 +983,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Mandate registration rejection fee</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
-                        Rs. 1,000
+                        Rs. 1,000 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -999,7 +999,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Advocate legal notice dispatch</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money">
-                        Rs. 1,000
+                        Rs. 1,000 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -1015,7 +1015,7 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                     <td>Litigation defense & court proceeding fee</td>
                     <td style={{ textAlign: "right" }}>
                       <span className="badge-money badge-money-warning">
-                        Rs. 10,000
+                        Rs. 10,000 <span className="badge-money-sub">+ GST</span>
                       </span>
                     </td>
                   </tr>
@@ -1043,6 +1043,12 @@ Up to ₹ 500/-                         <span className="badge-money-sub">
                 <i className="fa-solid fa-circle-info"></i>
                 <div>
                   <strong>Transparency & Cooling-Off Period:</strong> STPL borrowers are protected by a regulatory 3-day look-up / cooling-off window during which they may cancel without prepayment penalty.
+                </div>
+              </div>
+              <div className="soc-table-footer-item" style={{ marginTop: "10px" }}>
+                <i className="fa-solid fa-receipt"></i>
+                <div>
+                  <strong>GST Applicability:</strong> All penal, bounce, mandate modification, collection, and legal recovery charges are subject to statutory GST (18%) as applicable.
                 </div>
               </div>
             </div>

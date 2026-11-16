@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { DIARY_EVENTS, DiaryEvent, DiaryPhoto } from '../data/diaries';
 
 // Filter categories
@@ -184,31 +185,81 @@ export const PrestloansDiaries: React.FC = () => {
   return (
     <>
       {/* PAGE BANNER */}
-      <section className="page-banner" style={{ background: 'linear-gradient(135deg, #2b032b 0%, #4a0d48 50%, #70146e 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.12, background: 'radial-gradient(circle at 20% 40%, #f05a28 0%, transparent 60%), radial-gradient(circle at 80% 60%, #a21c9f 0%, transparent 60%)', pointerEvents: 'none' }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      <section className="page-banner" style={{
+        background: 'linear-gradient(135deg, #2b032b 0%, #4a0d48 50%, #70146e 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        textAlign: 'center',
+        padding: '55px 0 50px'
+      }}>
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.14, background: 'radial-gradient(circle at 20% 40%, #f05a28 0%, transparent 60%), radial-gradient(circle at 80% 60%, #a21c9f 0%, transparent 60%)', pointerEvents: 'none' }}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          {/* Breadcrumbs */}
           <div className="breadcrumbs" style={{ justifyContent: 'center', marginBottom: '14px' }}>
-            <a href="/" style={{ color: '#e2e8f0' }}>Home</a>
+            <Link to="/" style={{ color: '#e2e8f0' }}>Home</Link>
             <i className="fa-solid fa-chevron-right" style={{ fontSize: '0.65rem', color: '#94a3b8' }}></i>
-            <a href="/media" style={{ color: '#e2e8f0' }}>Media</a>
+            <Link to="/media" style={{ color: '#e2e8f0' }}>Media</Link>
             <i className="fa-solid fa-chevron-right" style={{ fontSize: '0.65rem', color: '#94a3b8' }}></i>
             <span style={{ color: '#f05a28', fontWeight: '700' }}>PrestLoans Diaries</span>
           </div>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', padding: '6px 16px', borderRadius: '30px', color: '#fbd5cb', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '16px' }}>
+          {/* Badge Tag */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(255,255,255,0.12)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            padding: '6px 16px',
+            borderRadius: '30px',
+            color: '#fbd5cb',
+            fontSize: '0.8rem',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
+            marginBottom: '16px'
+          }}>
             <i className="fa-solid fa-camera-retro" style={{ color: '#f05a28' }}></i>
             Corporate Scrapbook & Moments
           </div>
 
-          <h1 className="page-banner-title" style={{ fontSize: '2.6rem', fontWeight: '800', letterSpacing: '-0.5px', marginBottom: '14px' }}>
+          {/* Title */}
+          <h1 className="page-banner-title" style={{
+            fontSize: '2.8rem',
+            fontWeight: '800',
+            letterSpacing: '-0.5px',
+            marginBottom: '14px',
+            textAlign: 'center'
+          }}>
             PrestLoans <span style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fed7aa 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Diaries</span>
           </h1>
 
-          <p className="page-banner-sub" style={{ maxWidth: '720px', margin: '0 auto 20px', color: '#f1f5f9', fontSize: '1.05rem', lineHeight: '1.6' }}>
+          {/* Subtitle */}
+          <p className="page-banner-sub" style={{
+            maxWidth: '740px',
+            margin: '0 auto 22px',
+            color: '#f1f5f9',
+            fontSize: '1.05rem',
+            lineHeight: '1.6',
+            textAlign: 'center'
+          }}>
             Explore genuine celebrations, national festivals, award ceremonies, and team milestones that make the Prest Loans family extraordinary.
           </p>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '18px', background: 'rgba(15, 23, 42, 0.45)', backdropFilter: 'blur(8px)', padding: '8px 22px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.12)', color: '#ffffff', fontSize: '0.85rem' }}>
+          {/* Stats Bar */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '18px',
+            background: 'rgba(15, 23, 42, 0.45)',
+            backdropFilter: 'blur(8px)',
+            padding: '9px 24px',
+            borderRadius: '30px',
+            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#ffffff',
+            fontSize: '0.86rem',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.2)'
+          }}>
             <span><strong style={{ color: '#f05a28' }}>{DIARY_EVENTS.length}</strong> Featured Albums</span>
             <span style={{ color: 'rgba(255,255,255,0.3)' }}>•</span>
             <span><strong style={{ color: '#38bdf8' }}>{totalPhotosCount}</strong> High-Res Photos</span>

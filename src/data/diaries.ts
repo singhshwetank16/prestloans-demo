@@ -26,6 +26,638 @@ export interface DiaryEvent {
  */
 export const DIARY_EVENTS: DiaryEvent[] = [
   {
+    "id": "diwali-celebration-2026",
+    "folderName": "Diwali Celebration 2026",
+    "name": "Diwali Celebration 2026",
+    "date": "Diwali 2026",
+    "location": "Head Office, New Delhi",
+    "category": "Festival",
+    "badge": "Festive Moments",
+    "coverImage": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0038.jpg.jpeg",
+    "description": "Grand Diwali 2026 celebrations at Prest Loans featuring traditional attire, office illumination, Lakshmi Puja, sweets, and joyous team celebrations.",
+    "photos": [
+      {
+        "id": "diwali-celebration-2026-1",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0038.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 1",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-2",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0041.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 2",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-3",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0043.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 3",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-4",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0054.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 4",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-5",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0055.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 5",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-6",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0058.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 6",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-7",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0061.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 7",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-8",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0064.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 8",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-9",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0072.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 9",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-10",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0073.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 10",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-11",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0076.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 11",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-12",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0078.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 12",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-13",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0080.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 13",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-14",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0087.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 14",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-15",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0115.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 15",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-16",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0117.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 16",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-17",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0119.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 17",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-18",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0121.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 18",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-19",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0123.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 19",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-20",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0125.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 20",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-21",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0127.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 21",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-22",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0129.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 22",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-23",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0131.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 23",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-24",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0133.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 24",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-25",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0135.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 25",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-26",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0137.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 26",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-27",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0163.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 27",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-28",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0165.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 28",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-29",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0167.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 29",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-30",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0169.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 30",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-31",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0171.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 31",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-32",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0173.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 32",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-33",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0175.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 33",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-34",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0177.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 34",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-35",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0179.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 35",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-36",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0181.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 36",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-37",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0183.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 37",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-38",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0185.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 38",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-39",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0187.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 39",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-40",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0189.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 40",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-41",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0191.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 41",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-42",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0193.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 42",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-43",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0195.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 43",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-44",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0197.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 44",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-45",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0199.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 45",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-46",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0201.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 46",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-47",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0203.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 47",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-48",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0205.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 48",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-49",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0207.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 49",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-50",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0209.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 50",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-51",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0211.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 51",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-52",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0213.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 52",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-53",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0215.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 53",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-54",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0216.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 54",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-55",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0217.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 55",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-56",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0218.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 56",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-57",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0219.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 57",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-58",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0220.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 58",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-59",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0221.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 59",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-60",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0222.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 60",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-61",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0223.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 61",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-62",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0224.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 62",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-63",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0225.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 63",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-64",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0226.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 64",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-65",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0227.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 65",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-66",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0229.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 66",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-67",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0231.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 67",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-68",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0237.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 68",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-69",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0255.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 69",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-70",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0325.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 70",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-71",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0333.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 71",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-72",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0336.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 72",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-73",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0338.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 73",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-74",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0341.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 74",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-75",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0343.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 75",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-76",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0344.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 76",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-77",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0346.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 77",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-78",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0349.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 78",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-79",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0351.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 79",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-80",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0399.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 80",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-81",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0458.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 81",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-82",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0473.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 82",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-83",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0474.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 83",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-84",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0479.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 84",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-85",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0481.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 85",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-86",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0483.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 86",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-87",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0484.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 87",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-88",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0491.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 88",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-89",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0497.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 89",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-90",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0511.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 90",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-91",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0529.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 91",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-92",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0536.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 92",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-93",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0543.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 93",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-94",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0544.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 94",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-95",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0545.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 95",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-96",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0546.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 96",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-97",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0548.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 97",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-98",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0550.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 98",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-99",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0553.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 99",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-100",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261106-WA0554.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 100",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-101",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261107-WA0003.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 101",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-102",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261107-WA0004.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 102",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      },
+      {
+        "id": "diwali-celebration-2026-103",
+        "src": "/assets/gallery/Diwali%20Celebration%202026/IMG-20261107-WA0006.jpg.jpeg",
+        "title": "Diwali Celebration 2026 - Photo 103",
+        "caption": "Diwali Celebration 2026 (Diwali 2026)"
+      }
+    ]
+  },
+
+  {
     "id": "annual-day-celebration-2025",
     "folderName": "Annual Day Celebration 2025",
     "name": "Annual Day Celebration 2025",

@@ -49,6 +49,25 @@ export const PrestloansDiaries: React.FC = () => {
   const [activeEventId, setActiveEventId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   
+  // Quick jump dropdown state
+  const [isJumpOpen, setIsJumpOpen] = useState<boolean>(false);
+  const jumpMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close Jump to Album dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (jumpMenuRef.current && !jumpMenuRef.current.contains(e.target as Node)) {
+        setIsJumpOpen(false);
+      }
+    };
+    if (isJumpOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isJumpOpen]);
+
   // Lightbox state
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isPlayingSlideshow, setIsPlayingSlideshow] = useState<boolean>(false);
@@ -190,7 +209,7 @@ export const PrestloansDiaries: React.FC = () => {
           </p>
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '18px', background: 'rgba(15, 23, 42, 0.45)', backdropFilter: 'blur(8px)', padding: '8px 22px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.12)', color: '#ffffff', fontSize: '0.85rem' }}>
-            <span><strong style={{ color: '#f05a28' }}>12</strong> Featured Albums</span>
+            <span><strong style={{ color: '#f05a28' }}>{DIARY_EVENTS.length}</strong> Featured Albums</span>
             <span style={{ color: 'rgba(255,255,255,0.3)' }}>•</span>
             <span><strong style={{ color: '#38bdf8' }}>{totalPhotosCount}</strong> High-Res Photos</span>
             <span style={{ color: 'rgba(255,255,255,0.3)' }}>•</span>
@@ -210,18 +229,21 @@ export const PrestloansDiaries: React.FC = () => {
               <div style={{
                 background: '#ffffff',
                 borderRadius: '20px',
-                padding: '16px 20px',
-                boxShadow: '0 10px 30px rgba(112, 20, 110, 0.05)',
+                padding: '18px 22px',
+                boxShadow: '0 8px 30px rgba(112, 20, 110, 0.05)',
                 border: '1px solid #f1e4f1',
-                marginBottom: '40px',
+                marginBottom: '36px',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: '16px'
+                flexDirection: 'column',
+                gap: '14px'
               }}>
-                {/* CATEGORY FILTER PILLS */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                {/* ROW 1: CATEGORY NAVIGATION PILLS */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  flexWrap: 'wrap'
+                }}>
                   {CATEGORIES.map(cat => {
                     const isActive = activeCategory === cat.key;
                     const count = DIARY_EVENTS.filter(e => cat.match(e)).length;
@@ -231,13 +253,15 @@ export const PrestloansDiaries: React.FC = () => {
                         type="button"
                         onClick={() => setActiveCategory(cat.key)}
                         style={{
-                          background: isActive ? 'linear-gradient(135deg, #70146e 0%, #991b96 100%)' : '#f8fafc',
+                          background: isActive
+                            ? 'linear-gradient(135deg, #70146e 0%, #8e1a8b 100%)'
+                            : '#f8fafc',
                           color: isActive ? '#ffffff' : '#475569',
                           border: isActive ? '1px solid #70146e' : '1px solid #e2e8f0',
                           padding: '8px 16px',
                           borderRadius: '30px',
-                          fontSize: '0.86rem',
-                          fontWeight: '700',
+                          fontSize: '0.85rem',
+                          fontWeight: 700,
                           cursor: 'pointer',
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -245,16 +269,39 @@ export const PrestloansDiaries: React.FC = () => {
                           boxShadow: isActive ? '0 4px 14px rgba(112, 20, 110, 0.22)' : 'none',
                           transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
                         }}
+                        onMouseEnter={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.background = '#ffffff';
+                            e.currentTarget.style.borderColor = '#cbd5e1';
+                            e.currentTarget.style.color = '#1e293b';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.background = '#f8fafc';
+                            e.currentTarget.style.borderColor = '#e2e8f0';
+                            e.currentTarget.style.color = '#475569';
+                          }
+                        }}
                       >
-                        <i className={cat.icon} style={{ color: isActive ? '#ffffff' : '#f05a28', fontSize: '0.85rem' }}></i>
-                        {cat.label}
-                        <span style={{
-                          background: isActive ? 'rgba(255,255,255,0.25)' : '#e2e8f0',
-                          color: isActive ? '#ffffff' : '#475569',
-                          padding: '2px 7px',
-                          borderRadius: '10px',
-                          fontSize: '0.72rem'
-                        }}>
+                        <i
+                          className={cat.icon}
+                          style={{
+                            color: isActive ? '#ffffff' : '#f05a28',
+                            fontSize: '0.85rem'
+                          }}
+                        ></i>
+                        <span>{cat.label}</span>
+                        <span
+                          style={{
+                            background: isActive ? 'rgba(255, 255, 255, 0.25)' : '#e2e8f0',
+                            color: isActive ? '#ffffff' : '#475569',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                            fontSize: '0.72rem',
+                            fontWeight: 700
+                          }}
+                        >
                           {count}
                         </span>
                       </button>
@@ -262,65 +309,248 @@ export const PrestloansDiaries: React.FC = () => {
                   })}
                 </div>
 
-                {/* SEARCH & QUICK JUMP */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                {/* DIVIDER */}
+                <div style={{ height: '1px', background: '#f1f5f9' }} />
+
+                {/* ROW 2: SEARCH & DIRECT ALBUM SELECTOR */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px'
+                }}>
                   {/* Search box */}
-                  <div style={{ position: 'relative' }}>
-                    <i className="fa-solid fa-magnifying-glass" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', fontSize: '0.85rem' }}></i>
+                  <div style={{ position: 'relative', flex: '1 1 280px', maxWidth: '440px', minWidth: '220px' }}>
+                    <i
+                      className="fa-solid fa-magnifying-glass"
+                      style={{
+                        position: 'absolute',
+                        left: '14px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: '#94a3b8',
+                        fontSize: '0.88rem',
+                        pointerEvents: 'none'
+                      }}
+                    ></i>
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search album..."
+                      placeholder="Search albums by name, year, or location..."
                       style={{
-                        padding: '8px 32px 8px 34px',
-                        borderRadius: '30px',
+                        width: '100%',
+                        height: '42px',
+                        padding: '0 36px 0 38px',
+                        borderRadius: '12px',
                         border: '1.5px solid #e2e8f0',
-                        fontSize: '0.85rem',
+                        fontSize: '0.86rem',
                         outline: 'none',
-                        width: '180px',
-                        transition: 'border-color 0.2s ease, width 0.3s ease',
-                        background: '#ffffff'
+                        background: '#f8fafc',
+                        color: '#1e293b',
+                        transition: 'border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease',
+                        boxSizing: 'border-box'
                       }}
-                      onFocus={(e) => { e.currentTarget.style.borderColor = '#70146e'; e.currentTarget.style.width = '220px'; }}
-                      onBlur={(e) => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.width = '180px'; }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#70146e';
+                        e.currentTarget.style.background = '#ffffff';
+                        e.currentTarget.style.boxShadow = '0 0 0 3px rgba(112, 20, 110, 0.08)';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#e2e8f0';
+                        e.currentTarget.style.background = '#f8fafc';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
                     />
                     {searchQuery && (
                       <button
                         type="button"
                         onClick={() => setSearchQuery('')}
-                        style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', border: 'none', background: 'transparent', color: '#94a3b8', cursor: 'pointer', fontSize: '0.85rem' }}
+                        aria-label="Clear search"
+                        style={{
+                          position: 'absolute',
+                          right: '12px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          border: 'none',
+                          background: 'transparent',
+                          color: '#94a3b8',
+                          cursor: 'pointer',
+                          fontSize: '0.85rem',
+                          padding: '4px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#1e293b'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; }}
                       >
                         <i className="fa-solid fa-xmark"></i>
                       </button>
                     )}
                   </div>
 
-                  {/* Quick Select Dropdown */}
-                  <select
-                    value=""
-                    onChange={(e) => { if (e.target.value) handleOpenEvent(e.target.value); }}
-                    style={{
-                      padding: '8px 14px',
-                      borderRadius: '30px',
-                      border: '1.5px solid #f05a28',
-                      color: '#f05a28',
-                      fontSize: '0.85rem',
-                      fontWeight: '700',
-                      background: '#fff7ed',
-                      cursor: 'pointer',
-                      outline: 'none'
-                    }}
-                  >
-                    <option value="" disabled>Jump to Album ▾</option>
-                    {DIARY_EVENTS.map(event => (
-                      <option key={event.id} value={event.id}>
-                        {event.name} ({event.photos.length} photos)
-                      </option>
-                    ))}
-                  </select>
+                  {/* Right Actions: Showing Albums Status + Jump Dropdown */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '7px',
+                      color: '#64748b',
+                      fontSize: '0.84rem',
+                      fontWeight: 500,
+                      background: '#f8fafc',
+                      padding: '0 14px',
+                      borderRadius: '12px',
+                      border: '1px solid #e2e8f0',
+                      height: '42px',
+                      boxSizing: 'border-box'
+                    }}>
+                      <i className="fa-regular fa-images" style={{ color: '#70146e' }}></i>
+                      <span>
+                        Showing <strong style={{ color: '#0f172a' }}>{filteredEvents.length}</strong> of {DIARY_EVENTS.length}
+                      </span>
+                    </div>
+
+                    {/* Custom "Jump to Album" Dropdown */}
+                  <div ref={jumpMenuRef} style={{ position: 'relative' }}>
+                    <button
+                      type="button"
+                      onClick={() => setIsJumpOpen(prev => !prev)}
+                      style={{
+                        height: '42px',
+                        padding: '0 18px',
+                        borderRadius: '12px',
+                        border: isJumpOpen ? '1.5px solid #70146e' : '1.5px solid #e2e8f0',
+                        background: '#ffffff',
+                        color: '#1e293b',
+                        fontSize: '0.86rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '9px',
+                        boxShadow: isJumpOpen ? '0 0 0 3px rgba(112, 20, 110, 0.08)' : '0 1px 2px rgba(0,0,0,0.02)',
+                        transition: 'all 0.2s ease',
+                        whiteSpace: 'nowrap'
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isJumpOpen) {
+                          e.currentTarget.style.borderColor = '#cbd5e1';
+                          e.currentTarget.style.background = '#f8fafc';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isJumpOpen) {
+                          e.currentTarget.style.borderColor = '#e2e8f0';
+                          e.currentTarget.style.background = '#ffffff';
+                        }
+                      }}
+                    >
+                      <i className="fa-regular fa-folder-open" style={{ color: '#70146e', fontSize: '0.9rem' }}></i>
+                      <span>Jump to Album</span>
+                      <i
+                        className="fa-solid fa-chevron-down"
+                        style={{
+                          fontSize: '0.72rem',
+                          color: '#94a3b8',
+                          transition: 'transform 0.2s ease',
+                          transform: isJumpOpen ? 'rotate(180deg)' : 'none'
+                        }}
+                      ></i>
+                    </button>
+
+                    {isJumpOpen && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          top: 'calc(100% + 8px)',
+                          zIndex: 100,
+                          width: '320px',
+                          maxHeight: '360px',
+                          overflowY: 'auto',
+                          background: '#ffffff',
+                          borderRadius: '16px',
+                          boxShadow: '0 18px 45px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(112, 20, 110, 0.06)',
+                          border: '1px solid #f1e4f1',
+                          padding: '8px'
+                        }}
+                      >
+                        <div style={{ padding: '8px 12px 6px', fontSize: '0.72rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Select an Album ({DIARY_EVENTS.length})
+                        </div>
+                        {DIARY_EVENTS.map(event => (
+                          <button
+                            key={event.id}
+                            type="button"
+                            onClick={() => {
+                              setIsJumpOpen(false);
+                              handleOpenEvent(event.id);
+                            }}
+                            style={{
+                              width: '100%',
+                              padding: '8px 10px',
+                              borderRadius: '10px',
+                              border: 'none',
+                              background: 'transparent',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              cursor: 'pointer',
+                              textAlign: 'left',
+                              gap: '10px',
+                              transition: 'background 0.15s ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = '#fdf4fc';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'transparent';
+                            }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
+                              <img
+                                src={event.coverImage}
+                                alt=""
+                                style={{
+                                  width: '34px',
+                                  height: '34px',
+                                  borderRadius: '8px',
+                                  objectFit: 'cover',
+                                  flexShrink: 0,
+                                  border: '1px solid #f1e4f1'
+                                }}
+                              />
+                              <div style={{ overflow: 'hidden' }}>
+                                <div style={{ fontSize: '0.84rem', fontWeight: 600, color: '#1e293b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                  {event.name}
+                                </div>
+                                <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                                  {event.date}
+                                </div>
+                              </div>
+                            </div>
+                            <span style={{
+                              fontSize: '0.7rem',
+                              fontWeight: 700,
+                              color: '#70146e',
+                              background: '#f8ebf8',
+                              padding: '3px 8px',
+                              borderRadius: '10px',
+                              flexShrink: 0
+                            }}>
+                              {event.photos.length}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
+            </div>
 
               {/* ALBUM CARDS GRID */}
               <div style={{

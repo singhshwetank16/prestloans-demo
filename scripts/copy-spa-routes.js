@@ -65,5 +65,22 @@ routes.forEach((route) => {
   fs.writeFileSync(path.join(subDir, 'index.html'), indexContent, 'utf-8');
 });
 
+// Patch hardcoded /assets/ image paths in JS bundles for GitHub Pages subpath (/prestloans-demo/)
+const assetsDir = path.join(distDir, 'assets');
+if (fs.existsSync(assetsDir)) {
+  const jsFiles = fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'));
+  let totalPatched = 0;
+  for (const jsFile of jsFiles) {
+    const filePath = path.join(assetsDir, jsFile);
+    let code = fs.readFileSync(filePath, 'utf-8');
+    code = code.replace(/(["'`])\/assets\//g, (match, quote) => {
+      totalPatched++;
+      return `${quote}/prestloans-demo/assets/`;
+    });
+    fs.writeFileSync(filePath, code, 'utf-8');
+  }
+  console.log(`Successfully patched ${totalPatched} asset paths in JS bundles for GitHub Pages!`);
+}
+
 console.log(`Successfully generated static SPA fallback pages for ${routes.length} routes in dist!`);
 

@@ -11,10 +11,12 @@ const tempDir = path.resolve(rootDir, 'node_modules/.cache/gh-pages-deploy');
 
 console.log('🚀 Preparing GitHub Pages deployment...');
 
-if (!fs.existsSync(distDir)) {
-  console.log('Building project first...');
-  execSync('npm run build', { stdio: 'inherit', cwd: rootDir });
-}
+console.log('Building project for GitHub Pages (/prestloans-demo/)...');
+execSync('npm run build', {
+  stdio: 'inherit',
+  cwd: rootDir,
+  env: { ...process.env, VITE_BASE_PATH: '/prestloans-demo/' }
+});
 
 // Clean temp directory
 if (fs.existsSync(tempDir)) {

@@ -59,7 +59,7 @@ try {
   } else {
     execSync(`git commit -m "Deploy to GitHub Pages: ${new Date().toISOString()}"`, { cwd: tempDir, stdio: 'ignore' });
     console.log('🚀 Pushing delta to gh-pages branch...');
-    execSync('git push origin gh-pages', { cwd: tempDir, stdio: 'inherit' });
+    execSync('git push origin gh-pages --force', { cwd: tempDir, stdio: 'inherit' });
     console.log('✅ Successfully deployed to gh-pages branch!');
   }
 } catch (err) {

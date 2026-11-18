@@ -1,6 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const EmployeeTestimonials: React.FC = () => {
+  const [selectedDept, setSelectedDept] = useState<string>('all');
+
+  const isVisible = (cat: string) => {
+    if (selectedDept === 'all') return true;
+    if (selectedDept === 'hr' && (cat === 'hr' || cat === 'admin')) return true;
+    return selectedDept === cat;
+  };
+
   useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
@@ -96,10 +104,77 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
           mentorship, professional freedom, and working in a fast-growing RBI-registered fintech NBFC.
                   </p>
         </div>
+        {/* DEPARTMENT FILTER BUTTONS (CLICK TO FILTER) */}
+        <div className="emp-filter-wrapper">
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'all' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('all')}
+          >
+            <i className="fa-solid fa-layer-group"></i> All Team (16)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'it' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('it')}
+          >
+            <i className="fa-solid fa-code"></i> Technology & IT (2)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'ops' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('ops')}
+          >
+            <i className="fa-solid fa-gears"></i> Operations & Disbursal (4)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'collections' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('collections')}
+          >
+            <i className="fa-solid fa-hand-holding-dollar"></i> Collections (3)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'risk' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('risk')}
+          >
+            <i className="fa-solid fa-scale-balanced"></i> Risk & Audit (2)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'sales' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('sales')}
+          >
+            <i className="fa-solid fa-chart-line"></i> Sales & BD (2)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'finance' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('finance')}
+          >
+            <i className="fa-solid fa-coins"></i> Finance & Accounts (1)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'hr' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('hr')}
+          >
+            <i className="fa-solid fa-users-gear"></i> HR & Admin (2)
+          </button>
+          <button
+            type="button"
+            className={`emp-filter-btn ${selectedDept === 'leadership' ? 'active' : ''}`}
+            onClick={() => setSelectedDept('leadership')}
+          >
+            <i className="fa-solid fa-landmark"></i> Leadership (1)
+          </button>
+        </div>
+
         {/* EMPLOYEE CARDS GRID */}
         <div className="employee-cards-grid" id="empCardsGrid">
           {/* Employee 1: Ravi Shanker Singh */}
-          <div className="emp-card-pro" data-category="it">
+          <div className="emp-card-pro" data-category="it" style={{ display: isVisible('it') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag it">
                 <i className="fa-solid fa-code"></i>
@@ -147,7 +222,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 2: Shwetank Singh */}
-          <div className="emp-card-pro" data-category="it">
+          <div className="emp-card-pro" data-category="it" style={{ display: isVisible('it') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag it">
                 <i className="fa-solid fa-code"></i>
@@ -193,7 +268,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 3: Ashish Kumar Singh */}
-          <div className="emp-card-pro" data-category="sales">
+          <div className="emp-card-pro" data-category="sales" style={{ display: isVisible('sales') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag sales">
                 <i className="fa-solid fa-chart-line"></i>
@@ -238,7 +313,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 4: Nitish Kumar */}
-          <div className="emp-card-pro" data-category="risk">
+          <div className="emp-card-pro" data-category="risk" style={{ display: isVisible('risk') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag risk">
                 <i className="fa-solid fa-scale-balanced"></i>
@@ -285,7 +360,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 5: Radhika Rautela */}
-          <div className="emp-card-pro" data-category="finance">
+          <div className="emp-card-pro" data-category="finance" style={{ display: isVisible('finance') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag finance">
                 <i className="fa-solid fa-coins"></i>
@@ -331,7 +406,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 6: Deepika */}
-          <div className="emp-card-pro" data-category="risk">
+          <div className="emp-card-pro" data-category="risk" style={{ display: isVisible('risk') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag risk">
                 <i className="fa-solid fa-scale-balanced"></i>
@@ -376,7 +451,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 7: Priyanka Kumari */}
-          <div className="emp-card-pro" data-category="hr">
+          <div className="emp-card-pro" data-category="hr" style={{ display: isVisible('hr') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag hr">
                 <i className="fa-solid fa-user-group"></i>
@@ -422,7 +497,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 8: Poonam Tiwari */}
-          <div className="emp-card-pro" data-category="sales">
+          <div className="emp-card-pro" data-category="sales" style={{ display: isVisible('sales') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag sales">
                 <i className="fa-solid fa-bullhorn"></i>
@@ -468,7 +543,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 9: Sandeep Saini */}
-          <div className="emp-card-pro" data-category="leadership">
+          <div className="emp-card-pro" data-category="leadership" style={{ display: isVisible('leadership') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag leadership">
                 <i className="fa-solid fa-chess-king"></i>
@@ -514,7 +589,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 10: Shumaila */}
-          <div className="emp-card-pro" data-category="collections">
+          <div className="emp-card-pro" data-category="collections" style={{ display: isVisible('collections') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-headset"></i>
@@ -561,7 +636,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 11: Sharmin Khan */}
-          <div className="emp-card-pro" data-category="collections">
+          <div className="emp-card-pro" data-category="collections" style={{ display: isVisible('collections') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-headset"></i>
@@ -607,7 +682,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 12: Prakash Soni */}
-          <div className="emp-card-pro" data-category="collections">
+          <div className="emp-card-pro" data-category="collections" style={{ display: isVisible('collections') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-headset"></i>
@@ -652,7 +727,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 13: Rana Pratap */}
-          <div className="emp-card-pro" data-category="admin">
+          <div className="emp-card-pro" data-category="admin" style={{ display: isVisible('admin') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag admin">
                 <i className="fa-solid fa-building-user"></i>
@@ -699,7 +774,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 14: Gagan Deep */}
-          <div className="emp-card-pro" data-category="ops">
+          <div className="emp-card-pro" data-category="ops" style={{ display: isVisible('ops') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-gears"></i>
@@ -746,7 +821,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 15: Mukesh Chaurasiya */}
-          <div className="emp-card-pro" data-category="ops">
+          <div className="emp-card-pro" data-category="ops" style={{ display: isVisible('ops') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-gears"></i>
@@ -794,7 +869,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 16: Roshan Vishwakarma */}
-          <div className="emp-card-pro" data-category="ops">
+          <div className="emp-card-pro" data-category="ops" style={{ display: isVisible('ops') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-gears"></i>
@@ -840,7 +915,7 @@ Employee Testimonials                 <small className="stories-count-badge">Tea
             </div>
           </div>
           {/* Employee 17: Vinay Rohilla */}
-          <div className="emp-card-pro" data-category="ops">
+          <div className="emp-card-pro" data-category="ops" style={{ display: isVisible('ops') ? 'flex' : 'none' }}>
             <div className="emp-card-top">
               <span className="emp-card-dept-tag ops">
                 <i className="fa-solid fa-gears"></i>

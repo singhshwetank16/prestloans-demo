@@ -12,6 +12,11 @@ export const InterestRateModel: React.FC = () => {
     return 'soc-education-loan';
   });
 
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const toggleSocFaq = (idx: number) => {
+    setOpenFaqIndex((prev) => (prev === idx ? null : idx));
+  };
+
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
@@ -1451,145 +1456,270 @@ Frequently Asked
         </div>
         <div className="soc-faq-list">
           {/* FAQ 1 */}
-          <div className="soc-faq-item active">
-            <div className="soc-faq-question">
+          <div className={`soc-faq-item ${openFaqIndex === 0 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(0)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
               <span>1. How does Prest Loans determine my loan interest rate?</span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 0 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 0 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 0 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Prest Loans utilizes an objective                 <strong>Discrete Interest Rate Model</strong>
- anchored against our
-              Reference Base Rate of                 <strong>18% p.a.</strong>
- The final rate offered depends on four key factors: (1)
-              Cost of institutional funds, (2) Underwriting & operational costs, (3) Loan tenure and repayment schedule,
-              and (4) Individual credit risk based on bureau score (CIBIL/Experian), bank cash flow consistency,
-              income stability, and repayment capacity.
-                          </p>
+                Prest Loans utilizes an objective <strong>Discrete Interest Rate Model</strong> anchored against our
+                Reference Base Rate of <strong>18% p.a.</strong> The final rate offered depends on four key factors: (1)
+                Cost of institutional funds, (2) Underwriting &amp; operational costs, (3) Loan tenure and repayment schedule,
+                and (4) Individual credit risk based on bureau score (CIBIL/Experian), bank cash flow consistency,
+                income stability, and repayment capacity.
+              </p>
             </div>
           </div>
+
           {/* FAQ 2 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
-              <span>
-2. What is a Key Fact Statement (KFS) and will I receive one?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
+          <div className={`soc-faq-item ${openFaqIndex === 1 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(1)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>2. What is a Key Fact Statement (KFS) and will I receive one?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 1 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 1 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 1 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Yes, absolutely. As mandated by the Reserve Bank of India, every borrower receives an official                 <strong>
-Key
-                Fact Statement (KFS)                </strong>
- in a standardized, easy-to-read format before executing the loan
-              agreement. The KFS clearly discloses the loan amount, Annual Percentage Rate (APR), processing fees, Net
-              Disbursed Amount, monthly EMI schedule, and all penal/bounce charges.
-                          </p>
+                Yes, absolutely. As mandated by the Reserve Bank of India, every borrower receives an official{' '}
+                <strong>Key Fact Statement (KFS)</strong> in a standardized, easy-to-read format before executing the loan
+                agreement. The KFS clearly discloses the loan amount, Annual Percentage Rate (APR), processing fees, Net
+                Disbursed Amount, monthly EMI schedule, and all penal/bounce charges.
+              </p>
             </div>
           </div>
+
           {/* FAQ 3 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
+          <div className={`soc-faq-item ${openFaqIndex === 2 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(2)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
               <span>3. Are there any hidden or unadvertised fees?</span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 2 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 2 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 2 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-                <strong>Zero hidden fees.</strong>
- Prest Loans maintains complete transparency in all financial dealings.
-              All applicable charges — including processing fees, document handling, stamp duty, and bounce charges —
-              are disclosed on this website, in the sanction letter, and in the KFS. No fees other than those explicitly
-              specified are ever deducted or collected.
-                          </p>
+                <strong>Zero hidden fees.</strong> Prest Loans maintains complete transparency in all financial dealings.
+                All applicable charges — including processing fees, document handling, stamp duty, and bounce charges —
+                are disclosed on this website, in the sanction letter, and in the KFS. No fees other than those explicitly
+                specified are ever deducted or collected.
+              </p>
             </div>
           </div>
+
           {/* FAQ 4 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
+          <div className={`soc-faq-item ${openFaqIndex === 3 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(3)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
               <span>4. Can I prepay or foreclose my loan without penalty?</span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 3 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 3 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 3 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Under RBI regulatory directives,                 <strong>zero foreclosure or prepayment penalty</strong>
- is levied on
-              floating-rate term loans availed by individual borrowers. For fixed-rate contracts, foreclosure charges apply strictly as per the slab-wise rates disclosed in the
-              Schedule of Charges table.
-                          </p>
+                Under RBI regulatory directives, <strong>zero foreclosure or prepayment penalty</strong> is levied on
+                floating-rate term loans availed by individual borrowers. For fixed-rate contracts, foreclosure charges apply strictly as per the slab-wise rates disclosed in the
+                Schedule of Charges table.
+              </p>
             </div>
           </div>
+
           {/* FAQ 5 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
+          <div className={`soc-faq-item ${openFaqIndex === 4 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(4)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
               <span>5. What happens if an e-NACH auto-debit bounces?</span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 4 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 4 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 4 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              If an EMI presentation is returned due to insufficient balance, a standard bounce charge of                 <strong>
-₹
-                850/-                </strong>
- (or ₹ 500/- for personal/education loans) is debited. In addition, penal charges accrue
-              on the overdue installment until clearance. We urge borrowers to maintain sufficient funds in their
-              registered bank account on or before the EMI presentation date.
-                          </p>
+                If an EMI presentation is returned due to insufficient balance, a standard bounce charge of{' '}
+                <strong>₹ 850/-</strong> (or ₹ 500/- for personal/education loans) is debited. In addition, penal charges accrue
+                on the overdue installment until clearance. We urge borrowers to maintain sufficient funds in their
+                registered bank account on or before the EMI presentation date.
+              </p>
             </div>
           </div>
+
           {/* FAQ 6 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
-              <span>
-6. What is the difference between ROI and Annual Percentage Rate (APR)?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
+          <div className={`soc-faq-item ${openFaqIndex === 5 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(5)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>6. What is the difference between ROI and Annual Percentage Rate (APR)?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 5 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 5 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 5 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              The                 <strong>Rate of Interest (ROI)</strong>
- is the annual percentage charged on the reducing principal
-              balance. The                 <strong>Annual Percentage Rate (APR)</strong>
- represents the total annualized cost of
-              borrowing, incorporating both the interest rate and upfront one-time charges such as processing fees,
-              documentation expenses, and insurance (if opted). APR gives borrowers a true, all-inclusive metric of
-              credit cost.
-                          </p>
+                The <strong>Rate of Interest (ROI)</strong> is the annual percentage charged on the reducing principal
+                balance. The <strong>Annual Percentage Rate (APR)</strong> represents the total annualized cost of
+                borrowing, incorporating both the interest rate and upfront one-time charges such as processing fees,
+                documentation expenses, and insurance (if opted). APR gives borrowers a true, all-inclusive metric of
+                credit cost.
+              </p>
             </div>
           </div>
+
           {/* FAQ 7 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
-              <span>
-7. How do I obtain a Statement of Accounts (SOA) or No Objection Certificate (NOC)?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
+          <div className={`soc-faq-item ${openFaqIndex === 6 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(6)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>7. How do I obtain a Statement of Accounts (SOA) or No Objection Certificate (NOC)?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 6 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 6 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 6 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Digital statements and loan clearance certificates are accessible free of charge through the Prest Loans
-              Customer Portal or by emailing                 <a href="mailto:info@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>info@prestloans.com</a>
-. Physical duplicate
-              copies can be issued upon payment of a nominal administrative fee of ₹ 250/- to ₹ 500/- as stated in the
-              SOC.
-                          </p>
+                Digital statements and loan clearance certificates are accessible free of charge through the Prest Loans
+                Customer Portal or by emailing{' '}
+                <a href="mailto:info@prestloans.com" style={{ color: 'var(--primary-purple)', fontWeight: '700' }}>
+                  info@prestloans.com
+                </a>
+                . Physical duplicate copies can be issued upon payment of a nominal administrative fee of ₹ 250/- to ₹ 500/- as stated in the
+                SOC.
+              </p>
             </div>
           </div>
-          {/* FAQ 8 */}
-          <div className="soc-faq-item">
-            <div className="soc-faq-question">
-              <span>8. Does the LKFSL Reference Base Rate change over time?</span>
-              <i className="fa-solid fa-chevron-down"></i>
-            </div>
-            <div className="soc-faq-answer">
-              <p>
 
-              Under normal circumstances, the lending spread remains unchanged. However, the Reference Base Rate (18%
-              p.a.) or loan spread may be calibrated by the Board of Directors if there are systemic variations in
-              institutional borrowing costs, changes in cost of operations, or RBI monetary policy revisions. Any
-              alteration in floating rates is communicated to borrowers in advance.
-                          </p>
+          {/* FAQ 8 */}
+          <div className={`soc-faq-item ${openFaqIndex === 7 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question"
+              onClick={() => toggleSocFaq(7)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>8. Does the LKFSL Reference Base Rate change over time?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 7 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
+            </div>
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 7 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 7 ? '0 24px 20px' : '0 24px'
+              }}
+            >
+              <p>
+                Under normal circumstances, the lending spread remains unchanged. However, the Reference Base Rate (18%
+                p.a.) or loan spread may be calibrated by the Board of Directors if there are systemic variations in
+                institutional borrowing costs, changes in cost of operations, or RBI monetary policy revisions. Any
+                alteration in floating rates is communicated to borrowers in advance.
+              </p>
             </div>
           </div>
         </div>

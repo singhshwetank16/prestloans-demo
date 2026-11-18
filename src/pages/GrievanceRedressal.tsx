@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const GrievanceRedressal: React.FC = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const toggleGrmFaq = (idx: number) => {
+    setOpenFaqIndex((prev) => (prev === idx ? null : idx));
+  };
   useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
@@ -1634,108 +1638,201 @@ Board of
           Answers to common questions regarding grievance filing, escalation stages, and RBI Ombudsman jurisdiction.
                   </p>
         </div>
-        <div className="soc-faq-list" style={{"marginTop":"0"}}>
-          <div className="soc-faq-item grm-faq-item active">
-            <div className="soc-faq-question grm-faq-question">
-              <span>
-1. What should I do first if I have a complaint regarding my Prest Loans account?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
+        <div className="soc-faq-list" style={{ marginTop: '0' }}>
+          {/* FAQ 1 */}
+          <div className={`soc-faq-item grm-faq-item ${openFaqIndex === 0 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question grm-faq-question"
+              onClick={() => toggleGrmFaq(0)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>1. What should I do first if I have a complaint regarding my Prest Loans account?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 0 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 0 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 0 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Your first point of contact is our Customer Service Helpline (                <strong>011-45241131</strong>
-) or email
-              at                 <a href="mailto:care@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>care@prestloans.com</a>
-. You can also submit the
-              online form on this page or hand over a written letter at our Corporate Office (Surya Kiran Building, CP)
-              or Registered Office (Asaf Ali Road). You will receive an official acknowledgment and reference number
-              within 2 business days.
-                          </p>
+                Your first point of contact is our Customer Service Helpline (<strong>011-45241131</strong>) or email at{' '}
+                <a href="mailto:care@prestloans.com" style={{ color: 'var(--primary-purple)', fontWeight: '700' }}>
+                  care@prestloans.com
+                </a>
+                . You can also submit the online form on this page or hand over a written letter at our Corporate Office
+                (Surya Kiran Building, CP) or Registered Office (Asaf Ali Road). You will receive an official
+                acknowledgment and reference number within 2 business days.
+              </p>
             </div>
           </div>
-          <div className="soc-faq-item grm-faq-item">
-            <div className="soc-faq-question grm-faq-question">
+
+          {/* FAQ 2 */}
+          <div className={`soc-faq-item grm-faq-item ${openFaqIndex === 1 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question grm-faq-question"
+              onClick={() => toggleGrmFaq(1)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
               <span>2. How much time will it take to resolve my complaint?</span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 1 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 1 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 1 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-
-              Standard service complaints are investigated and resolved within                 <strong>
-2 Weeks (14 calendar
-                days)                </strong>
- by the Primary Grievance Officer. Matters requiring retrieval of archival records or
-              legal scrutiny are resolved within a maximum period of 2 weeks. If escalated to the Principal Nodal
-              Officer, a response is guaranteed within                 <strong>7 business days</strong>
-.
-                          </p>
+                Standard service complaints are investigated and resolved within{' '}
+                <strong>2 Weeks (14 calendar days)</strong> by the Primary Grievance Officer. Matters requiring retrieval of
+                archival records or legal scrutiny are resolved within a maximum period of 2 weeks. If escalated to the
+                Principal Nodal Officer, a response is guaranteed within <strong>7 business days</strong>.
+              </p>
             </div>
           </div>
-          <div className="soc-faq-item grm-faq-item">
-            <div className="soc-faq-question grm-faq-question">
-              <span>
-3. When can I escalate my grievance to the Compliance Officer or Principal Nodal Officer?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
-            </div>
-            <div className="soc-faq-answer">
-              <p>
 
-              If you do not receive a resolution within 2 weeks of lodging your complaint with the Primary Cell, or if
-              you are dissatisfied with the response, you may escalate to                 <strong>
-Ms. Sheetal Mishra (Compliance
-                Officer)                </strong>
- at                 <a href="mailto:compliance@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>compliance@prestloans.com</a>
- / Tel:
-                              <strong>011-45241123</strong>
-. If the issue
-              remains unresolved after 3 weeks, you may escalate directly to                 <strong>
-Mr. Sandeep Saini (Principal Nodal
-                Officer)                </strong>
- at                 <a href="mailto:nodalofficer@prestloans.com" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>nodalofficer@prestloans.com</a>
- / Tel:
-                              <strong>011-45241131</strong>
-.
-                          </p>
+          {/* FAQ 3 */}
+          <div className={`soc-faq-item grm-faq-item ${openFaqIndex === 2 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question grm-faq-question"
+              onClick={() => toggleGrmFaq(2)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>3. When can I escalate my grievance to the Compliance Officer or Principal Nodal Officer?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 2 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
+            </div>
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 2 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 2 ? '0 24px 20px' : '0 24px'
+              }}
+            >
+              <p>
+                If you do not receive a resolution within 2 weeks of lodging your complaint with the Primary Cell, or if you
+                are dissatisfied with the response, you may escalate to{' '}
+                <strong>Ms. Sheetal Mishra (Compliance Officer)</strong> at{' '}
+                <a href="mailto:compliance@prestloans.com" style={{ color: 'var(--primary-purple)', fontWeight: '700' }}>
+                  compliance@prestloans.com
+                </a>{' '}
+                / Tel: <strong>011-45241123</strong>. If the issue remains unresolved after 3 weeks, you may escalate
+                directly to <strong>Mr. Sandeep Saini (Principal Nodal Officer)</strong> at{' '}
+                <a href="mailto:nodalofficer@prestloans.com" style={{ color: 'var(--primary-purple)', fontWeight: '700' }}>
+                  nodalofficer@prestloans.com
+                </a>{' '}
+                / Tel: <strong>011-45241131</strong>.
+              </p>
             </div>
           </div>
-          <div className="soc-faq-item grm-faq-item">
-            <div className="soc-faq-question grm-faq-question">
-              <span>
-4. Under what circumstances can I appeal to the Reserve Bank of India (RBI Ombudsman)?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
-            </div>
-            <div className="soc-faq-answer">
-              <p>
 
-              Under the Reserve Bank - Integrated Ombudsman Scheme, if Prest Loans does not respond within                 <strong>
-30
-                calendar days                </strong>
- of receiving your complaint, or if the complaint is rejected, or if the
-              resolution provided by the company is unsatisfactory to you, you have the statutory right to file a
-              complaint with the RBI Ombudsman online via the Complaint Management System at                 <a href="https://cms.rbi.org.in" target="_blank" rel="noopener" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>https://cms.rbi.org.in</a>
- or CRPC Portal at                 <a href="https://www.rbi.org.in/" target="_blank" rel="noopener" style={{"color":"var(--primary-purple)","fontWeight":"700"}}>https://www.rbi.org.in/</a>
-, or send by post to
-                              <strong>
-Centralised Receipt and Processing Centre (CRPC), 4th Floor, Sector 17, Chandigarh –
-                160017                </strong>
-.
-                          </p>
+          {/* FAQ 4 */}
+          <div className={`soc-faq-item grm-faq-item ${openFaqIndex === 3 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question grm-faq-question"
+              onClick={() => toggleGrmFaq(3)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>4. Under what circumstances can I appeal to the Reserve Bank of India (RBI Ombudsman)?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 3 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
+            </div>
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 3 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 3 ? '0 24px 20px' : '0 24px'
+              }}
+            >
+              <p>
+                Under the Reserve Bank - Integrated Ombudsman Scheme, if Prest Loans does not respond within{' '}
+                <strong>30 calendar days</strong> of receiving your complaint, or if the complaint is rejected, or if the
+                resolution provided by the company is unsatisfactory to you, you have the statutory right to file a
+                complaint with the RBI Ombudsman online via the Complaint Management System at{' '}
+                <a
+                  href="https://cms.rbi.org.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--primary-purple)', fontWeight: '700' }}
+                >
+                  https://cms.rbi.org.in
+                </a>{' '}
+                or CRPC Portal at{' '}
+                <a
+                  href="https://www.rbi.org.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--primary-purple)', fontWeight: '700' }}
+                >
+                  https://www.rbi.org.in/
+                </a>
+                , or send by post to{' '}
+                <strong>
+                  Centralised Receipt and Processing Centre (CRPC), 4th Floor, Sector 17, Chandigarh – 160017
+                </strong>
+                .
+              </p>
             </div>
           </div>
-          <div className="soc-faq-item grm-faq-item">
-            <div className="soc-faq-question grm-faq-question">
-              <span>
-5. Does lodging a grievance affect my credit score or loan status?              </span>
-              <i className="fa-solid fa-chevron-down"></i>
+
+          {/* FAQ 5 */}
+          <div className={`soc-faq-item grm-faq-item ${openFaqIndex === 4 ? 'active' : ''}`}>
+            <div
+              className="soc-faq-question grm-faq-question"
+              onClick={() => toggleGrmFaq(4)}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+            >
+              <span>5. Does lodging a grievance affect my credit score or loan status?</span>
+              <i
+                className="fa-solid fa-chevron-down"
+                style={{ transform: openFaqIndex === 4 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+              ></i>
             </div>
-            <div className="soc-faq-answer">
+            <div
+              className="soc-faq-answer"
+              style={{
+                maxHeight: openFaqIndex === 4 ? '300px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.35s ease, padding 0.35s ease',
+                padding: openFaqIndex === 4 ? '0 24px 20px' : '0 24px'
+              }}
+            >
               <p>
-                <strong>No, absolutely not.</strong>
- Filing a grievance or raising inquiries regarding charges, interest
-              calculations, or statements has zero adverse impact on your credit profile. Prest Loans strictly abides by
-              RBI Fair Practices Code; grievances are treated with strict confidentiality, impartiality, and good faith.
-                          </p>
+                <strong>No, absolutely not.</strong> Filing a grievance or raising inquiries regarding charges, interest
+                calculations, or statements has zero adverse impact on your credit profile. Prest Loans strictly abides by
+                RBI Fair Practices Code; grievances are treated with strict confidentiality, impartiality, and good faith.
+              </p>
             </div>
           </div>
         </div>

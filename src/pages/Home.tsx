@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EmiCalculator } from '../components/EmiCalculator';
 
 export const Home: React.FC = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const toggleHomeFaq = (idx: number) => {
+    setOpenFaqIndex((prev) => (prev === idx ? null : idx));
+  };
   useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
@@ -1281,37 +1285,66 @@ export const Home: React.FC = () => {
           </div>
           <div className="faq-list">
             {/* FAQ 1 */}
-            <div className="faq-item active">
-              <div className="faq-header">
-                <h4>
-                  Is Prest Loans a Reserve Bank of India (RBI) registered NBFC?              </h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
+            <div className={`faq-item ${openFaqIndex === 0 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(0)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>Is Prest Loans a Reserve Bank of India (RBI) registered NBFC?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 0 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
               </div>
-              <div className="faq-body" style={{ "maxHeight": "200px" }}>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 0 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 0 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
                 <p>
-
-                  Yes. Prest Loans is the digital brand of                 <strong>Lord Krishna Financial Services Ltd</strong>
-                  , a
-                  Non-Banking Financial Company (NBFC) registered with the                 <strong>Reserve Bank of India (RBI)</strong>
-
-                  under Registration No.                 <strong>B-14.02019</strong>
-                  . Operating with distinction since 1992, we strictly
+                  Yes. Prest Loans is the digital brand of <strong>Lord Krishna Financial Services Ltd</strong>, a
+                  Non-Banking Financial Company (NBFC) registered with the <strong>Reserve Bank of India (RBI)</strong> under
+                  Registration No. <strong>B-14.02019</strong>. Operating with distinction since 1992, we strictly
                   adhere to RBI Master Directions, Fair Practices Code, and digital lending governance.
                 </p>
               </div>
             </div>
-            {/* FAQ 2 */}
-            <div className="faq-item">
-              <div className="faq-header">
-                <h4>What documents are required to apply for a loan?</h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
-              </div>
-              <div className="faq-body">
-                <p>
 
+            {/* FAQ 2 */}
+            <div className={`faq-item ${openFaqIndex === 1 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(1)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>What documents are required to apply for a loan?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 1 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
+              </div>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 1 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 1 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
+                <p>
                   Our application workflow is 100% digital and paperless. Applicants primarily require:
                   <br />
-                  1. Applicant KYC Identification (PAN Card & Aadhaar Card)
+                  1. Applicant KYC Identification (PAN Card &amp; Aadhaar Card)
                   <br />
                   2. Last 6 to 12 months bank statements
                   <br />
@@ -1321,75 +1354,131 @@ export const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-            {/* FAQ 3 */}
-            <div className="faq-item">
-              <div className="faq-header">
-                <h4>
-                  What is the typical turnaround time from application to disbursement?              </h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
-              </div>
-              <div className="faq-body">
-                <p>
 
+            {/* FAQ 3 */}
+            <div className={`faq-item ${openFaqIndex === 2 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(2)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>What is the typical turnaround time from application to disbursement?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 2 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
+              </div>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 2 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 2 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
+                <p>
                   Upon completing digital KYC verification and e-signing your sanction agreement, funds are directly
-                  disbursed to your verified bank account via NEFT/RTGS within                 <strong>
-                    24 to 48 business
-                    hours                </strong>
-                  .
+                  disbursed to your verified bank account via NEFT/RTGS within <strong>24 to 48 business hours</strong>.
                 </p>
               </div>
             </div>
-            {/* FAQ 4 */}
-            <div className="faq-item">
-              <div className="faq-header">
-                <h4>How is monthly loan installment (EMI) repayment managed?</h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
-              </div>
-              <div className="faq-body">
-                <p>
 
-                  Before disbursal, an automated                 <strong>e-NACH / e-Mandate</strong>
-                  is activated via National Payments
+            {/* FAQ 4 */}
+            <div className={`faq-item ${openFaqIndex === 3 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(3)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>How is monthly loan installment (EMI) repayment managed?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 3 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
+              </div>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 3 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 3 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
+                <p>
+                  Before disbursal, an automated <strong>e-NACH / e-Mandate</strong> is activated via National Payments
                   Corporation of India (NPCI) verified rails, enabling seamless debit on scheduled due dates. Borrowers can
                   also make instant advance repayments anytime through our portal via UPI, Debit Card, or Net Banking.
                 </p>
               </div>
             </div>
-            {/* FAQ 5 */}
-            <div className="faq-item">
-              <div className="faq-header">
-                <h4>
-                  Can I obtain a personal or education loan without pledging physical collateral?              </h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
-              </div>
-              <div className="faq-body">
-                <p>
 
-                  Yes, absolutely! Our Personal Loans, Education / Coaching Loans, and Short Term Loans are
-                  <strong>100% collateral-free</strong>
-                  . Sanctions are based on automated analysis of your bank cash flow
+            {/* FAQ 5 */}
+            <div className={`faq-item ${openFaqIndex === 4 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(4)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>Can I obtain a personal or education loan without pledging physical collateral?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 4 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
+              </div>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 4 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 4 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
+                <p>
+                  Yes, absolutely! Our Personal Loans, Education / Coaching Loans, and Short Term Loans are{' '}
+                  <strong>100% collateral-free</strong>. Sanctions are based on automated analysis of your bank cash flow
                   consistency, income track record, and credit score without requiring property or asset mortgages.
                 </p>
               </div>
             </div>
-            {/* FAQ 6 */}
-            <div className="faq-item">
-              <div className="faq-header">
-                <h4>
-                  Whom can I contact for queries, assistance, or grievance redressal?              </h4>
-                <i className="fa-solid fa-chevron-down faq-toggle-icon"></i>
-              </div>
-              <div className="faq-body">
-                <p>
 
-                  You can reach our dedicated corporate helpdesk at                 <strong>011-45241131</strong>
-                  , connect via WhatsApp
-                  at                 <strong>+91-9711669090</strong>
-                  , or email us at                 <strong>info@prestloans.com</strong>
-                  . In accordance
-                  with RBI guidelines, an appointed Principal Nodal Grievance Redressal Officer is also available at
-                  <strong>nodalofficer@prestloans.com</strong>
-                  for escalation.
+            {/* FAQ 6 */}
+            <div className={`faq-item ${openFaqIndex === 5 ? 'active' : ''}`}>
+              <div
+                className="faq-header"
+                onClick={() => toggleHomeFaq(5)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                role="button"
+                tabIndex={0}
+              >
+                <h4>Whom can I contact for queries, assistance, or grievance redressal?</h4>
+                <i
+                  className="fa-solid fa-chevron-down faq-toggle-icon"
+                  style={{ transform: openFaqIndex === 5 ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}
+                ></i>
+              </div>
+              <div
+                className="faq-body"
+                style={{
+                  maxHeight: openFaqIndex === 5 ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.35s ease, padding 0.3s ease',
+                  padding: openFaqIndex === 5 ? '16px 24px 24px' : '0 24px'
+                }}
+              >
+                <p>
+                  You can reach our dedicated corporate helpdesk at <strong>011-45241131</strong>, connect via WhatsApp
+                  at <strong>+91-9711669090</strong>, or email us at <strong>info@prestloans.com</strong>. In accordance
+                  with RBI guidelines, an appointed Principal Nodal Grievance Redressal Officer is also available at{' '}
+                  <strong>nodalofficer@prestloans.com</strong> for escalation.
                 </p>
               </div>
             </div>

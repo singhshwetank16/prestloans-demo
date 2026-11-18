@@ -164,6 +164,47 @@ document.addEventListener('DOMContentLoaded', function () {
       target.classList.remove('active');
       if (target.id === 'book-modal') target.style.display = 'none';
       document.body.style.overflow = '';
+      return;
+    }
+
+    // Delegated FAQ accordion toggle (.faq-header)
+    const faqHeader = target.closest && target.closest('.faq-header');
+    if (faqHeader) {
+      const item = faqHeader.closest('.faq-item');
+      if (item) {
+        const list = item.closest('.faq-list') || document;
+        const wasActive = item.classList.contains('active');
+        list.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('active');
+          const otherBody = other.querySelector('.faq-body');
+          if (otherBody) otherBody.style.maxHeight = null;
+        });
+        if (!wasActive) {
+          item.classList.add('active');
+          const body = item.querySelector('.faq-body');
+          if (body) {
+            body.style.maxHeight = (body.scrollHeight + 40) + 'px';
+          }
+        }
+      }
+      return;
+    }
+
+    // Delegated SOC FAQ accordion toggle (.soc-faq-question)
+    const socHeader = target.closest && target.closest('.soc-faq-question');
+    if (socHeader) {
+      const item = socHeader.closest('.soc-faq-item');
+      if (item) {
+        const list = item.closest('.soc-faq-list') || document;
+        const wasActive = item.classList.contains('active');
+        list.querySelectorAll('.soc-faq-item').forEach(other => {
+          other.classList.remove('active');
+        });
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      }
+      return;
     }
   });
 

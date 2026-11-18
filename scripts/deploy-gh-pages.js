@@ -38,9 +38,18 @@ try {
   fs.mkdirSync(tempDir, { recursive: true });
 }
 
-// Copy dist into tempDir (preserving .git)
+// Copy dist into tempDir (preserving .git and ignoring any large archives)
 console.log('📦 Syncing build artifacts...');
-fs.cpSync(distDir, tempDir, { recursive: true });
+fs.cpSync(distDir, tempDir, {
+  recursive: true,
+  filter: (source) => {
+    const ext = path.extname(source).toLowerCase();
+    if (['.zip', '.rar', '.tar', '.gz', '.7z'].includes(ext)) {
+      return false;
+    }
+    return true;
+  }
+});
 
 // Git operations in tempDir
 try {
@@ -70,6 +79,18 @@ try {
 } finally {
   if (fs.existsSync(tempDir)) {
     fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+  // Always restore standard clean production build for regular web servers (root '/') in dist/
+  try {
+    console.log('🔄 Rebuilding standard production assets for regular web servers in dist/...');
+    execSync('npm run build', {
+      stdio: 'ignore',
+      cwd: rootDir,
+      env: { ...process.env, VITE_BASE_PATH: '' }
+    });
+    console.log('✅ Local dist/ restored with clean standard production build (root /).');
+  } catch (rebuildErr) {
+    console.warn('⚠️ Could not automatically restore dist/ root build:', rebuildErr.message);
   }
 }
 

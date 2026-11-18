@@ -68,11 +68,10 @@ routes.forEach((route) => {
 // Generate server rewrite configs for standard hosting (Apache/cPanel & Windows IIS)
 const htaccessContent = `<IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
   RewriteRule ^index\\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . index.html [L]
 </IfModule>
 `;
 fs.writeFileSync(path.join(distDir, '.htaccess'), htaccessContent, 'utf-8');
@@ -88,7 +87,7 @@ const webConfigContent = `<?xml version="1.0" encoding="UTF-8"?>
             <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
             <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
           </conditions>
-          <action type="Rewrite" url="/index.html" />
+          <action type="Rewrite" url="index.html" />
         </rule>
       </rules>
     </rewrite>

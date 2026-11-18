@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
   // --- 1. STICKY HEADER & SCROLL EFFECTS ---
-  const header = document.querySelector('.main-header');
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    const header = document.querySelector('.main-header');
+    if (header) {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
   });
 

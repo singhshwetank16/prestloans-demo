@@ -131,20 +131,11 @@ export const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-        {/* Actions: Login & Language Dropdown */}
+        {/* Actions: Login */}
         <div className="header-actions">
           <button className="btn-login" onClick={(event) => { try { (new Function('event', "openLoginModal('customer')")).call(event.currentTarget, event); } catch(e) {} }}>
-
-          Login
-                  </button>
-          <div className="lang-select-wrap">
-            <select id="lang-select" className="lang-select" aria-label="Select Language">
-              <option value="en">Select Language ▼</option>
-              <option value="en">English</option>
-              <option value="hi">हिंदी (Hindi)</option>
-            </select>
-            <i className="fa-solid fa-globe"></i>
-          </div>
+            Login
+          </button>
           {/* Mobile Menu Toggle Button */}
           <button className="mobile-toggle" id="mobile-menu-toggle" aria-label="Open Menu">
             <i className="fa-solid fa-bars"></i>

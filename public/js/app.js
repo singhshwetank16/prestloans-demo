@@ -126,29 +126,52 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.remove('active');
+      if (modalId === 'book-modal') {
+        modal.style.display = 'none';
+      }
       document.body.style.overflow = '';
     }
   }
 
-  // Attach modal close buttons
-  document.querySelectorAll('.modal-close-btn, .modal-backdrop-close').forEach(btn => {
-    btn.addEventListener('click', function () {
-      const modal = this.closest('.modal-backdrop');
-      if (modal) {
-        modal.classList.remove('active');
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+
+  window.closeAllModals = function () {
+    document.querySelectorAll('.modal-backdrop.active, .career-modal-backdrop.active, .blog-modal-backdrop.active, #book-modal, #careerApplyModal').forEach(m => {
+      m.classList.remove('active');
+      if (m.id === 'book-modal') m.style.display = 'none';
+    });
+    document.body.style.overflow = '';
+  };
+
+  // Delegated close listener for any close button or backdrop click
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    if (!target) return;
+
+    const closeBtn = target.closest && target.closest('.modal-close-btn, .career-modal-close, .blog-modal-close, [data-modal-close], .modal-backdrop-close');
+    if (closeBtn) {
+      const parentModal = closeBtn.closest('.modal-backdrop, .career-modal-backdrop, .blog-modal-backdrop');
+      if (parentModal) {
+        parentModal.classList.remove('active');
+        if (parentModal.id === 'book-modal') parentModal.style.display = 'none';
         document.body.style.overflow = '';
       }
-    });
+      return;
+    }
+
+    if (target.classList && (target.classList.contains('modal-backdrop') || target.classList.contains('career-modal-backdrop'))) {
+      target.classList.remove('active');
+      if (target.id === 'book-modal') target.style.display = 'none';
+      document.body.style.overflow = '';
+    }
   });
 
-  // Close modal when clicking outside modal-box
-  document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-    backdrop.addEventListener('click', function (e) {
-      if (e.target === this) {
-        this.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
+  // Global Escape key listener
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      window.closeAllModals();
+    }
   });
 
   // --- 5. LOGIN MODAL TABS & HANDLERS ---

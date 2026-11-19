@@ -13,6 +13,15 @@ export const Home: React.FC = () => {
     if (typeof (window as any).initCalculators === 'function') {
       (window as any).initCalculators();
     }
+
+    // Auto-open Fraud Warning modal ONLY on Home page
+    const fraudTimer = setTimeout(() => {
+      if (typeof (window as any).openFraudWarningModal === 'function') {
+        (window as any).openFraudWarningModal();
+      }
+    }, 600);
+
+    return () => clearTimeout(fraudTimer);
   }, []);
 
   return (

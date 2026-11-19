@@ -282,15 +282,6 @@ export const Modals: React.FC = () => {
       closeModalById('fraud-warning-modal');
     };
 
-    // Auto-open Fraud Warning modal on website launch
-    const fraudTimer = setTimeout(() => {
-      const modal = document.getElementById('fraud-warning-modal');
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }, 600);
-
     // 2. Global ESC Keydown listener (Closes ANY active popup)
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Esc') {
@@ -331,7 +322,6 @@ export const Modals: React.FC = () => {
     document.addEventListener('click', handleDocumentClick);
 
     return () => {
-      clearTimeout(fraudTimer);
       window.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('click', handleDocumentClick);
     };

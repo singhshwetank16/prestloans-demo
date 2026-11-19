@@ -76,10 +76,26 @@ export const Career: React.FC = () => {
               <i className="fa-solid fa-briefcase"></i>
  View Available Positions
                       </a>
-            <a href="/employee-testimonials" className="btn-secondary" style={{"background":"rgba(255, 255, 255, 0.12)","color":"#ffffff","borderColor":"rgba(255, 255, 255, 0.3)"}}>
+            <a
+              href="#testimonials"
+              className="btn-secondary"
+              style={{
+                background: 'rgba(255, 255, 255, 0.12)',
+                color: '#ffffff',
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+                cursor: 'pointer'
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('testimonials');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
               <i className="fa-solid fa-comments"></i>
- Employee Testimonials
-                      </a>
+              Employee Testimonials
+            </a>
           </div>
           {/* Trust Stats Strip */}
           <div className="career-stats-strip">

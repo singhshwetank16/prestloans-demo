@@ -27,6 +27,20 @@ export const TopBar: React.FC = () => {
             <i className="fa-solid fa-location-crosshairs"></i>
  Track Loan Status
                   </a>
+          <a
+            href="javascript:void(0)"
+            onClick={() => {
+              if (typeof (window as any).openFraudWarningModal === 'function') {
+                (window as any).openFraudWarningModal();
+              }
+            }}
+            className="top-link"
+            style={{ color: '#fef08a', fontWeight: 600 }}
+            title="Important: Beware of Loan Fraud & Safety Guidelines"
+          >
+            <i className="fa-solid fa-triangle-exclamation" style={{ color: '#facc15' }}></i>
+            Fraud Alert
+          </a>
           <div className="top-bar-socials">
             <a href="https://www.facebook.com/Prestloans/" target="_blank" rel="noopener noreferrer" className="top-social-btn fb" title="Facebook" aria-label="Facebook">
               <i className="fa-brands fa-facebook-f"></i>

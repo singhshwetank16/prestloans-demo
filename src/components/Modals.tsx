@@ -26,7 +26,7 @@ export const Modals: React.FC = () => {
   // Helper to close ALL active modals across the entire site
   const closeAllModals = () => {
     const activeModals = document.querySelectorAll(
-      '.modal-backdrop.active, .career-modal-backdrop.active, .blog-modal-backdrop.active, #book-modal, #careerApplyModal'
+      '.modal-backdrop.active, .career-modal-backdrop.active, .blog-modal-backdrop.active, #book-modal, #careerApplyModal, #fraud-warning-modal'
     );
     activeModals.forEach((m) => {
       m.classList.remove('active');
@@ -271,6 +271,26 @@ export const Modals: React.FC = () => {
       }
     };
 
+    (window as any).openFraudWarningModal = () => {
+      const modal = document.getElementById('fraud-warning-modal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+    (window as any).closeFraudWarningModal = () => {
+      closeModalById('fraud-warning-modal');
+    };
+
+    // Auto-open Fraud Warning modal on website launch
+    const fraudTimer = setTimeout(() => {
+      const modal = document.getElementById('fraud-warning-modal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }, 600);
+
     // 2. Global ESC Keydown listener (Closes ANY active popup)
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Esc') {
@@ -311,6 +331,7 @@ export const Modals: React.FC = () => {
     document.addEventListener('click', handleDocumentClick);
 
     return () => {
+      clearTimeout(fraudTimer);
       window.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('click', handleDocumentClick);
     };
@@ -1395,6 +1416,429 @@ export const Modals: React.FC = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 8. FRAUD WARNING ADVISORY MODAL (POPUP ON SITE OPEN) */}
+      <div
+        className="modal-backdrop"
+        id="fraud-warning-modal"
+        style={{ zIndex: 10005 }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) closeModalById('fraud-warning-modal');
+        }}
+      >
+        <div
+          className="modal-box"
+          style={{
+            maxWidth: '620px',
+            width: '92%',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            boxShadow: '0 25px 70px rgba(0, 0, 0, 0.45)',
+            border: '1px solid rgba(255, 255, 255, 0.2)'
+          }}
+        >
+          {/* Header with Purple-Orange fintech gradient */}
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #70146e 0%, #8b185b 35%, #f05a28 100%)',
+              padding: '18px 22px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              color: '#ffffff',
+              borderBottom: 'none'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.22)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.25rem',
+                  flexShrink: 0
+                }}
+              >
+                ⚠️
+              </div>
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.2px' }}>
+                  Beware of Loan Fraud
+                </h3>
+                <p style={{ margin: 0, fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.88)', fontWeight: 500 }}>
+                  PrestLoans Official Security Advisory
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="modal-close-btn"
+              onClick={() => closeModalById('fraud-warning-modal')}
+              aria-label="Close"
+              style={{
+                background: 'rgba(255, 255, 255, 0.22)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '34px',
+                height: '34px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.38)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.22)')}
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          {/* Modal Body Content */}
+          <div
+            className="modal-body"
+            style={{
+              padding: '22px 24px',
+              maxHeight: 'calc(88vh - 140px)',
+              overflowY: 'auto',
+              background: '#ffffff',
+              fontSize: '0.92rem',
+              lineHeight: 1.55,
+              color: '#334155'
+            }}
+          >
+            <div
+              style={{
+                background: '#fff1f2',
+                borderLeft: '4px solid #e11d48',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                marginBottom: '18px',
+                fontSize: '0.875rem',
+                color: '#9f1239',
+                fontWeight: 500,
+                lineHeight: 1.5
+              }}
+            >
+              We have identified fraudulent attempts by unauthorized entities and individuals impersonating PrestLoans representatives, sharing fake loan sanction letters or asking for upfront fees via calls, WhatsApp or email.
+            </div>
+
+            {/* Section 1: PrestLoans will never */}
+            <div style={{ marginBottom: '18px' }}>
+              <h4
+                style={{
+                  margin: '0 0 10px 0',
+                  fontSize: '0.98rem',
+                  fontWeight: 800,
+                  color: '#be123c',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.4px'
+                }}
+              >
+                <i className="fa-solid fa-circle-xmark" style={{ fontSize: '1.05rem' }}></i>
+                PrestLoans will never:
+              </h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#e11d48',
+                      background: '#ffe4e6',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>Ask for any fee before your loan is sanctioned</span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#e11d48',
+                      background: '#ffe4e6',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>Ask you to pay into a personal bank account or personal UPI ID</span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#e11d48',
+                      background: '#ffe4e6',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>Ask for your OTP, UPI PIN, net-banking password or card CVV</span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#e11d48',
+                      background: '#ffe4e6',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>Ask you to install a screen-sharing or remote-access app</span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#e11d48',
+                      background: '#ffe4e6',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>Approve a loan over WhatsApp without a Key Fact Statement (KFS) and a signed loan agreement</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Section 2: Before you pay, check */}
+            <div style={{ marginBottom: '18px' }}>
+              <h4
+                style={{
+                  margin: '0 0 10px 0',
+                  fontSize: '0.98rem',
+                  fontWeight: 800,
+                  color: '#15803d',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.4px'
+                }}
+              >
+                <i className="fa-solid fa-circle-check" style={{ fontSize: '1.05rem' }}></i>
+                Before you pay, check:
+              </h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#16a34a',
+                      background: '#dcfce7',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✓
+                  </span>
+                  <span>All charges are in your KFS and are deducted from the disbursed amount or paid to the company’s own account</span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#16a34a',
+                      background: '#dcfce7',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✓
+                  </span>
+                  <span>
+                    The person contacting you is genuine; In case of any concern, call{' '}
+                    <a href="tel:01145241131" style={{ color: '#70146e', fontWeight: 700, textDecoration: 'underline' }}>
+                      011-45241131
+                    </a>{' '}
+                    or email at{' '}
+                    <a href="mailto:info@prestloans.com" style={{ color: '#70146e', fontWeight: 700, textDecoration: 'underline' }}>
+                      info@prestloans.com
+                    </a>
+                  </span>
+                </li>
+                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span
+                    style={{
+                      color: '#16a34a',
+                      background: '#dcfce7',
+                      borderRadius: '50%',
+                      width: '20px',
+                      height: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      flexShrink: 0,
+                      marginTop: '2px'
+                    }}
+                  >
+                    ✓
+                  </span>
+                  <span>
+                    Our RBI registration (<strong>No. B-14.02019</strong>) is displayed on website and the RBI Sachet portal
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Section 3: Been targeted? */}
+            <div
+              style={{
+                background: '#f8fafc',
+                border: '1.5px solid #cbd5e1',
+                borderRadius: '12px',
+                padding: '14px 16px',
+                fontSize: '0.875rem',
+                color: '#1e293b',
+                lineHeight: 1.6
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: '#d97706', marginBottom: '4px' }}>
+                <i className="fa-solid fa-triangle-exclamation"></i>
+                <span>Been targeted?</span>
+              </div>
+              <div>
+                Report it to the National Cyber Crime Helpline{' '}
+                <a href="tel:1930" style={{ fontWeight: 800, color: '#0f172a', textDecoration: 'underline' }}>
+                  1930
+                </a>{' '}
+                or at{' '}
+                <a
+                  href="https://cybercrime.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#2563eb', fontWeight: 700, textDecoration: 'underline' }}
+                >
+                  cybercrime.gov.in
+                </a>
+                , and tell us at{' '}
+                <a
+                  href="mailto:nodalofficer@prestloans.com"
+                  style={{ color: '#70146e', fontWeight: 700, textDecoration: 'underline' }}
+                >
+                  nodalofficer@prestloans.com
+                </a>
+                .
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Bar */}
+          <div
+            style={{
+              padding: '14px 24px',
+              background: '#f8fafc',
+              borderTop: '1px solid #e2e8f0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '12px'
+            }}
+          >
+            <div style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 500 }}>
+              <i className="fa-solid fa-shield-halved" style={{ color: '#10b981', marginRight: '6px' }}></i>
+              Your vigilance can prevent fraud!
+            </div>
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => closeModalById('fraud-warning-modal')}
+              style={{
+                background: 'linear-gradient(135deg, #70146e 0%, #f05a28 100%)',
+                color: '#ffffff',
+                border: 'none',
+                padding: '10px 22px',
+                borderRadius: '8px',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 14px rgba(112, 20, 110, 0.25)',
+                transition: 'transform 0.15s ease'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-1px)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+            >
+              <i className="fa-solid fa-check"></i>
+              I Understand & Acknowledge
+            </button>
           </div>
         </div>
       </div>

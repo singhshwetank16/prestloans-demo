@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { TopBar } from './TopBar';
 import { Header } from './Header';
@@ -9,6 +9,7 @@ import { ScrollToTop } from './ScrollToTop';
 
 export const Layout: React.FC = () => {
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
@@ -16,11 +17,22 @@ export const Layout: React.FC = () => {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <ScrollToTop />
-      <TopBar />
-      <Header />
+      <div className={`site-sticky-header ${isScrolled ? 'scrolled' : ''}`}>
+        <TopBar />
+        <Header />
+      </div>
       <main id="main-content">
         <Outlet />
       </main>

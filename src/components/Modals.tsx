@@ -16,7 +16,7 @@ export const Modals: React.FC = () => {
     }
     // If no modals remain active, restore body scrolling
     const activeModals = document.querySelectorAll(
-      '.modal-backdrop.active, .career-modal-backdrop.active, .blog-modal-backdrop.active'
+      '.modal-backdrop.active, .career-modal-backdrop.active, .blog-modal-backdrop.active, #fraud-warning-modal.active, #careerApplyModal.active, #book-modal.active'
     );
     if (!activeModals || activeModals.length === 0) {
       document.body.style.overflow = '';

@@ -37,7 +37,7 @@ export const Modals: React.FC = () => {
     if (typeof (window as any).closeArticleModal === 'function') {
       try {
         (window as any).closeArticleModal();
-      } catch (e) {}
+      } catch (e) { }
     }
     document.body.style.overflow = '';
   };
@@ -191,7 +191,7 @@ export const Modals: React.FC = () => {
     const url = 'https://www.prestloans.com/about#fintech-guide-book';
     const text = "Explore 'The Fintech Entrepreneur's Guide' by Ashok Mittal (Founder, Prest Loans)";
     if (navigator.share) {
-      navigator.share({ title: "The Fintech Entrepreneur's Guide", text, url }).catch(() => {});
+      navigator.share({ title: "The Fintech Entrepreneur's Guide", text, url }).catch(() => { });
     } else {
       navigator.clipboard.writeText(`${text} - ${url}`).then(() => {
         if (typeof (window as any).showToast === 'function') {

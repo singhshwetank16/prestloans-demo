@@ -33,26 +33,24 @@ export const Home: React.FC = () => {
     setSubmitRefId(refNum);
     const formattedAmount = Number(quoteAmount).toLocaleString('en-IN');
 
-    // 1. Send inquiry to info@prestloans.com via FormSubmit AJAX endpoint
+    // 1. Send inquiry to backend endpoint (/api/send-inquiry.php) on production server
     try {
-      await fetch('https://formsubmit.co/ajax/info@prestloans.com', {
+      await fetch('/api/send-inquiry.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `New Loan Inquiry [${refNum}] - ${quoteProduct} (₹${formattedAmount})`,
           referenceId: refNum,
           loanAmount: `₹${formattedAmount}`,
           loanProduct: quoteProduct,
-          mobileNumber: `+91 ${quoteMobile}`,
-          inquiryDate: new Date().toLocaleString('en-IN'),
-          portalSource: 'Prest Loans Official Website Hero Instant Quote'
+          mobileNumber: quoteMobile,
+          inquiryDate: new Date().toLocaleString('en-IN')
         })
       });
     } catch (err) {
-      console.warn('Inquiry dispatch notice:', err);
+      // Graceful fallback for environments without PHP
     }
 
     setIsSubmitting(false);

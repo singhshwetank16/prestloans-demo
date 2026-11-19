@@ -1,13 +1,14 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
-const tempDir = path.resolve(rootDir, 'node_modules/.cache/gh-pages-deploy');
+const tempDir = path.resolve(os.tmpdir(), `gh-pages-deploy-${Date.now()}`);
 
 console.log('🚀 Preparing GitHub Pages deployment...');
 
@@ -18,10 +19,12 @@ execSync('npm run build', {
   env: { ...process.env, VITE_BASE_PATH: '/prestloans-demo/' }
 });
 
-// Clean temp directory
-if (fs.existsSync(tempDir)) {
-  fs.rmSync(tempDir, { recursive: true, force: true });
-}
+// Clean temp directory if already exists
+try {
+  if (fs.existsSync(tempDir)) {
+    fs.rmSync(tempDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+  }
+} catch (e) {}
 
 // Get git remote url from current repo
 const remoteUrl = execSync('git config --get remote.origin.url', { encoding: 'utf-8', cwd: rootDir }).trim();
@@ -77,9 +80,11 @@ try {
   console.error('❌ Failed to push to gh-pages branch:', err.message);
   process.exit(1);
 } finally {
-  if (fs.existsSync(tempDir)) {
-    fs.rmSync(tempDir, { recursive: true, force: true });
-  }
+  try {
+    if (fs.existsSync(tempDir)) {
+      fs.rmSync(tempDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    }
+  } catch (e) {}
   // Always restore standard clean production build for regular web servers (root '/') in dist/
   try {
     console.log('🔄 Rebuilding standard production assets for regular web servers in dist/...');

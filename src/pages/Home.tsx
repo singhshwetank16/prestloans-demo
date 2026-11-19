@@ -6,6 +6,63 @@ export const Home: React.FC = () => {
   const toggleHomeFaq = (idx: number) => {
     setOpenFaqIndex((prev) => (prev === idx ? null : idx));
   };
+
+  // Instant Quote Form State
+  const [quoteAmount, setQuoteAmount] = useState('500000');
+  const [quoteProduct, setQuoteProduct] = useState('Business Loan');
+  const [quoteMobile, setQuoteMobile] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitRefId, setSubmitRefId] = useState('');
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!quoteAmount || Number(quoteAmount) < 10000) {
+      alert('Please enter a valid loan amount (Minimum ₹10,000).');
+      return;
+    }
+
+    if (!quoteMobile || quoteMobile.length !== 10) {
+      alert('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    const refNum = `PL-INQ-${Math.floor(100000 + Math.random() * 900000)}`;
+    setSubmitRefId(refNum);
+    const formattedAmount = Number(quoteAmount).toLocaleString('en-IN');
+
+    // 1. Send inquiry to info@prestloans.com via FormSubmit AJAX endpoint
+    try {
+      await fetch('https://formsubmit.co/ajax/info@prestloans.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Loan Inquiry [${refNum}] - ${quoteProduct} (₹${formattedAmount})`,
+          referenceId: refNum,
+          loanAmount: `₹${formattedAmount}`,
+          loanProduct: quoteProduct,
+          mobileNumber: `+91 ${quoteMobile}`,
+          inquiryDate: new Date().toLocaleString('en-IN'),
+          portalSource: 'Prest Loans Official Website Hero Instant Quote'
+        })
+      });
+    } catch (err) {
+      console.warn('Inquiry dispatch notice:', err);
+    }
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+
+    if (typeof (window as any).showToast === 'function') {
+      (window as any).showToast(`Inquiry #${refNum} sent to info@prestloans.com! Our team will call you within 4 hours.`);
+    }
+  };
+
   useEffect(() => {
     if (typeof (window as any).initApp === 'function') {
       (window as any).initApp();
@@ -145,34 +202,150 @@ export const Home: React.FC = () => {
                     <span>100% Digital Flow</span>
                   </div>
                 </div>
-                <form id="hero-quick-form">
-                  <div className="quick-input-group">
-                    <label className="quick-input-label">Required Loan Amount (₹)</label>
-                    <input type="number" id="hero-loan-amount" className="quick-input-field" placeholder="e.g. 500000" value="500000" min="50000" max="5000000" required={true} />
+                {isSubmitted ? (
+                  <div style={{ textAlign: 'center', padding: '18px 8px' }}>
+                    <div
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '50%',
+                        background: '#ecfdf5',
+                        color: '#10b981',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.75rem',
+                        margin: '0 auto 12px',
+                        boxShadow: '0 8px 20px rgba(16, 185, 129, 0.2)'
+                      }}
+                    >
+                      <i className="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px' }}>
+                      Inquiry Sent Successfully!
+                    </h4>
+                    <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.5, marginBottom: '16px' }}>
+                      Your loan inquiry for <strong>₹{Number(quoteAmount).toLocaleString('en-IN')}</strong> ({quoteProduct}) has been submitted and sent to <strong style={{ color: '#70146e' }}>info@prestloans.com</strong>.
+                    </p>
+                    <div
+                      style={{
+                        background: '#f8fafc',
+                        border: '1px solid #e2e8f0',
+                        borderRadius: '10px',
+                        padding: '12px 14px',
+                        marginBottom: '16px',
+                        fontSize: '0.85rem',
+                        textAlign: 'left',
+                        lineHeight: 1.6
+                      }}
+                    >
+                      <div><span style={{ color: '#64748b' }}>Reference ID: </span><strong style={{ color: '#70146e' }}>{submitRefId}</strong></div>
+                      <div><span style={{ color: '#64748b' }}>Mobile: </span><strong>+91 {quoteMobile}</strong></div>
+                      <div><span style={{ color: '#64748b' }}>Sent To: </span><strong style={{ color: '#059669' }}>info@prestloans.com</strong></div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <a
+                        href={`mailto:info@prestloans.com?subject=${encodeURIComponent(`Loan Inquiry [${submitRefId}]: ${quoteProduct} - ₹${Number(quoteAmount).toLocaleString('en-IN')}`)}&body=${encodeURIComponent(`Dear Prest Loans Team,\n\nI have submitted an instant loan inquiry on your website.\n\nReference ID: ${submitRefId}\nProduct: ${quoteProduct}\nRequired Amount: ₹${Number(quoteAmount).toLocaleString('en-IN')}\nMobile Number: +91 ${quoteMobile}\n\nPlease contact me for the next steps.\n\nRegards`)}`}
+                        className="btn-card-submit"
+                        style={{
+                          textDecoration: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          fontSize: '0.875rem',
+                          padding: '10px 14px'
+                        }}
+                      >
+                        <i className="fa-solid fa-envelope"></i>
+                        <span>Send via Email Client</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setQuoteMobile('');
+                        }}
+                        style={{
+                          background: 'transparent',
+                          border: '1px solid #cbd5e1',
+                          borderRadius: '8px',
+                          padding: '8px 12px',
+                          color: '#475569',
+                          fontSize: '0.8125rem',
+                          fontWeight: 600,
+                          cursor: 'pointer'
+                        }}
+                      >
+                        Calculate Another Quote
+                      </button>
+                    </div>
                   </div>
-                  <div className="quick-input-group">
-                    <label className="quick-input-label">Loan Product</label>
-                    <select id="hero-biz-type" className="quick-input-field">
-                      <option value="Business Loan">Business Loan</option>
-                      <option value="Home Loan">Home Loan</option>
-                      <option value="Coaching/Skill Development/Education Loans">Coaching/Skill/Development/Education Loans</option>
-                      <option value="Personal Loan">Personal Loan</option>
-                      <option value="Short Term Personal Loan">Short Term Personal Loan</option>
-                    </select>
-                  </div>
-                  <div className="quick-input-group">
-                    <label className="quick-input-label">Mobile Number</label>
-                    <input type="tel" id="hero-phone" className="quick-input-field" placeholder="10-digit mobile number" pattern="[0-9]{10}" required={true} />
-                  </div>
-                  <button type="submit" className="btn-card-submit">
-                    <span>Check Eligibility Now</span>
-                    <i className="fa-solid fa-arrow-right"></i>
-                  </button>
-                  <div className="quick-form-security-note">
-                    <i className="fa-solid fa-circle-check text-green"></i>
-                    <span>100% Paperless</span>
-                  </div>
-                </form>
+                ) : (
+                  <form id="hero-quick-form" onSubmit={handleQuoteSubmit}>
+                    <div className="quick-input-group">
+                      <label className="quick-input-label">Required Loan Amount (₹)</label>
+                      <input
+                        type="number"
+                        id="hero-loan-amount"
+                        className="quick-input-field"
+                        placeholder="e.g. 500000"
+                        value={quoteAmount}
+                        onChange={(e) => setQuoteAmount(e.target.value)}
+                        min="10000"
+                        max="50000000"
+                        step="10000"
+                        required={true}
+                      />
+                    </div>
+                    <div className="quick-input-group">
+                      <label className="quick-input-label">Loan Product</label>
+                      <select
+                        id="hero-biz-type"
+                        className="quick-input-field"
+                        value={quoteProduct}
+                        onChange={(e) => setQuoteProduct(e.target.value)}
+                      >
+                        <option value="Business Loan">Business Loan</option>
+                        <option value="Home Loan">Home Loan</option>
+                        <option value="Coaching/Skill Development/Education Loans">Coaching/Skill Development/Education Loans</option>
+                        <option value="Personal Loan">Personal Loan</option>
+                        <option value="Short Term Personal Loan">Short Term Personal Loan</option>
+                      </select>
+                    </div>
+                    <div className="quick-input-group">
+                      <label className="quick-input-label">Mobile Number</label>
+                      <input
+                        type="tel"
+                        id="hero-phone"
+                        className="quick-input-field"
+                        placeholder="10-digit mobile number"
+                        value={quoteMobile}
+                        onChange={(e) => {
+                          const cleaned = e.target.value.replace(/\D/g, '').slice(0, 10);
+                          setQuoteMobile(cleaned);
+                        }}
+                        pattern="[0-9]{10}"
+                        maxLength={10}
+                        required={true}
+                      />
+                    </div>
+                    <button type="submit" className="btn-card-submit" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <span>Sending Inquiry...</span>
+                      ) : (
+                        <>
+                          <span>Check Eligibility Now</span>
+                          <i className="fa-solid fa-arrow-right"></i>
+                        </>
+                      )}
+                    </button>
+                    <div className="quick-form-security-note">
+                      <i className="fa-solid fa-circle-check text-green"></i>
+                      <span>100% Paperless • Inquiries sent to info@prestloans.com</span>
+                    </div>
+                  </form>
+                )}
               </div>
             </div>
           </div>

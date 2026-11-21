@@ -33,31 +33,56 @@ export const Home: React.FC = () => {
     setSubmitRefId(refNum);
     const formattedAmount = Number(quoteAmount).toLocaleString('en-IN');
 
-    // 1. Send inquiry to backend endpoint (/api/send-inquiry.php) on production server
+    const payload = {
+      referenceId: refNum,
+      loanAmount: `₹${formattedAmount}`,
+      loanProduct: quoteProduct,
+      mobileNumber: quoteMobile,
+      inquiryDate: new Date().toLocaleString('en-IN')
+    };
+
+    // 1. First attempt native IIS ASP.NET Handler (/api/send-inquiry.ashx)
+    let dispatched = false;
     try {
-      await fetch('/api/send-inquiry.php', {
+      const ashxRes = await fetch('/api/send-inquiry.ashx', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          referenceId: refNum,
-          loanAmount: `₹${formattedAmount}`,
-          loanProduct: quoteProduct,
-          mobileNumber: quoteMobile,
-          inquiryDate: new Date().toLocaleString('en-IN')
-        })
+        body: JSON.stringify(payload)
       });
+      if (ashxRes.ok) {
+        dispatched = true;
+      }
     } catch (err) {
-      // Graceful fallback for environments without PHP
+      // Fallback for non-IIS environments
+    }
+
+    // 2. If ashx not handled or server is PHP/Apache, try /api/send-inquiry.php
+    if (!dispatched) {
+      try {
+        const phpRes = await fetch('/api/send-inquiry.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (phpRes.ok) {
+          dispatched = true;
+        }
+      } catch (err) {
+        // Fallback for environments without PHP
+      }
     }
 
     setIsSubmitting(false);
     setIsSubmitted(true);
 
     if (typeof (window as any).showToast === 'function') {
-      (window as any).showToast(`Inquiry #${refNum} sent to info@prestloans.com! Our team will call you within 4 hours.`);
+      (window as any).showToast(`Inquiry #${refNum} submitted! Our team will contact you within 4 hours.`);
     }
   };
 
@@ -256,7 +281,29 @@ export const Home: React.FC = () => {
                         }}
                       >
                         <i className="fa-solid fa-envelope"></i>
-                        <span>Send via Email Client</span>
+                        <span>Send via Email to info@prestloans.com</span>
+                      </a>
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=911145241131&text=${encodeURIComponent(`Hello Prest Loans Team,\n\nI have submitted a loan inquiry on your website.\nReference ID: ${submitRefId}\nProduct: ${quoteProduct}\nLoan Amount: ₹${Number(quoteAmount).toLocaleString('en-IN')}\nMobile: +91 ${quoteMobile}\n\nPlease connect with me.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          textDecoration: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          fontSize: '0.875rem',
+                          padding: '10px 14px',
+                          background: '#25D366',
+                          color: '#ffffff',
+                          borderRadius: '8px',
+                          fontWeight: 700,
+                          boxShadow: '0 4px 12px rgba(37, 211, 102, 0.25)'
+                        }}
+                      >
+                        <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.1rem' }}></i>
+                        <span>Chat on WhatsApp Support</span>
                       </a>
                       <button
                         type="button"

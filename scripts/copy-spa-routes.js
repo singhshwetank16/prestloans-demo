@@ -114,16 +114,21 @@ const webConfigContent = `<?xml version="1.0" encoding="UTF-8"?>
       <remove fileExtension=".webp" />
       <mimeMap fileExtension=".webp" mimeType="image/webp" />
     </staticContent>
+    <security>
+      <requestFiltering>
+        <hiddenSegments>
+          <add segment="inquiries_log.json" />
+        </hiddenSegments>
+      </requestFiltering>
+    </security>
   </system.webServer>
-  <!--
   <system.net>
     <mailSettings>
       <smtp from="info@prestloans.com">
-        <network host="mail.prestloans.com" port="587" userName="info@prestloans.com" password="YOUR_PASSWORD" enableSsl="true" />
+        <network host="smtp.office365.com" port="587" userName="info@prestloans.com" password="Prestloans2026@#" enableSsl="true" />
       </smtp>
     </mailSettings>
   </system.net>
-  -->
 </configuration>
 `;
 fs.writeFileSync(path.join(distDir, 'web.config'), webConfigContent, 'utf-8');

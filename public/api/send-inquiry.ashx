@@ -2,6 +2,7 @@
 using System;
 using System.Web;
 using System.IO;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 
@@ -41,7 +42,7 @@ public class SendInquiryHandler : IHttpHandler {
                 mobileNumber = context.Request.Form["mobileNumber"] ?? "";
             }
 
-            // 1. Log to local file on Windows IIS
+            // 1. Log inquiry to secure local file on Windows IIS
             try {
                 string logPath = context.Server.MapPath("~/api/inquiries_log.json");
                 string entry = string.Format("{{\"refId\":\"{0}\",\"amount\":\"{1}\",\"product\":\"{2}\",\"mobile\":\"{3}\",\"date\":\"{4}\",\"ip\":\"{5}\"}}\r\n",
@@ -49,31 +50,108 @@ public class SendInquiryHandler : IHttpHandler {
                 File.AppendAllText(logPath, entry);
             } catch {}
 
-            // 2. Try sending email if SMTP configured in IIS / web.config
+            // 2. Prepare Email Notification
+            string smtpUser = "info@prestloans.com";
+            string smtpPass = "Prestloans2026@#";
+
+            MailMessage msg = new MailMessage();
+            msg.To.Add("info@prestloans.com");
+            msg.From = new MailAddress("info@prestloans.com", "Prest Loans Official Portal");
+            msg.Subject = string.Format("New Loan Inquiry [{0}]: {1} - {2}", referenceId, loanProduct, loanAmount);
+            msg.Body = string.Format(
+                "==================================================\r\n" +
+                " PREST LOANS - ONLINE INSTANT LOAN INQUIRY\r\n" +
+                " Lord Krishna Financial Services Ltd (RBI Regd NBFC)\r\n" +
+                "==================================================\r\n\r\n" +
+                "Reference ID      : {0}\r\n" +
+                "Loan Product      : {1}\r\n" +
+                "Requested Amount  : {2}\r\n" +
+                "Applicant Mobile  : +91 {3}\r\n" +
+                "Submission Time   : {4}\r\n" +
+                "Applicant IP      : {5}\r\n\r\n" +
+                "Action Required:\r\n" +
+                "Please assign an executive to contact the applicant within 4 business hours.\r\n" +
+                "Portal URL: https://www.prestloans.com\r\n",
+                referenceId, loanProduct, loanAmount, mobileNumber, inquiryDate, context.Request.UserHostAddress);
+            msg.IsBodyHtml = false;
+
             bool mailSent = false;
             string mailError = "";
-            try {
-                MailMessage msg = new MailMessage();
-                msg.To.Add("info@prestloans.com");
-                msg.From = new MailAddress("info@prestloans.com", "Prest Loans Portal");
-                msg.Subject = string.Format("New Loan Inquiry [{0}]: {1} - {2}", referenceId, loanProduct, loanAmount);
-                msg.Body = string.Format("Prest Loans Online Inquiry\n\nReference ID: {0}\nProduct: {1}\nAmount: {2}\nMobile: {3}\nDate: {4}\n",
-                    referenceId, loanProduct, loanAmount, mobileNumber, inquiryDate);
-                msg.IsBodyHtml = false;
+            string deliveryRoute = "";
 
-                SmtpClient smtp = new SmtpClient();
-                smtp.Send(msg);
-                mailSent = true;
-            } catch (Exception mEx) {
-                mailSent = false;
-                mailError = mEx.Message;
+            // Attempt 1: Microsoft 365 / Office 365 (MX 0 primary for prestloans.com)
+            if (!mailSent) {
+                try {
+                    using (SmtpClient smtp = new SmtpClient("smtp.office365.com", 587)) {
+                        smtp.EnableSsl = true;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Timeout = 12000;
+                        smtp.Send(msg);
+                        mailSent = true;
+                        deliveryRoute = "Office 365 (smtp.office365.com:587)";
+                    }
+                } catch (Exception ex1) {
+                    mailError = "O365: " + ex1.Message;
+                }
+            }
+
+            // Attempt 2: Domain Mail Server mail.prestloans.com (Port 587 SSL)
+            if (!mailSent) {
+                try {
+                    using (SmtpClient smtp = new SmtpClient("mail.prestloans.com", 587)) {
+                        smtp.EnableSsl = true;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Timeout = 12000;
+                        smtp.Send(msg);
+                        mailSent = true;
+                        deliveryRoute = "mail.prestloans.com:587";
+                    }
+                } catch (Exception ex2) {
+                    mailError += " | Mail587: " + ex2.Message;
+                }
+            }
+
+            // Attempt 3: Domain Mail Server mail.prestloans.com (Port 25 Non-SSL Relay)
+            if (!mailSent) {
+                try {
+                    using (SmtpClient smtp = new SmtpClient("mail.prestloans.com", 25)) {
+                        smtp.EnableSsl = false;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Timeout = 10000;
+                        smtp.Send(msg);
+                        mailSent = true;
+                        deliveryRoute = "mail.prestloans.com:25";
+                    }
+                } catch (Exception ex3) {
+                    mailError += " | Mail25: " + ex3.Message;
+                }
+            }
+
+            // Attempt 4: Default web.config mailSettings
+            if (!mailSent) {
+                try {
+                    using (SmtpClient smtp = new SmtpClient()) {
+                        smtp.Timeout = 8000;
+                        smtp.Send(msg);
+                        mailSent = true;
+                        deliveryRoute = "web.config mailSettings";
+                    }
+                } catch (Exception ex4) {
+                    mailError += " | LocalIIS: " + ex4.Message;
+                }
             }
 
             if (mailSent) {
-                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received and email sent to info@prestloans.com\",\"referenceId\":\"{0}\",\"mailSent\":true}}",
-                    referenceId));
+                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received and email dispatched to info@prestloans.com\",\"referenceId\":\"{0}\",\"mailSent\":true,\"route\":\"{1}\"}}",
+                    referenceId, deliveryRoute));
             } else {
-                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry logged on server\",\"referenceId\":\"{0}\",\"mailSent\":false,\"mailError\":\"{1}\",\"help\":\"Configure SMTP in web.config or use Web3Forms\"}}",
+                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry logged on server\",\"referenceId\":\"{0}\",\"mailSent\":false,\"mailError\":\"{1}\"}}",
                     referenceId, mailError.Replace("\"", "\\\"").Replace("\r", "").Replace("\n", " ")));
             }
         } catch (Exception ex) {

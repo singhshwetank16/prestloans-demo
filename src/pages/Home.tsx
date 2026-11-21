@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
       inquiryDate: new Date().toLocaleString('en-IN')
     };
 
-    // 1. First attempt native IIS ASP.NET Handler (/api/send-inquiry.ashx)
+    // 1. First attempt native Windows IIS ASP.NET Handler (/api/send-inquiry.ashx)
     let dispatched = false;
     try {
       const ashxRes = await fetch('/api/send-inquiry.ashx', {
@@ -56,10 +56,29 @@ export const Home: React.FC = () => {
         dispatched = true;
       }
     } catch (err) {
-      // Fallback for non-IIS environments
+      // Fallback
     }
 
-    // 2. If ashx not handled or server is PHP/Apache, try /api/send-inquiry.php
+    // 2. If ashx not handled, try Windows IIS ASP.NET Page (/api/send-inquiry.aspx)
+    if (!dispatched) {
+      try {
+        const aspxRes = await fetch('/api/send-inquiry.aspx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (aspxRes.ok) {
+          dispatched = true;
+        }
+      } catch (err) {
+        // Fallback
+      }
+    }
+
+    // 3. If Windows handlers not available, try /api/send-inquiry.php
     if (!dispatched) {
       try {
         const phpRes = await fetch('/api/send-inquiry.php', {
@@ -74,7 +93,7 @@ export const Home: React.FC = () => {
           dispatched = true;
         }
       } catch (err) {
-        // Fallback for environments without PHP
+        // Fallback
       }
     }
 

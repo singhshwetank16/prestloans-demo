@@ -66,12 +66,24 @@ routes.forEach((route) => {
 });
 
 // Generate server rewrite configs for standard hosting (Apache/cPanel & Windows IIS)
-const htaccessContent = `<IfModule mod_rewrite.c>
+const htaccessContent = `# PREST LOANS - APACHE / CPANEL PRODUCTION CONFIGURATION
+<IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^index\\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.html [L]
+</IfModule>
+
+# Fallback in case mod_rewrite is disabled on host
+ErrorDocument 404 index.html
+
+# Ensure proper MIME types for modern JS modules and assets
+<IfModule mod_mime.c>
+  AddType application/javascript js mjs
+  AddType text/css css
+  AddType image/svg+xml svg
+  AddType application/json json
 </IfModule>
 `;
 fs.writeFileSync(path.join(distDir, '.htaccess'), htaccessContent, 'utf-8');

@@ -1,3 +1,4 @@
+# PREST LOANS - APACHE / CPANEL PRODUCTION CONFIGURATION
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^index\.html$ - [L]
@@ -5,3 +6,15 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.html [L]
 </IfModule>
+
+# Fallback in case mod_rewrite is disabled on host
+ErrorDocument 404 index.html
+
+# Ensure proper MIME types for modern JS modules and assets
+<IfModule mod_mime.c>
+  AddType application/javascript js mjs
+  AddType text/css css
+  AddType image/svg+xml svg
+  AddType application/json json
+</IfModule>
+

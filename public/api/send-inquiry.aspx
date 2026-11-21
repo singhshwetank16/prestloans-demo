@@ -58,6 +58,7 @@
 
             // 2. Try sending email if SMTP configured in IIS / web.config
             bool mailSent = false;
+            string mailError = "";
             try
             {
                 MailMessage msg = new MailMessage();
@@ -72,13 +73,22 @@
                 smtp.Send(msg);
                 mailSent = true;
             }
-            catch
+            catch (Exception mEx)
             {
                 mailSent = false;
+                mailError = mEx.Message;
             }
 
-            Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received\",\"referenceId\":\"{0}\",\"mailSent\":{1}}}",
-                referenceId, mailSent ? "true" : "false"));
+            if (mailSent)
+            {
+                Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received and email sent to info@prestloans.com\",\"referenceId\":\"{0}\",\"mailSent\":true}}",
+                    referenceId));
+            }
+            else
+            {
+                Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry logged on server\",\"referenceId\":\"{0}\",\"mailSent\":false,\"mailError\":\"{1}\",\"help\":\"Configure SMTP in web.config or use Web3Forms\"}}",
+                    referenceId, mailError.Replace("\"", "\\\"").Replace("\r", "").Replace("\n", " ")));
+            }
         }
         catch (Exception ex)
         {

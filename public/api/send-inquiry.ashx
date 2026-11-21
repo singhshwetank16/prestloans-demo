@@ -49,8 +49,9 @@ public class SendInquiryHandler : IHttpHandler {
                 File.AppendAllText(logPath, entry);
             } catch {}
 
-            // 2. Try sending email if local SMTP configured
+            // 2. Try sending email if SMTP configured in IIS / web.config
             bool mailSent = false;
+            string mailError = "";
             try {
                 MailMessage msg = new MailMessage();
                 msg.To.Add("info@prestloans.com");
@@ -63,12 +64,18 @@ public class SendInquiryHandler : IHttpHandler {
                 SmtpClient smtp = new SmtpClient();
                 smtp.Send(msg);
                 mailSent = true;
-            } catch {
+            } catch (Exception mEx) {
                 mailSent = false;
+                mailError = mEx.Message;
             }
 
-            context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received\",\"referenceId\":\"{0}\",\"mailSent\":{1}}}",
-                referenceId, mailSent ? "true" : "false"));
+            if (mailSent) {
+                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry received and email sent to info@prestloans.com\",\"referenceId\":\"{0}\",\"mailSent\":true}}",
+                    referenceId));
+            } else {
+                context.Response.Write(string.Format("{{\"success\":true,\"message\":\"Inquiry logged on server\",\"referenceId\":\"{0}\",\"mailSent\":false,\"mailError\":\"{1}\",\"help\":\"Configure SMTP in web.config or use Web3Forms\"}}",
+                    referenceId, mailError.Replace("\"", "\\\"").Replace("\r", "").Replace("\n", " ")));
+            }
         } catch (Exception ex) {
             context.Response.StatusCode = 200;
             context.Response.Write(string.Format("{{\"success\":true,\"referenceId\":\"{0}\",\"notice\":\"{1}\"}}",

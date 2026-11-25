@@ -151,6 +151,8 @@ export const Modals: React.FC = () => {
       return;
     }
 
+    const safeIdOrPhone = idOrPhone.replace(/[^a-zA-Z0-9-]/g, '').slice(0, 30);
+
     if (resultBox) {
       resultBox.style.display = 'block';
       resultBox.innerHTML = `
@@ -160,7 +162,7 @@ export const Modals: React.FC = () => {
             <span>Application Found & Active</span>
           </div>
           <div style="font-size: 0.875rem; color: #334155; line-height: 1.6;">
-            <strong>Ref ID:</strong> ${idOrPhone.toUpperCase()}<br/>
+            <strong>Ref ID:</strong> ${safeIdOrPhone.toUpperCase()}<br/>
             <strong>Status:</strong> <span style="color: #70146e; font-weight: 700;">Under Digital Verification</span><br/>
             <strong>Last Updated:</strong> Today (Realtime)<br/>
             <small style="color: #64748b;">Our underwriting officer will connect within 4 business hours.</small>

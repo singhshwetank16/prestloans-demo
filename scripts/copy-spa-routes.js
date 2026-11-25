@@ -48,50 +48,11 @@ ErrorDocument 404 index.html
 `;
 fs.writeFileSync(path.join(distDir, '.htaccess'), htaccessContent, 'utf-8');
 
-const webConfigContent = `<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <rule name="React SPA" stopProcessing="true">
-          <match url=".*" />
-          <conditions logicalGrouping="MatchAll">
-            <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
-            <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
-            <add input="{REQUEST_URI}" pattern="^/api/" negate="true" />
-          </conditions>
-          <action type="Rewrite" url="index.html" />
-        </rule>
-      </rules>
-    </rewrite>
-    <staticContent>
-      <remove fileExtension=".json" />
-      <mimeMap fileExtension=".json" mimeType="application/json" />
-      <remove fileExtension=".woff" />
-      <mimeMap fileExtension=".woff" mimeType="font/woff" />
-      <remove fileExtension=".woff2" />
-      <mimeMap fileExtension=".woff2" mimeType="font/woff2" />
-      <remove fileExtension=".webp" />
-      <mimeMap fileExtension=".webp" mimeType="image/webp" />
-    </staticContent>
-    <security>
-      <requestFiltering>
-        <hiddenSegments>
-          <add segment="inquiries_log.json" />
-        </hiddenSegments>
-      </requestFiltering>
-    </security>
-  </system.webServer>
-  <system.net>
-    <mailSettings>
-      <smtp from="info@prestloans.com">
-        <network host="smtp.office365.com" port="587" userName="info@prestloans.com" password="Prestloans2026@#" enableSsl="true" />
-      </smtp>
-    </mailSettings>
-  </system.net>
-</configuration>
-`;
-fs.writeFileSync(path.join(distDir, 'web.config'), webConfigContent, 'utf-8');
+// Copy hardened web.config directly from public/web.config (CERT-In Security Compliance)
+const publicWebConfig = path.resolve(__dirname, '../public/web.config');
+if (fs.existsSync(publicWebConfig)) {
+  fs.copyFileSync(publicWebConfig, path.join(distDir, 'web.config'));
+}
 
 // Patch hardcoded /assets/ image paths in JS bundles ONLY if non-root base path is active
 const base = process.env.VITE_BASE_PATH || (process.env.GITHUB_ACTIONS ? '/prestloans-demo/' : '/');

@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // --- 3. TOAST NOTIFICATION UTILITY ---
+  // --- 3. TOAST NOTIFICATION UTILITY (SECURE - IMMUNE TO DOM XSS) ---
   window.showToast = function (message, type = 'success') {
     let toast = document.getElementById('app-toast');
     if (!toast) {
@@ -106,9 +107,21 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.appendChild(toast);
     }
 
+    // Securely clear existing children without innerHTML
+    while (toast.firstChild) {
+      toast.removeChild(toast.firstChild);
+    }
+
     toast.className = `toast-notice ${type} show`;
-    const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-info-circle';
-    toast.innerHTML = `<i class="fa-solid ${iconClass}"></i> <span>${message}</span>`;
+    const icon = document.createElement('i');
+    icon.className = `fa-solid ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}`;
+    
+    // textContent ensures user input is strictly treated as plain text, eliminating XSS
+    const span = document.createElement('span');
+    span.textContent = String(message || '');
+
+    toast.appendChild(icon);
+    toast.appendChild(span);
 
     setTimeout(() => {
       toast.classList.remove('show');
@@ -348,8 +361,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+      // Sanitize input to reject HTML/script tags (CERT-In remediation)
+      const cleanName = name.replace(/[^a-zA-Z\s.'-]/g, '').trim() || 'Valued Customer';
       footerEnquiryForm.reset();
-      window.showToast(`Thank you, ${name}! The Prest Loans advisory team will contact you shortly.`);
+      window.showToast(`Thank you, ${cleanName}! The Prest Loans advisory team will contact you shortly.`);
     });
   }
 
@@ -491,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <strong style="color: #065f46; font-size: 1rem;"><i class="fa-solid fa-circle-check"></i> Application Found</strong>
               <span style="background: #10b981; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;">DOCUMENT VERIFICATION</span>
             </div>
-            <p style="font-size: 0.875rem; color: #334155; margin-bottom: 4px;"><strong>Reference:</strong> ${idOrPhone.toUpperCase()}</p>
+            <p style="font-size: 0.875rem; color: #334155; margin-bottom: 4px;"><strong>Reference:</strong> ${idOrPhone.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()}</p>
             <p style="font-size: 0.875rem; color: #334155; margin-bottom: 4px;"><strong>Stage:</strong> Underwriting Team Review</p>
             <p style="font-size: 0.8125rem; color: #64748b;">Your application is under secure digital underwriting review. A dedicated Relationship Manager will connect with you shortly.</p>
           </div>

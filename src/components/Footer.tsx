@@ -136,19 +136,43 @@ New Delhi - 110002                </span>
                 e.preventDefault();
                 const nameInput = document.getElementById('footer-enq-name') as HTMLInputElement | null;
                 const phoneInput = document.getElementById('footer-enq-phone') as HTMLInputElement | null;
-                const name = nameInput?.value.trim() || '';
+                const rawName = nameInput?.value.trim() || '';
                 const phone = phoneInput?.value.trim() || '';
-                if (name && phone) {
+
+                // CERT-In F-001 Remediation: Strict client-side input validation
+                const nameRegex = /^[a-zA-Z\s.'-]{2,60}$/;
+                if (!nameRegex.test(rawName)) {
+                  alert('Please enter a valid name (letters and spaces only).');
+                  return;
+                }
+                const cleanName = rawName.replace(/[^a-zA-Z\s.'-]/g, '').slice(0, 60);
+
+                const phoneRegex = /^[6-9]\d{9}$/;
+                if (!phoneRegex.test(phone)) {
+                  alert('Please enter a valid 10-digit mobile number.');
+                  return;
+                }
+
+                if (cleanName && phone) {
                   if (typeof (window as any).showToast === 'function') {
-                    (window as any).showToast(`Thank you ${name}! Your enquiry has been received. Our loan specialist will call you shortly.`);
+                    (window as any).showToast(`Thank you ${cleanName}! Your enquiry has been received. Our loan specialist will call you shortly.`);
                   } else {
-                    alert(`Thank you ${name}! Your enquiry has been received. Our loan specialist will call you shortly.`);
+                    alert(`Thank you ${cleanName}! Your enquiry has been received. Our loan specialist will call you shortly.`);
                   }
                   (e.currentTarget as HTMLFormElement).reset();
                 }
               }}
             >
-              <input type="text" id="footer-enq-name" className="form-control-dark" placeholder="Name" required={true} />
+              <input
+                type="text"
+                id="footer-enq-name"
+                className="form-control-dark"
+                placeholder="Name"
+                required={true}
+                pattern="[a-zA-Z\s.'-]{2,60}"
+                title="Please enter letters and spaces only (2 to 60 characters)"
+                maxLength={60}
+              />
               <input type="tel" id="footer-enq-phone" className="form-control-dark" placeholder="Contact Number" pattern="[0-9]{10}" required={true} />
               <input type="email" id="footer-enq-email" className="form-control-dark" placeholder="Email" required={true} />
               <input type="text" id="footer-enq-location" className="form-control-dark" placeholder="Location" />

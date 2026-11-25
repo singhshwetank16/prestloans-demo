@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import './styles/style.css';
 
 function getBasename(): string | undefined {
   // 1. Explicit build-time base path (e.g. for GitHub Pages)

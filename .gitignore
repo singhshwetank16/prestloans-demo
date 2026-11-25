@@ -29,3 +29,5 @@ npm-debug.log*
 dist/
 dist-ssr/
 *.local
+server/data/
+inquiries_log.json

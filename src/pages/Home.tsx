@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EmiCalculator } from '../components/EmiCalculator';
+import { submitLoanInquiry } from '../services/inquiryService';
 
 export const Home: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -33,68 +34,16 @@ export const Home: React.FC = () => {
     setSubmitRefId(refNum);
     const formattedAmount = Number(quoteAmount).toLocaleString('en-IN');
 
-    const payload = {
-      referenceId: refNum,
-      loanAmount: `₹${formattedAmount}`,
-      loanProduct: quoteProduct,
-      mobileNumber: quoteMobile,
-      inquiryDate: new Date().toLocaleString('en-IN')
-    };
-
-    // 1. First attempt native Windows IIS ASP.NET Handler (/api/send-inquiry.ashx)
-    let dispatched = false;
     try {
-      const ashxRes = await fetch('/api/send-inquiry.ashx', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
+      await submitLoanInquiry({
+        referenceId: refNum,
+        loanAmount: `₹${formattedAmount}`,
+        loanProduct: quoteProduct,
+        mobileNumber: quoteMobile,
+        inquiryDate: new Date().toLocaleString('en-IN')
       });
-      if (ashxRes.ok) {
-        dispatched = true;
-      }
     } catch (err) {
-      // Fallback
-    }
-
-    // 2. If ashx not handled, try Windows IIS ASP.NET Page (/api/send-inquiry.aspx)
-    if (!dispatched) {
-      try {
-        const aspxRes = await fetch('/api/send-inquiry.aspx', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-        if (aspxRes.ok) {
-          dispatched = true;
-        }
-      } catch (err) {
-        // Fallback
-      }
-    }
-
-    // 3. If Windows handlers not available, try /api/send-inquiry.php
-    if (!dispatched) {
-      try {
-        const phpRes = await fetch('/api/send-inquiry.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-        if (phpRes.ok) {
-          dispatched = true;
-        }
-      } catch (err) {
-        // Fallback
-      }
+      // Handled gracefully in inquiryService
     }
 
     setIsSubmitting(false);

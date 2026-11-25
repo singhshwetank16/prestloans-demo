@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Prest Loans - Official NBFC Digital Lending Platform (Lord Krishna Financial Services Ltd)",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -n \"CLIENT,SERVER\" -c \"cyan,magenta\" \"vite\" \"node server/index.js\"",
+    "dev:client": "vite",
+    "dev:server": "node server/index.js",
     "build": "tsc && vite build && node scripts/copy-spa-routes.js",
+    "start": "node server/index.js",
+    "server": "node server/index.js",
     "preview": "vite preview",
-    "start": "vite",
     "deploy": "npm run build && node scripts/deploy-gh-pages.js"
   },
   "keywords": [
@@ -19,15 +22,24 @@
   "author": "Prest Loans Development Team",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "nodemailer": "^10.6.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.10",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^5.2.0",
     "cheerio": "^1.2.0",
+    "concurrently": "^10.0.7",
     "typescript": "^7.0.2",
     "vite": "^6.2.7"
   },
